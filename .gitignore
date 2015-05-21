@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .DS_Store
 build/
 node_modules/
@@ -5,3 +6,9 @@ dist/*
 .tmp
 .sass-cache
 bower_components
+=======
+﻿.DS_STORE
+node_modules
+build/
+.module-cache
+>>>>>>> f07e1e1... created git ignore file
