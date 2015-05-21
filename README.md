@@ -4,7 +4,7 @@
 
   - __Product Owner__: Lauren Spiegel
   - __Scrum Master__: Nimi Dharithreesan
-  - __Development Team Members__: Mark Bennett, David Trinh
+  - __Development Team Members__: Mark Bennett, David Trinh, Lauren Spiegel, Nimi Dharithreesan
 
 ## Table of Contents
 
