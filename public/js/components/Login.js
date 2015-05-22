@@ -2,13 +2,13 @@
 * @Author: nimi
 * @Date:   2015-05-21 16:08:02
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-21 17:19:54
+* @Last Modified time: 2015-05-22 12:30:46
 */
 
 'use strict';
 
 var React = require('react/addons');
-var Auth = require('../services/Auth');
+var Auth = require('../actions/AuthActions');
 
 var Login = React.createClass({
   getInitialState: function(){
@@ -24,9 +24,6 @@ var Login = React.createClass({
     var password = React.findDOMNode(this.refs.password).value.trim();
 
     Auth.login(email, password)
-      .catch(function(error){
-        console.error("There was an error logging in", error);
-      })
   },
 
   render : function(){
