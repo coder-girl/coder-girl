@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 11:03:34
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-22 11:24:57
+* @Last Modified time: 2015-05-22 12:15:50
 */
 
 'use strict';
@@ -17,12 +17,14 @@ var _authStore = {
   currentUser: {}
 };
 
-var setCurrentUser = function(user){
-  _authStore.currentUser = user;
+var setCurrentUser = function(data){
+  _authStore.currentUser = data.user;
+  //TODO: save token to local storage (data.token)
 }
 
 var clearCurrentUser = function(){
   _authStore.currentUser = {};
+  //TODO: remove token from local storage
 }
 
 var userStore = objectAssign({}, EventEmitter.prototype, {
