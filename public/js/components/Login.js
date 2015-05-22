@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-21 16:08:02
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-21 16:38:46
+* @Last Modified time: 2015-05-21 17:19:54
 */
 
 'use strict';
@@ -13,8 +13,8 @@ var Auth = require('../services/Auth');
 var Login = React.createClass({
   getInitialState: function(){
     return {
-      email: '',
-      password: ''
+      email: "",
+      password: ""
     };
   },
 
@@ -33,10 +33,11 @@ var Login = React.createClass({
     return (
       <form onSubmit={this.handleLogin}>
         <input className="user-email" placeholder="Enter your email" ref="email" />
-        <input className="user-password" placeholder="Enter your password" ref="password" />
+        <input type="password" className="user-password" placeholder="Enter your password" ref="password" />
+        <input type="submit" />
       </form>
     );
   }
 });
 
-React.render(<Login />, document.getElementByClassName("app"));
+module.exports = Login;
