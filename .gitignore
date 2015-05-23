@@ -6,3 +6,4 @@ dist/*
 .sass-cache
 bower_components
 .module-cache
+server/config/config.js
