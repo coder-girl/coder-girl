@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-21 16:08:02
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-22 12:30:46
+* @Last Modified time: 2015-05-22 19:37:48
 */
 
 'use strict';
@@ -28,11 +28,14 @@ var Login = React.createClass({
 
   render : function(){
     return (
-      <form onSubmit={this.handleLogin}>
-        <input className="user-email" placeholder="Enter your email" ref="email" />
-        <input type="password" className="user-password" placeholder="Enter your password" ref="password" />
-        <input type="submit" />
-      </form>
+      <div>
+        <form onSubmit={this.handleLogin}>
+          <input className="user-email" placeholder="Enter your email" ref="email" />
+          <input type="password" className="user-password" placeholder="Enter your password" ref="password" />
+          <input type="submit" />
+        </form>
+        <a href="/auth/instagram"> Sign up through Insta </a>
+      </div>
     );
   }
 });

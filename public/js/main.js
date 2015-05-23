@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-21 12:47:03
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-21 17:05:14
+* @Last Modified time: 2015-05-22 19:49:45
 */
 
 'use strict';
@@ -13,6 +13,7 @@ $(document).ready(function() {
   var Router = require('react-router');
   var App = require('./app.js');
   var Login = require('./components/Login')
+  var Header = require('./components/Header')
   var Route = Router.Route;
   var DefaultRoute = Router.DefaultRoute;
   var NotFoundRoute = Router.NotFoundRoute;
@@ -23,13 +24,16 @@ $(document).ready(function() {
   var Main = React.createClass({
     render: function() {
       return (
-        <RouteHandler/>
+        <div>
+          <Header />
+          <RouteHandler/>
+        </div>
       );
     }
   })
 
   var routes = (
-    <Route handler={Main}>
+    <Route handler={Main} path= "/">
       <DefaultRoute handler={Login}/>
       <Route name="login" path="/login" handler={Login}/>
       <NotFoundRoute handler={Login}/>

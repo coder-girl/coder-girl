@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 11:03:34
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-22 12:15:50
+* @Last Modified time: 2015-05-22 19:58:30
 */
 
 'use strict';
@@ -14,17 +14,19 @@ var objectAssign = require('react/lib/Object.assign');
 var CHANGE_EVENT = 'change';
 
 var _authStore = {
-  currentUser: {}
+  currentUser: null
 };
 
 var setCurrentUser = function(data){
-  _authStore.currentUser = data.user;
-  //TODO: save token to local storage (data.token)
+  console.log(data);
+  _authStore.currentUser = data.username;
+  var userToken = JSON.stringify(data.token);
+  window.localStorage.setItem('io.codergirl', userToken);
 }
 
 var clearCurrentUser = function(){
-  _authStore.currentUser = {};
-  //TODO: remove token from local storage
+  _authStore.currentUser = null;
+  window.localStorage.setItem('io.codergirl', '');
 }
 
 var userStore = objectAssign({}, EventEmitter.prototype, {
@@ -35,9 +37,11 @@ var userStore = objectAssign({}, EventEmitter.prototype, {
     this.removeListener(CHANGE_EVENT, cb)
   },
   emitChange: function(){
+    console.log('emit change')
     this.emit(CHANGE_EVENT)
   },
   getUser: function(){
+    console.log('get user')
     return _authStore.currentUser;
   }
 })
@@ -46,6 +50,7 @@ AppDispatcher.register(function(payload){
   var action = payload.action;
   switch(action.actionType){
     case AppConstants.LOGIN_USER:
+      console.log('login user')
       setCurrentUser(action.data);
       userStore.emitChange();
       break;
@@ -57,3 +62,5 @@ AppDispatcher.register(function(payload){
       return true;
   }
 })
+
+module.exports = userStore;
