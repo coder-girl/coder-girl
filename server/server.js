@@ -1,8 +1,12 @@
 var express = require('express');
 var models  = require('./models');
 var passport = require('passport');
+var cors = require('cors');
+
 
 var app = express();
+
+app.use(cors());
 
 // configure our server with all the middleware and and routing
 require('./config/middleware.js')(app, express, passport);

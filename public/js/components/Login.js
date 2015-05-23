@@ -8,7 +8,7 @@
 'use strict';
 
 var React = require('react/addons');
-var Auth = require('../actions/AuthActions');
+var AuthActions = require('../actions/AuthActions');
 
 var Login = React.createClass({
   getInitialState: function(){
@@ -23,7 +23,12 @@ var Login = React.createClass({
     var email = React.findDOMNode(this.refs.email).value.trim();
     var password = React.findDOMNode(this.refs.password).value.trim();
 
-    Auth.login(email, password)
+    AuthActions.login(email, password)
+  },
+
+  handleInstaLogin : function(event){
+    event.preventDefault();
+    AuthActions.instaLogin();
   },
 
   render : function(){
@@ -34,7 +39,7 @@ var Login = React.createClass({
           <input type="password" className="user-password" placeholder="Enter your password" ref="password" />
           <input type="submit" />
         </form>
-        <a href="/auth/instagram"> Sign up through Insta </a>
+        <button onClick={this.handleInstaLogin}>Sign up through Instagram!</button> 
       </div>
     );
   }

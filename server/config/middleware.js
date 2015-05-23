@@ -1,7 +1,13 @@
 ﻿var morgan = require('morgan'); // used for logging incoming request
 var bodyParser = require('body-parser');
+var cors = require('cors');
 
 module.exports = function(app, express, passport) {
+
+  
+
+
+
   app.use(morgan('dev'));
   app.use(bodyParser.urlencoded({
     extended: false

@@ -13,7 +13,8 @@ $(document).ready(function() {
   var Router = require('react-router');
   var App = require('./app.js');
   var Login = require('./components/Login')
-  var Header = require('./components/Header')
+  var Header = require('./components/Header');
+  var Logout = require('./components/Logout')
   var Route = Router.Route;
   var DefaultRoute = Router.DefaultRoute;
   var NotFoundRoute = Router.NotFoundRoute;
@@ -26,6 +27,7 @@ $(document).ready(function() {
       return (
         <div>
           <Header />
+          <Logout />
           <RouteHandler/>
         </div>
       );
