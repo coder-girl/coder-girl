@@ -24,6 +24,15 @@ var Header = React.createClass({
     })
   },
 
+
+  componentDidMount: function() {
+    AuthStore.addChangeListener(this._onChange);
+  },
+
+  componentWillUnmount: function() {
+    AuthStore.removeChangeListener(this._onChange);
+  },
+
   render : function(){
     return (
       <div>
@@ -33,4 +42,5 @@ var Header = React.createClass({
   }
 
 });
+
 module.exports = Header;
