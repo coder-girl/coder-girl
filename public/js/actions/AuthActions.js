@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-21 16:17:55
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-22 12:29:42
+* @Last Modified time: 2015-05-22 17:45:04
 */
 
 'use strict';
@@ -20,6 +20,7 @@ var authActions = {
       type: 'POST',
       data: user,
       success: function(data){
+        console.log('it worked!')
         AppDispatcher.handleAction({
           actionType: AppConstants.LOGIN_USER,
           data: data
