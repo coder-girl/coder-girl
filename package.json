@@ -4,6 +4,7 @@
   "license": "Proprietary",
   "private": true,
   "scripts": {
+    "start": "gulp",
     "test" : "jest"
   },
   "jest": {
