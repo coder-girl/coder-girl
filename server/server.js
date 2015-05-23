@@ -9,7 +9,7 @@ require('./config/middleware.js')(app, express, passport);
 
 app.set('port', (process.env.PORT || 3000));
 
-models.sequelize.sync()
+models.sequelize.sync({force: true})
 .done(function(){
   app.listen(app.get('port'), function() {
     console.log("Node app is running at localhost:" + app.get('port'));

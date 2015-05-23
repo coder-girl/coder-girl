@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 15:50:51
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-22 17:39:18
+* @Last Modified time: 2015-05-22 19:19:59
 */
 
 'use strict';
@@ -19,11 +19,11 @@ module.exports = {
       } else if (!user){
         next (new Error(info));
       } else {
-        var token = jwt.encode(user.get('email'), 'codingisfun');
-        var email = user.get('email');
+        var token = jwt.encode(user.get('name'), 'codingisfun');
+        var username = user.get('name');
         res.send({
           token: token,
-          email: email
+          username: username
         })
       }
     })(req,res,next);
@@ -47,8 +47,17 @@ module.exports = {
   },
 
   instagramCallback: function(req,res, next){
-    passport.authenticate('instagram', { failureRedirect: '/login' }, function(req, res){
-      res.redirect('/')
+    passport.authenticate('instagram', function(error, user, info){
+      if(error){
+        res.redirect('/login');
+      } else{
+        var token = jwt.encode(user.get('name'), 'codingisfun');
+        var  username = user.get('name');
+        res.send({
+          token: token,
+          username: username
+        })
+      }
     })(req,res,next);
   }
 }

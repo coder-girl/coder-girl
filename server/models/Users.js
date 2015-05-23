@@ -2,12 +2,13 @@
 * @Author: nimi
 * @Date:   2015-05-22 15:26:30
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-22 16:50:31
+* @Last Modified time: 2015-05-22 19:22:08
 */
 
 'use strict';
 
 var bcrypt = require('bcrypt-nodejs');
+var generateName = require('sillyname');
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('Users', {
@@ -36,6 +37,9 @@ module.exports = function(sequelize, DataTypes) {
 
     hooks: {
       beforeCreate: function(user, options, callback){
+        // TODO: check for duplicated names and redo sillyname if there are
+        var sillyName = generateName() + (Math.floor(Math.random() * 100)) 
+        user.set('name', sillyName);
         bcrypt.hash(user.password, null, null, function(err, hashPassword){
           if(err){
             console.error(err)
