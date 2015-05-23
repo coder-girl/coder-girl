@@ -8,6 +8,8 @@ var reactify = require('reactify');
 var source = require('vinyl-source-stream');
 var clean = require('gulp-clean');
 var runSequence = require('run-sequence');
+var jshint = require('gulp-jshint');
+var stylish = require('jshint-stylish');
 
 // file path structure
 var paths = {
@@ -31,6 +33,12 @@ gulp.task('sass', function(done) {
 gulp.task('copy', function () {
   return gulp.src(paths.html)
     .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('lint', function() {
+  return gulp.src('./public/*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter(stylish));
 });
 
 //on every new build, wipe previous build files
@@ -63,7 +71,7 @@ gulp.task('run', shell.task([
 //]));
 
 gulp.task('build', function(callback) {
-  runSequence('clean', 'compile', 'copy', 'sass', callback);
+  runSequence('lint', 'clean', 'compile', 'copy', 'sass', callback);
 });
 
 gulp.task('default', ['build', 'watch', 'run']);
