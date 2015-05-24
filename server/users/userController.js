@@ -9,7 +9,8 @@
 
 var User = require('../models').Users;
 var jwt = require('jwt-simple')
-var passport = require('passport')
+var passport = require('passport');
+var querystring = require('querystring');
 
 module.exports = {
   login: function(req, res, next){
@@ -49,17 +50,17 @@ module.exports = {
   instagramCallback: function(req,res, next){
     passport.authenticate('instagram', function(error, user, info){
       if(error){
+        console.log("error", error)
         res.redirect('/login');
       } else{
         var token = jwt.encode(user.get('name'), 'codingisfun');
         var  username = user.get('name');
-        res.send({
-          token: token,
-          username: username
-        })
+        res.redirect('/?' + querystring.stringify({name: username}) + '&' + querystring.stringify({token: token}));
       }
     })(req,res,next);
-  }
+  },
+
+
 }
 
 

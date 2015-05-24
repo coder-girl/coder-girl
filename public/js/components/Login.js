@@ -26,10 +26,6 @@ var Login = React.createClass({
     AuthActions.login(email, password)
   },
 
-  handleInstaLogin : function(event){
-    event.preventDefault();
-    AuthActions.instaLogin();
-  },
 
   render : function(){
     return (
@@ -39,7 +35,7 @@ var Login = React.createClass({
           <input type="password" className="user-password" placeholder="Enter your password" ref="password" />
           <input type="submit" />
         </form>
-        <button onClick={this.handleInstaLogin}>Sign up through Instagram!</button> 
+        <a href="/auth/instagram">Sign up through Instagram!</a> 
       </div>
     );
   }

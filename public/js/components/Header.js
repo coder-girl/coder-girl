@@ -8,9 +8,18 @@
 'use strict';
 
 var React = require('react/addons');
-var AuthStore = require('../stores/AuthStore')
+var AuthStore = require('../stores/AuthStore');
 
 var Header = React.createClass({
+
+
+  //Parses querystring in URL
+  getParameterByName: function(name){
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+  },
+
+
   getInitialState: function(){
     return {
       username: ''
@@ -18,7 +27,6 @@ var Header = React.createClass({
   },
 
   _onChange : function(){
-    console.log('on header change')
     this.setState ({
       username: AuthStore.getUser()
     })
@@ -26,6 +34,10 @@ var Header = React.createClass({
 
 
   componentDidMount: function() {
+    var username = this.getParameterByName("name");
+    this.setState({
+      username: username
+    })
     AuthStore.addChangeListener(this._onChange);
   },
 
@@ -36,7 +48,7 @@ var Header = React.createClass({
   render : function(){
     return (
       <div>
-        <p> Welcome {this.state.username} </p>
+        <p> Welcome {this.state.username}</p>
       </div>
     );
   }
