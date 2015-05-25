@@ -1,13 +1,13 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-22 15:50:37
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-05-22 18:27:13
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-05-25 13:56:45
 */
 
 'use strict';
 
-var config  = require('../config/config.js')
+// var config  = require('../config/config.js')
 var LocalStrategy = require('passport-local').Strategy;
 var InstagramStrategy = require('passport-instagram').Strategy;
 var Users = require('../models').Users;
@@ -75,8 +75,8 @@ module.exports = function(passport) {
   // this configures the strategy for a user signing up/ logging in with Instagram
   passport.use(new InstagramStrategy({
     // the clientID and and clientSecret are obtained by contacting Instagram and obtaining application keys
-    clientID: config.INSTAGRAM_CLIENT_ID,
-    clientSecret: config.INSTAGRAM_CLIENT_SECRET,
+    clientID: process.env.INSTAGRAM_CLIENT_ID,
+    clientSecret: process.env.INSTAGRAM_CLIENT_SECRET,
     callbackURL: 'http://localhost:3000/auth/instagram/callback'
   },
   // this function gets called when the user comes back from signing in to instagram
