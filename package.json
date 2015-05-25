@@ -3,7 +3,17 @@
   "version": "0.0.1",
   "license": "Proprietary",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "start": "gulp",
+    "test" : "jest"
+  },
+  "jest": {
+    "rootDir": "./public/js/components",
+    "moduleFileExtensions": ["js", "jsx"],
+    "scriptPreprocessor": "../../../preprocessor.js",
+    "unmockedModulePathPatterns": ["react"],
+    "testDirectoryName": "tests"
+  },
   "browserify": {
     "transform": [
       "reactify"

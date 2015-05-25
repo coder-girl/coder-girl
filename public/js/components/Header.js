@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-22 19:30:58
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-05-22 19:56:15
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-05-25 10:28:00
 */
 
 'use strict';
@@ -55,4 +55,26 @@ var Header = React.createClass({
 
 });
 
-module.exports = Header;
+var React = require('react/addons');
+var CheckboxWithLabel = React.createClass({
+  getInitialState: function() {
+    return { isChecked: false };
+  },
+  onChange: function() {
+    this.setState({isChecked: !this.state.isChecked});
+  },
+  render: function() {
+    return (
+      <label>
+        <input
+          type="checkbox"
+          checked={this.state.isChecked}
+          onChange={this.onChange}
+        />
+        {this.state.isChecked ? this.props.labelOn : this.props.labelOff}
+      </label>
+    );
+  }
+});
+module.exports = CheckboxWithLabel;
+// module.exports = Header;
