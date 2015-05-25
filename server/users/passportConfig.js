@@ -90,6 +90,7 @@ module.exports = function(passport) {
           // save the user's instagram profile name and id
           instagramName: profile.username, 
           instagramID: profile.id,
+          instagramToken: accessToken
         })
         // save the user into the database
         .save()
