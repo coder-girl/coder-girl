@@ -61,6 +61,10 @@ module.exports = {
   },
 
 
+  instagramKey: function(req, res, next){
+    console.log(req.data);
+  }
+
 }
 
 

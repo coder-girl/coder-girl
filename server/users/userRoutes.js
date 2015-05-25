@@ -15,6 +15,7 @@
   app.post('/signup', userController.signup);
   app.post('/login', userController.login);
  // app.get('/signedin', userController.checkAuth);
-  app.get('/instagram', userController.instagramLogin)
-  app.get('/instagram/callback', userController.instagramCallback)
+  app.get('/instagram', userController.instagramLogin);
+  app.get('/instagram/callback', userController.instagramCallback);
+  app.get('/instagramKey', userController.instagramKey);
  }
