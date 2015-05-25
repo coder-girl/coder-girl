@@ -1,8 +1,13 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-22 15:02:36
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-26 19:06:53
+<<<<<<< HEAD
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-05-27 15:23:46
+=======
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-05-25 12:54:36
+>>>>>>> (feat) Add Challenges schema file and included it in the index.js of the models
 */
 
 'use strict';
