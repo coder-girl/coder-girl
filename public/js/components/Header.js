@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 19:30:58
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-25 10:28:00
+* @Last Modified time: 2015-05-25 10:33:51
 */
 
 'use strict';
@@ -76,5 +76,5 @@ var CheckboxWithLabel = React.createClass({
     );
   }
 });
-module.exports = CheckboxWithLabel;
-// module.exports = Header;
+// module.exports = CheckboxWithLabel;
+module.exports = Header;
