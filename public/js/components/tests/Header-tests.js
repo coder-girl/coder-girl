@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-23 15:41:07
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-25 11:29:04
+* @Last Modified time: 2015-05-25 11:53:19
 */
 
 'use strict';
@@ -23,7 +23,6 @@ describe('Header', function() {
     });
     var node = TestUtils.scryRenderedDOMComponentsWithClass(
       component, 'welcome-header');
-    console.log("NODE: ", node);
     // expect(isDOMComponent(node));
   });
 });
