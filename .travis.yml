@@ -8,8 +8,8 @@ before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
 
 before_install:
+  - npm cache clean
   - '[ "${TRAVIS_NODE_VERSION}" != "0.8" ] || npm install -g npm@1.4.28'
   - npm install -g npm@latest
-  - npm cache clean
 
 
