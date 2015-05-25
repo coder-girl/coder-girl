@@ -62,8 +62,17 @@ module.exports = {
 
 
   instagramKey: function(req, res, next){
-    console.log(req.data);
-  }
+    var username = req.query.name;
+
+    User.find({where: {name: username}}).then(function(user){
+      if(user){
+        res.send(JSON.stringify(user.instagramToken));
+        } else{
+          res.send(404);
+        }
+      })
+
+    },
 
 }
 

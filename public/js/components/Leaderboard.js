@@ -32,7 +32,7 @@ var Leaderboard = React.createClass({
 
   componentDidMount: function(){
 
-
+      var self = this;
       //When the component loads, send an AJAX request to the server to get access_token of 
       //signed in user
 
@@ -48,11 +48,14 @@ var Leaderboard = React.createClass({
         dataType: 'json',
         type: 'GET',
         success: function(data){
+          //If received the user's access token back, change the instagram key to the 
+          //user's token and chnage the label to be used in the URS to access_token
+          self.setState({instgramKey: data, instgramTokenLabel: 'access_token='})
+          // console.log(data);
+          // var url = 'https://api.instagram.com/v1/tags/nofilter/media/recent?' + self.state.instagramTokenLabel + self.state.instagramKey;
+          // console.log("url", url);
 
-          console.log(data);
-
-
-
+          
         },
         error: function(xhr, status, error){
           console.error(xhr, status, error)
@@ -66,8 +69,6 @@ var Leaderboard = React.createClass({
 
       
       // When have top scorers, send an AJAX request to Instagram to get top scorers' feeds
-
-      var self = this;
 
       var url = 'https://api.instagram.com/v1/tags/nofilter/media/recent?' + this.state.instagramTokenLabel + this.state.instagramKey;
 
