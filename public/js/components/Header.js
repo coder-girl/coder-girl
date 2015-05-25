@@ -76,5 +76,5 @@ var CheckboxWithLabel = React.createClass({
     );
   }
 });
-module.exports = CheckboxWithLabel;
-// module.exports = Header;
+// module.exports = CheckboxWithLabel;
+module.exports = Header;
