@@ -55,7 +55,22 @@ var Leaderboard = React.createClass({
           // var url = 'https://api.instagram.com/v1/tags/nofilter/media/recent?' + self.state.instagramTokenLabel + self.state.instagramKey;
           // console.log("url", url);
 
-          
+
+            //Call to server to get leaders
+            $.ajax({
+              url: '/api/users/leaders',
+              dataType: 'json',
+              type: 'GET',
+              success: function(data){
+                  
+                console.log(data);
+                
+              },
+              error: function(xhr, status, error){
+                console.error(xhr, status, error)
+              }.bind(this) 
+            })
+
         },
         error: function(xhr, status, error){
           console.error(xhr, status, error)
