@@ -13,7 +13,7 @@ require('./config/middleware.js')(app, express, passport);
 
 app.set('port', (process.env.PORT || 3000));
 
-models.sequelize.sync({force: true})
+models.sequelize.sync()  //Include {force: true} as argument in sync() if want DB to drop on server restart.
 .done(function(){
   app.listen(app.get('port'), function() {
     console.log("Node app is running at localhost:" + app.get('port'));

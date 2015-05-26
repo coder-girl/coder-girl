@@ -14,7 +14,8 @@ $(document).ready(function() {
   var App = require('./app.js');
   var Login = require('./components/Login')
   var Header = require('./components/Header');
-  var Logout = require('./components/Logout')
+  var Logout = require('./components/Logout');
+  var Leaderboard = require('./components/Leaderboard');
   var Route = Router.Route;
   var DefaultRoute = Router.DefaultRoute;
   var NotFoundRoute = Router.NotFoundRoute;
@@ -28,6 +29,7 @@ $(document).ready(function() {
         <div>
           <Header />
           <Logout />
+          <Leaderboard />
           <RouteHandler/>
         </div>
       );
