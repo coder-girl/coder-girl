@@ -16,7 +16,7 @@ var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
 
 var Home = require('./components/Home.js');
-var Data = require('./data');
+var Data = require('./model/navData');
 var navItems = Data.navItems;
 // var App = require('./app.js');
 //  var Header = require('./components/Header');

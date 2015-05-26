@@ -25,12 +25,16 @@ gulp.task('sass', function(done) {
   return gulp.src(paths.sass)
     .pipe(sass())
     .pipe(gulp.dest('./dist/css/'))
-    .pipe(sass({sourcemap: true}))
-    .pipe(rename({ extname: '.min.css' }))
+    .pipe(sass({
+      sourcemap: true
+    }))
+    .pipe(rename({
+      extname: '.min.css'
+    }))
     .pipe(gulp.dest('./dist/css/'));
 });
 
-gulp.task('copy', function () {
+gulp.task('copy', function() {
   return gulp.src(paths.html)
     .pipe(gulp.dest('dist/'));
 });
@@ -41,15 +45,17 @@ gulp.task('lint', function() {
     .pipe(jshint.reporter(stylish));
 });
 
-//on every new build, wipe previous build files
-gulp.task('clean', function () {
-  return gulp.src(['dist/js', 'dist/index.html'], {read: false})
+// on every new build, wipe previous build files
+gulp.task('clean', function() {
+  return gulp.src(['dist/js', 'dist/index.html'], {
+    read: false
+  })
     .pipe(clean());
 });
 
-gulp.task('compile', function(){
+gulp.task('compile', function() {
   var b = browserify();
-  b.transform(reactify); 
+  b.transform(reactify);
   b.add('./public/js/main.js');
   return b.bundle()
     .pipe(source('main.js'))
@@ -59,16 +65,16 @@ gulp.task('compile', function(){
 gulp.task('compress', function() {
   gulp.src('./dist/js/*.js')
     .pipe(uglify('main.min.js'))
-    .pipe(gulp.dest('dist/js'))
+    .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('run', shell.task([ 
+gulp.task('run', shell.task([
   'cd server && nodemon server.js'
 ]));
 
-//gulp.task('testScript', shell.task([ 
+// gulp.task('testScript', shell.task([ 
 //  'npm test'
-//]));
+// ]));
 
 gulp.task('build', function(callback) {
   runSequence('lint', 'clean', 'compile', 'copy', 'sass', callback);
