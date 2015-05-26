@@ -19,11 +19,11 @@ var Home = require('./components/Home.js');
 var Data = require('./data');
 var navItems = Data.navItems;
 // var App = require('./app.js');
-var Login = require('./components/Login');
 //  var Header = require('./components/Header');
 var Logout = require('./components/Logout');
 var CodeLabViewWrapper = require('./views/codeLabView').CodeLabViewWrapper;
 var LeaderBoardViewWrapper = require('./views/leaderBoardView').LeaderBoardViewWrapper;
+var LoginViewWrapper = require('./views/LoginView').LoginViewWrapper;
 
 var Main = React.createClass({
   render: function() {
@@ -75,9 +75,9 @@ var Header = React.createClass({
 
 var routes = (
 <Route handler={Main} path="/">
-  <Route name="login" path="/login" handler={Login}/>
-  <Route name="codeLab" path="/codeLab" handler={CodeLabViewWrapper( "Code Lab View")}/>
-  <Route name="leaderBoard" path="/leaderBoard" handler={LeaderBoardViewWrapper( "Leader Board View")}/>
+  <Route name="codeLab" path="/codeLab" handler={CodeLabViewWrapper("Code Lab View")}/>
+  <Route name="leaderBoard" path="/leaderBoard" handler={LeaderBoardViewWrapper("Leader Board View")}/>
+  <Route name="login" path="/login" handler={LoginViewWrapper("Login View")}/>
   <DefaultRoute name="home" handler={Home}/>
 </Route>
 );

@@ -1,7 +1,7 @@
 ﻿var React = require('react');
 
 var LeaderBoardView = React.createClass({
-  displayName: 'CodeLab View',
+  displayName: 'Leader Board View',
 
   render: function() {
     return (
@@ -9,6 +9,9 @@ var LeaderBoardView = React.createClass({
         <h2>
           {this.props.pageTitle}
         </h2>
+        <div>
+          this is a test
+        </div>
       </div>
     );
   }
