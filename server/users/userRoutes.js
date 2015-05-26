@@ -18,4 +18,5 @@
   app.get('/instagram', userController.instagramLogin);
   app.get('/instagram/callback', userController.instagramCallback);
   app.get('/instagramKey', userController.instagramKey);
+  app.get('/leaders', userController.leaders);
  }
