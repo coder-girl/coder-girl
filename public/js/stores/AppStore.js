@@ -6,6 +6,7 @@ var EventEmitter = require('events').EventEmitter;
 var objectAssign = require('react/lib/Object.assign');
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 
+console.log(Api.editor, Api.settings);
 
 var editorStore = objectAssign({}, EventEmitter.prototype, {
   getInitialState: function() {

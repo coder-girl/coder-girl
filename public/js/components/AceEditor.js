@@ -35,10 +35,12 @@ var AceEditor = React.createClass({
 
   render: function() {
     return (
-      <div id={this.props.name} onChange={this.onChange}></div>
+      <div>
+        <div id={this.props.name} onChange={this.onChange}></div>
+        <div id="editor"></div>
+      </div>
     );
   }
 });
 
 module.exports = AceEditor;
-

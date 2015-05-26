@@ -75,9 +75,9 @@ var Header = React.createClass({
 
 var routes = (
 <Route handler={Main} path="/">
-  <Route name="codeLab" path="/codeLab" handler={CodeLabViewWrapper("Code Lab View")}/>
-  <Route name="leaderBoard" path="/leaderBoard" handler={LeaderBoardViewWrapper("Leader Board View")}/>
-  <Route name="login" path="/login" handler={LoginViewWrapper("Login View")}/>
+  <Route name="codeLab" path="/codeLab" handler={CodeLabViewWrapper( "Code Lab View")}/>
+  <Route name="leaderBoard" path="/leaderBoard" handler={LeaderBoardViewWrapper( "Leader Board View")}/>
+  <Route name="login" path="/login" handler={LoginViewWrapper( "Login View")}/>
   <DefaultRoute name="home" handler={Home}/>
 </Route>
 );
