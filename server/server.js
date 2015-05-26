@@ -2,11 +2,19 @@ var express = require('express');
 var models  = require('./models');
 var passport = require('passport');
 var cors = require('cors');
-
+var morgan = require('morgan');
+var bodyParser = require('body-parser');
 
 var app = express();
 
 app.use(cors());
+
+app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+app.use(bodyParser.json());
+app.use(express.static(__dirname + '/../dist/'));
 
 // configure our server with all the middleware and and routing
 require('./config/middleware.js')(app, express, passport);
