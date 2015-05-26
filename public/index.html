@@ -5,14 +5,22 @@
     <meta charset="UTF-8">
     <title>Hello there CoderGal888</title>
     <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="http://cdn.foundation5.zurb.com/foundation.css">
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.9/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.9/mode-javascript.js"></script>
+    <script src="http://cdn.foundation5.zurb.com/foundation.js"></script>
 </head>
 
 <body>
     <div id="app">
     </div>
     <script src="js/main.js"></script>
-
+    <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/twilight");
+        editor.getSession().setMode("ace/mode/javascript");
+    </script>
 </body>
 
 </html>
