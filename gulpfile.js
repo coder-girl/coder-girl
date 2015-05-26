@@ -39,6 +39,11 @@ gulp.task('copy', function() {
     .pipe(gulp.dest('dist/'));
 });
 
+gulp.task('copy2', function() {
+  return gulp.src('public/styles/asset/*.mp4')
+    .pipe(gulp.dest('dist/'));
+});
+
 gulp.task('lint', function() {
   return gulp.src('./public/*.js')
     .pipe(jshint())
@@ -77,7 +82,7 @@ gulp.task('run', shell.task([
 // ]));
 
 gulp.task('build', function(callback) {
-  runSequence('lint', 'clean', 'compile', 'copy', 'sass', callback);
+  runSequence('lint', 'clean', 'compile', 'copy', 'copy2', 'sass', callback);
 });
 
 gulp.task('default', ['build', 'watch', 'run']);
