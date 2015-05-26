@@ -33,59 +33,13 @@ var Leaderboard = React.createClass({
   componentDidMount: function(){
 
       var self = this;
-      //When the component loads, send an AJAX request to the server to get access_token of 
-      //signed in user
 
       var username = this.getParameterByName("name");
       this.setState({
         username: username
       });
 
-
-      $.ajax({
-        url: '/api/users/instagramKey',
-        data: { name: username },
-        dataType: 'json',
-        type: 'GET',
-        success: function(data){
-          //If received the user's access token back, change the instagram key to the 
-          //user's token and chnage the label to be used in the URS to access_token
-          self.setState({instgramKey: data, instgramTokenLabel: 'access_token='})
-          // console.log(data);
-          // var url = 'https://api.instagram.com/v1/tags/nofilter/media/recent?' + self.state.instagramTokenLabel + self.state.instagramKey;
-          // console.log("url", url);
-
-
-            //Call to server to get leaders
-            $.ajax({
-              url: '/api/users/leaders',
-              dataType: 'json',
-              type: 'GET',
-              success: function(data){
-                  
-                //Once get leaders, call to instagram to get photos.  Data is the array of Instagram user IDs.
-                getPics(data);
-                
-              },
-              error: function(xhr, status, error){
-                console.error(xhr, status, error)
-              }.bind(this) 
-            })
-
-        },
-        error: function(xhr, status, error){
-          console.error(xhr, status, error)
-        }.bind(this) 
-      })
-    
-
-
-
-      //Once have user's access_token (or defaulted to app's client_id, send an AJAX request to the server to get top scorers
-
       
-      // When have top scorers, send an AJAX request to Instagram to get top scorers' feeds
-
       var getPics = function(topScorerInstagramIDs){
 
         var pictures = [];
@@ -107,6 +61,7 @@ var Leaderboard = React.createClass({
               console.log(result.data);
 
               pictures.push({ 
+                      user: result.data[0].user.username,
                       id: result.data[0].id, 
                       url: result.data[0].link, 
                       src: result.data[0].images.low_resolution.url, 
@@ -128,12 +83,75 @@ var Leaderboard = React.createClass({
 
         };
 
-      },
+
+        var getTopScorers = function(){
+          $.ajax({
+            url: '/api/users/leaders',
+            dataType: 'json',
+            type: 'GET',
+            success: function(data){
+                
+              //Once get leaders, call to instagram to get photos.  Data is the array of Instagram user IDs.
+              getPics(data);
+              
+            },
+            error: function(xhr, status, error){
+              console.error(xhr, status, error)
+            }.bind(this) 
+          })
+
+        };
+
+
+
+      //If have a username in params, send an AJAX request to the server to get the signed in user's instagram access toekn.
+
+      if(username){
+        $.ajax({
+          url: '/api/users/instagramKey',
+          data: { name: username },
+          dataType: 'json',
+          type: 'GET',
+          success: function(data){
+            //If received the user's access token back, change the instagram key to the 
+            //user's token and chnage the label to be used in the URS to access_token
+            self.setState({instgramKey: data, instgramTokenLabel: 'access_token='})
+
+              //Call to server to get leaders
+              getTopScorers();
+
+          },
+          error: function(xhr, status, error){
+            console.error(xhr, status, error)
+            getTopScorers();
+          }.bind(this) 
+        })
+      } else {
+        //If don't have a user who signed in with instagram, just go ahead and get top scorers
+        getTopScorers();
+
+      }
+
+  },
+
+  showUser: function(user){
+    //Create function when mouseover image, show username.
+    // console.log(user);
+  },
 
   render: function() {
 
+          var self = this;
+
           var pictures = this.state.pictures.map(function(p){
-              return <img key={p.id} ref={p.id} src={p.src} title={p.title} />
+
+              return (
+                <div key={p.id}>
+                  <img onMouseOver={self.showUser.bind(null, p.user)} ref={p.id} src={p.src} title={p.title} />
+                  <p>{p.user}</p>
+                </div>
+
+                )
           });
 
           if(!pictures.length){
