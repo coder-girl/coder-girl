@@ -78,7 +78,7 @@ module.exports = {
 
   leaders: function(req, res, next){
 
-    //Find top 10 scorers and return Instagram user-names in descending order
+    //Find top 10 scorers and return Instagram ID's in descending order based on score
     var leaders = [];
 
     User.findAll({
@@ -88,7 +88,7 @@ module.exports = {
     }).then(function(result){
       if(result){
         for(var i=0; i< result.length; i++){
-          leaders.push(result[i].dataValues.instagramName);
+          leaders.push(result[i].dataValues.instagramID);
         }
         res.send(leaders);
         } else{

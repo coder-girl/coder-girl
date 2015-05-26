@@ -63,7 +63,8 @@ var Leaderboard = React.createClass({
               type: 'GET',
               success: function(data){
                   
-                console.log(data);
+                //Once get leaders, call to instagram to get photos.  Data is the array of Instagram user IDs.
+                getPics(data);
                 
               },
               error: function(xhr, status, error){
@@ -85,47 +86,54 @@ var Leaderboard = React.createClass({
       
       // When have top scorers, send an AJAX request to Instagram to get top scorers' feeds
 
-      var url = 'https://api.instagram.com/v1/tags/nofilter/media/recent?' + this.state.instagramTokenLabel + this.state.instagramKey;
+      var getPics = function(topScorerInstagramIDs){
 
-        $.ajax({
-          url: url,
-          dataType: 'jsonp',
-          type: 'GET',
-          success: function(result){
+        var pictures = [];
 
-            if(!result.data || !result.data.length){
-                console.log("Error message from Instagram:", result.meta.error_message);
-                return;
+        for(var i=0; i< topScorerInstagramIDs.length; i++){
+          var userInstagramID = topScorerInstagramIDs[i];
+          var url = 'https://api.instagram.com/v1/users/' + userInstagramID + '/media/recent/?' + self.state.instagramTokenLabel + self.state.instagramKey;
+
+          $.ajax({
+            url: url,
+            dataType: 'jsonp',
+            type: 'GET',
+            success: function(result){
+
+              if(!result.data){
+                  console.log("Error message from Instagram:", result.meta.error_message);
+                  return;
+              } else {
+              console.log(result.data);
+
+              pictures.push({ 
+                      id: result.data[0].id, 
+                      url: result.data[0].link, 
+                      src: result.data[0].images.low_resolution.url, 
+                      title: result.data[0].caption ? result.data[0].caption.text : ''
+                  });
+
+              // Update the component's state. This will trigger a render.
+
+              self.setState({ pictures: pictures });
             }
 
-            var pictures = result.data.map(function(p){
+            },
+            error: function(xhr, status, error){
+              console.error(xhr, status, error)
+            }
+          })
 
-                return { 
-                    id: p.id, 
-                    url: p.link, 
-                    src: p.images.low_resolution.url, 
-                    title: p.caption ? p.caption.text : '', 
-                    favorite: false 
-                };
-
-            });
-
-            // Update the component's state. This will trigger a render.
-
-            self.setState({ pictures: pictures });
-
-
-          },
-          error: function(xhr, status, error){
-            console.error(xhr, status, error)
           }
-        })
+
+        };
+
       },
 
   render: function() {
 
           var pictures = this.state.pictures.map(function(p){
-              return <img ref={p.id} src={p.src} title={p.title} />
+              return <img key={p.id} ref={p.id} src={p.src} title={p.title} />
           });
 
           if(!pictures.length){
