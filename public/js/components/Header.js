@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 19:30:58
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-25 11:06:46
+* @Last Modified time: 2015-05-26 14:24:11
 */
 
 'use strict';
@@ -43,7 +43,6 @@ var Header = React.createClass({
       username: AuthStore.getUser()
     })
   },
-
 
   componentDidMount: function() {
 

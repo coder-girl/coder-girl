@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 19:16:18
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-25 20:20:39
+* @Last Modified time: 2015-05-26 15:27:53
 */
 
 'use strict';
@@ -22,7 +22,7 @@ var MessageSubmit = React.createClass({
   render: function() {
     return (
       <textarea className="message-submit-textarea" name="message" value={this.state.text} 
-        onChange={this._onChange} onKewDown={this._onKeyDown} />
+        onChange={this._onChange} onKeyDown={this._onKeyDown} />
     )
   },
 
@@ -37,9 +37,12 @@ var MessageSubmit = React.createClass({
       event.preventDefault();
       var text = this.state.text.trim();
       if (text) {
-        MessageActions.createMessage(text, this.props.roomId)
+        // MessageActions.createMessage(text, this.props.roomId);
+        MessageActions.createMessage(text, 'room6');
       }
     }
   }
 
 });
+
+module.exports = MessageSubmit;

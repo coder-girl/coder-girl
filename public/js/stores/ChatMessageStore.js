@@ -2,17 +2,104 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 19:33:52
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-25 20:35:32
+* @Last Modified time: 2015-05-26 15:20:04
 */
 
 'use strict';
 
-var messages = {};
+var AppDispatcher = require('../dispatcher/AppDispatcher');
+var eventEmitter = require('events').EventEmitter;
+var ChatConstants = require('../constants/ChatConstants');
+var objectAssign = require('react/lib/Object.assign');
 
-var MessageStore = {
-  getAll: function() {
-    return messages;
+var CHANGE_EVENT = 'change';
+
+var _messages = {};
+
+var createMessageFromRaw = function(rawMessage) {
+  return {
+    roomId: rawMessage.roomId,
+    authorName: rawMessage.authorName,
+    date: new Date(rawMessage.timestamp),
+    text: rawMessage.text,
+    isRead: rawMessage.roomId === currentRoomId
+  };
+};
+
+var _addMessagesFromRawMessages = function(rawMessages) {
+  rawMessages.forEach(function(message) {
+    if (!_messages[message.id]) {
+      _messages[message.id] = createMessageFromRaw(message, 'main');
+    }
+  });
+};
+
+var _markMessagesInRoomAsRead = function(roomId) {
+  for (var id in _messages) {
+    if (_messages[id].roomId === roomId) {
+      _messages[id].isRead = true;
+    }
   }
 };
+
+var MessageStore = objectAssign({}, eventEmitter.prototype, {
+
+  emitChange: function() {
+    this.emit(CHANGE_EVENT);
+  },
+
+  getMessages: function() {
+    return _messages;
+  },
+
+  getMessageFromId: function(id) {
+    return _messages[id];
+  },
+
+  addChangeListener: function(cb) {
+    this.on(CHANGE_EVENT, cb);
+  },
+
+  removeChangeListener: function(cb) {
+    this.removeListener(CHANGE_EVENT, cb);
+  },
+
+  getOrderedMessagesForRoom: function(roomId) {
+    var roomMessages = [];
+    for (var id in messages) {
+      if (_messages[id] === roomId) {
+        roomMessages.push(_messages[id]);
+      }
+    }
+    roomMessages.sort(function(a, b) {
+      if (a.date > b.date) {
+        return -1;
+      } else if (b.date > a.date) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+
+    return roomMessages;
+  }
+});
+
+MessageStore.dispatchToken = AppDispatcher.register(function(payload) {
+  var action = payload.action;
+  console.log("PAYLOAD: ", payload);
+  
+  switch(action.type) {
+
+    case ChatConstants.CREATE_MESSAGE:
+      // save message to _messages 
+      
+      MessageStore.emitChange();
+      break;
+
+    default: 
+      return true;
+  }
+});
 
 module.exports = MessageStore;

@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 19:03:53
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-25 20:22:28
+* @Last Modified time: 2015-05-26 15:14:48
 */
 
 'use strict';
@@ -16,7 +16,7 @@ var MessageSubmit = require('./ChatMessageSubmit');
 // fetch the current state data from the stores 
 var getStateFromStores = function() {
   return {
-    messages: MessageStore.getAll()
+    messages: MessageStore.getMessages()
     // rooms: RoomStore.getAll()
   }
 };
@@ -24,14 +24,28 @@ var getStateFromStores = function() {
 // create a MessageItem component for a given message 
 var createMessageItemForMessage = function(message) {
   return (
-    <MessageItem message={message} id={message.id} /> 
+    <MessageItem message={message} key={message.id} /> 
   );
 };
 
 var MessageSection = React.createClass({
 
   getInitialState: function() {
-    return getStateFromStores();
+    // return getStateFromStores();
+    return {
+      messages: [{
+        id: 'm_1',
+        threadID: 't_1',
+        threadName: 'Jing and Bill',
+        authorName: 'Bill',
+        text: 'Hey Jing, want to give a Flux talk at ForwardJS?',
+        date: Date.now() - 99999
+      }],
+      room: {
+        name: "Mark's Chat",
+        id: 3
+      }
+    }
   },
 
   componentDidMount: function() {
@@ -50,7 +64,7 @@ var MessageSection = React.createClass({
         <ul className="message-list" ref="messageList">
           {messageItems}
         </ul>
-        <MessageInput roomId="this.state.room.id"/>
+        <MessageSubmit roomId="this.state.room.id"/>
       </div>
     );
   },
