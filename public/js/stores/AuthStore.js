@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 11:03:34
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-27 12:37:58
+* @Last Modified time: 2015-05-27 12:40:50
 */
 
 'use strict';
@@ -17,8 +17,8 @@ var _authStore = {
   currentUser: null
 };
 
-var setCurrentUser = function(data) {
-  console.log(data);
+var setCurrentUser = function(data){
+  console.log("DATA: ", data.username);
   _authStore.currentUser = data.username;
   var userToken = JSON.stringify(data.token);
   window.localStorage.setItem('io.codergirl', userToken);

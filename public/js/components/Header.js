@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 19:30:58
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-26 14:24:11
+* @Last Modified time: 2015-05-27 10:31:45
 */
 
 'use strict';
@@ -29,7 +29,6 @@ var Header = React.createClass({
     var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
   },
-
 
   getInitialState: function(){
     return {

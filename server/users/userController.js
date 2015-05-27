@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-22 15:50:51
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-05-22 19:19:59
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-05-27 10:28:24
 */
 
 'use strict';
@@ -55,7 +55,7 @@ module.exports = {
         res.redirect('/login');
       } else{
         var token = jwt.encode(user.get('name'), 'codingisfun');
-        var  username = user.get('name');
+        var username = user.get('name');
         res.redirect('/?' + querystring.stringify({name: username}) + '&' + querystring.stringify({token: token}));
       }
     })(req,res,next);

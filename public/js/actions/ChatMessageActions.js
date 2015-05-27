@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 20:27:34
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-26 20:50:11
+* @Last Modified time: 2015-05-27 10:40:54
 */
 
 'use strict';
@@ -17,7 +17,7 @@ var MessageActions = {
     var currentUser = AuthStore.getUser();
     // console.log("CURRENT USER: ", currentUser);
     var newMessage = {
-      UserId: 1,
+      username: currentUser,
       roomName: roomName,
       text: text
     };
