@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 20:27:34
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-26 16:31:48
+* @Last Modified time: 2015-05-26 19:24:17
 */
 
 'use strict';
@@ -14,12 +14,12 @@ var AuthStore = require('../stores/AuthStore');
 var MessageActions = {
 
   createMessage: function(text, roomId){
-    var currentUser = AuthStore.getUser() || "madeUpUser1";
+    var currentUser = AuthStore.getUser();
+    // console.log("CURRENT USER: ", currentUser);
     var newMessage = {
-      authorName: currentUser,
+      UserId: 2,
       roomId: roomId,
-      text: text,
-      date: Date.now()
+      text: text
     };
 
     $.ajax({
@@ -32,13 +32,13 @@ var MessageActions = {
           actionType: AppConstants.CREATE_MESSAGE,
           data: data
         });
-      },
-      error: function(xhr, status, error){
-        console.error(xhr, status, error)
-      }.bind(this)
+      }
+      // error: function(xhr, status, error){
+      //   console.log(error);
+      // }.bind(this)
     });
 
-  }
-}; 
+  } // end of createMessage
+}; // end of MessageActions 
 
 module.exports = MessageActions;

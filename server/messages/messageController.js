@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-26 14:36:34
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-26 17:20:36
+* @Last Modified time: 2015-05-26 19:11:15
 */
 
 'use strict';
@@ -18,17 +18,14 @@ module.exports = {
     Message.build(newMessage)
       .save()
       .then(function(message) {
-        User.findOne({where: {name: username}})
-          .then(function(user) {
-            if (user) {
-              user.addMessage(message);
-              res.status(200).send();
-            } else {
-              console.error("Could not locate user in the database");
-            }
-          });
-      })
-      .catch(function(error) {
+        console.log("MESSAGE: ", message);
+        // User.findOne({where: {name: username}})
+        //   .then(function(user) {
+        //     // console.log("USER: ", user); 
+        //     user.addMessage(message);
+          res.status(200).send();
+        //   })
+      }).catch(function(error) {
         res.status(400).send(error);
       });
   },
@@ -36,14 +33,10 @@ module.exports = {
   getMessages: function(req, res, next) {
     Messages.findAll()
       .then(function(messages) {
-        if (messages) {
-          res.send(messages);
-        } else {
-          console.error("Unable to find messages");
-        }
+        res.send(messages);
       })
       .catch(function(error) {
         res.status(400).send(error);
-      })
+      });
   }
 }

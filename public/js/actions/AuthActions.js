@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-21 16:17:55
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-26 14:10:19
+* @Last Modified time: 2015-05-27 12:38:46
 */
 
 'use strict';
@@ -26,8 +26,8 @@ var authActions = {
         })
       },
       error: function(xhr, status, error){
-        console.error(xhr, status, error)
-      }.bind(this) 
+        throw(error);
+      }.bind(this) //NOTE: we may need a .bind(this) here-ish
     })
   },
 
