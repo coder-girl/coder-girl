@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-22 15:26:30
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-05-22 19:22:08
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-05-27 12:37:24
 */
 
 'use strict';
@@ -11,16 +11,16 @@ var bcrypt = require('bcrypt-nodejs');
 var generateName = require('sillyname');
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Users', {
-  name: DataTypes.STRING,
-  email: DataTypes.STRING,
-  password: DataTypes.STRING,
-  country: DataTypes.STRING,
-  score: DataTypes.INTEGER,
-  level: DataTypes.INTEGER,
-  instagramID: DataTypes.INTEGER,
-  instagramName: DataTypes.STRING,
-  instagramToken: DataTypes.STRING
+  return sequelize.define('User', {
+    name: DataTypes.STRING,
+    email: DataTypes.STRING,
+    password: DataTypes.STRING,
+    country: DataTypes.STRING,
+    score: DataTypes.INTEGER,
+    level: DataTypes.INTEGER,
+    instagramID: DataTypes.INTEGER,
+    instagramName: DataTypes.STRING,
+    instagramToken: DataTypes.STRING
   },
   {
     instanceMethods :{

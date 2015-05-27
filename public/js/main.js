@@ -1,8 +1,12 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-21 12:47:03
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-05-22 19:49:45
+* @Last Modified by:   Mark Bennett
+<<<<<<< HEAD
+* @Last Modified time: 2015-05-27 12:32:57
+=======
+* @Last Modified time: 2015-05-26 15:27:09
+>>>>>>> (feat) Build out backend chat architecture; update React structure
 */
 
 'use strict';

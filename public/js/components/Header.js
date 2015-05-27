@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 19:30:58
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-25 11:06:46
+* @Last Modified time: 2015-05-27 10:31:45
 */
 
 'use strict';
@@ -30,7 +30,6 @@ var Header = React.createClass({
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
   },
 
-
   getInitialState: function(){
     return {
       username: ''
@@ -43,7 +42,6 @@ var Header = React.createClass({
       username: AuthStore.getUser()
     })
   },
-
 
   componentDidMount: function() {
 
