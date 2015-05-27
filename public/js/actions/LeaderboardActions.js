@@ -5,7 +5,7 @@ var AppConstants = require('../constants/AppConstants');
 var config  = require('../../env/config.js');
 
 var instagramKey = config.INSTAGRAM_CLIENT_ID;
-var instagramTokenLabel = 'access_token=';
+var instagramTokenLabel = 'client_id=';
 
 var LeaderboardActions = {
 
@@ -17,7 +17,6 @@ getPics: function(topScorerInstagramIDs){
     for(var i=0; i< topScorerInstagramIDs.length; i++){
       var topUserInstagramID = topScorerInstagramIDs[i];
       var url = 'https://api.instagram.com/v1/users/' + topUserInstagramID + '/media/recent/?' + instagramTokenLabel + instagramKey;
-
       $.ajax({
         url: url,
         dataType: 'jsonp',

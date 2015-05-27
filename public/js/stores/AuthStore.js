@@ -58,6 +58,10 @@ AppDispatcher.register(function(payload) {
       clearCurrentUser();
       userStore.emitChange();
       break;
+    case AppConstants.INSTAGRAM_SET_CURRENT_USER:
+      console.log('setting current user via instagram');
+      setCurrentUser(action.data);
+      userStore.emitChange();
     default:
       return true;
   }
