@@ -15,7 +15,7 @@ var stylish = require('jshint-stylish');
 var paths = {
   scripts: ['public/**/*.js'],
   html: ['public/**/*.html'],
-  server: ['server/**/*.js'],
+  server: ['appServer/**/*.js'],
   test: ['specs/**/*.js'],
   sass: ['public/styles/style.scss']
 };
@@ -73,8 +73,8 @@ gulp.task('compress', function() {
     .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('run', shell.task([
-  'cd server && nodemon server.js'
+gulp.task('run', shell.task([ 
+  'cd appServer && nodemon server.js'
 ]));
 
 // gulp.task('testScript', shell.task([ 
