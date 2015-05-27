@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 20:27:34
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-26 19:24:17
+* @Last Modified time: 2015-05-26 19:34:52
 */
 
 'use strict';
@@ -17,7 +17,7 @@ var MessageActions = {
     var currentUser = AuthStore.getUser();
     // console.log("CURRENT USER: ", currentUser);
     var newMessage = {
-      UserId: 2,
+      UserId: 1,
       roomId: roomId,
       text: text
     };
@@ -28,8 +28,9 @@ var MessageActions = {
       type: 'POST',
       data: newMessage,
       success: function(data){
+        console.log("DATA :", data);
         AppDispatcher.handleViewAction({
-          actionType: AppConstants.CREATE_MESSAGE,
+          actionType: ChatConstants.CREATE_MESSAGE,
           data: data
         });
       }

@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 19:03:53
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-26 15:14:48
+* @Last Modified time: 2015-05-26 19:53:38
 */
 
 'use strict';
@@ -31,21 +31,7 @@ var createMessageItemForMessage = function(message) {
 var MessageSection = React.createClass({
 
   getInitialState: function() {
-    // return getStateFromStores();
-    return {
-      messages: [{
-        id: 'm_1',
-        threadID: 't_1',
-        threadName: 'Jing and Bill',
-        authorName: 'Bill',
-        text: 'Hey Jing, want to give a Flux talk at ForwardJS?',
-        date: Date.now() - 99999
-      }],
-      room: {
-        name: "Mark's Chat",
-        id: 3
-      }
-    }
+    return getStateFromStores();
   },
 
   componentDidMount: function() {
@@ -57,10 +43,13 @@ var MessageSection = React.createClass({
   },
 
   render: function() {
-    var messageItems = this.state.messages.map(createMessageItemForMessage);
+    var messageItems = [];
+    for (var key in this.state.messages) {
+      var message = this.state.messages[key];
+      messageItems.push(createMessageItemForMessage(message));
+    };
     return (
       <div className='message-section'>
-        // <h3 className="message-room-heading">{this.state.room.name}</h3>
         <ul className="message-list" ref="messageList">
           {messageItems}
         </ul>

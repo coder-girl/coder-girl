@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-26 14:36:34
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-26 19:11:15
+* @Last Modified time: 2015-05-26 19:27:53
 */
 
 'use strict';
@@ -18,13 +18,7 @@ module.exports = {
     Message.build(newMessage)
       .save()
       .then(function(message) {
-        console.log("MESSAGE: ", message);
-        // User.findOne({where: {name: username}})
-        //   .then(function(user) {
-        //     // console.log("USER: ", user); 
-        //     user.addMessage(message);
-          res.status(200).send();
-        //   })
+        res.status(200).send(message);
       }).catch(function(error) {
         res.status(400).send(error);
       });

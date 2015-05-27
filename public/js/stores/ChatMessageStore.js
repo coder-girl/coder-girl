@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 19:33:52
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-26 15:20:04
+* @Last Modified time: 2015-05-26 19:56:00
 */
 
 'use strict';
@@ -87,13 +87,13 @@ var MessageStore = objectAssign({}, eventEmitter.prototype, {
 
 MessageStore.dispatchToken = AppDispatcher.register(function(payload) {
   var action = payload.action;
-  console.log("PAYLOAD: ", payload);
   
-  switch(action.type) {
+  switch(action.actionType) {
 
     case ChatConstants.CREATE_MESSAGE:
       // save message to _messages 
-      
+      console.log("PAYLOAD: ", payload);
+      _messages[payload.action.data.UserId] = payload.action.data;
       MessageStore.emitChange();
       break;
 

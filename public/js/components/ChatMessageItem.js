@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 19:04:29
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-25 20:52:24
+* @Last Modified time: 2015-05-26 19:56:56
 */
 
 'use strict';
@@ -11,15 +11,7 @@ var React = require('react');
 
 var MessageItem = React.createClass({
   render: function() {
-    // var message = this.props.message;
-    var message = {
-      id: 'm_1',
-      threadID: 't_1',
-      threadName: 'Jing and Bill',
-      authorName: 'Bill',
-      text: 'Hey Jing, want to give a Flux talk at ForwardJS?',
-      date: Date.now() - 99999
-    };
+    var message = this.props.message;
     return (
       <li className="message-item">
         <h5 className="message-author">{message.authorName}</h5>
