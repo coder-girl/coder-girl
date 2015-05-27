@@ -2,12 +2,12 @@
 * @Author: nimi
 * @Date:   2015-05-22 15:50:51
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-27 10:28:24
+* @Last Modified time: 2015-05-27 12:47:43
 */
 
 'use strict';
 
-var User = require('../models').Users;
+var User = require('../models').User;
 var jwt = require('jwt-simple')
 var passport = require('passport');
 var querystring = require('querystring');

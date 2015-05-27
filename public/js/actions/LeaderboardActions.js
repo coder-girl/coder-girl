@@ -2,7 +2,7 @@
 
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
-var config  = require('../../env/config.js');
+var config = require('../../env/config.js');
 
 var instagramKey = config.INSTAGRAM_CLIENT_ID;
 var instagramTokenLabel = 'client_id=';

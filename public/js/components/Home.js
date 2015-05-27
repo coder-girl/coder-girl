@@ -1,5 +1,6 @@
 ﻿var React = require('react');
 var Leaderboard = require('./Leaderboard');
+var Chat = require('./Chat');
 
 var Home = React.createClass({
   displayName: 'Home',
@@ -16,6 +17,7 @@ var Home = React.createClass({
 
       <div className="row">
         Chat
+        <Chat />
       </div>
 
       </div>
