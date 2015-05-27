@@ -14,6 +14,8 @@ var stylish = require('jshint-stylish');
 // file path structure
 var paths = {
   scripts: ['public/**/*.js'],
+  workers: ['public/js/testWorker.js'],
+  tests: ['public/js/tests/*.js'],
   html: ['public/**/*.html'],
   server: ['appServer/**/*.js'],
   test: ['specs/**/*.js'],
@@ -35,8 +37,12 @@ gulp.task('sass', function(done) {
 });
 
 gulp.task('copy', function() {
-  return gulp.src(paths.html)
+  gulp.src(paths.html)
     .pipe(gulp.dest('dist/'));
+  gulp.src(paths.workers)
+    .pipe(gulp.dest('./dist/js/'))
+  gulp.src(paths.tests)
+    .pipe(gulp.dest('./dist/js/tests'))
 });
 
 gulp.task('copy2', function() {
@@ -65,6 +71,7 @@ gulp.task('compile', function() {
   return b.bundle()
     .pipe(source('main.js'))
     .pipe(gulp.dest('./dist/js'));
+
 });
 
 gulp.task('compress', function() {
