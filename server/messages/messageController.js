@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-26 14:36:34
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-27 10:51:07
+* @Last Modified time: 2015-05-27 12:01:39
 */
 
 'use strict';
@@ -33,7 +33,7 @@ module.exports = {
   },
 
   getMessages: function(req, res, next) {
-    Messages.findAll()
+    Message.findAll()
       .then(function(messages) {
         res.send(messages);
       })

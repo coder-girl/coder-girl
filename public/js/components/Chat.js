@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 19:02:34
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-25 20:33:00
+* @Last Modified time: 2015-05-27 11:48:22
 */
 
 'use strict';
@@ -12,6 +12,7 @@ var MessageSection = require('./ChatMessageSection');
 // var RoomSection = require('./ChatRoomSection');
 
 var Chat = React.createClass({
+  
   render: function() {
     return (
       <div className='chat-section'>

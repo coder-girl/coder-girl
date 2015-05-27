@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 20:27:34
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-27 10:40:54
+* @Last Modified time: 2015-05-27 12:01:07
 */
 
 'use strict';
@@ -37,7 +37,7 @@ var MessageActions = {
 
   }, // end of createMessage
 
-  getAllMessages: function() {
+  getMessages: function() {
     $.ajax({
       url: '/api/messages/',
       dataType: 'json',

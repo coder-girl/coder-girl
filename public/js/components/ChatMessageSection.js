@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 19:03:53
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-26 20:49:15
+* @Last Modified time: 2015-05-27 12:03:44
 */
 
 'use strict';
@@ -12,6 +12,7 @@ var MessageStore = require('../stores/ChatMessageStore');
 // var RoomStore = require('../stores/ChatRoomStore');
 var MessageItem = require('./ChatMessageItem');
 var MessageSubmit = require('./ChatMessageSubmit');
+var MessageActions = require('../actions/ChatMessageActions');
 
 // fetch the current state data from the stores 
 var getStateFromStores = function() {
@@ -36,6 +37,9 @@ var MessageSection = React.createClass({
 
   componentDidMount: function() {
     MessageStore.addChangeListener(this._onChange);
+
+    // populate the chat with previous messages from the database 
+    MessageActions.getMessages();
   },
 
   componentWillUnmount: function() {

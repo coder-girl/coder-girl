@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 19:33:52
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-26 20:42:10
+* @Last Modified time: 2015-05-27 11:59:12
 */
 
 'use strict';
@@ -85,8 +85,13 @@ MessageStore.dispatchToken = AppDispatcher.register(function(payload) {
   switch(action.actionType) {
 
     case ChatConstants.CREATE_MESSAGE:
-      // save message to _messages 
       _messages[payload.action.data.id] = payload.action.data;
+      MessageStore.emitChange();
+      break;
+
+    case ChatConstants.RECEIVE_MESSAGES:
+      _messages = {};
+      _messages = payload.action.data;
       MessageStore.emitChange();
       break;
 
