@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 19:16:18
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-26 15:27:53
+* @Last Modified time: 2015-05-26 17:22:53
 */
 
 'use strict';
@@ -40,6 +40,9 @@ var MessageSubmit = React.createClass({
         // MessageActions.createMessage(text, this.props.roomId);
         MessageActions.createMessage(text, 'room6');
       }
+      this.setState({
+        text: ""
+      });
     }
   }
 
