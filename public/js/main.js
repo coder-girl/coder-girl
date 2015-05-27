@@ -3,7 +3,7 @@
 * @Date:   2015-05-21 12:47:03
 * @Last Modified by:   Mark Bennett
 <<<<<<< HEAD
-* @Last Modified time: 2015-05-27 12:29:28
+* @Last Modified time: 2015-05-27 12:32:57
 =======
 * @Last Modified time: 2015-05-26 15:27:09
 >>>>>>> (feat) Build out backend chat architecture; update React structure
@@ -11,7 +11,6 @@
 
 'use strict';
 
-<<<<<<< HEAD
 var React = require('react');
 var Router = require('react-router');
 
@@ -38,31 +37,6 @@ var Main = React.createClass({
         <Header navItems={navItems} />
         <div className="main-content">
           <RouteHandler/>
-=======
-$(document).ready(function() {
-
-  var React = require('react');
-  var Router = require('react-router');
-  var App = require('./app.js');
-  var Login = require('./components/Login')
-  var Header = require('./components/Header');
-  var Logout = require('./components/Logout');
-  var Chat = require('./components/Chat');
-  var Route = Router.Route;
-  var DefaultRoute = Router.DefaultRoute;
-  var NotFoundRoute = Router.NotFoundRoute;
-  var RouteHandler = Router.RouteHandler;
-  var Link = Router.Link;
-
-
-  var Main = React.createClass({
-    render: function() {
-      return (
-        <div>
-          <Header />
-          <Logout />
-          <RouteHandler />
->>>>>>> (feat) Build out backend chat architecture; update React structure
         </div>
       </div>
     );
