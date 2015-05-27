@@ -6,6 +6,8 @@ var LeaderboardStore = require('../stores/LeaderboardStore');
 
 
 var Leaderboard = React.createClass({
+  
+  displayName: 'Leader Board View',
 
   //Parses querystring in URL
   getParameterByName: function(name){
@@ -75,10 +77,9 @@ var Leaderboard = React.createClass({
           var pictures = this.state.pictures.map(function(p){
 
               return (
-                <div key={p.id}>
+                <li key={p.id}>
                   <img onMouseOver={self.showUser.bind(null, p.user)} ref={p.id} src={p.src} title={p.title} />
-                  <p>{p.user}</p>
-                </div>
+                </li>
 
                 )
           });
@@ -92,7 +93,7 @@ var Leaderboard = React.createClass({
 
               <div>
                   <h1>Leaderboard</h1>
-                  <div className="pictures"> {pictures} </div>
+                  <ul className="small-block-grid-2 medium-block-grid-3 large-block-grid-4"> {pictures} </ul>
                       
               </div>
 
