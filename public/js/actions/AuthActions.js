@@ -27,7 +27,7 @@ var authActions = {
       },
       error: function(xhr, status, error){
         console.error(xhr, status, error)
-      }.bind(this) //NOTE: we may need a .bind(this) here-ish
+      }.bind(this) 
     })
   },
 
@@ -35,8 +35,16 @@ var authActions = {
     AppDispatcher.handleViewAction({
       actionType: AppConstants.LOGOUT_USER
     })
+  },
+
+  instagramSetCurrentUser: function(data){
+    AppDispatcher.handleViewAction({
+      actionType: AppConstants.INSTAGRAM_SET_CURRENT_USER,
+      data: data
+    })
+
   }
 
-}
+};
 
 module.exports = authActions;
