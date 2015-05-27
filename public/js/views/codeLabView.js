@@ -42,10 +42,25 @@ var EditorView = React.createClass({
       .value()
       .content;
   },
+  submitCode: function(){
+    var editor = ace.edit("editor");
+    var userCode = editor.getSession().getValue();
+    console.log('userCode', userCode)
+    var testWorker = new Worker('./js/testWorker.js');
+    console.log('testWorker', testWorker)
+    testWorker.postMessage(['c01', userCode]);
+    testWorker.addEventListener('message', function(e) {
+      // Log the workers message.
+      console.log(e.data);
+    }, false);
+    console.log('submit')
+  },
+
   render: function() {
     return (
       <div>
-        <Editor name="editor" content={this.getContent()} theme="github" mode="javascript" />
+        <Editor content={this.getContent()} theme="github" mode="javascript" />
+        <button onClick={this.submitCode}>Submit</button>
       </div>
     );
   }

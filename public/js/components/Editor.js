@@ -23,7 +23,7 @@ var Editor = React.createClass({
         editor.setTheme('ace/theme/'+this.props.theme);
     },
     render: function() {
-        return (<section id={this.props.name}>{this.props.content}</section>);
+        return (<div id={this.props.name}>{this.props.content}</div>);
     }
 });
 
