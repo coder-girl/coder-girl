@@ -2,6 +2,7 @@
 var Leaderboard = require('./Leaderboard');
 var Chat = require('./Chat');
 
+
 var Home = React.createClass({
   displayName: 'Home',
   render: function() {
