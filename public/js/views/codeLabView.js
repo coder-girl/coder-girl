@@ -48,10 +48,13 @@ var EditorView = React.createClass({
     var testWorker = new Worker('./js/testWorker.js');
     testWorker.postMessage(['c01', userCode]);
     testWorker.addEventListener('message', function(e) {
-      // Log the workers message.
-      console.log(e.data);
+      if(e.data){
+        console.log('the test passed!')
+      } else {
+        console.log('the test failed!')
+      }
+      //TODO: show the error in a different component
     }, false);
-    console.log('submit')
   },
 
   render: function() {
