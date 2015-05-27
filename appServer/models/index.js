@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 15:02:36
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-26 13:02:00
+* @Last Modified time: 2015-05-27 16:49:50
 */
 
 'use strict';
@@ -22,19 +22,15 @@ var sequelize = new Sequelize(database, username, password, {
   host: host
 })
 
-var models = ['Users'];
+var models = ['User', 'Message'];
 
 models.forEach(function(model){
   module.exports[model] = sequelize.import(__dirname + '/' + model);
 });
 
-// (function(module){
-//   module.Challenges.hasMany(module.Tests);
-//   module.Tests.belongsTo(module.Challenges);
-
-//   module.Users.belongsToMany(module.Challenges, {through: 'UsersChallenges'});
-//   module.Challenges.belongsToMany(module.Users, {through: 'UsersChallenges'});
-  
-// }(module.exports));
+(function(module){
+  module.User.hasMany(module.Message);
+  module.Message.belongsTo(module.User);
+})(module.exports);
 
 module.exports.sequelize = sequelize; 
