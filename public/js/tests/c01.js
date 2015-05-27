@@ -1,5 +1,6 @@
 var test = function(userCode){
-  if(userCode(1,2) === 3){
+  eval(userCode);
+  if(example(1,2) === 3){
     return true;
   }
 

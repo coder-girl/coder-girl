@@ -45,9 +45,7 @@ var EditorView = React.createClass({
   submitCode: function(){
     var editor = ace.edit("editor");
     var userCode = editor.getSession().getValue();
-    console.log('userCode', userCode)
     var testWorker = new Worker('./js/testWorker.js');
-    console.log('testWorker', testWorker)
     testWorker.postMessage(['c01', userCode]);
     testWorker.addEventListener('message', function(e) {
       // Log the workers message.
