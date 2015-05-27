@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 19:33:52
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-26 19:56:00
+* @Last Modified time: 2015-05-26 20:42:10
 */
 
 'use strict';
@@ -16,31 +16,31 @@ var CHANGE_EVENT = 'change';
 
 var _messages = {};
 
-var createMessageFromRaw = function(rawMessage) {
-  return {
-    roomId: rawMessage.roomId,
-    authorName: rawMessage.authorName,
-    date: new Date(rawMessage.timestamp),
-    text: rawMessage.text,
-    isRead: rawMessage.roomId === currentRoomId
-  };
-};
+// var createMessageFromRaw = function(rawMessage) {
+//   return {
+//     roomId: rawMessage.roomId,
+//     authorName: rawMessage.authorName,
+//     date: new Date(rawMessage.timestamp),
+//     text: rawMessage.text,
+//     isRead: rawMessage.roomId === currentRoomId
+//   };
+// };
 
-var _addMessagesFromRawMessages = function(rawMessages) {
-  rawMessages.forEach(function(message) {
-    if (!_messages[message.id]) {
-      _messages[message.id] = createMessageFromRaw(message, 'main');
-    }
-  });
-};
+// var _addMessagesFromRawMessages = function(rawMessages) {
+//   rawMessages.forEach(function(message) {
+//     if (!_messages[message.id]) {
+//       _messages[message.id] = createMessageFromRaw(message, 'main');
+//     }
+//   });
+// };
 
-var _markMessagesInRoomAsRead = function(roomId) {
-  for (var id in _messages) {
-    if (_messages[id].roomId === roomId) {
-      _messages[id].isRead = true;
-    }
-  }
-};
+// var _markMessagesInRoomAsRead = function(roomId) {
+//   for (var id in _messages) {
+//     if (_messages[id].roomId === roomId) {
+//       _messages[id].isRead = true;
+//     }
+//   }
+// };
 
 var MessageStore = objectAssign({}, eventEmitter.prototype, {
 
@@ -52,10 +52,6 @@ var MessageStore = objectAssign({}, eventEmitter.prototype, {
     return _messages;
   },
 
-  getMessageFromId: function(id) {
-    return _messages[id];
-  },
-
   addChangeListener: function(cb) {
     this.on(CHANGE_EVENT, cb);
   },
@@ -64,14 +60,12 @@ var MessageStore = objectAssign({}, eventEmitter.prototype, {
     this.removeListener(CHANGE_EVENT, cb);
   },
 
-  getOrderedMessagesForRoom: function(roomId) {
-    var roomMessages = [];
-    for (var id in messages) {
-      if (_messages[id] === roomId) {
-        roomMessages.push(_messages[id]);
-      }
+  orderMessages: function() {
+    var messages = [];
+    for (var message in _messages) {
+      messages.push(message);
     }
-    roomMessages.sort(function(a, b) {
+    messages.sort(function(a, b) {
       if (a.date > b.date) {
         return -1;
       } else if (b.date > a.date) {
@@ -81,7 +75,7 @@ var MessageStore = objectAssign({}, eventEmitter.prototype, {
       }
     });
 
-    return roomMessages;
+    return messages;
   }
 });
 
@@ -92,8 +86,7 @@ MessageStore.dispatchToken = AppDispatcher.register(function(payload) {
 
     case ChatConstants.CREATE_MESSAGE:
       // save message to _messages 
-      console.log("PAYLOAD: ", payload);
-      _messages[payload.action.data.UserId] = payload.action.data;
+      _messages[payload.action.data.id] = payload.action.data;
       MessageStore.emitChange();
       break;
 

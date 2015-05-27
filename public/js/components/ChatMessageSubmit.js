@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 19:16:18
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-26 17:22:53
+* @Last Modified time: 2015-05-26 20:07:58
 */
 
 'use strict';
@@ -37,8 +37,8 @@ var MessageSubmit = React.createClass({
       event.preventDefault();
       var text = this.state.text.trim();
       if (text) {
-        // MessageActions.createMessage(text, this.props.roomId);
-        MessageActions.createMessage(text, 'room6');
+        // hard-coded as an example 
+        MessageActions.createMessage(text, 'Main');
       }
       this.setState({
         text: ""
