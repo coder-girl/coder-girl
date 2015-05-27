@@ -17,9 +17,10 @@ var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
 var Data = require('../model/navData');
 var navItems = Data.navItems;
+var LeaderBoardViewWrapper = require('../views/leaderBoardView').LeaderBoardViewWrapper;
 
 var Header = React.createClass({
-  mixins: [Router.State],
+  mixins: [Router.State, Router.Navigation],
 
   //Parses querystring in URL
   getParameterByName: function(name){
@@ -29,7 +30,7 @@ var Header = React.createClass({
 
   getInitialState: function(){
     return {
-      username: ''
+      username: null
     };
   },
 
@@ -46,11 +47,11 @@ var Header = React.createClass({
     //If user logged in via instagram, build object with username and token from 
     //params and call action to set the current user.  The AuthStore will then set the cookie 
     // and emit a change for this view component to update the username 
-    
+
     if(this.getParameterByName("name")){
       var username = this.getParameterByName("name");
       var token = this.getParameterByName("token");
-
+      window.location = '/';
       var data = {
         username: username,
         token: token
@@ -66,19 +67,23 @@ var Header = React.createClass({
     AuthStore.removeChangeListener(this._onChange);
   },
 
-  _renderItems: function() {
-    var items = this.props.navItems.map(function(item) {
-      var link = (
-      <li key={item.name}>
-        <Link to={item.name}>{item.title}</Link>
-      </li>
-      );
-      return link;
-    });
-    return items;
+
+  handleLogout : function(event){
+    AuthActions.logout();
+    this.transitionTo('/login');
   },
 
+
+
   render: function() {
+
+    var loginLink;
+    if (window.localStorage.getItem('io.codergirl')) {
+      loginLink = <div><button onClick={this.handleLogout}>Logout</button>Get your code on, {this.state.username}</div>
+    } else {
+      loginLink =  <Link to="login">Login/Signup</Link>;
+    }
+
     return (
       <nav className="top-bar" data-topbar role="navigation">
         <ul className="title-area">
@@ -90,11 +95,18 @@ var Header = React.createClass({
         </ul>
         <section className="top-bar-section">
           <ul className="left">
-            {this._renderItems()}
+            <li>
+              <Link to="leaderBoard">Leaderboard</Link>
+            </li>
+            <li>
+              <Link to="codeLab">Code Lab</Link>
+            </li>
           </ul>
         </section>
-        <section className="welcome-header">
-          Welcome {this.state.username}
+        <section className="top-bar-section">
+          <ul className="left">
+          {loginLink}
+          </ul>
         </section>
       </nav>
     );

@@ -8,8 +8,5 @@
   }, {
     name: 'leaderBoard',
     title: 'Leader Board'
-  }, {
-    name: 'login',
-    title: 'Login'
   }
 ];
