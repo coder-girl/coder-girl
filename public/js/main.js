@@ -25,6 +25,7 @@ var CodeLabViewWrapper = require('./views/codeLabView').CodeLabViewWrapper;
 var LeaderBoardViewWrapper = require('./views/leaderBoardView').LeaderBoardViewWrapper;
 var LoginViewWrapper = require('./views/LoginView').LoginViewWrapper;
 
+
 var Main = React.createClass({
   render: function() {
     return (
@@ -59,7 +60,7 @@ var Header = React.createClass({
         <ul className="title-area">
           <li className="name">
             <h1>
-              <Link to="home">Coder-Girl</Link>
+              <Link to="home">Coder Girl</Link>
             </h1>
           </li>
         </ul>

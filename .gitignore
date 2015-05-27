@@ -7,3 +7,4 @@ dist/*
 bower_components
 .module-cache
 server/config/config.js
+public/env/config.js

@@ -11,6 +11,7 @@ var User = require('../models').Users;
 var jwt = require('jwt-simple')
 var passport = require('passport');
 var querystring = require('querystring');
+var sequelize = require('sequelize');
 
 module.exports = {
   login: function(req, res, next){
@@ -59,6 +60,43 @@ module.exports = {
       }
     })(req,res,next);
   },
+
+
+  instagramKey: function(req, res, next){
+    var username = req.query.name;
+
+    User.find({where: {name: username}}).then(function(user){
+      if(user){
+        res.send(JSON.stringify(user.instagramToken));
+        } else{
+          res.send(404);
+        }
+      })
+
+    },
+
+
+  leaders: function(req, res, next){
+
+    //Find top 10 scorers and return Instagram ID's in descending order based on score
+    var leaders = [];
+
+    User.findAll({
+      order: 'score DESC',
+      limit: 10
+
+    }).then(function(result){
+      if(result){
+        for(var i=0; i< result.length; i++){
+          leaders.push(result[i].dataValues.instagramID);
+        }
+        res.send(leaders);
+        } else{
+          res.send(404);
+        }
+      })
+
+    },
 
 
 }

@@ -19,7 +19,8 @@ module.exports = function(sequelize, DataTypes) {
   score: DataTypes.INTEGER,
   level: DataTypes.INTEGER,
   instagramID: DataTypes.INTEGER,
-  instagramName: DataTypes.STRING
+  instagramName: DataTypes.STRING,
+  instagramToken: DataTypes.STRING
   },
   {
     instanceMethods :{
