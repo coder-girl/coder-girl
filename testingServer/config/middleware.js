@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-26 11:49:57
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-26 11:53:47
+* @Last Modified time: 2015-05-26 14:41:47
 */
 
 'use strict';
@@ -22,5 +22,4 @@ module.exports = function(app, express){
   app.use('/api/tests', testRouter);
 
   require('../tests/testRoutes.js')(testRouter);
-
 };
