@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 15:50:51
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-27 21:07:16
+* @Last Modified time: 2015-05-28 15:24:13
 */
 
 'use strict';
@@ -13,6 +13,21 @@ var passport = require('passport');
 var querystring = require('querystring');
 var sequelize = require('sequelize');
 
+var getUserInfo = function(user) {
+  var username = user.get('name');
+  var level = user.get('level');
+  var score = user.get('score');
+  var country = user.get('country');
+  var email = user.get('email');
+  return {
+    username: username,
+    level: level,
+    score: score,
+    country: country,
+    email: email
+  };
+}
+
 module.exports = {
   login: function(req, res, next){
     passport.authenticate('local-login', function(error, user, info){
@@ -22,12 +37,9 @@ module.exports = {
         next (new Error(info));
       } else {
         var token = jwt.encode(user.get('name'), 'codingisfun');
-        var username = user.get('name');
-        res.send({
-          token: token,
-          username: username,
-          user: user
-        })
+        var userInfo = getUserInfo(user);
+        userInfo.token = token;
+        res.send(userInfo);
       }
     })(req,res,next);
   },
@@ -64,10 +76,12 @@ module.exports = {
 
   getUser: function(req, res, next) {
     var username = req.body.username;
+    console.log("USERNAME userController: ", username);
     User.find({where: {name: username}})
       .then(function(user) {
         if(user) {
-          res.send(user);
+          var userInfo = getUserInfo(user);
+          res.send(userInfo);
           } else {
             res.status(404);
           }
@@ -110,9 +124,7 @@ module.exports = {
         }
       })
 
-    },
-
-
+    }
 }
 
 

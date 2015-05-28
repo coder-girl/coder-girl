@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 20:27:34
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-27 17:42:10
+* @Last Modified time: 2015-05-28 15:27:15
 */
 
 'use strict';
@@ -26,7 +26,7 @@ var MessageActions = {
     var currentUser = AuthStore.getUser();
     var newMessage = {
       createdAt: Date.now(),
-      authorName: currentUser,
+      authorName: currentUser.username,
       roomName: roomName,
       text: text
     };

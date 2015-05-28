@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 11:03:34
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-28 12:20:03
+* @Last Modified time: 2015-05-28 15:24:47
 */
 
 'use strict';
@@ -18,7 +18,7 @@ var _authStore = {
 };
 
 var setCurrentUser = function(data){
-  console.log("DATA: ", data);
+  console.log("SET CURRENT USER: ", data);
   _authStore.currentUser = data;
   var userToken = JSON.stringify(data.token);
   window.localStorage.setItem('io.codergirl', userToken);
@@ -64,10 +64,12 @@ AppDispatcher.register(function(payload) {
       setCurrentUser(action.data);
       userStore.emitChange();
       break;
+
     case AppConstants.SIGNUP_USER:
       setCurrentUser(action.data);
       userStore.emitChange();
       break;
+
     default:
       return true;
   }

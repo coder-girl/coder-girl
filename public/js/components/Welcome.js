@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-27 19:54:19
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-28 14:36:37
+* @Last Modified time: 2015-05-28 14:56:21
 */
 
 'use strict';
@@ -21,3 +21,5 @@ var Welcome = React.createClass({
     )
   }
 });
+
+module.exports = Welcome; 
