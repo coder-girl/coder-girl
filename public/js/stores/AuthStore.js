@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 11:03:34
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-27 12:40:50
+* @Last Modified time: 2015-05-27 17:11:03
 */
 
 'use strict';
@@ -18,7 +18,6 @@ var _authStore = {
 };
 
 var setCurrentUser = function(data){
-  console.log("DATA: ", data.username);
   _authStore.currentUser = data.username;
   var userToken = JSON.stringify(data.token);
   window.localStorage.setItem('io.codergirl', userToken);
@@ -50,7 +49,6 @@ AppDispatcher.register(function(payload) {
   switch (action.actionType) {
 
     case AppConstants.LOGIN_USER:
-      console.log('login user');
       setCurrentUser(action.data);
       userStore.emitChange();
       break;
@@ -61,7 +59,6 @@ AppDispatcher.register(function(payload) {
       break;
 
     case AppConstants.INSTAGRAM_SET_CURRENT_USER:
-      console.log('setting current user via instagram');
       setCurrentUser(action.data);
       userStore.emitChange();
 

@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 19:03:53
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-27 12:03:44
+* @Last Modified time: 2015-05-27 18:28:52
 */
 
 'use strict';
@@ -40,6 +40,7 @@ var MessageSection = React.createClass({
 
     // populate the chat with previous messages from the database 
     MessageActions.getMessages();
+    this._scrollToBottom();
   },
 
   componentWillUnmount: function() {
@@ -57,13 +58,17 @@ var MessageSection = React.createClass({
         <ul className="message-list" ref="messageList">
           {messageItems}
         </ul>
-        <MessageSubmit roomId="this.state.room.id"/>
       </div>
     );
   },
 
   componentDidUpdate: function() {
+    this._scrollToBottom();
+  },
 
+  _scrollToBottom: function() {
+    var ul = this.refs.messageList.getDOMNode();
+    ul.scrollTop = ul.scrollHeight;
   },
 
   _onChange: function() {
