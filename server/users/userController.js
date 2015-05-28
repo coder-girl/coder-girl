@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 15:50:51
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-27 12:47:43
+* @Last Modified time: 2015-05-27 21:07:16
 */
 
 'use strict';
@@ -25,7 +25,8 @@ module.exports = {
         var username = user.get('name');
         res.send({
           token: token,
-          username: username
+          username: username,
+          user: user
         })
       }
     })(req,res,next);
@@ -33,12 +34,12 @@ module.exports = {
   signup : function(req, res, next){
     passport.authenticate('local-signup', function(error, user, info){
       if(error){
-        return next(error)
+        return next(error);
       } else if(!user){
-        console.log(user)
-        next(new Error(JSON.stringify(info)))
+        console.log(user);
+        next(new Error(JSON.stringify(info)));
       } else {
-        module.exports.login(req,res,next)
+        module.exports.login(req,res,next);
       }
     })(req, res, next)
 
@@ -61,6 +62,20 @@ module.exports = {
     })(req,res,next);
   },
 
+  getUser: function(req, res, next) {
+    var username = req.body.username;
+    User.find({where: {name: username}})
+      .then(function(user) {
+        if(user) {
+          res.send(user);
+          } else {
+            res.status(404);
+          }
+      })
+      .catch(function(err) {
+        res.send(err);
+      });
+  },
 
   instagramKey: function(req, res, next){
     var username = req.query.name;
@@ -73,8 +88,7 @@ module.exports = {
         }
       })
 
-    },
-
+  },
 
   leaders: function(req, res, next){
 

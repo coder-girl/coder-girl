@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 11:03:34
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-27 17:11:03
+* @Last Modified time: 2015-05-28 12:20:03
 */
 
 'use strict';
@@ -18,7 +18,8 @@ var _authStore = {
 };
 
 var setCurrentUser = function(data){
-  _authStore.currentUser = data.username;
+  console.log("DATA: ", data);
+  _authStore.currentUser = data;
   var userToken = JSON.stringify(data.token);
   window.localStorage.setItem('io.codergirl', userToken);
 };
