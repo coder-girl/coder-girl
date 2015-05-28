@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 15:02:36
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-22 17:10:11
+* @Last Modified time: 2015-05-27 16:49:50
 */
 
 'use strict';
@@ -22,14 +22,15 @@ var sequelize = new Sequelize(database, username, password, {
   host: host
 })
 
-var models = ['Users'];
+var models = ['User', 'Message'];
 
 models.forEach(function(model){
   module.exports[model] = sequelize.import(__dirname + '/' + model);
-})
+});
 
-// (function(module){
-//   // TODO: include relationships here
-// })(module.exports)
+(function(module){
+  module.User.hasMany(module.Message);
+  module.Message.belongsTo(module.User);
+})(module.exports);
 
 module.exports.sequelize = sequelize; 

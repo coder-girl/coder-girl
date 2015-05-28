@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-22 15:50:37
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-05-22 18:27:13
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-05-26 16:44:00
 */
 
 'use strict';
@@ -10,7 +10,7 @@
 var config  = require('../config/config.js')
 var LocalStrategy = require('passport-local').Strategy;
 var InstagramStrategy = require('passport-instagram').Strategy;
-var Users = require('../models').Users;
+var User = require('../models').User;
 
 module.exports = function(passport) {
   // this configures the local strategy for a user logging in
@@ -20,7 +20,7 @@ module.exports = function(passport) {
     // this function will search the database for the user and compare the user-provided password with the one stored
     function(username, password, done){
       // searches the database for a user with a matching email field
-      Users.find({where : {email: username} })
+      User.find({where : {email: username} })
         // the user refers to the user in the database
         .then(function(user){
           // if the user exists in the database
@@ -50,14 +50,14 @@ module.exports = function(passport) {
     {usernameField: 'email'},
     function(username, password, done){
       // searches the database for a user with a matching email field
-      Users.find( {where: {email: username}}).then(function(user){
+      User.find( {where: {email: username}}).then(function(user){
         // if the user exists
         if(user){
           //  return the callback with null, a false user, and an info message
           return done(null, false, 'User exists!')
         } else {
           // build the user to be saved into the database
-          Users.build( {email: username, password: password})
+          User.build( {email: username, password: password})
             // save the user into the database
             .save()
             .then(function(user){
@@ -82,14 +82,15 @@ module.exports = function(passport) {
   // this function gets called when the user comes back from signing in to instagram
   function(accessToken, refreshToken, profile, done){
     // find users with a matching instagram id
-    Users.find({where: {instagramID: profile.id}}).then(function(user){
+    User.find({where: {instagramID: profile.id}}).then(function(user){
       // if the user does not exist
       if(!user){
         // build the user to be saved into the database
-        Users.build({
+        User.build({
           // save the user's instagram profile name and id
           instagramName: profile.username, 
           instagramID: profile.id,
+          instagramToken: accessToken
         })
         // save the user into the database
         .save()

@@ -14,8 +14,10 @@ var stylish = require('jshint-stylish');
 // file path structure
 var paths = {
   scripts: ['public/**/*.js'],
+  workers: ['public/js/testWorker.js'],
+  tests: ['public/js/tests/*.js'],
   html: ['public/**/*.html'],
-  server: ['server/**/*.js'],
+  server: ['appServer/**/*.js'],
   test: ['specs/**/*.js'],
   sass: ['public/styles/style.scss']
 };
@@ -35,8 +37,12 @@ gulp.task('sass', function(done) {
 });
 
 gulp.task('copy', function() {
-  return gulp.src(paths.html)
+  gulp.src(paths.html)
     .pipe(gulp.dest('dist/'));
+  gulp.src(paths.workers)
+    .pipe(gulp.dest('./dist/js/'))
+  gulp.src(paths.tests)
+    .pipe(gulp.dest('./dist/js/tests'))
 });
 
 gulp.task('copy2', function() {
@@ -65,6 +71,7 @@ gulp.task('compile', function() {
   return b.bundle()
     .pipe(source('main.js'))
     .pipe(gulp.dest('./dist/js'));
+
 });
 
 gulp.task('compress', function() {
@@ -73,8 +80,8 @@ gulp.task('compress', function() {
     .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('run', shell.task([
-  'cd server && nodemon server.js'
+gulp.task('run', shell.task([ 
+  'cd appServer && nodemon server.js'
 ]));
 
 // gulp.task('testScript', shell.task([ 
