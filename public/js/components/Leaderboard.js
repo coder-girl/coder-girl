@@ -3,11 +3,13 @@
 var React = require('react/addons');
 var LeaderboardActions = require('../actions/LeaderboardActions');
 var LeaderboardStore = require('../stores/LeaderboardStore');
+var Router = require('react-router');
 
 
 var Leaderboard = React.createClass({
   
   displayName: 'Leader Board View',
+  mixins: [Router.State, Router.Navigation],
 
   //Parses querystring in URL
   getParameterByName: function(name){
@@ -71,6 +73,10 @@ var Leaderboard = React.createClass({
   },
 
   render: function() {
+
+    if(!window.localStorage.getItem('io.codergirl')) {
+      this.transitionTo('/login');
+    }
 
           var self = this;
 
