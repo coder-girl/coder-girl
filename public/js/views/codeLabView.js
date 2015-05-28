@@ -1,24 +1,22 @@
 ﻿var React = require('react');
 var Editor = require('../components/Editor');
 var _ = require('underscore');
+var Topbar = require('../components/Topbar');
 
 var files = [
   {
     title: 'Javascript',
-    content: 'var example = function(){ \n //enter your code here! \n}'
-  },
-  {
-    title: 'README.md',
-    content: 'Just basic readme'
+    content: 'function callMe() { \n console.log(\'Hi, Dave!\') \n}',
+    description: 'You want to send out a message via console.log'
   }
 ];
 
-var getTitleList = function() {
-  return _.chain(files)
-    .map(function(file) {
-      return _.pick(file, 'title');
-    })
-    .value();
+var getTitle = function() {
+  return files[0].title;
+}();
+
+var getDescription = function() {
+  return files[0].description;
 }();
 
 var EditorView = React.createClass({
@@ -26,11 +24,6 @@ var EditorView = React.createClass({
     return {
       activeTitle: _.first(files).title
     };
-  },
-  showContent: function(title) {
-    this.setState({
-      activeTitle: title
-    });
   },
   getContent: function() {
     var that = this;
@@ -42,26 +35,11 @@ var EditorView = React.createClass({
       .value()
       .content;
   },
-  submitCode: function(){
-    var editor = ace.edit("editor");
-    var userCode = editor.getSession().getValue();
-    var testWorker = new Worker('./js/testWorker.js');
-    testWorker.postMessage(['c01', userCode]);
-    testWorker.addEventListener('message', function(e) {
-      if(e.data){
-        console.log('the test passed!')
-      } else {
-        console.log('the test failed!')
-      }
-      //TODO: show the error in a different component
-    }, false);
-  },
-
   render: function() {
     return (
       <div>
-        <Editor content={this.getContent()} theme="github" mode="javascript" />
-        <button onClick={this.submitCode}>Submit</button>
+        <Topbar title={getTitle} description={getDescription}/>
+        <Editor name="editor" content={this.getContent()} theme="github" mode="javascript" />
       </div>
     );
   }
