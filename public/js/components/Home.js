@@ -1,11 +1,21 @@
 ﻿var React = require('react');
 var Leaderboard = require('./Leaderboard');
 var Chat = require('./Chat');
+var Router = require('react-router');
 
 
 var Home = React.createClass({
   displayName: 'Home',
+  mixins: [Router.State, Router.Navigation],
+
+
+
   render: function() {
+
+    if(!window.localStorage.getItem('io.codergirl')) {
+      this.transitionTo('/login');
+    }
+
     return (
       <div>
 

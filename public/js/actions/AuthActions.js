@@ -31,6 +31,25 @@ var authActions = {
     })
   },
 
+  signup: function(email, password, country){
+    var user = { email: email, password: password, country: country};
+    $.ajax({
+      url: '/api/users/signup',
+      dataType: 'json',
+      type: 'POST',
+      data: user,
+      success: function(data){
+        AppDispatcher.handleViewAction({
+          actionType: AppConstants.SIGNUP_USER,
+          data: data
+        })
+      },
+      error: function(xhr, status, error){
+        console.error(xhr, status, error)
+      }.bind(this) 
+    })
+  },
+
   logout: function(){
     AppDispatcher.handleViewAction({
       actionType: AppConstants.LOGOUT_USER
