@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 19:30:58
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-27 10:31:45
+* @Last Modified time: 2015-05-27 14:40:20
 */
 
 'use strict';
@@ -18,11 +18,8 @@ var Link = Router.Link;
 var Data = require('../model/navData');
 var navItems = Data.navItems;
 
-
-
 var Header = React.createClass({
   mixins: [Router.State],
-
 
   //Parses querystring in URL
   getParameterByName: function(name){
@@ -68,7 +65,6 @@ var Header = React.createClass({
   componentWillUnmount: function() {
     AuthStore.removeChangeListener(this._onChange);
   },
-
 
   _renderItems: function() {
     var items = this.props.navItems.map(function(item) {

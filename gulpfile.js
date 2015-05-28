@@ -81,7 +81,7 @@ gulp.task('compress', function() {
 });
 
 gulp.task('run', shell.task([ 
-  'cd appServer && nodemon server.js'
+  'cd server && nodemon server.js'
 ]));
 
 // gulp.task('testScript', shell.task([ 

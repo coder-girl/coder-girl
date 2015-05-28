@@ -2,6 +2,12 @@
   height: 100%;
 }
 
+.chat-section {
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+}
+
 .testing {
   display: block;
   background-color: pink;
@@ -12,8 +18,30 @@
 }
 
 .large-6.large-centered.columns.loginInDialog {
-    padding-left: 0px;
-    padding-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.message-section {
+  max-height: 50%;
+  width: 60%;
+}
+
+.message-list, .message-submit-textarea {
+  border: 1px solid lightgrey;
+  font-size: 14px;
+  width: 300px;
+  margin: 0;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.message-list {
+  height: 300px;
+}
+
+.message-submit-textarea {
+  height: 40px;
 }
 
 .formContainer {

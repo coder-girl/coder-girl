@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 19:33:52
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-27 11:59:12
+* @Last Modified time: 2015-05-27 17:50:24
 */
 
 'use strict';
@@ -15,32 +15,6 @@ var objectAssign = require('react/lib/Object.assign');
 var CHANGE_EVENT = 'change';
 
 var _messages = {};
-
-// var createMessageFromRaw = function(rawMessage) {
-//   return {
-//     roomId: rawMessage.roomId,
-//     authorName: rawMessage.authorName,
-//     date: new Date(rawMessage.timestamp),
-//     text: rawMessage.text,
-//     isRead: rawMessage.roomId === currentRoomId
-//   };
-// };
-
-// var _addMessagesFromRawMessages = function(rawMessages) {
-//   rawMessages.forEach(function(message) {
-//     if (!_messages[message.id]) {
-//       _messages[message.id] = createMessageFromRaw(message, 'main');
-//     }
-//   });
-// };
-
-// var _markMessagesInRoomAsRead = function(roomId) {
-//   for (var id in _messages) {
-//     if (_messages[id].roomId === roomId) {
-//       _messages[id].isRead = true;
-//     }
-//   }
-// };
 
 var MessageStore = objectAssign({}, eventEmitter.prototype, {
 
@@ -58,25 +32,8 @@ var MessageStore = objectAssign({}, eventEmitter.prototype, {
 
   removeChangeListener: function(cb) {
     this.removeListener(CHANGE_EVENT, cb);
-  },
-
-  orderMessages: function() {
-    var messages = [];
-    for (var message in _messages) {
-      messages.push(message);
-    }
-    messages.sort(function(a, b) {
-      if (a.date > b.date) {
-        return -1;
-      } else if (b.date > a.date) {
-        return 1;
-      } else {
-        return 0;
-      }
-    });
-
-    return messages;
   }
+
 });
 
 MessageStore.dispatchToken = AppDispatcher.register(function(payload) {
@@ -85,7 +42,7 @@ MessageStore.dispatchToken = AppDispatcher.register(function(payload) {
   switch(action.actionType) {
 
     case ChatConstants.CREATE_MESSAGE:
-      _messages[payload.action.data.id] = payload.action.data;
+      _messages[payload.action.data.createdAt] = payload.action.data;
       MessageStore.emitChange();
       break;
 
