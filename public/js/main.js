@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-21 12:47:03
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-27 19:06:24
+* @Last Modified time: 2015-05-28 16:53:00
 */
 
 'use strict';
@@ -46,6 +46,7 @@ var routes = (
   <Route name="leaderBoard" path="/leaderBoard" handler={LeaderBoardViewWrapper( "Leader Board View")}/>
   <Route name="login" path="/login" handler={LoginViewWrapper( "Login View")}/>
   <Route name="signup" path="/signup" handler={SignupViewWrapper( "Signup View")}/>
+
   <DefaultRoute name="home" handler={Home}/>
   <Router.NotFoundRoute handler={Home}/>
 </Route>

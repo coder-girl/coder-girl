@@ -1,8 +1,8 @@
 /* 
 * @Author: Mark Bennett
-* @Date:   2015-05-27 19:54:19
+* @Date:   2015-05-28 16:17:21
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-28 16:27:33
+* @Last Modified time: 2015-05-28 16:21:44
 */
 
 'use strict';
@@ -10,7 +10,7 @@
 var React = require('react');
 var AuthStore = require('../stores/AuthStore');
 
-var Welcome = React.createClass({
+var ChallengeComplete = React.createClass({
 
   getInitialState: function() {
     return {
@@ -34,18 +34,16 @@ var Welcome = React.createClass({
 
   render: function() {
     var user = this.state.user;
-    console.log("USER: ", user);
     return (
-      <div className="welcome-wrapper"> 
-        <h1 className="welcome-title">
-          Welcome back, <span className="welcome-username">{user.username}</span>
+      <div className="congrats-wrapper"> 
+        <h1 className="congrats-title">
+          Congratulations! You solved Challenge <span className="congrats-level">{user.level}</span>
         </h1> 
-        <div className="welcome-user-level">Level: {user.level}</div>
-        <div className="welcome-user-score">Score: {user.score} points</div>
-        <button className="welcome-proceed-to-challenge proceed-to-challenge">Continue coding</button>
+        <h3 className="congrats-user-score">Current score: {user.score} points</h3>
+        <button className="congrats-proceed-to-challenge proceed-to-challenge">Continue coding</button>
       </div>
     )
   }
 });
 
-module.exports = Welcome; 
+module.exports = ChallengeComplete; 

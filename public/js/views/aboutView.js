@@ -1,4 +1,5 @@
 var React = require('react');
+var Welcome = require('../components/Welcome');
 
 var AboutView = React.createClass({
   displayName: 'About View',

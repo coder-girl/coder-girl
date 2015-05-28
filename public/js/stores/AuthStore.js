@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 11:03:34
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-28 15:24:47
+* @Last Modified time: 2015-05-28 16:26:18
 */
 
 'use strict';
@@ -14,11 +14,10 @@ var objectAssign = require('react/lib/Object.assign');
 var CHANGE_EVENT = 'change';
 
 var _authStore = {
-  currentUser: null
+  currentUser: {}
 };
 
 var setCurrentUser = function(data){
-  console.log("SET CURRENT USER: ", data);
   _authStore.currentUser = data;
   var userToken = JSON.stringify(data.token);
   window.localStorage.setItem('io.codergirl', userToken);
@@ -30,7 +29,7 @@ var clearCurrentUser = function() {
   window.location = '/';
 };
 
-var userStore = objectAssign({}, EventEmitter.prototype, {
+var AuthStore = objectAssign({}, EventEmitter.prototype, {
   addChangeListener: function(cb) {
     this.on(CHANGE_EVENT, cb);
   },
@@ -52,22 +51,22 @@ AppDispatcher.register(function(payload) {
 
     case AppConstants.LOGIN_USER:
       setCurrentUser(action.data);
-      userStore.emitChange();
+      AuthStore.emitChange();
       break;
 
     case AppConstants.LOGOUT_USER:
       clearCurrentUser();
-      userStore.emitChange();
+      AuthStore.emitChange();
       break;
 
     case AppConstants.INSTAGRAM_SET_CURRENT_USER:
       setCurrentUser(action.data);
-      userStore.emitChange();
+      AuthStore.emitChange();
       break;
 
     case AppConstants.SIGNUP_USER:
       setCurrentUser(action.data);
-      userStore.emitChange();
+      AuthStore.emitChange();
       break;
 
     default:
@@ -75,4 +74,4 @@ AppDispatcher.register(function(payload) {
   }
 });
 
-module.exports = userStore;
+module.exports = AuthStore;
