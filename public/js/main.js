@@ -20,9 +20,9 @@ var Header = require('./components/Header');
 // var Logout = require('./components/Logout');
 var CodeLabViewWrapper = require('./views/codeLabView').CodeLabViewWrapper;
 var LeaderBoardViewWrapper = require('./views/leaderBoardView').LeaderBoardViewWrapper;
-var LoginViewWrapper = require('./views/LoginView').LoginViewWrapper;
-var AboutViewWrapper = require('./views/AboutView').AboutViewWrapper;
-var SignupViewWrapper = require('./views/SignupView').SignupViewWrapper;
+var LoginViewWrapper = require('./views/loginView').LoginViewWrapper;
+var AboutViewWrapper = require('./views/aboutView').AboutViewWrapper;
+var SignupViewWrapper = require('./views/signupView').SignupViewWrapper;
 
 
 var Main = React.createClass({
