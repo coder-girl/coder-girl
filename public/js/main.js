@@ -16,21 +16,20 @@ var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
 
 var Home = require('./components/Home.js');
-var Data = require('./model/navData');
-var navItems = Data.navItems;
-// var App = require('./app.js');
 var Header = require('./components/Header');
-var Logout = require('./components/Logout');
+// var Logout = require('./components/Logout');
 var CodeLabViewWrapper = require('./views/codeLabView').CodeLabViewWrapper;
 var LeaderBoardViewWrapper = require('./views/leaderBoardView').LeaderBoardViewWrapper;
 var LoginViewWrapper = require('./views/LoginView').LoginViewWrapper;
+var AboutViewWrapper = require('./views/AboutView').AboutViewWrapper;
+var SignupViewWrapper = require('./views/SignupView').SignupViewWrapper;
 
 
 var Main = React.createClass({
   render: function() {
     return (
       <div>
-        <Header navItems={navItems} />
+        <Header/>
         <div className="main-content">
           <RouteHandler/>
         </div>
@@ -43,13 +42,17 @@ var Main = React.createClass({
 var routes = (
 <Route handler={Main} path="/">
   <Route name="codeLab" path="/codeLab" handler={CodeLabViewWrapper( "Code Lab View")}/>
+  <Route name="about" path="/about" handler={AboutViewWrapper( "About View")}/>
   <Route name="leaderBoard" path="/leaderBoard" handler={LeaderBoardViewWrapper( "Leader Board View")}/>
   <Route name="login" path="/login" handler={LoginViewWrapper( "Login View")}/>
+  <Route name="signup" path="/signup" handler={SignupViewWrapper( "Signup View")}/>
   <DefaultRoute name="home" handler={Home}/>
+  <Router.NotFoundRoute handler={Home}/>
 </Route>
 );
 
 Router.run(routes, function(Handler) {
   React.render(<Handler/>, document.getElementById('app'));
 });
+
 

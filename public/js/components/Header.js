@@ -15,11 +15,10 @@ var Route = Router.Route;
 var DefaultRoute = Router.DefaultRoute;
 var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
-var Data = require('../model/navData');
-var navItems = Data.navItems;
+var LeaderBoardViewWrapper = require('../views/leaderBoardView').LeaderBoardViewWrapper;
 
 var Header = React.createClass({
-  mixins: [Router.State],
+  mixins: [Router.State, Router.Navigation],
 
   //Parses querystring in URL
   getParameterByName: function(name){
@@ -29,12 +28,11 @@ var Header = React.createClass({
 
   getInitialState: function(){
     return {
-      username: ''
+      username: null
     };
   },
 
   _onChange : function(){
-    console.log("registering change")
     this.setState ({
       username: AuthStore.getUser()
     })
@@ -46,18 +44,18 @@ var Header = React.createClass({
     //If user logged in via instagram, build object with username and token from 
     //params and call action to set the current user.  The AuthStore will then set the cookie 
     // and emit a change for this view component to update the username 
-    
+
     if(this.getParameterByName("name")){
       var username = this.getParameterByName("name");
       var token = this.getParameterByName("token");
-
+    
       var data = {
         username: username,
         token: token
       }
 
       AuthActions.instagramSetCurrentUser(data);
-
+  
     };
 
   },
@@ -66,41 +64,89 @@ var Header = React.createClass({
     AuthStore.removeChangeListener(this._onChange);
   },
 
-  _renderItems: function() {
-    var items = this.props.navItems.map(function(item) {
-      var link = (
-      <li key={item.name}>
-        <Link to={item.name}>{item.title}</Link>
-      </li>
-      );
-      return link;
-    });
-    return items;
+
+  handleLogout : function(event){
+    AuthActions.logout();
+    this.transitionTo('/login');
   },
 
+
   render: function() {
-    return (
-      <nav className="top-bar" data-topbar role="navigation">
-        <ul className="title-area">
-          <li className="name">
-            <h1>
-              <Link to="home">Coder Girl</Link>
-            </h1>
-          </li>
-        </ul>
-        <section className="top-bar-section">
-          <ul className="left">
-            {this._renderItems()}
+
+
+    if (window.localStorage.getItem('io.codergirl')) {
+
+      return (
+        <nav className="top-bar" data-topbar role="navigation">
+          <ul className="title-area">
+            <li className="name">
+              <h1>
+                <Link to="home">Coder Girl</Link>
+              </h1>
+            </li>
           </ul>
-        </section>
-        <section className="welcome-header">
-          Welcome {this.state.username}
-        </section>
-      </nav>
-    );
+          <section className="top-bar-section">
+            <ul className="left">
+              <li>
+                <Link to="about">About</Link>
+              </li>
+            </ul>
+            <ul className="right">
+              <li className="welcome-header">Get your code on, {this.state.username}</li>
+              <li><button onClick={this.handleLogout}>Logout</button></li>
+            </ul>
+          </section>
+        </nav>
+      );
+
+    }
+
+    else {
+
+      return (
+        <nav className="top-bar" data-topbar role="navigation">
+          <ul className="title-area">
+            <li className="name">
+              <h1>
+                <Link to="home">Coder Girl</Link>
+              </h1>
+            </li>
+          </ul>
+          <section className="top-bar-section">
+            <ul className="left">
+              <li>
+                <Link to="about">About</Link>
+              </li>
+            </ul>
+          </section>
+        </nav>
+      );
+    }
   }
 });
 
+var React = require('react/addons');
+var CheckboxWithLabel = React.createClass({
+  getInitialState: function() {
+    return { isChecked: false };
+  },
+  onChange: function() {
+    this.setState({isChecked: !this.state.isChecked});
+  },
+  render: function() {
+    return (
+      <label>
+        <input
+          type="checkbox"
+          checked={this.state.isChecked}
+          onChange={this.onChange}
+        />
+        {this.state.isChecked ? this.props.labelOn : this.props.labelOff}
+      </label>
+    );
+  }
+});
+// module.exports = CheckboxWithLabel;
 
 
 

@@ -26,6 +26,7 @@ var setCurrentUser = function(data){
 var clearCurrentUser = function() {
   _authStore.currentUser = null;
   window.localStorage.removeItem('io.codergirl');
+  window.location = '/';
 };
 
 var userStore = objectAssign({}, EventEmitter.prototype, {
@@ -61,7 +62,11 @@ AppDispatcher.register(function(payload) {
     case AppConstants.INSTAGRAM_SET_CURRENT_USER:
       setCurrentUser(action.data);
       userStore.emitChange();
-
+      break;
+    case AppConstants.SIGNUP_USER:
+      setCurrentUser(action.data);
+      userStore.emitChange();
+      break;
     default:
       return true;
   }

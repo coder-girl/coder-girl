@@ -8,6 +8,7 @@
 'use strict';
 
 module.exports = {
+  SIGNUP_USER: 'SIGNUP_USER',
   LOGIN_USER: 'LOGIN_USER',
   LOGOUT_USER: 'LOGOUT_USER',
   GET_PICS: 'GET_PICS',
