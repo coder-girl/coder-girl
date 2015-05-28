@@ -5,7 +5,7 @@ var _ = require('underscore');
 var files = [
   {
     title: 'Javascript',
-    content: 'function callMe() { \n console.log(\'Hi, Dave!\') \n}'
+    content: 'var example = function(){ \n //enter your code here! \n}'
   },
   {
     title: 'README.md',
