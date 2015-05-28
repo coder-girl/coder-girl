@@ -2,9 +2,8 @@
 
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
-var config = require('../../env/config.js');
+var instagramKey = process.env.INSTAGRAM_CLIENT_ID || require('../../env/config.js').INSTAGRAM_CLIENT_ID;
 
-var instagramKey = config.INSTAGRAM_CLIENT_ID;
 var instagramTokenLabel = 'client_id=';
 
 var LeaderboardActions = {
