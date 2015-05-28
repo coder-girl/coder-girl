@@ -73,13 +73,6 @@ var Header = React.createClass({
 
   render: function() {
 
-    // var loginLink;
-    // if (window.localStorage.getItem('io.codergirl')) {
-    //   loginLink = <div><button onClick={this.handleLogout}>Logout</button>Get your code on, {this.state.username}</div>
-    // } else {
-    //   loginLink =  <Link to="login">Login/Signup</Link>;
-    // }
-
 
     if (window.localStorage.getItem('io.codergirl')) {
 
@@ -95,7 +88,7 @@ var Header = React.createClass({
           <section className="top-bar-section">
             <ul className="left">
               <li>
-                <Link to="about">About Coder Girl</Link>
+                <Link to="about">About</Link>
               </li>
             </ul>
             <ul className="right">
@@ -122,7 +115,7 @@ var Header = React.createClass({
           <section className="top-bar-section">
             <ul className="left">
               <li>
-                <Link to="about">About Coder Girl</Link>
+                <Link to="about">About</Link>
               </li>
             </ul>
           </section>

@@ -10,6 +10,8 @@
 var React = require('react/addons');
 var AuthActions = require('../actions/AuthActions');
 var Router = require('react-router');
+var Link = Router.Link;
+var AuthStore = require('../stores/AuthStore');
 
 var Login = React.createClass({
 
@@ -20,7 +22,8 @@ var Login = React.createClass({
   getInitialState: function() {
     return {
       email: '',
-      password: ''
+      password: '',
+      username: null
     };
   },
 
@@ -30,6 +33,24 @@ var Login = React.createClass({
     var password = React.findDOMNode(this.refs.password).value.trim();
 
     AuthActions.login(email, password);
+  },
+
+
+  _onChange : function(){
+    this.setState ({
+      username: AuthStore.getUser()
+    })
+  },
+
+
+  componentDidMount: function() {
+
+    AuthStore.addChangeListener(this._onChange);
+
+  },
+
+  componentWillUnmount: function() {
+    AuthStore.removeChangeListener(this._onChange);
   },
 
 
@@ -46,6 +67,7 @@ var Login = React.createClass({
         <form onSubmit={this.handleLogin}>
           <div className="row">
             <div className="large-6 large-centered columns loginInDialog">
+            <h5><a className="formSignInViaInstagram" href="/auth/instagram">Login through Instagram!</a></h5>
               <div className="formContainer">
                 <div className="row">
                   <div className="large-3 columns">
@@ -65,8 +87,8 @@ var Login = React.createClass({
                 </div>
                 <div className="row">
                   <div className="large-12 columns">
-                    <a className="formSignInViaInstagram" href="/auth/instagram">Sign up through Instagram!</a>
-                    <input type="submit" className="tiny success button right inline" value="Sumbit" />
+                    <p><Link to="signup">Sign up for a new Coder Girl account</Link></p>
+                    <input type="submit" className="tiny success button right inline" value="Submit" />
                   </div>
                 </div>
               </div>

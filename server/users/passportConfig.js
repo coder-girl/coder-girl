@@ -47,8 +47,8 @@ module.exports = function(passport) {
   // this configures the local strategy for a user signing up
   passport.use('local-signup', new LocalStrategy(
     // since the user is logging in with email, we have to change the usernameField to match 
-    {usernameField: 'email'},
-    function(username, password, done){
+    {usernameField: 'email', passReqToCallback: true},
+    function(req, username, password, done){
       // searches the database for a user with a matching email field
       User.find( {where: {email: username}}).then(function(user){
         // if the user exists
@@ -57,7 +57,8 @@ module.exports = function(passport) {
           return done(null, false, 'User exists!')
         } else {
           // build the user to be saved into the database
-          User.build( {email: username, password: password})
+
+          Users.build( {email: username, password: password, country:req.body.country})
             // save the user into the database
             .save()
             .then(function(user){

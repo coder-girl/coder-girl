@@ -62,7 +62,11 @@ AppDispatcher.register(function(payload) {
     case AppConstants.INSTAGRAM_SET_CURRENT_USER:
       setCurrentUser(action.data);
       userStore.emitChange();
-
+      break;
+    case AppConstants.SIGNUP_USER:
+      setCurrentUser(action.data);
+      userStore.emitChange();
+      break;
     default:
       return true;
   }
