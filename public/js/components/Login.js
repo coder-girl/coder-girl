@@ -9,8 +9,14 @@
 
 var React = require('react/addons');
 var AuthActions = require('../actions/AuthActions');
+var Router = require('react-router');
 
 var Login = React.createClass({
+
+
+  displayName: 'Login',
+  mixins: [Router.State, Router.Navigation],
+
   getInitialState: function() {
     return {
       email: '',
@@ -28,6 +34,13 @@ var Login = React.createClass({
 
 
   render: function() {
+
+    if(window.localStorage.getItem('io.codergirl')) {
+      this.transitionTo('/');
+    }
+
+
+
     return (
       <div>
         <form onSubmit={this.handleLogin}>

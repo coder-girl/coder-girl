@@ -26,6 +26,7 @@ var setCurrentUser = function(data){
 var clearCurrentUser = function() {
   _authStore.currentUser = null;
   window.localStorage.removeItem('io.codergirl');
+  window.location = '/';
 };
 
 var userStore = objectAssign({}, EventEmitter.prototype, {

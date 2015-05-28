@@ -15,8 +15,6 @@ var Route = Router.Route;
 var DefaultRoute = Router.DefaultRoute;
 var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
-var Data = require('../model/navData');
-var navItems = Data.navItems;
 var LeaderBoardViewWrapper = require('../views/leaderBoardView').LeaderBoardViewWrapper;
 
 var Header = React.createClass({
@@ -35,7 +33,6 @@ var Header = React.createClass({
   },
 
   _onChange : function(){
-    console.log("registering change")
     this.setState ({
       username: AuthStore.getUser()
     })
@@ -51,14 +48,14 @@ var Header = React.createClass({
     if(this.getParameterByName("name")){
       var username = this.getParameterByName("name");
       var token = this.getParameterByName("token");
-      window.location = '/';
+    
       var data = {
         username: username,
         token: token
       }
 
       AuthActions.instagramSetCurrentUser(data);
-
+  
     };
 
   },
@@ -74,42 +71,64 @@ var Header = React.createClass({
   },
 
 
-
   render: function() {
 
-    var loginLink;
+    // var loginLink;
+    // if (window.localStorage.getItem('io.codergirl')) {
+    //   loginLink = <div><button onClick={this.handleLogout}>Logout</button>Get your code on, {this.state.username}</div>
+    // } else {
+    //   loginLink =  <Link to="login">Login/Signup</Link>;
+    // }
+
+
     if (window.localStorage.getItem('io.codergirl')) {
-      loginLink = <div><button onClick={this.handleLogout}>Logout</button>Get your code on, {this.state.username}</div>
-    } else {
-      loginLink =  <Link to="login">Login/Signup</Link>;
+
+      return (
+        <nav className="top-bar" data-topbar role="navigation">
+          <ul className="title-area">
+            <li className="name">
+              <h1>
+                <Link to="home">Coder Girl</Link>
+              </h1>
+            </li>
+          </ul>
+          <section className="top-bar-section">
+            <ul className="left">
+              <li>
+                <Link to="about">About Coder Girl</Link>
+              </li>
+            </ul>
+            <ul className="right">
+              <li className="welcome-header">Get your code on, {this.state.username}</li>
+              <li><button onClick={this.handleLogout}>Logout</button></li>
+            </ul>
+          </section>
+        </nav>
+      );
+
     }
 
-    return (
-      <nav className="top-bar" data-topbar role="navigation">
-        <ul className="title-area">
-          <li className="name">
-            <h1>
-              <Link to="home">Coder Girl</Link>
-            </h1>
-          </li>
-        </ul>
-        <section className="top-bar-section">
-          <ul className="left">
-            <li>
-              <Link to="leaderBoard">Leaderboard</Link>
-            </li>
-            <li>
-              <Link to="codeLab">Code Lab</Link>
+    else {
+
+      return (
+        <nav className="top-bar" data-topbar role="navigation">
+          <ul className="title-area">
+            <li className="name">
+              <h1>
+                <Link to="home">Coder Girl</Link>
+              </h1>
             </li>
           </ul>
-        </section>
-        <section className="top-bar-section">
-          <ul className="left">
-          {loginLink}
-          </ul>
-        </section>
-      </nav>
-    );
+          <section className="top-bar-section">
+            <ul className="left">
+              <li>
+                <Link to="about">About Coder Girl</Link>
+              </li>
+            </ul>
+          </section>
+        </nav>
+      );
+    }
   }
 });
 

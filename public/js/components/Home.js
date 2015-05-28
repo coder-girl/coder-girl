@@ -9,6 +9,7 @@ var Home = React.createClass({
   mixins: [Router.State, Router.Navigation],
 
 
+
   render: function() {
 
     if(!window.localStorage.getItem('io.codergirl')) {
