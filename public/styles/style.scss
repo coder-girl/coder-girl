@@ -1,4 +1,4 @@
-import "foundation";
+@import "foundation";
 
 $aqua: #00e1ce;
 $purple: #ff41f9;
@@ -8,7 +8,7 @@ $purple: #ff41f9;
 }
 
 .test {
-  background-color: $aqua
+  background-color: $aqua;
 }
 
 .leaderboard-container { 
@@ -18,9 +18,10 @@ $purple: #ff41f9;
 .message-section {
   max-height: 40%;
   width: 80%;
+}
 
 .test2 {
-  background-color: $purple
+  background-color: $purple;
 }
 
 
