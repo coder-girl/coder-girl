@@ -1,7 +1,7 @@
 ﻿var React = require('react');
 var Editor = require('../components/Editor');
 var _ = require('underscore');
-var Topbar = require('../components/Topbar');
+var Topbar = require('../components/TopBar');
 
 var files = [
   {
