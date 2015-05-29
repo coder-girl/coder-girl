@@ -1,26 +1,10 @@
 ﻿var React = require('react');
 var Leaderboard = require('./Leaderboard');
+var ChallengeEditor = require('./ChallengeEditor');
+var ChallengeInstructions = require('./ChallengeInstructions')
 var Chat = require('./Chat');
 var Router = require('react-router');
-// var Topbar = require('../components/Topbar');
-var Editor = require('../components/Editor');
 var Link = Router.Link;
-
-var files = [
-  {
-    title: 'Javascript',
-    content: 'function callMe() { \n console.log(\'Hi, Dave!\') \n}',
-    description: 'You want to send out a message via console.log'
-  }
-];
-
-var getTitle = function() {
-  return files[0].title;
-}();
-
-var getDescription = function() {
-  return files[0].description;
-}();
 
 var Home = React.createClass({
 
@@ -75,7 +59,10 @@ var Page1 = React.createClass({
     return (
       <div>
         <div>
-          <Editor />
+          <ChallengeInstructions />
+        </div>
+        <div>
+          <ChallengeEditor />
         </div>
         <div>
           <Leaderboard />
