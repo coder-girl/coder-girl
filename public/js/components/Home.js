@@ -8,8 +8,6 @@ var Home = React.createClass({
   displayName: 'Home',
   mixins: [Router.State, Router.Navigation],
 
-
-
   render: function() {
 
     if(!window.localStorage.getItem('io.codergirl')) {
@@ -18,8 +16,6 @@ var Home = React.createClass({
 
     return (
       <div>
-
-
       <div className="row">
         <div className="small-6 large-6 columns">Challenge</div>
         <div className="small-4 large-4 columns">Editor</div>

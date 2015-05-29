@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 19:30:58
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-27 14:40:20
+* @Last Modified time: 2015-05-28 15:28:41
 */
 
 'use strict';
@@ -34,7 +34,7 @@ var Header = React.createClass({
 
   _onChange : function(){
     this.setState ({
-      username: AuthStore.getUser()
+      username: AuthStore.getUser().username
     })
   },
 

@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 15:50:51
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-27 12:47:43
+* @Last Modified time: 2015-05-28 17:53:03
 */
 
 'use strict';
@@ -13,6 +13,21 @@ var passport = require('passport');
 var querystring = require('querystring');
 var sequelize = require('sequelize');
 
+var getUserInfo = function(user) {
+  var username = user.get('name');
+  var level = user.get('level');
+  var score = user.get('score');
+  var country = user.get('country');
+  var email = user.get('email');
+  return {
+    username: username,
+    level: level,
+    score: score,
+    country: country,
+    email: email
+  };
+}
+
 module.exports = {
   login: function(req, res, next){
     passport.authenticate('local-login', function(error, user, info){
@@ -22,23 +37,21 @@ module.exports = {
         next (new Error(info));
       } else {
         var token = jwt.encode(user.get('name'), 'codingisfun');
-        var username = user.get('name');
-        res.send({
-          token: token,
-          username: username
-        })
+        var userInfo = getUserInfo(user);
+        userInfo.token = token;
+        res.send(userInfo);
       }
     })(req,res,next);
   },
   signup : function(req, res, next){
     passport.authenticate('local-signup', function(error, user, info){
       if(error){
-        return next(error)
+        return next(error);
       } else if(!user){
-        console.log(user)
-        next(new Error(JSON.stringify(info)))
+        console.log(user);
+        next(new Error(JSON.stringify(info)));
       } else {
-        module.exports.login(req,res,next)
+        module.exports.login(req,res,next);
       }
     })(req, res, next)
 
@@ -61,23 +74,37 @@ module.exports = {
     })(req,res,next);
   },
 
+  getUser: function(req, res, next) {
+    var username = req.query.username;
+    var token = req.query.token;
+    User.find({where: {name: username}})
+      .then(function(user) {
+        if(user) {
+          var userInfo = getUserInfo(user);
+          userInfo.token = token;
+          res.send(userInfo);
+        } else {
+          res.status(404);
+        }
+      })
+      .catch(function(err) {
+        res.send(err);
+      });
+  },
 
   instagramKey: function(req, res, next){
     var username = req.query.name;
-
-    User.find({where: {name: username}}).then(function(user){
-      if(user){
-        res.send(JSON.stringify(user.instagramToken));
+    User.find({where: {name: username}})
+      .then(function(user){
+        if(user){
+          res.send(JSON.stringify(user.instagramToken));
         } else{
           res.send(404);
         }
-      })
-
-    },
-
+      });
+  },
 
   leaders: function(req, res, next){
-
     //Find top 10 scorers and return Instagram ID's in descending order based on score
     var leaders = [];
 
@@ -94,11 +121,8 @@ module.exports = {
         } else{
           res.send(404);
         }
-      })
-
-    },
-
-
+    });
+  }
 }
 
 

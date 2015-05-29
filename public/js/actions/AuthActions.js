@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-21 16:17:55
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-27 12:38:46
+* @Last Modified time: 2015-05-28 17:53:28
 */
 
 'use strict';
@@ -57,13 +57,23 @@ var authActions = {
   },
 
   instagramSetCurrentUser: function(data){
-    AppDispatcher.handleViewAction({
-      actionType: AppConstants.INSTAGRAM_SET_CURRENT_USER,
-      data: data
+    $.ajax({
+      url: '/api/users/user',
+      dataType: 'json',
+      type: 'GET',
+      data: data,
+      success: function(user){
+        AppDispatcher.handleViewAction({
+          actionType: AppConstants.INSTAGRAM_SET_CURRENT_USER,
+          data: user
+        })
+      },
+      error: function(xhr, status, error){
+        throw(error);
+      }.bind(this) //NOTE: we may need a .bind(this) here-ish
+
     })
-
   }
-
 };
 
 module.exports = authActions;
