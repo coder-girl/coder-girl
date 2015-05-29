@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-22 15:50:37
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-28 15:18:57
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-05-29 10:40:45
 */
 
 'use strict';
@@ -58,7 +58,7 @@ module.exports = function(passport) {
         } else {
           // build the user to be saved into the database
 
-          User.build( {email: username, password: password, country:req.body.country, score: 0, level: 0})
+          User.build( {email: username, password: password, country:req.body.country, score: 0})
             // save the user into the database
             .save()
             .then(function(user){
@@ -92,8 +92,7 @@ module.exports = function(passport) {
           instagramName: profile.username, 
           instagramID: profile.id,
           instagramToken: accessToken,
-          score: 0,
-          level: 0
+          score: 0
         })
         // save the user into the database
         .save()
