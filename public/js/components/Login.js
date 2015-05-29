@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-21 16:08:02
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-27 10:25:09
+* @Last Modified time: 2015-05-28 17:38:05
 */
 
 'use strict';
@@ -35,7 +35,6 @@ var Login = React.createClass({
     AuthActions.login(email, password);
   },
 
-
   _onChange : function(){
     this.setState ({
       username: AuthStore.getUser()
@@ -59,8 +58,6 @@ var Login = React.createClass({
     if(window.localStorage.getItem('io.codergirl')) {
       this.transitionTo('/');
     }
-
-
 
     return (
       <div>

@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 15:50:51
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-28 15:24:13
+* @Last Modified time: 2015-05-28 17:53:03
 */
 
 'use strict';
@@ -75,16 +75,17 @@ module.exports = {
   },
 
   getUser: function(req, res, next) {
-    var username = req.body.username;
-    console.log("USERNAME userController: ", username);
+    var username = req.query.username;
+    var token = req.query.token;
     User.find({where: {name: username}})
       .then(function(user) {
         if(user) {
           var userInfo = getUserInfo(user);
+          userInfo.token = token;
           res.send(userInfo);
-          } else {
-            res.status(404);
-          }
+        } else {
+          res.status(404);
+        }
       })
       .catch(function(err) {
         res.send(err);
@@ -93,19 +94,17 @@ module.exports = {
 
   instagramKey: function(req, res, next){
     var username = req.query.name;
-
-    User.find({where: {name: username}}).then(function(user){
-      if(user){
-        res.send(JSON.stringify(user.instagramToken));
+    User.find({where: {name: username}})
+      .then(function(user){
+        if(user){
+          res.send(JSON.stringify(user.instagramToken));
         } else{
           res.send(404);
         }
-      })
-
+      });
   },
 
   leaders: function(req, res, next){
-
     //Find top 10 scorers and return Instagram ID's in descending order based on score
     var leaders = [];
 
@@ -122,9 +121,8 @@ module.exports = {
         } else{
           res.send(404);
         }
-      })
-
-    }
+    });
+  }
 }
 
 
