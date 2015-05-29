@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-28 16:17:21
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-29 14:27:54
+* @Last Modified time: 2015-05-29 15:00:43
 */
 
 'use strict';
@@ -29,6 +29,9 @@ var ChallengeComplete = React.createClass({
   },
 
   componentDidMount: function() {
+    this.setState ({
+      user: AuthStore.getUser()
+    });
     AuthStore.addChangeListener(this._onChange);
   },
 

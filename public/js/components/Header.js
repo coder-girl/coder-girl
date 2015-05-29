@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 19:30:58
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-29 12:08:06
+* @Last Modified time: 2015-05-29 16:01:55
 */
 
 'use strict';
@@ -26,20 +26,6 @@ var Header = React.createClass({
   },
 
   getInitialState: function(){
-    return {
-      username: null
-    };
-  },
-
-  _onChange : function(){
-    this.setState ({
-      username: AuthStore.getUser().username
-    })
-  },
-
-  componentDidMount: function() {
-
-    AuthStore.addChangeListener(this._onChange);
     //If user logged in via instagram, build object with username and token from 
     //params and call action to set the current user.  The AuthStore will then set the cookie 
     // and emit a change for this view component to update the username 
@@ -54,9 +40,19 @@ var Header = React.createClass({
       }
 
       AuthActions.instagramSetCurrentUser(data);
-  
     };
 
+    return {};
+  },
+
+  _onChange : function(){
+    this.setState ({
+      username: AuthStore.getUser().username
+    })
+  },
+
+  componentDidMount: function() {
+    AuthStore.addChangeListener(this._onChange);
   },
 
   componentWillUnmount: function() {
