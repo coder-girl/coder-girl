@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-28 16:17:21
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-29 11:42:21
+* @Last Modified time: 2015-05-29 14:27:54
 */
 
 'use strict';
@@ -12,6 +12,7 @@ var AuthStore = require('../stores/AuthStore');
 
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
+var Link = Router.Link;
 
 var ChallengeComplete = React.createClass({
 

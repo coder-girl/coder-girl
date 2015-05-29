@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-28 15:28:17
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-29 12:30:04
+* @Last Modified time: 2015-05-29 14:25:47
 */
 
 'use strict';
@@ -17,7 +17,7 @@ var _challengeStore = {}
 
 var passChallenge = function(data){
   _challengeStore.results.push('You passed!')
-  // should navigate to Congrats! path 
+  window.location = '/#/congrats';
 };
 
 var failChallenge = function(){
