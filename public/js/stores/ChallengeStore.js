@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-28 15:28:17
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-28 16:31:23
+* @Last Modified time: 2015-05-28 20:27:25
 */
 
 'use strict';
@@ -24,6 +24,7 @@ var failChallenge = function(){
 };
 
 var setChallenge = function(challenge){
+  console.log(challenge)
   _challengeStore = challenge;
 };
 

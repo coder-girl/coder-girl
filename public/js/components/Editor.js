@@ -27,7 +27,7 @@ var Editor = React.createClass({
   render: function() {
     return (<div>
               <div id={this.props.name}>
-                {this.props.content}
+                {this.props.value}
               </div>
               <div>
                 <li>

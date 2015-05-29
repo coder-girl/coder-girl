@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-28 14:44:31
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-28 16:27:29
+* @Last Modified time: 2015-05-28 20:59:50
 */
 
 'use strict';
@@ -20,19 +20,17 @@ var ChallengeEditor = React.createClass({
   mixins: [Router.State, Router.Navigation],
 
   getInitialState: function() {
-    var challenge = ChallengeActions.getChallenge()
+    ChallengeActions.getChallenge(1)
     return {
-      content: challenge.content,
-      testCode: challenge.testCode
+      codeContent: '',
+      testCode: null
     }
   },
 
   _onChange: function(){
-    var challenge = ChallengeStore.getChallenge();
-    this.setState({
-      content: challenge.content,
-      testCode: challenge.testCode
-    })
+    var editor = ace.edit("editor");
+    var code = ChallengeStore.getChallenge().content;
+    editor.getSession().setValue(code);
   },
 
   componentDidMount: function() {
@@ -53,7 +51,7 @@ var ChallengeEditor = React.createClass({
    render: function() {
     return (
       <div>
-        <Editor content={this.state.content} theme="github" mode="javascript" />
+        <Editor value={this.state.value} theme="github" mode="javascript" />
         <button onClick={this.handleSubmit}>Submit</button>
       </div>
     );
