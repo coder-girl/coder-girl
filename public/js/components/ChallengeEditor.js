@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-28 14:44:31
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-28 20:59:50
+* @Last Modified time: 2015-05-29 10:20:04
 */
 
 'use strict';
@@ -13,6 +13,7 @@ var React = require('react/addons');
 var ChallengeActions = require('../actions/ChallengeActions');
 var Router = require('react-router');
 var ChallengeStore = require('../stores/ChallengeStore');
+var AuthStore = require('../stores/AuthStore');
 
 var ChallengeEditor = React.createClass({
 
@@ -20,10 +21,11 @@ var ChallengeEditor = React.createClass({
   mixins: [Router.State, Router.Navigation],
 
   getInitialState: function() {
-    ChallengeActions.getChallenge(1)
+    var testCode = AuthStore.getUser().level
+    ChallengeActions.getChallenge(testCode)
     return {
       codeContent: '',
-      testCode: null
+      testCode: testCode
     }
   },
 
@@ -31,6 +33,7 @@ var ChallengeEditor = React.createClass({
     var editor = ace.edit("editor");
     var code = ChallengeStore.getChallenge().content;
     editor.getSession().setValue(code);
+    this.setState.testCode = AuthStore.getUser().level;
   },
 
   componentDidMount: function() {

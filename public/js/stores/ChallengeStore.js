@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-28 15:28:17
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-28 20:27:25
+* @Last Modified time: 2015-05-29 10:22:36
 */
 
 'use strict';
@@ -15,17 +15,18 @@ var CHANGE_EVENT = 'change';
 
 var _challengeStore = {}
 
-var passChallenge = function(){
-  console.log('the test passed')
+var passChallenge = function(data){
+  _challengeStore.results.push('You passed!')
 };
 
 var failChallenge = function(){
-  console.log('the test failed')
+  _challengeStore.results.push('YOU FAILED')
 };
 
 var setChallenge = function(challenge){
   console.log(challenge)
   _challengeStore = challenge;
+  _challengeStore['results'] = [];
 };
 
 var challengeStore = objectAssign({}, EventEmitter.prototype, {

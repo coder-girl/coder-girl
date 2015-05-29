@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-28 14:44:31
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-28 20:30:52
+* @Last Modified time: 2015-05-29 10:21:10
 */
 
 'use strict';
@@ -17,16 +17,17 @@ var ChallengeInstructions = React.createClass({
   mixins: [Router.State, Router.Navigation],
 
   getInitialState: function() {
-    ChallengeActions.getChallenge(1)
     return {
-      instructions: ''
+      instructions: '',
+      results: []
     }
   },
 
     _onChange: function(){
       console.log('the instructions change')
     this.setState({
-      instructions: ChallengeStore.getChallenge(1).instructions
+      instructions: ChallengeStore.getChallenge().instructions,
+      results : ChallengeStore.getChallenge().results
     })
   },
 
@@ -42,6 +43,11 @@ var ChallengeInstructions = React.createClass({
     return (
       <div>
         <p> {this.state.instructions} </p>
+        {
+          this.state.results.map(function(testResult){
+                  return <p> {testResult} </p>
+                })
+        }
       </div>
     );
   }
