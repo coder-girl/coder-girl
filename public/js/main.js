@@ -1,8 +1,13 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-21 12:47:03
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-05-28 19:46:44
+<<<<<<< HEAD
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-05-29 12:07:42
+=======
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-05-29 08:57:01
+>>>>>>> (refactor) Refactor components and main.js to utilize react-router
 */
 
 'use strict';
@@ -13,18 +18,16 @@ var Router = require('react-router');
 var Route = Router.Route;
 var DefaultRoute = Router.DefaultRoute;
 var RouteHandler = Router.RouteHandler;
-var Link = Router.Link;
 
-var Home = require('./components/Home').Home;
-var Page1 = require('./components/Home').Page1;
-var Page2 = require('./components/Home').Page2;
+var Home = require('./components/Home');
 var Header = require('./components/Header');
-// var Logout = require('./components/Logout');
-var LeaderBoardViewWrapper = require('./views/leaderBoardView').LeaderBoardViewWrapper;
-var LoginViewWrapper = require('./views/loginView').LoginViewWrapper;
-var AboutViewWrapper = require('./views/aboutView').AboutViewWrapper;
-var SignupViewWrapper = require('./views/signupView').SignupViewWrapper;
 
+var About = require('./components/About');
+var Signup = require('./components/Signup');
+var Login = require('./components/Login');
+var Congrats = require('./components/Congrats');
+var Welcome = require('./components/Welcome');
+var Challenge = require('./components/Challenge');
 
 var Main = React.createClass({
   render: function() {
@@ -39,18 +42,23 @@ var Main = React.createClass({
   }
 });
 
-
 var routes = (
 <Route handler={Main} path="/">
-  <Route name="about" path="/about" handler={AboutViewWrapper( "About View")}/>
-  <Route name="leaderBoard" path="/leaderBoard" handler={LeaderBoardViewWrapper( "Leader Board View")}/>
-  <Route name="login" path="/login" handler={LoginViewWrapper( "Login View")}/>
-  <Route name="signup" path="/signup" handler={SignupViewWrapper( "Signup View")}/>
-  <Route name="home" handler={Home}>
-    <Route name="page1" handler={Page1}/>
-    <Route name="page2" handler={Page2}/>
-  </Route>
+
+  <Route name="about" path="/about" handler={About}/>
+  <Route name="login" path="/login" handler={Login}/>
+  <Route name="signup" path="/signup" handler={Signup}/>
+
+  <DefaultRoute name="home" handler={Home}>
+
+    <Route name="challenge" path="/challenge/:challengeId" handler={Challenge}/>
+    <Route name="congrats" path="/congrats" handler={Congrats}/>
+
+    <DefaultRoute name="welcome" handler={Welcome}/>
+
+  </DefaultRoute>
   <Router.NotFoundRoute handler={Home}/>
+
 </Route>
 );
 
