@@ -42,13 +42,6 @@ var Home = React.createClass({
 
     return (
       <div>
-<<<<<<< HEAD
-      <div className="row">
-        <div className="small-6 large-6 columns">Challenge</div>
-        <div className="small-4 large-4 columns">Editor</div>
-        <div className="small-2 large-2 columns"> <Leaderboard /></div>
-      </div>
-=======
         <div className="row">
           <div className="small-6 large-6 columns">
             <ul>
@@ -76,8 +69,6 @@ var Home = React.createClass({
   }
 });
 
-
->>>>>>> (feat) Implement baby version of welcome routes
 
 var Page1 = React.createClass({
   render: function() {
