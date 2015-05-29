@@ -29,11 +29,6 @@ var Editor = React.createClass({
               <div id={this.props.name}>
                 {this.props.value}
               </div>
-              <div>
-                <li>
-                  <Link to="page2">Page 2</Link>
-                </li>
-              </div>
             </div>);
   }
 });

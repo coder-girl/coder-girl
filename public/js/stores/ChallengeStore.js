@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-28 15:28:17
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-05-29 10:22:36
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-05-29 12:30:04
 */
 
 'use strict';
@@ -17,6 +17,7 @@ var _challengeStore = {}
 
 var passChallenge = function(data){
   _challengeStore.results.push('You passed!')
+  // should navigate to Congrats! path 
 };
 
 var failChallenge = function(){

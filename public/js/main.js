@@ -1,7 +1,7 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-21 12:47:03
-* @Last Modified time: 2015-05-29 12:12:11
+* @Last Modified time: 2015-05-29 12:17:08
 */
 
 'use strict';
@@ -50,13 +50,9 @@ var routes = (
 
     <DefaultRoute name="welcome" handler={Welcome}/>
 
-<<<<<<< HEAD
-  </DefaultRoute>
-=======
   </Route>
 
   <DefaultRoute handler={Home}/>
->>>>>>> (fix) Correct routing to allow nested views on default routes
   <Router.NotFoundRoute handler={Home}/>
 
 </Route>
