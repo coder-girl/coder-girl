@@ -83,7 +83,12 @@ var Page1 = React.createClass({
   render: function() {
     return (
       <div>
-        <Editor />
+        <div>
+          <Editor />
+        </div>
+        <div>
+          <Leaderboard />
+        </div>
       </div>
     );
   }
@@ -91,6 +96,7 @@ var Page1 = React.createClass({
 
 
 var Page2 = React.createClass({
+
   render: function() {
     return (
       <div>
