@@ -4,6 +4,7 @@ var ChallengeEditor = require('./ChallengeEditor');
 var ChallengeInstructions = require('./ChallengeInstructions')
 var Chat = require('./Chat');
 var Router = require('react-router');
+var Welcome = require('./Welcome');
 var RouteHandler = Router.RouteHandler;
 
 var Home = React.createClass({
