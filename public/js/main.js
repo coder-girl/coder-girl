@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-21 12:47:03
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-28 16:53:00
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-05-28 19:46:44
 */
 
 'use strict';
@@ -20,7 +20,6 @@ var Page1 = require('./components/Home').Page1;
 var Page2 = require('./components/Home').Page2;
 var Header = require('./components/Header');
 // var Logout = require('./components/Logout');
-var CodeLabViewWrapper = require('./views/codeLabView').CodeLabViewWrapper;
 var LeaderBoardViewWrapper = require('./views/leaderBoardView').LeaderBoardViewWrapper;
 var LoginViewWrapper = require('./views/loginView').LoginViewWrapper;
 var AboutViewWrapper = require('./views/aboutView').AboutViewWrapper;
@@ -43,7 +42,6 @@ var Main = React.createClass({
 
 var routes = (
 <Route handler={Main} path="/">
-  <Route name="codeLab" path="/codeLab" handler={CodeLabViewWrapper( "Code Lab View")}/>
   <Route name="about" path="/about" handler={AboutViewWrapper( "About View")}/>
   <Route name="leaderBoard" path="/leaderBoard" handler={LeaderBoardViewWrapper( "Leader Board View")}/>
   <Route name="login" path="/login" handler={LoginViewWrapper( "Login View")}/>

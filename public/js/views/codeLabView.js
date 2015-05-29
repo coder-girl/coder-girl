@@ -1,51 +1,7 @@
 ﻿var React = require('react');
 var Editor = require('../components/Editor');
-var _ = require('underscore');
-var Topbar = require('../components/TopBar');
-
-var files = [
-  {
-    title: 'Javascript',
-    content: 'function callMe() { \n console.log(\'Hi, Dave!\') \n}',
-    description: 'You want to send out a message via console.log'
-  }
-];
-
-var getTitle = function() {
-  return files[0].title;
-}();
-
-var getDescription = function() {
-  return files[0].description;
-}();
-
-var EditorView = React.createClass({
-  getInitialState: function() {
-    return {
-      activeTitle: _.first(files).title
-    };
-  },
-  getContent: function() {
-    var that = this;
-    return _.chain(files)
-      .filter(function(file) {
-        return (file.title === that.state.activeTitle);
-      })
-      .first()
-      .value()
-      .content;
-  },
-  render: function() {
-    return (
-      <div>
-        <Topbar title={getTitle} description={getDescription}/>
-        <Editor name="editor" content={this.getContent()} theme="github" mode="javascript" />
-      </div>
-    );
-  }
-});
-
-
+var ChallengeEditor = require('../components/ChallengeEditor')
+var ChallengeInstructions = require('../components/ChallengeInstructions')
 
 var CodeLabView = React.createClass({
   displayName: 'CodeLab View',
@@ -65,7 +21,8 @@ var CodeLabView = React.createClass({
           {this.props.pageTitle}
         </h2>
         <div>
-          <EditorView />
+          <ChallengeInstructions />
+          <ChallengeEditor />
         </div>
       </div>
     );

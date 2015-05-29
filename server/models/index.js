@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 15:02:36
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-27 16:49:50
+* @Last Modified time: 2015-05-28 20:03:23
 */
 
 'use strict';
@@ -22,7 +22,7 @@ var sequelize = new Sequelize(database, username, password, {
   host: host
 })
 
-var models = ['User', 'Message'];
+var models = ['User', 'Message', 'Challenge'];
 
 models.forEach(function(model){
   module.exports[model] = sequelize.import(__dirname + '/' + model);

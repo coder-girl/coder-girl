@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-22 15:26:30
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-27 12:37:24
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-05-29 10:17:27
 */
 
 'use strict';
@@ -41,6 +41,7 @@ module.exports = function(sequelize, DataTypes) {
         // TODO: check for duplicated names and redo sillyname if there are
         var sillyName = generateName() + (Math.floor(Math.random() * 100)) 
         user.set('name', sillyName);
+        user.set('level', 1)
         bcrypt.hash(user.password, null, null, function(err, hashPassword){
           if(err){
             console.error(err)
