@@ -15,7 +15,9 @@ var DefaultRoute = Router.DefaultRoute;
 var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
 
-var Home = require('./components/Home.js');
+var Home = require('./components/Home').Home;
+var Page1 = require('./components/Home').Page1;
+var Page2 = require('./components/Home').Page2;
 var Header = require('./components/Header');
 // var Logout = require('./components/Logout');
 var CodeLabViewWrapper = require('./views/codeLabView').CodeLabViewWrapper;
@@ -46,8 +48,10 @@ var routes = (
   <Route name="leaderBoard" path="/leaderBoard" handler={LeaderBoardViewWrapper( "Leader Board View")}/>
   <Route name="login" path="/login" handler={LoginViewWrapper( "Login View")}/>
   <Route name="signup" path="/signup" handler={SignupViewWrapper( "Signup View")}/>
-
-  <DefaultRoute name="home" handler={Home}/>
+  <Route name="home" handler={Home}>
+    <Route name="page1" handler={Page1}/>
+    <Route name="page2" handler={Page2}/>
+  </Route>
   <Router.NotFoundRoute handler={Home}/>
 </Route>
 );
@@ -55,5 +59,3 @@ var routes = (
 Router.run(routes, function(Handler) {
   React.render(<Handler/>, document.getElementById('app'));
 });
-
-
