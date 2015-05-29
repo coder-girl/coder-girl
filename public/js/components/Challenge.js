@@ -2,12 +2,16 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-28 20:56:52
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-29 12:11:28
+* @Last Modified time: 2015-05-29 12:12:24
 */
 
 'use strict';
 
 var React = require('react');
+
+var Router = require('react-router');
+var RouteHandler = Router.RouteHandler;
+
 var ChallengeEditor = require('../components/ChallengeEditor');
 var _ = require('underscore');
 
@@ -70,7 +74,7 @@ var Challenge = React.createClass({
   render: function() {
     return (
       <div>
-        <h1>Challenge</h1>
+        <h4>Challenge</h4>
         <ChallengeEditor content={this.getContent()} theme="github" mode="javascript" />
         <button onClick={this.submitCode}>Submit</button>
       </div>

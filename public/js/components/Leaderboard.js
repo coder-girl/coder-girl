@@ -77,8 +77,8 @@ var Leaderboard = React.createClass({
     }
 
     return (
-      <div>
-        <h1>Leaderboard</h1>
+      <div className="leaderboard-container">
+        <h4>Leaderboard</h4>
         <ul className="small-block-grid-2 medium-block-grid-3 large-block-grid-4"> {pictures} </ul>       
       </div>
     );

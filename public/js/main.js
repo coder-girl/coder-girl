@@ -1,13 +1,7 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-21 12:47:03
-<<<<<<< HEAD
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-29 12:07:42
-=======
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-29 08:57:01
->>>>>>> (refactor) Refactor components and main.js to utilize react-router
+* @Last Modified time: 2015-05-29 12:12:11
 */
 
 'use strict';
@@ -49,14 +43,20 @@ var routes = (
   <Route name="login" path="/login" handler={Login}/>
   <Route name="signup" path="/signup" handler={Signup}/>
 
-  <DefaultRoute name="home" handler={Home}>
+  <Route name="home" path="/" handler={Home}>
 
-    <Route name="challenge" path="/challenge/:challengeId" handler={Challenge}/>
+    <Route name="challenge" path="/challenge" handler={Challenge}/>
     <Route name="congrats" path="/congrats" handler={Congrats}/>
 
     <DefaultRoute name="welcome" handler={Welcome}/>
 
+<<<<<<< HEAD
   </DefaultRoute>
+=======
+  </Route>
+
+  <DefaultRoute handler={Home}/>
+>>>>>>> (fix) Correct routing to allow nested views on default routes
   <Router.NotFoundRoute handler={Home}/>
 
 </Route>

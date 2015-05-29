@@ -3,7 +3,7 @@
 }
 
 .chat-section {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 30px;
 }
@@ -22,9 +22,13 @@
   padding-right: 0px;
 }
 
+.leaderboard-container { 
+  float: right;
+}
+
 .message-section {
-  max-height: 50%;
-  width: 60%;
+  max-height: 40%;
+  width: 80%;
 }
 
 .message-list, .message-submit-textarea {

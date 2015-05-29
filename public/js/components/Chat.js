@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 19:02:34
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-29 09:00:35
+* @Last Modified time: 2015-05-29 11:40:36
 */
 
 'use strict';
@@ -18,7 +18,7 @@ var Chat = React.createClass({
   render: function() {
     return (
       <div className='chat-section'>
-        <h1>Chat</h1>
+        <h4>Chat</h4>
         <MessageSection />
         <MessageSubmit />
       </div>
