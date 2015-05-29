@@ -35,10 +35,10 @@ var Login = React.createClass({
     AuthActions.login(email, password);
   },
 
-  _onChange : function(){
+  _onChange: function() {
     this.setState ({
       username: AuthStore.getUser()
-    })
+    });
   },
 
 
@@ -55,44 +55,27 @@ var Login = React.createClass({
 
   render: function() {
 
-    if(window.localStorage.getItem('io.codergirl')) {
+    if (window.localStorage.getItem('io.codergirl')) {
       this.transitionTo('/');
     }
 
     return (
-      <div>
-        <form onSubmit={this.handleLogin}>
-          <div className="row">
-            <div className="large-6 large-centered columns loginInDialog">
-            <h5><a className="formSignInViaInstagram" href="/auth/instagram">Login through Instagram!</a></h5>
-              <div className="formContainer">
-                <div className="row">
-                  <div className="large-3 columns">
-                    <label htmlFor="right-label" className="right inline"> Email</label>
-                  </div>
-                  <div className="large-9 columns">
-                    <input type="email" id="right-label" className="user-email" placeholder="Enter your email" ref="email" />
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="large-3 columns">
-                    <label htmlFor="right2-label" className="right inline"> Password</label>
-                  </div>
-                  <div className="large-9 columns">
-                    <input type="password" id="right2-label" className="user-password" placeholder="Enter your password" ref="password" />
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="large-12 columns">
-                    <p><Link to="signup">Sign up for a new Coder Girl account</Link></p>
-                    <input type="submit" className="tiny success button right inline" value="Submit" />
-                  </div>
-                </div>
-              </div>
-            </div>
+
+      <div className="grid-block login test2">
+        <div className="grid-content">
+          <div className="grid-container">
+            <form onSubmit={this.handleLogin}>
+              <label htmlFor="right-label" className="right inline"> Email</label>
+              <input type="email" id="right-label" className="user-email" placeholder="Enter your email" ref="email" />
+              <label htmlFor="right2-label" className="right inline"> Password</label>
+              <input type="password" id="right2-label" className="user-password" placeholder="Enter your password" ref="password" />
+              <a className="formSignInViaInstagram" href="/auth/instagram">Sign up through Instagram!</a>
+              <input type="submit" className="tiny success button right inline" value="Sumbit" />
+            </form>
           </div>
-        </form>
+        </div>
       </div>
+
     );
   }
 });
