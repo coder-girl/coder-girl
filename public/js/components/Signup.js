@@ -63,9 +63,7 @@ var Signup = React.createClass({
     if(window.localStorage.getItem('io.codergirl')) {
       this.transitionTo('/');
     }
-
-
-
+    
     return (
       <div>
         <form onSubmit={this.handleSignup}>

@@ -2,13 +2,17 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-28 16:17:21
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-28 16:21:44
+* @Last Modified time: 2015-05-29 14:27:54
 */
 
 'use strict';
 
 var React = require('react');
 var AuthStore = require('../stores/AuthStore');
+
+var Router = require('react-router');
+var RouteHandler = Router.RouteHandler;
+var Link = Router.Link;
 
 var ChallengeComplete = React.createClass({
 
@@ -40,7 +44,7 @@ var ChallengeComplete = React.createClass({
           Congratulations! You solved Challenge <span className="congrats-level">{user.level}</span>
         </h1> 
         <h3 className="congrats-user-score">Current score: {user.score} points</h3>
-        <button className="congrats-proceed-to-challenge proceed-to-challenge">Continue coding</button>
+        <Link to="challenge">Continue coding</Link>
       </div>
     )
   }

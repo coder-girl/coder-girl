@@ -1,13 +1,12 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-28 14:44:31
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-05-29 10:20:04
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-05-29 14:16:32
 */
 
 'use strict';
 var Editor = require('./Editor');
-
 
 var React = require('react/addons');
 var ChallengeActions = require('../actions/ChallengeActions');
@@ -54,7 +53,7 @@ var ChallengeEditor = React.createClass({
    render: function() {
     return (
       <div>
-        <Editor value={this.state.value} theme="github" mode="javascript" />
+        <Editor theme="github" mode="javascript" />
         <button onClick={this.handleSubmit}>Submit</button>
       </div>
     );

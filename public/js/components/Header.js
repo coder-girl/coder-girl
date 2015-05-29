@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-22 19:30:58
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-05-28 19:36:46
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-05-29 12:08:06
 */
 
 'use strict';
@@ -15,7 +15,6 @@ var Route = Router.Route;
 var DefaultRoute = Router.DefaultRoute;
 var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
-var LeaderBoardViewWrapper = require('../views/leaderBoardView').LeaderBoardViewWrapper;
 
 var Header = React.createClass({
   mixins: [Router.State, Router.Navigation],
