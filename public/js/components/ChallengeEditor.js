@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-28 14:44:31
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-29 14:16:32
+* @Last Modified time: 2015-05-29 15:55:52
 */
 
 'use strict';
@@ -29,10 +29,14 @@ var ChallengeEditor = React.createClass({
   },
 
   _onChange: function(){
+    var change = ChallengeStore.getChangeType();
     var editor = ace.edit("editor");
     var code = ChallengeStore.getChallenge().content;
     editor.getSession().setValue(code);
     this.setState.testCode = AuthStore.getUser().level;
+    if (change === 'passed') {
+      this.transitionTo('/congrats');
+    }
   },
 
   componentDidMount: function() {
