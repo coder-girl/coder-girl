@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-25 10:32:38
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-28 20:08:36
+* @Last Modified time: 2015-05-30 13:12:46
 */
 
 var express = require('express'),
@@ -31,13 +31,15 @@ require('./config/middleware.js')(app, express, passport);
 
 app.set('port', (process.env.PORT || 3000));
 
-models.sequelize.sync({force:true})  //Include {force: true} as argument in sync() if want DB to drop on server restart.
+models.sequelize.sync()  //Include {force: true} as argument in sync() if want DB to drop on server restart.
   .then(function(){
-    Challenge.create({ 
-      title: 'Add it all up!',
-      content: 'var example = function(){ \n //enter your code here! \n}',
-      instructions: 'Write a function that takes two arguments and returns the sum',
-      testCode: 1
+    Challenge.findOrCreate({ 
+      where : {
+        title: 'Add it all up!',
+        content: 'var example = function(){ \n //enter your code here! \n}',
+        instructions: 'Write a function that takes two arguments and returns the sum',
+        testCode: 1
+        } 
     })
   })
   .done(function(){
