@@ -70,6 +70,9 @@ var Login = React.createClass({
               <label htmlFor="right2-label" className="right inline"> Password</label>
               <input type="password" id="right2-label" className="user-password" placeholder="Enter your password" ref="password" />
               <a className="formSignInViaInstagram" href="/auth/instagram">Sign up through Instagram!</a>
+              <p>
+                <Link to="signup">Sign up for a new Coder Girl account</Link>
+              </p>
               <input type="submit" className="tiny success button right inline" value="Sumbit" />
             </form>
           </div>
