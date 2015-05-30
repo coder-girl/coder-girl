@@ -25,13 +25,19 @@ var Home = React.createClass({
     }
 
     return (
-      <div className="">
-        <RouteHandler/>
-        <div className="grid-block">
+      <div className="grid-block">
+        <div className="medium-9 vertical grid-block">
+          <div className="shorty grid-block">
+            <RouteHandler/>
+          </div>
+          <div className="grid-block">
+            <Chat/>
+          </div>
+        </div>
+        <div className="medium-3 grid-block">
           <Leaderboard/>
         </div>
         <div className="grid-block">
-          <Chat/>
         </div>
       </div>
     );

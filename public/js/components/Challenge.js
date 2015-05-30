@@ -13,16 +13,19 @@ var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
 
 var ChallengeEditor = require('./ChallengeEditor');
-var ChallengeInstructions = require('./ChallengeInstructions')
+var ChallengeInstructions = require('./ChallengeInstructions');
 
 var Challenge = React.createClass({
 
   render: function() {
     return (
-      <div className="grid-block">
-        <h4>Challenge</h4>
-        <ChallengeInstructions/> 
-        <ChallengeEditor/>
+      <div className="horizontal grid-block">
+        <div className="medium-6 grid-block">
+          <ChallengeInstructions/>
+        </div>
+        <div className="medium-6 grid-block">
+          <ChallengeEditor/>
+        </div>
       </div>
     );
   }
