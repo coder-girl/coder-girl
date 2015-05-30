@@ -19,15 +19,15 @@ var paths = {
   html: ['public/**/*.html'],
   server: ['appServer/**/*.js'],
   test: ['specs/**/*.js'],
-  sass: ['public/styles/style.scss']
+  sass: ['public/styles/style.scss'],
+  foundationSass: ['dist/bower_components/foundation-apps/scss']
 };
 
 // convert sass to css and store it in /dist
 gulp.task('sass', function(done) {
   return gulp.src(paths.sass)
-    .pipe(sass())
-    .pipe(gulp.dest('./dist/css/'))
     .pipe(sass({
+      includePaths: [paths.foundationSass],
       sourcemap: true
     }))
     .pipe(rename({

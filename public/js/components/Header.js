@@ -19,36 +19,32 @@ var Link = Router.Link;
 var Header = React.createClass({
   mixins: [Router.State, Router.Navigation],
 
-  //Parses querystring in URL
-  getParameterByName: function(name){
+  // Parses querystring in URL
+  getParameterByName: function(name) {
     var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
   },
 
-  getInitialState: function(){
-    //If user logged in via instagram, build object with username and token from 
-    //params and call action to set the current user.  The AuthStore will then set the cookie 
+  getInitialState: function() {
     // and emit a change for this view component to update the username 
 
-    if(this.getParameterByName("name")){
-      var username = this.getParameterByName("name");
-      var token = this.getParameterByName("token");
-    
+    if (this.getParameterByName('name')) {
+      var username = this.getParameterByName('name');
+      var token = this.getParameterByName('token');
+
       var data = {
         username: username,
         token: token
-      }
-
+      };
       AuthActions.instagramSetCurrentUser(data);
-    };
-
+    }
     return {};
   },
 
-  _onChange : function(){
+  _onChange: function() {
     this.setState ({
       username: AuthStore.getUser().username
-    })
+    });
   },
 
   componentDidMount: function() {
@@ -60,7 +56,7 @@ var Header = React.createClass({
   },
 
 
-  handleLogout : function(event){
+  handleLogout: function(event) {
     AuthActions.logout();
     this.transitionTo('/login');
   },
@@ -72,49 +68,53 @@ var Header = React.createClass({
     if (window.localStorage.getItem('io.codergirl')) {
 
       return (
-        <nav className="top-bar" data-topbar role="navigation">
-          <ul className="title-area">
-            <li className="name">
-              <h1>
-                <Link to="home">Coder Girl</Link>
-              </h1>
-            </li>
-          </ul>
-          <section className="top-bar-section">
-            <ul className="left">
-              <li>
-                <Link to="about">About</Link>
-              </li>
-            </ul>
-            <ul className="right">
-              <li className="welcome-header">Get your code on, {this.state.username}</li>
-              <li><button onClick={this.handleLogout}>Logout</button></li>
-            </ul>
-          </section>
-        </nav>
+        <div className="grid-block shrink wrap">
+          <div className="fullWidth">
+            <div className="menu-group primary">
+              <div className="menu-group left">
+                <ul className="menu-bar primary" data-topbar role="navigation">
+                  <li className="name">
+                    <Link to="home">Coder Girl</Link>
+                  </li>
+                  <li>
+                    <Link to="about">About</Link>
+                  </li>
+                </ul>
+              </div>
+              <div className="menu-group-right">
+                <ul className="menu-bar primary">
+                  <li className="welcome-header">Get your code on, {this.state.username}</li>
+                  <li className="logOut">
+                    <button onClick={this.handleLogout}>Logout</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       );
 
-    }
-
-    else {
+    } else {
 
       return (
-        <nav className="top-bar" data-topbar role="navigation">
-          <ul className="title-area">
-            <li className="name">
-              <h1>
-                <Link to="home">Coder Girl</Link>
-              </h1>
-            </li>
-          </ul>
-          <section className="top-bar-section">
-            <ul className="left">
-              <li>
-                <Link to="about">About</Link>
-              </li>
-            </ul>
-          </section>
-        </nav>
+        <div className="grid-block shrink wrap">
+          <div className="fullWidth">
+            <div className="menu-group primary">
+              <div className="menu-group left">
+                <ul className="menu-bar primary" data-topbar role="navigation">
+                  <li className="name">
+                    <Link to="home">Coder Girl</Link>
+                  </li>
+                  <li>
+                    <Link to="about">About</Link>
+                  </li>
+                </ul>
+              </div>
+              <div className="menu-group-right">
+              </div>
+            </div>
+          </div>
+        </div>
       );
     }
   }
@@ -123,20 +123,19 @@ var Header = React.createClass({
 var React = require('react/addons');
 var CheckboxWithLabel = React.createClass({
   getInitialState: function() {
-    return { isChecked: false };
+    return {
+      isChecked: false
+    };
   },
   onChange: function() {
-    this.setState({isChecked: !this.state.isChecked});
+    this.setState({
+      isChecked: !this.state.isChecked
+    });
   },
   render: function() {
     return (
       <label>
-        <input
-          type="checkbox"
-          checked={this.state.isChecked}
-          onChange={this.onChange}
-        />
-        {this.state.isChecked ? this.props.labelOn : this.props.labelOff}
+        <input type="checkbox" checked={this.state.isChecked} onChange={this.onChange} /> {this.state.isChecked ? this.props.labelOn : this.props.labelOff}
       </label>
     );
   }

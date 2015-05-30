@@ -20,15 +20,15 @@ var ChallengeInstructions = React.createClass({
     return {
       instructions: '',
       results: []
-    }
+    };
   },
 
-    _onChange: function(){
-      console.log('the instructions change')
+  _onChange: function() {
+    console.log('the instructions change');
     this.setState({
       instructions: ChallengeStore.getChallenge().instructions,
-      results : ChallengeStore.getChallenge().results
-    })
+      results: ChallengeStore.getChallenge().results
+    });
   },
 
   componentDidMount: function() {
@@ -39,19 +39,18 @@ var ChallengeInstructions = React.createClass({
     ChallengeStore.removeChangeListener(this._onChange);
   },
 
-   render: function() {
+  render: function() {
     return (
       <div>
+        <h4>Your Challenge!</h4>
         <p> {this.state.instructions} </p>
-        {
-          this.state.results.map(function(testResult){
-                  return <p> {testResult} </p>
-                })
-        }
+        { this.state.results.map(function(testResult){ return
+        <p> {testResult} </p>
+        }) }
       </div>
     );
   }
 
-})
+});
 
 module.exports = ChallengeInstructions;

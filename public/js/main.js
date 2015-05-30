@@ -26,10 +26,12 @@ var Challenge = require('./components/Challenge');
 var Main = React.createClass({
   render: function() {
     return (
-      <div>
-        <Header/>
-        <div className="main-content">
-          <RouteHandler/>
+      <div className="grid-frame">
+        <div className="vertical grid-block">
+          <Header/>
+          <div className="main-content grid-block">
+            <RouteHandler/>
+          </div>
         </div>
       </div>
     );
@@ -38,23 +40,16 @@ var Main = React.createClass({
 
 var routes = (
 <Route handler={Main} path="/">
-
   <Route name="about" path="/about" handler={About}/>
   <Route name="login" path="/login" handler={Login}/>
   <Route name="signup" path="/signup" handler={Signup}/>
-
   <Route name="home" path="/" handler={Home}>
-
     <Route name="challenge" path="/challenge" handler={Challenge}/>
     <Route name="congrats" path="/congrats" handler={Congrats}/>
-
     <DefaultRoute name="welcome" handler={Welcome}/>
-
   </Route>
-
   <DefaultRoute handler={Home}/>
   <Router.NotFoundRoute handler={Home}/>
-
 </Route>
 );
 
