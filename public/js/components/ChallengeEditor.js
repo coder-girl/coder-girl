@@ -56,7 +56,7 @@ var ChallengeEditor = React.createClass({
 
    render: function() {
     return (
-      <div>
+      <div className="challengeEditor">
         <Editor theme="github" mode="javascript" />
         <button onClick={this.handleSubmit}>Submit</button>
       </div>

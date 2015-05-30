@@ -1,25 +1,33 @@
-﻿html, body {
+@import "foundation";
+
+$aqua: #00e1ce;
+$purple: #46007F;
+$primary: black;
+
+.shorty {
+  height: 50%;
+}
+
+.challengeEditor {
+  width: 100%;
   height: 100%;
 }
 
-.chat-section {
-  position: fixed;
-  bottom: 0;
-  left: 30px;
+#editor {
+  width: 92%;
+  height: 100%;
 }
 
-.testing {
-  display: block;
-  background-color: pink;
+.sidepanel {
+  @include grid-block(3, horizontal, false, right)
 }
 
-.loginInDialog {
-  border: 1px solid #a4baca;
+.login {
+  @include grid-block(12,horizontal, false, center)
 }
 
-.large-6.large-centered.columns.loginInDialog {
-  padding-left: 0px;
-  padding-right: 0px;
+.test {
+  background-color: $aqua;
 }
 
 .leaderboard-container { 
@@ -31,64 +39,22 @@
   width: 80%;
 }
 
-.message-list, .message-submit-textarea {
-  border: 1px solid lightgrey;
-  font-size: 14px;
-  width: 300px;
-  margin: 0;
-  overflow-y: auto;
-  padding: 0;
+.test2 {
+  background-color: $purple;
 }
 
-.message-list {
-  height: 300px;
-}
-
-.message-submit-textarea {
-  height: 40px;
-}
-
-.formContainer {
-  padding: 25px 30px 20px;
-}
-
-.formSignInViaInstagram {
-  display: block;
-  float: left;
-}
-
-#editor {
-  height: 250px;
-  width: 750px;
-  left: 300px;
-  bottom: 0px;
-}
-
-#videos {
+.fullWidth {
   width: 100%;
-  height: 490px;
-  top: 50px;
-  overflow: hidden;
-  z-index: 2;
-  background: rgb(0,0,0);
 }
 
-.video {
-  height: 100%;
-  width: 100%;
-  opacity: 1;
-  display: block;
-}
-
-.login-center {
-  opacity:1;
-  z-index: 10;
-  margin-top: -350px;
-}
 
 .welcome-header {
-  color: white,
+  padding-right: 50px;
+  color: white;
+  line-height: 47px;
 }
 
-
-
+.logOut {
+  padding-right: 10px;
+  padding-top: 8px;
+}
