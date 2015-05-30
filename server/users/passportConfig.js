@@ -1,13 +1,12 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-22 15:50:37
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-12 10:31:00
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-06-13 09:12:29
 */
 
 'use strict';
-
-var config  = require('../config/config.js')
+)
 var LocalStrategy = require('passport-local').Strategy;
 var InstagramStrategy = require('passport-instagram').Strategy;
 var User = require('../models').User;
@@ -47,8 +46,8 @@ module.exports = function(passport) {
   // this configures the local strategy for a user signing up
   passport.use('local-signup', new LocalStrategy(
     // since the user is logging in with email, we have to change the usernameField to match 
-    {usernameField: 'email', passReqToCallback: true},
-    function(req, username, password, done){
+    {usernameField: 'email'},
+    function(username, password, done){
       // searches the database for a user with a matching email field
       User.find( {where: {email: username}}).then(function(user){
         // if the user exists
@@ -57,8 +56,7 @@ module.exports = function(passport) {
           return done(null, false, 'User exists!')
         } else {
           // build the user to be saved into the database
-
-          User.build( {email: username, password: password, country:req.body.country, score: 0})
+          User.build( {email: username, password: password})
             // save the user into the database
             .save()
             .then(function(user){
@@ -76,8 +74,8 @@ module.exports = function(passport) {
   // this configures the strategy for a user signing up/ logging in with Instagram
   passport.use(new InstagramStrategy({
     // the clientID and and clientSecret are obtained by contacting Instagram and obtaining application keys
-    clientID: config.INSTAGRAM_CLIENT_ID,
-    clientSecret: config.INSTAGRAM_CLIENT_SECRET,
+    clientID: process.env.INSTAGRAM_CLIENT_ID
+    clientSecret: process.env.INSTAGRAM_CLIENT_SECRET,
     callbackURL: 'http://localhost:3000/auth/instagram/callback'
   },
   // this function gets called when the user comes back from signing in to instagram
@@ -91,8 +89,7 @@ module.exports = function(passport) {
           // save the user's instagram profile name and id
           instagramName: profile.username, 
           instagramID: profile.id,
-          instagramToken: accessToken,
-          score: 0
+          instagramToken: accessToken
         })
         // save the user into the database
         .save()
