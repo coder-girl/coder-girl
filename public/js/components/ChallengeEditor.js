@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-28 14:44:31
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-29 15:55:52
+* @Last Modified time: 2015-05-30 16:37:49
 */
 
 'use strict';
@@ -21,7 +21,7 @@ var ChallengeEditor = React.createClass({
 
   getInitialState: function() {
     var testCode = AuthStore.getUser().level
-    ChallengeActions.getChallenge(testCode)
+    ChallengeActions.getChallenge(testCode);
     return {
       codeContent: '',
       testCode: testCode
@@ -51,7 +51,7 @@ var ChallengeEditor = React.createClass({
     var editor = ace.edit("editor");
     var userCode = editor.getSession().getValue();
     var testCode = this.state.testCode;
-    ChallengeActions.submitCode(userCode, testCode)
+    ChallengeActions.submitCode(userCode, testCode);
   }, 
 
    render: function() {
