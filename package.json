@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "start": "gulp",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "bash ./post_install.sh"
   },
   "jest": {
     "rootDir": "./public/js/components",
