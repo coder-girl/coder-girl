@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-22 19:30:58
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-03 10:57:59
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-06-13 09:09:17
 */
 
 'use strict';
@@ -54,20 +54,16 @@ var Header = React.createClass({
     AuthStore.removeChangeListener(this._onChange);
   },
 
-
-  handleLogout: function(event) {
+  handleLogout : function(event){
     AuthActions.logout();
     this.transitionTo('/login');
   },
 
-
   render: function() {
-
     var menuRight;
     var correctLink;
 
     if (this.state.username) {
-
       correctLink = "home";
 
       menuRight =  <div className="menu-group-right">
@@ -130,7 +126,5 @@ var CheckboxWithLabel = React.createClass({
   }
 });
 // module.exports = CheckboxWithLabel;
-
-
 
 module.exports = Header;
