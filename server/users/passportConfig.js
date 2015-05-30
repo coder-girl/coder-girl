@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 15:50:37
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-06-13 09:12:45
+* @Last Modified time: 2015-06-13 09:13:05
 */
 
 'use strict';
@@ -73,7 +73,7 @@ module.exports = function(passport) {
   // this configures the strategy for a user signing up/ logging in with Instagram
   passport.use(new InstagramStrategy({
     // the clientID and and clientSecret are obtained by contacting Instagram and obtaining application keys
-    clientID: process.env.INSTAGRAM_CLIENT_ID
+    clientID: process.env.INSTAGRAM_CLIENT_ID,
     clientSecret: process.env.INSTAGRAM_CLIENT_SECRET,
     callbackURL: 'http://localhost:3000/auth/instagram/callback'
   },
