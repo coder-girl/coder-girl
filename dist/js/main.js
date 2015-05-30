@@ -49242,6 +49242,9 @@ var Login = React.createClass({
               React.createElement("label", {htmlFor: "right2-label", className: "right inline"}, " Password"), 
               React.createElement("input", {type: "password", id: "right2-label", className: "user-password", placeholder: "Enter your password", ref: "password"}), 
               React.createElement("a", {className: "formSignInViaInstagram", href: "/auth/instagram"}, "Sign up through Instagram!"), 
+              React.createElement("p", null, 
+                React.createElement(Link, {to: "signup"}, "Sign up for a new Coder Girl account")
+              ), 
               React.createElement("input", {type: "submit", className: "tiny success button right inline", value: "Sumbit"})
             )
           )
