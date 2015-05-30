@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 15:50:37
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-06-13 09:13:05
+* @Last Modified time: 2015-06-13 09:13:22
 */
 
 'use strict';
@@ -75,7 +75,7 @@ module.exports = function(passport) {
     // the clientID and and clientSecret are obtained by contacting Instagram and obtaining application keys
     clientID: process.env.INSTAGRAM_CLIENT_ID,
     clientSecret: process.env.INSTAGRAM_CLIENT_SECRET,
-    callbackURL: 'http://localhost:3000/auth/instagram/callback'
+    callbackURL: 'http://coder-girl.herokuapp.com/auth/instagram/callback'
   },
   // this function gets called when the user comes back from signing in to instagram
   function(accessToken, refreshToken, profile, done){
