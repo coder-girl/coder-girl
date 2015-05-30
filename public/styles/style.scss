@@ -1,7 +1,8 @@
 @import "foundation";
 
 $aqua: #00e1ce;
-$purple: #ff41f9;
+$purple: #46007F;
+$primary: black;
 
 .login {
   @include grid-block(12,horizontal, false, center)
@@ -24,4 +25,18 @@ $purple: #ff41f9;
   background-color: $purple;
 }
 
+.fullWidth {
+  width: 100%;
+}
 
+
+.welcome-header {
+  padding-right: 50px;
+  color: white;
+  line-height: 47px;
+}
+
+.logOut {
+  padding-right: 10px;
+  padding-top: 8px;
+}

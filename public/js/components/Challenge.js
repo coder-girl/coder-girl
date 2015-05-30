@@ -19,7 +19,7 @@ var Challenge = React.createClass({
 
   render: function() {
     return (
-      <div>
+      <div className="grid-block">
         <h4>Challenge</h4>
         <ChallengeInstructions/> 
         <ChallengeEditor/>

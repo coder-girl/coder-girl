@@ -1,7 +1,7 @@
 ﻿var React = require('react');
 var Leaderboard = require('./Leaderboard');
 var ChallengeEditor = require('./ChallengeEditor');
-var ChallengeInstructions = require('./ChallengeInstructions')
+var ChallengeInstructions = require('./ChallengeInstructions');
 var Chat = require('./Chat');
 
 var Router = require('react-router');
@@ -25,10 +25,14 @@ var Home = React.createClass({
     }
 
     return (
-      <div className="home-container">
-        <RouteHandler/> 
-        <Leaderboard/>
-        <Chat/> 
+      <div className="">
+        <RouteHandler/>
+        <div className="grid-block">
+          <Leaderboard/>
+        </div>
+        <div className="grid-block">
+          <Chat/>
+        </div>
       </div>
     );
   }

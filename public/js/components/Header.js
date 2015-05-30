@@ -68,22 +68,28 @@ var Header = React.createClass({
     if (window.localStorage.getItem('io.codergirl')) {
 
       return (
-        <div className="grid-block shrink wrap test">
-          <div className="grid-content">
-            <ul className="menu-bar" data-topbar role="navigation">
-              <li className="name">
-                <h1>
-                  <Link to="home">Coder Girl</Link>
-                </h1>
-              </li>
-              <li>
-                <Link to="about">About</Link>
-              </li>
-              <li className="welcome-header">Get your code on, {this.state.username}</li>
-              <li>
-                <button onClick={this.handleLogout}>Logout</button>
-              </li>
-            </ul>
+        <div className="grid-block shrink wrap">
+          <div className="fullWidth">
+            <div className="menu-group primary">
+              <div className="menu-group left">
+                <ul className="menu-bar primary" data-topbar role="navigation">
+                  <li className="name">
+                    <Link to="home">Coder Girl</Link>
+                  </li>
+                  <li>
+                    <Link to="about">About</Link>
+                  </li>
+                </ul>
+              </div>
+              <div className="menu-group-right">
+                <ul className="menu-bar primary">
+                  <li className="welcome-header">Get your code on, {this.state.username}</li>
+                  <li className="logOut">
+                    <button onClick={this.handleLogout}>Logout</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       );
@@ -91,19 +97,22 @@ var Header = React.createClass({
     } else {
 
       return (
-        <div className="grid-block test">
-          <div className="grid-content">
-            <img zf-iconic="" icon="thumb" size="medium" />
-            <ul className="menu-bar" data-topbar role="navigation">
-              <li className="name">
-                <h1>
-                  <Link to="home">Coder Girl</Link>
-                </h1>
-              </li>
-              <li>
-                <Link to="about">About</Link>
-              </li>
-            </ul>
+        <div className="grid-block shrink wrap">
+          <div className="fullWidth">
+            <div className="menu-group primary">
+              <div className="menu-group left">
+                <ul className="menu-bar primary" data-topbar role="navigation">
+                  <li className="name">
+                    <Link to="home">Coder Girl</Link>
+                  </li>
+                  <li>
+                    <Link to="about">About</Link>
+                  </li>
+                </ul>
+              </div>
+              <div className="menu-group-right">
+              </div>
+            </div>
           </div>
         </div>
       );
