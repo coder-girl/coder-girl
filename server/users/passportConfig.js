@@ -2,11 +2,10 @@
 * @Author: nimi
 * @Date:   2015-05-22 15:50:37
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-06-13 09:12:29
+* @Last Modified time: 2015-06-13 09:12:45
 */
 
 'use strict';
-)
 var LocalStrategy = require('passport-local').Strategy;
 var InstagramStrategy = require('passport-instagram').Strategy;
 var User = require('../models').User;
