@@ -2,7 +2,7 @@
 @import "font-awesome";
 @import url(http://fonts.googleapis.com/css?family=Quicksand|Raleway:400,500|Nunito:400,300);
 
-$aqua: #00e1ce;
+$aqua: #5BC0BA;
 $purple: #8E2BC8;
 $darkPurple: #631E8C;
 $primary: black;
@@ -112,7 +112,12 @@ label {
     background-color: $darkPurple;
   }
 
+  &:focus {
+    background-color: $darkPurple;
+  }
+
 }
+
 .instagramButton {
   width: 100%;
   padding: 2px;
@@ -140,7 +145,18 @@ label {
 }
 
 .signUpLink {
-  display: inline-block;
+  @extend .button;
+  width: 100%;
+  background-color: rgba(0,0,0,0);
+  text-align:center;
+  &.button:hover, :hover {
+    background-color: $aqua;
+    color: white;
+  }
+  &.button:focus,:focus {
+    background-color: $aqua;
+    color:white;
+  }
 }
 
 .instagramIcon {
@@ -163,3 +179,4 @@ label {
     }
   }
 }
+

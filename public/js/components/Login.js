@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-21 16:08:02
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-30 17:31:04
+* @Last Modified time: 2015-05-31 00:13:39
 */
 
 'use strict';
@@ -72,9 +72,7 @@ var Login = React.createClass({
               <input type="email" id="right-label" className="user-email" placeholder="Enter your email" ref="email" />
               <input type="password" id="right2-label" className="user-password" placeholder="Enter your password" ref="password" />
               <input type="submit" className="loginButton button" value="Log in!" align="right" />
-              <p className="signUpLink">
-                <Link to="signup">No account? Join up to get your code on!</Link>
-              </p>
+              <Link to="signup" className="signUpLink">No account? Join up to get your code on!</Link>
             </form>
           </div>
         </div>
