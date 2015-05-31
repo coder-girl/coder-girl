@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-22 19:30:58
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-29 16:01:55
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-05-30 15:15:12
 */
 
 'use strict';
@@ -70,9 +70,9 @@ var Header = React.createClass({
       return (
         <div className="grid-block shrink wrap">
           <div className="fullWidth">
-            <div className="menu-group primary">
+            <div className="menu-group dark">
               <div className="menu-group left">
-                <ul className="menu-bar primary" data-topbar role="navigation">
+                <ul className="menu-bar dark" data-topbar role="navigation">
                   <li className="name">
                     <Link to="home">Coder Girl</Link>
                   </li>
@@ -82,7 +82,7 @@ var Header = React.createClass({
                 </ul>
               </div>
               <div className="menu-group-right">
-                <ul className="menu-bar primary">
+                <ul className="menu-bar dark">
                   <li className="welcome-header">Get your code on, {this.state.username}</li>
                   <li className="logOut">
                     <button onClick={this.handleLogout}>Logout</button>
@@ -99,9 +99,9 @@ var Header = React.createClass({
       return (
         <div className="grid-block shrink wrap">
           <div className="fullWidth">
-            <div className="menu-group primary">
+            <div className="menu-group dark">
               <div className="menu-group left">
-                <ul className="menu-bar primary" data-topbar role="navigation">
+                <ul className="menu-bar dark" data-topbar role="navigation">
                   <li className="name">
                     <Link to="home">Coder Girl</Link>
                   </li>

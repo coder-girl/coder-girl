@@ -1,7 +1,9 @@
 @import "foundation";
+@import "font-awesome";
 
 $aqua: #00e1ce;
-$purple: #46007F;
+$purple: #8E2BC8;
+$darkPurple: #631E8C;
 $primary: black;
 
 .shorty {
@@ -19,16 +21,17 @@ $primary: black;
 }
 
 .sidepanel {
-  @include grid-block(3, horizontal, false, right)
+  @include grid-block(3, horizontal, false, right);
 }
 
 .login {
-  @include grid-block(12,horizontal, false, center)
+  @include grid-block(12,horizontal, false, center);
+  background: url('../asset/LoginImage.jpg') no-repeat right;
+  background-size: contain; 
+  z-index: 2
 }
 
-.test {
-  background-color: $aqua;
-}
+
 
 .leaderboard-container { 
   float: right;
@@ -59,9 +62,6 @@ h6 {
   color: #00e1ce;
 }
 
-.test2 {
-  background-color: $purple;
-}
 
 .fullWidth {
   width: 100%;
@@ -76,4 +76,65 @@ h6 {
 .logOut {
   padding-right: 10px;
   padding-top: 8px;
+}
+
+.formContainer {
+  opacity: 1;
+  z-index: 10;
+  width: 40%;
+  padding: 25px 30px 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-top: 20%;
+    a {
+      color: $primary;
+    }
+}
+
+label {
+  padding-top: 10px;
+  color: $primary;
+}
+
+.button {
+
+  background-color: $purple;
+  background: $purple;
+
+  &:hover {
+    background-color: $darkPurple;
+  }
+
+}
+.instagramButton {
+  width: 100%;
+  padding: 2px;
+
+  a {
+    color: white;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 43px;
+  }
+}
+
+.loginButton {
+  width: 100%;
+}
+
+.loginTextContainer {
+  display: inline-block;
+}
+
+.fa-instagram {
+  color: white;
+  float: left;
+  padding-left: 5px;
+}
+
+.signUpLink {
+  display: inline-block;
+}
+
+.instagramIcon {
+  float: left;
 }

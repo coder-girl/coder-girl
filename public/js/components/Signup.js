@@ -65,7 +65,7 @@ var Signup = React.createClass({
     }
     
     return (
-      <div>
+      <div className="login">
         <form onSubmit={this.handleSignup}>
           <div className="row">
             <div className="large-6 large-centered columns loginInDialog">
