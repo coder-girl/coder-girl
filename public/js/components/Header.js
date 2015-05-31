@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 19:30:58
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-30 15:15:12
+* @Last Modified time: 2015-05-30 23:08:43
 */
 
 'use strict';
@@ -73,7 +73,7 @@ var Header = React.createClass({
             <div className="menu-group dark">
               <div className="menu-group left">
                 <ul className="menu-bar dark" data-topbar role="navigation">
-                  <li className="name">
+                  <li id="name">
                     <Link to="home">Coder Girl</Link>
                   </li>
                   <li>
@@ -102,11 +102,11 @@ var Header = React.createClass({
             <div className="menu-group dark">
               <div className="menu-group left">
                 <ul className="menu-bar dark" data-topbar role="navigation">
-                  <li className="name">
-                    <Link to="home">Coder Girl</Link>
+                  <li>
+                    <Link to="home" id="name"><span>Coder Girl</span></Link>
                   </li>
                   <li>
-                    <Link to="about">About</Link>
+                    <Link to="about"><span>About</span></Link>
                   </li>
                 </ul>
               </div>

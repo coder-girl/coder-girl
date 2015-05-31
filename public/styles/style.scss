@@ -1,10 +1,17 @@
 @import "foundation";
 @import "font-awesome";
+@import url(http://fonts.googleapis.com/css?family=Quicksand|Raleway:400,500|Nunito:400,300);
 
 $aqua: #00e1ce;
 $purple: #8E2BC8;
 $darkPurple: #631E8C;
 $primary: black;
+
+
+body{
+  font-family: 'Raleway', sans-serif;
+}
+
 
 .shorty {
   height: 50%;
@@ -81,7 +88,7 @@ h6 {
 .formContainer {
   opacity: 1;
   z-index: 10;
-  width: 40%;
+  width: 45%;
   padding: 25px 30px 20px;
   background-color: rgba(0, 0, 0, 0.1);
   margin-top: 20%;
@@ -99,6 +106,7 @@ label {
 
   background-color: $purple;
   background: $purple;
+  font-size: large;
 
   &:hover {
     background-color: $darkPurple;
@@ -113,7 +121,7 @@ label {
     color: white;
     display: inline-block;
     vertical-align: middle;
-    line-height: 43px;
+    line-height: 54px;
   }
 }
 
@@ -137,4 +145,21 @@ label {
 
 .instagramIcon {
   float: left;
+}
+
+#name {
+  font-size: 2rem !important;
+}
+
+.menu-bar {
+  font-family: 'Quicksand', sans-serif;
+  li {
+    a{
+      font-size: x-large;
+      span{
+        line-height: 32px;
+        vertical-align: middle;
+      }
+    }
+  }
 }
