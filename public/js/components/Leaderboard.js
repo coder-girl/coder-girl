@@ -67,8 +67,12 @@ var Leaderboard = React.createClass({
     var pictures = this.state.pictures.map(function(p){
       return (
         <li key={p.id}>
-          <img onMouseOver={self.showUser.bind(null, p.instagramUsername)} ref={p.id} src={p.src} title={p.title} />
-          <p>User: {p.username} Score: {p.score}</p>
+          <div className="dark card">
+            <img onMouseOver={self.showUser.bind(null, p.instagramUsername)} ref={p.id} src={p.src} title={p.title} />
+            <div className="card-divider">
+              User: {p.username} Score: {p.score}
+            </div>
+          </div>
         </li>
       )
     });
@@ -80,7 +84,7 @@ var Leaderboard = React.createClass({
     return (
       <div className="leaderboard-container">
         <h4>Leaderboard</h4>
-        <ul className="small-block-grid-2 medium-block-grid-3 large-block-grid-4"> {pictures} </ul>       
+        <ul className="grid-content"> {pictures} </ul>       
       </div>
     );
   }
@@ -89,5 +93,7 @@ var Leaderboard = React.createClass({
 
 
 module.exports = Leaderboard;
+
+
 
 

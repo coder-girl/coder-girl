@@ -79,94 +79,15 @@ getPics: function(topScorers){
     
 
   async.map(topScorers, callforImages, function(err, results){
-    console.log(err)
-    AppDispatcher.handleServerAction({
-      actionType: AppConstants.GET_PICS,
-      data: results
+      console.log(err)
+      AppDispatcher.handleServerAction({
+        actionType: AppConstants.GET_PICS,
+        data: results
+      })
+
+
     })
 
-
-  })
-
-
-
-
-
-    // var pictures = [];
-
-    // for(var i=0; i< topScorers.length; i++){
-    //   if(!topScorers[i].instagramID){
-
-    //   //Handle case where no instagramID
-
-    //     var score = topScorers[i].score;
-    //     var username = topScorers[i].username;
-
-    //     pictures.push({ 
-    //             id: i, 
-    //             src: '../asset/CoderGirl0101.png', 
-    //             title: '',
-    //             score: score,
-    //             username: username
-    //         });
-
-    //     //Send the updated picture array through the dispatcher to the LeaderboardStore
-
-    //     AppDispatcher.handleServerAction({
-    //       actionType: AppConstants.GET_PICS,
-    //       data: pictures
-    //     })
-
-    //   } else {
-
-    //     var topUserInstagramID = topScorers[i].instagramID;
-    //     var url = 'https://api.instagram.com/v1/users/' + topUserInstagramID + '/media/recent/?' + instagramTokenLabel + instagramKey;
-    //     var score = topScorers[i].score;
-    //     var username = topScorers[i].username;
-    //     $.ajax({
-    //       url: url,
-    //       dataType: 'jsonp',
-    //       type: 'GET',
-    //       success: function(result){
-
-    //         if(!result.data){
-    //             console.log("Error message from Instagram:", result.meta.error_message);
-    //             return;
-    //         } else {
-
-    //             console.log("topScorer in ajax", topScorers)
-
-    //             pictures.push({ 
-    //                     instagramUsername: result.data[0].user.username,
-    //                     id: i, 
-    //                     url: result.data[0].link, 
-    //                     src: result.data[0].images.low_resolution.url, 
-    //                     title: result.data[0].caption ? result.data[0].caption.text : '',
-    //                     score: score,
-    //                     username: username
-    //                 });
-
-    //             console.log(pictures)
-
-
-    //             //Send the updated picture array through the dispatcher to the LeaderboardStore
-
-    //             AppDispatcher.handleServerAction({
-    //               actionType: AppConstants.GET_PICS,
-    //               data: pictures
-    //             })
-
-    //           }
-
-    //         },
-    //         error: function(xhr, status, error){
-    //           console.error(xhr, status, error)
-    //         }
-    //       })
-
-    //     } 
-
-    //   }
 
     },
 
