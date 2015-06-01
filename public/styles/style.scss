@@ -1,6 +1,7 @@
 @import "foundation";
 @import "font-awesome";
-@import url(http://fonts.googleapis.com/css?family=Quicksand|Raleway:400,500|Nunito:400,300);
+@import "styles/fonts";
+@import "styles/loginSignup";
 
 $aqua: #5BC0BA;
 $purple: #8E2BC8;
@@ -9,7 +10,7 @@ $primary: black;
 
 
 body{
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway-regular', sans-serif;
 }
 
 
@@ -174,7 +175,7 @@ label {
 }
 
 .menu-bar {
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Quicksand-regular', sans-serif;
   li {
     a{
       font-size: x-large;
