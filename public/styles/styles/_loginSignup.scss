@@ -1,0 +1,82 @@
+@import 'variables';
+
+.login {
+  @include grid-block(12,horizontal, false, center);
+  background: url('../asset/LoginImage.jpg') no-repeat right;
+  background-size: contain; 
+  z-index: 2
+}
+
+.button {
+
+  background-color: $purple;
+  background: $purple;
+  font-size: large;
+
+  &:hover {
+    background-color: $darkPurple;
+  }
+
+  &:focus {
+    background-color: $darkPurple;
+  }
+
+}
+
+.instagramButton {
+  width: 100%;
+  padding: 2px;
+
+  a {
+    color: white;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 54px;
+  }
+}
+
+.loginButton {
+  width: 100%;
+}
+
+.loginTextContainer {
+  display: inline-block;
+}
+
+.fa-instagram {
+  color: white;
+  float: left;
+  padding-left: 5px;
+}
+
+.signUpLink {
+  @extend .button;
+  width: 100%;
+  background-color: rgba(0,0,0,0);
+  text-align:center;
+  color: $primary;
+  &.button:hover, :hover {
+    background-color: $aqua;
+    color: white;
+  }
+  &.button:focus,:focus {
+    background-color: $aqua;
+    color:white;
+  }
+}
+
+.instagramIcon {
+  float: left;
+}
+
+.instagramLogin {
+  @extend .button;
+  width:100%;
+  line-height: 54px;
+  padding: 1;
+  color: white;
+}
+
+#name {
+  font-size: 2rem !important;
+}

@@ -1,0 +1,14 @@
+@import 'variables';
+
+.menu-bar {
+  font-family: 'Quicksand-regular', sans-serif;
+  li {
+    a{
+      font-size: x-large;
+      span{
+        line-height: 32px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
