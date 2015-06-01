@@ -69,16 +69,13 @@ var Signup = React.createClass({
         <div className="grid-content">
           <div className="grid-container">
             <form onSubmit={this.handleSignup} className= "formContainer">
-            <button className='instagramButton button'>
-              <a className="instagramIcon"href="/auth/instagram"><i className="fa fa-instagram fa-3x"></i></a>
-              <a> <span>Log in with Instagram!</span> </a>
-            </button>
-            <input type="email" placeholder="Enter your email" ref="email" />
-            <input type="text" placeholder="Enter your country" ref="country" />
-            <input type="password" placeholder="Enter your password" ref="password" />
-            <input type="password" placeholder="Re-enter your password" ref="passwordConfirm" />
-            <input type="submit" className="loginButton button" value="Let's Get Coding!" />
-              <Link to="login" className="signUpLink">Already have an account? Log in!</Link>
+              <a className="instagramLogin" href= '/auth/instagram'> <i className="fa fa-instagram fa-3x"></i><span>Log in with Instagram!</span> </a>
+              <input type="email" placeholder="Enter your email" ref="email" />
+              <input type="text" placeholder="Enter your country" ref="country" />
+              <input type="password" placeholder="Enter your password" ref="password" />
+              <input type="password" placeholder="Re-enter your password" ref="passwordConfirm" />
+              <input type="submit" className="loginButton button" value="Let's Get Coding!" />
+                <Link to="login" className="signUpLink">Already have an account? Log in!</Link>
             </form>
           </div>
         </div>
