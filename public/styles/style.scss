@@ -34,9 +34,29 @@ $primary: black;
   float: right;
 }
 
+div.chat-section {
+  width: 100%;
+}
+
 .message-section {
   max-height: 40%;
-  width: 80%;
+}
+
+ul.message-list {
+  list-style-type: none;
+}
+
+span.message-date {
+  float: right;
+}
+
+span.message-text {
+  position: relative;
+  left: 5px;
+}
+
+h6 {
+  color: #00e1ce;
 }
 
 .test2 {
@@ -46,7 +66,6 @@ $primary: black;
 .fullWidth {
   width: 100%;
 }
-
 
 .welcome-header {
   padding-right: 50px;
