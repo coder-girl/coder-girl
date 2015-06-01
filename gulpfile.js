@@ -20,14 +20,15 @@ var paths = {
   server: ['appServer/**/*.js'],
   test: ['specs/**/*.js'],
   sass: ['public/styles/style.scss'],
-  foundationSass: ['dist/bower_components/foundation-apps/scss']
+  foundationSass: ['dist/bower_components/foundation-apps/scss'],
+  fontAwesomeSass: ['dist/bower_components/font-awesome/scss']
 };
 
 // convert sass to css and store it in /dist
 gulp.task('sass', function(done) {
   return gulp.src(paths.sass)
     .pipe(sass({
-      includePaths: [paths.foundationSass],
+      includePaths: [paths.foundationSass, paths.fontAwesomeSass],
       sourcemap: true
     }))
     .pipe(rename({
@@ -43,11 +44,10 @@ gulp.task('copy', function() {
     .pipe(gulp.dest('./dist/js/'))
   gulp.src(paths.tests)
     .pipe(gulp.dest('./dist/js/tests'))
-});
-
-gulp.task('copy2', function() {
-  return gulp.src('public/styles/asset/*.mp4')
-    .pipe(gulp.dest('dist/'));
+  gulp.src('public/styles/asset/**')
+    .pipe(gulp.dest('dist/asset'))
+  gulp.src('public/styles/fonts/**')
+    .pipe(gulp.dest('dist/fonts'))
 });
 
 gulp.task('lint', function() {
@@ -58,7 +58,7 @@ gulp.task('lint', function() {
 
 // on every new build, wipe previous build files
 gulp.task('clean', function() {
-  return gulp.src(['dist/js', 'dist/index.html'], {
+  return gulp.src(['dist/js', 'dist/index.html', 'dist/asset'], {
     read: false
   })
     .pipe(clean());
@@ -89,7 +89,7 @@ gulp.task('run', shell.task([
 // ]));
 
 gulp.task('build', function(callback) {
-  runSequence('lint', 'clean', 'compile', 'copy', 'copy2', 'sass', callback);
+  runSequence('lint', 'clean', 'compile', 'copy', 'sass', callback);
 });
 
 gulp.task('default', ['build', 'watch', 'run']);

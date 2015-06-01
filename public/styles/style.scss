@@ -1,8 +1,16 @@
 @import "foundation";
+@import "font-awesome";
 
-$aqua: #00e1ce;
-$purple: #46007F;
-$primary: black;
+@import 'variables';
+@import "styles/fonts";
+@import "styles/loginSignup";
+@import "styles/header";
+
+
+body{
+  font-family: 'Raleway-regular', sans-serif;
+}
+
 
 .shorty {
   height: 50%;
@@ -19,15 +27,7 @@ $primary: black;
 }
 
 .sidepanel {
-  @include grid-block(3, horizontal, false, right)
-}
-
-.login {
-  @include grid-block(12,horizontal, false, center)
-}
-
-.test {
-  background-color: $aqua;
+  @include grid-block(3, horizontal, false, right);
 }
 
 .leaderboard-container { 
@@ -59,10 +59,6 @@ h6 {
   color: #00e1ce;
 }
 
-.test2 {
-  background-color: $purple;
-}
-
 .fullWidth {
   width: 100%;
 }
@@ -77,3 +73,31 @@ h6 {
   padding-right: 10px;
   padding-top: 8px;
 }
+
+.formContainer {
+  opacity: 1;
+  z-index: 10;
+  width: 45%;
+  padding: 25px 30px 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-top: 20%;
+}
+
+label {
+  padding-top: 10px;
+  color: $primary;
+}
+
+.menu-bar {
+  font-family: 'Quicksand-regular', sans-serif;
+  li {
+    a{
+      font-size: x-large;
+      span{
+        line-height: 32px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
