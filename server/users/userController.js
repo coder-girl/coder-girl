@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 15:50:51
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-28 17:53:03
+* @Last Modified time: 2015-05-30 16:43:31
 */
 
 'use strict';
@@ -90,6 +90,18 @@ module.exports = {
       .catch(function(err) {
         res.send(err);
       });
+  },
+
+  updateUser: function(req, res, next) {
+    var name = req.params.name;
+    var score = req.body.score;
+
+    User.find({where:{name:name}})
+      .then(function(user){
+        user.set('score', score);
+        user.set('level', user.get('level') + 1);
+        user.save();
+      })
   },
 
   instagramKey: function(req, res, next){
