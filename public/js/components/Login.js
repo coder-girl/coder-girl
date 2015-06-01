@@ -64,8 +64,9 @@ var Login = React.createClass({
       <div className="grid-block login">
         <div className="grid-content">
           <div className="grid-container">
-            <form onSubmit={this.handleLogin} className="formContainer">
-              <a className="instagramLogin" href= '/auth/instagram'> <i className="fa fa-instagram fa-3x"></i><span>Log in with Instagram!</span> </a>
+            <form onSubmit={this.handleLogin} className="formContainer">            
+              <a className="instagramIcon" href="/auth/instagram"><i className="fa fa-instagram fa-3x"></i></a>
+              <a> <span>Log in with Instagram!</span> </a>          
               <input type="email" id="right-label" className="user-email" placeholder="Enter your email" ref="email" />
               <input type="password" id="right2-label" className="user-password" placeholder="Enter your password" ref="password" />
               <input type="submit" className="loginButton button" value="Log in!" align="right" />

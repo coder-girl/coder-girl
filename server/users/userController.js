@@ -34,7 +34,7 @@ module.exports = {
       if(error){
         return next(error)
       } else if (!user){
-        next (new Error(info));
+        next (new Error(JSON.stringify(info)));
       } else {
         var token = jwt.encode(user.get('name'), 'codingisfun');
         var userInfo = getUserInfo(user);
