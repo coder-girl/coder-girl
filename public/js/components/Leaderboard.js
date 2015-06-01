@@ -67,7 +67,8 @@ var Leaderboard = React.createClass({
     var pictures = this.state.pictures.map(function(p){
       return (
         <li key={p.id}>
-          <img onMouseOver={self.showUser.bind(null, p.user)} ref={p.id} src={p.src} title={p.title} />
+          <img onMouseOver={self.showUser.bind(null, p.instagramUsername)} ref={p.id} src={p.src} title={p.title} />
+          <p>User: {p.username} Score: {p.score}</p>
         </li>
       )
     });

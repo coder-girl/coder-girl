@@ -117,7 +117,10 @@ module.exports = {
   },
 
   leaders: function(req, res, next){
-    //Find top 10 scorers and return Instagram ID's in descending order based on score
+    //Find top 10 scorers and return an array of objects with each object representing a top 10 user in descending order based on score.
+    //Object for user contains the user's instagramUserID, CoderGirlusername, and score.  
+    //If the user does not have an instagramUserID, return undefined.
+
     var leaders = [];
 
     User.findAll({
@@ -127,7 +130,12 @@ module.exports = {
     }).then(function(result){
       if(result){
         for(var i=0; i< result.length; i++){
-          leaders.push(result[i].dataValues.instagramID);
+          var topScorer = {
+            instagramID: result[i].dataValues.instagramID,
+            username: result[i].dataValues.name,
+            score: result[i].dataValues.score
+          }
+          leaders.push(topScorer);
         }
         res.send(leaders);
         } else{
