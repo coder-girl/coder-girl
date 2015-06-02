@@ -18,7 +18,7 @@ getPics: function(topScorers){
 
         var photoInfo = {
           id: item.username, 
-          src: '../asset/CoderGirl0101.png', 
+          src: '../asset/CoderGirl0101aWhitebackground.png', 
           title: '',
           score: item.score,
           username: item.username
@@ -41,7 +41,7 @@ getPics: function(topScorers){
                 console.log("Error message from Instagram:", result.meta.error_message);
                 var photoInfo = {
                   id: item.username, 
-                  src: '../asset/CoderGirl0101.png', 
+                  src: '../asset/CoderGirl0101aWhitebackground.png', 
                   title: '',
                   score: item.score,
                   username: item.username
@@ -68,10 +68,6 @@ getPics: function(topScorers){
               next(error);
             }
           })
-
-
-
-
 
       }
 
