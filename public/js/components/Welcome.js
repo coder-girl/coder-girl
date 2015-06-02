@@ -52,7 +52,7 @@ var Welcome = React.createClass({
         </h1> 
         <div className="welcome-user-level">Level: {this.state.user.level - 1}</div>
         <div className="welcome-user-score">Score: {this.state.user.score} points</div>
-        <Link to="challenge">Continue coding</Link>
+        <Link to="challenge" className="link-to-code">Continue coding</Link>
       </div>
     );
   }
