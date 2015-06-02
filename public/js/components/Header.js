@@ -73,8 +73,11 @@ var Header = React.createClass({
             <div className="menu-group dark">
               <div className="menu-group left">
                 <ul className="menu-bar dark" data-topbar role="navigation">
+                  <li>
+                    <Link to="home"><img className= "logo" src="../asset/icon.png"></img></Link>
+                  </li>
                   <li id="name">
-                    <Link to="home"> <span className="logo">Code</span>Coder Girl</Link>
+                    <Link to="home">Coder Girl</Link>
                   </li>
                   <li>
                     <Link to="about">About</Link>

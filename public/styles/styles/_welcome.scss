@@ -1,0 +1,14 @@
+
+h1 {
+  font-family: 'Quicksand-regular', sans-serif;
+}
+
+a {
+  font-style: bold;
+  color: $purple;
+
+  &:hover {
+    color: $darkPurple;
+  }
+
+}
