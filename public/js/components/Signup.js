@@ -2,13 +2,17 @@
 'use strict';
 
 var React = require('react/addons');
-var AuthActions = require('../actions/AuthActions');
+var Select = require('react-select');
 var Router = require('react-router');
 var Link = Router.Link;
+
+var AuthActions = require('../actions/AuthActions');
 var AuthStore = require('../stores/AuthStore');
+var SelectField = require('./SelectField');
+
+var COUNTRIES = require('../constants/countries');
 
 var Signup = React.createClass({
-
 
   displayName: 'Signup',
   mixins: [Router.State, Router.Navigation],
@@ -27,7 +31,7 @@ var Signup = React.createClass({
     var email = React.findDOMNode(this.refs.email).value.trim();
     var password = React.findDOMNode(this.refs.password).value.trim();
     var passwordConfirm = React.findDOMNode(this.refs.passwordConfirm).value.trim();
-    var country = React.findDOMNode(this.refs.country).value.trim();
+    var country = React.findDOMNode(this.refs.country).children[0].children[0].value.trim();
 
     if(password !== passwordConfirm){
 
@@ -39,24 +43,19 @@ var Signup = React.createClass({
 
   },
 
-
   _onChange : function(){
     this.setState ({
       username: AuthStore.getUser()
     })
   },
 
-
   componentDidMount: function() {
-
     AuthStore.addChangeListener(this._onChange);
-
   },
 
   componentWillUnmount: function() {
     AuthStore.removeChangeListener(this._onChange);
   },
-
 
   render: function() {
 
@@ -71,7 +70,7 @@ var Signup = React.createClass({
             <form onSubmit={this.handleSignup} className= "formContainer">
               <a className="instagramLogin" href= '/auth/instagram'> <i className="fa fa-instagram fa-3x"></i><span>Log in with Instagram!</span> </a>
               <input type="email" placeholder="Enter your email" ref="email" />
-              <input type="text" placeholder="Enter your country" ref="country" />
+              <SelectField id="right-label" placeholder="Enter your country" ref="country" OPTIONS={COUNTRIES} />
               <input type="password" placeholder="Enter your password" ref="password" />
               <input type="password" placeholder="Re-enter your password" ref="passwordConfirm" />
               <input type="submit" className="loginButton button" value="Let's Get Coding!" />
@@ -80,7 +79,7 @@ var Signup = React.createClass({
           </div>
         </div>
       </div>
-      );
+    );
   }
 });
 
