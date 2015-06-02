@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-27 19:54:19
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-29 14:59:08
+* @Last Modified time: 2015-05-30 16:50:51
 */
 
 'use strict';
@@ -40,16 +40,19 @@ var Welcome = React.createClass({
   },
 
   render: function() {
-    // console.log("USER LINE 41: ", user);
+    var greeting = "Welcome";
+    if (this.state.user.level > 1) {
+      greeting += " back";
+    }
 
     return (
       <div className="welcome-container"> 
         <h1 className="welcome-title">
-          Welcome back, <span className="welcome-username">{this.state.user.username}</span>
+          {greeting}, <span className="welcome-username">{this.state.user.username}</span>
         </h1> 
-        <div className="welcome-user-level">Level: {this.state.user.level}</div>
+        <div className="welcome-user-level">Level: {this.state.user.level - 1}</div>
         <div className="welcome-user-score">Score: {this.state.user.score} points</div>
-        <Link to="challenge">Continue coding</Link>
+        <Link to="challenge" className="link-to-code">Continue coding</Link>
       </div>
     );
   }

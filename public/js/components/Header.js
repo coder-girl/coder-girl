@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-22 19:30:58
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-29 16:01:55
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-06-01 13:49:03
 */
 
 'use strict';
@@ -70,10 +70,13 @@ var Header = React.createClass({
       return (
         <div className="grid-block shrink wrap">
           <div className="fullWidth">
-            <div className="menu-group primary">
+            <div className="menu-group dark">
               <div className="menu-group left">
-                <ul className="menu-bar primary" data-topbar role="navigation">
-                  <li className="name">
+                <ul className="menu-bar dark" data-topbar role="navigation">
+                  <li>
+                    <Link to="home"><img className= "logo" src="../asset/icon.png"></img></Link>
+                  </li>
+                  <li id="name">
                     <Link to="home">Coder Girl</Link>
                   </li>
                   <li>
@@ -82,7 +85,7 @@ var Header = React.createClass({
                 </ul>
               </div>
               <div className="menu-group-right">
-                <ul className="menu-bar primary">
+                <ul className="menu-bar dark">
                   <li className="welcome-header">Get your code on, {this.state.username}</li>
                   <li className="logOut">
                     <button onClick={this.handleLogout}>Logout</button>
@@ -99,14 +102,17 @@ var Header = React.createClass({
       return (
         <div className="grid-block shrink wrap">
           <div className="fullWidth">
-            <div className="menu-group primary">
+            <div className="menu-group dark">
               <div className="menu-group left">
-                <ul className="menu-bar primary" data-topbar role="navigation">
-                  <li className="name">
-                    <Link to="home">Coder Girl</Link>
+                <ul className="menu-bar dark" data-topbar role="navigation">
+                <li>
+                  <img className= "logo" src="../asset/icon.png"></img>
+                </li>
+                  <li>
+                    <Link to="home" id="name"> <span>Coder Girl</span></Link>
                   </li>
                   <li>
-                    <Link to="about">About</Link>
+                    <Link to="about"><span>About</span></Link>
                   </li>
                 </ul>
               </div>

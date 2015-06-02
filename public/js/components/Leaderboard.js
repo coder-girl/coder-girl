@@ -64,22 +64,55 @@ var Leaderboard = React.createClass({
       this.transitionTo('/login');
     }
     var self = this;
-    var pictures = this.state.pictures.map(function(p){
+    var evens = this.state.pictures.filter(function(item, index){ return index % 2 === 0});
+    var odds = this.state.pictures.filter(function(item, index){return index %2 !== 0});
+
+
+    var evenPictures = evens.map(function(p){
       return (
-        <li key={p.id}>
-          <img onMouseOver={self.showUser.bind(null, p.user)} ref={p.id} src={p.src} title={p.title} />
+        <li key={p.id} className="card-list-item">
+          <div className="custom-card">
+            <img onMouseOver={self.showUser.bind(null, p.instagramUsername)} ref={p.id} src={p.src} title={p.title} />
+            <div className="custom-card-divider">
+              <div>{p.username}</div>
+              <div>{p.score} Points</div>
+            </div>
+          </div>
         </li>
       )
     });
 
-    if (!pictures.length){
-      pictures = <p>Loading images...</p>;
+
+
+    var oddPictures = odds.map(function(p){
+      return (
+        <li key={p.id}>
+          <div className="custom-card">
+            <img onMouseOver={self.showUser.bind(null, p.instagramUsername)} ref={p.id} src={p.src} title={p.title} />
+            <div className="custom-card-divider">
+              <div>{p.username}</div>
+              <div>{p.score} Points</div>
+            </div>
+          </div>
+        </li>
+      )
+    });
+
+    if (!evenPictures.length){
+      evenPictures = <p>Loading images...</p>;
     }
 
     return (
       <div className="leaderboard-container">
-        <h4>Leaderboard</h4>
-        <ul className="small-block-grid-2 medium-block-grid-3 large-block-grid-4"> {pictures} </ul>       
+        <h4 className="leaderboard-header">Leaderboard</h4>
+        <div className="grid-block">
+          <div classNaem="grid-block">
+            <ul className="grid-content"> {evenPictures} </ul>
+          </div>
+          <div className="grid-block">
+            <ul className="grid-content"> {oddPictures}</ul> 
+          </div> 
+        </div>     
       </div>
     );
   }
@@ -88,5 +121,7 @@ var Leaderboard = React.createClass({
 
 
 module.exports = Leaderboard;
+
+
 
 

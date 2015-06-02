@@ -1,8 +1,22 @@
 @import "foundation";
+@import "font-awesome";
 
-$aqua: #00e1ce;
-$purple: #46007F;
-$primary: black;
+@import 'variables';
+@import "styles/fonts";
+@import "styles/loginSignup";
+@import "styles/header";
+@import "styles/leaderboard";
+@import "styles/welcome";
+
+
+body{
+  font-family: 'Raleway-regular', sans-serif;
+}
+
+
+.Select-input input{
+  width: 500px;
+}
 
 .shorty {
   height: 50%;
@@ -19,34 +33,41 @@ $primary: black;
 }
 
 .sidepanel {
-  @include grid-block(3, horizontal, false, right)
-}
-
-.login {
-  @include grid-block(12,horizontal, false, center)
-}
-
-.test {
-  background-color: $aqua;
+  @include grid-block(3, horizontal, false, right);
 }
 
 .leaderboard-container { 
   float: right;
 }
 
-.message-section {
-  max-height: 40%;
-  width: 80%;
+div.chat-section {
+  width: 100%;
 }
 
-.test2 {
-  background-color: $purple;
+.message-section {
+  max-height: 40%;
+}
+
+ul.message-list {
+  list-style-type: none;
+}
+
+span.message-date {
+  float: right;
+}
+
+span.message-text {
+  position: relative;
+  left: 5px;
+}
+
+h6 {
+  color: #00e1ce;
 }
 
 .fullWidth {
   width: 100%;
 }
-
 
 .welcome-header {
   padding-right: 50px;
@@ -58,3 +79,31 @@ $primary: black;
   padding-right: 10px;
   padding-top: 8px;
 }
+
+.formContainer {
+  opacity: 1;
+  z-index: 10;
+  width: 45%;
+  padding: 25px 30px 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-top: 20%;
+}
+
+label {
+  padding-top: 10px;
+  color: $primary;
+}
+
+.menu-bar {
+  font-family: 'Quicksand-regular', sans-serif;
+  li {
+    a{
+      font-size: x-large;
+      span{
+        line-height: 32px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+

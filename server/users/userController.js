@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 15:50:51
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-28 17:53:03
+* @Last Modified time: 2015-05-30 16:43:31
 */
 
 'use strict';
@@ -34,7 +34,7 @@ module.exports = {
       if(error){
         return next(error)
       } else if (!user){
-        next (new Error(info));
+        next (new Error(JSON.stringify(info)));
       } else {
         var token = jwt.encode(user.get('name'), 'codingisfun');
         var userInfo = getUserInfo(user);
@@ -92,6 +92,18 @@ module.exports = {
       });
   },
 
+  updateUser: function(req, res, next) {
+    var name = req.params.name;
+    var score = req.body.score;
+
+    User.find({where:{name:name}})
+      .then(function(user){
+        user.set('score', score);
+        user.set('level', user.get('level') + 1);
+        user.save();
+      })
+  },
+
   instagramKey: function(req, res, next){
     var username = req.query.name;
     User.find({where: {name: username}})
@@ -105,7 +117,10 @@ module.exports = {
   },
 
   leaders: function(req, res, next){
-    //Find top 10 scorers and return Instagram ID's in descending order based on score
+    //Find top 10 scorers and return an array of objects with each object representing a top 10 user in descending order based on score.
+    //Object for user contains the user's instagramUserID, CoderGirlusername, and score.  
+    //If the user does not have an instagramUserID, return undefined.
+
     var leaders = [];
 
     User.findAll({
@@ -115,7 +130,12 @@ module.exports = {
     }).then(function(result){
       if(result){
         for(var i=0; i< result.length; i++){
-          leaders.push(result[i].dataValues.instagramID);
+          var topScorer = {
+            instagramID: result[i].dataValues.instagramID,
+            username: result[i].dataValues.name,
+            score: result[i].dataValues.score
+          }
+          leaders.push(topScorer);
         }
         res.send(leaders);
         } else{

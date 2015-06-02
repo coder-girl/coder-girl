@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 19:33:52
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-27 17:50:24
+* @Last Modified time: 2015-05-30 17:39:14
 */
 
 'use strict';
@@ -15,11 +15,16 @@ var objectAssign = require('react/lib/Object.assign');
 var CHANGE_EVENT = 'change';
 
 var _messages = {};
+var _lastAuthor = null;
 
 var MessageStore = objectAssign({}, eventEmitter.prototype, {
 
   emitChange: function() {
     this.emit(CHANGE_EVENT);
+  },
+
+  getLastAuthor: function() {
+    return _lastAuthor;
   },
 
   getMessages: function() {
@@ -43,6 +48,7 @@ MessageStore.dispatchToken = AppDispatcher.register(function(payload) {
 
     case ChatConstants.CREATE_MESSAGE:
       _messages[payload.action.data.createdAt] = payload.action.data;
+      _lastAuthor = payload.action.data.username;
       MessageStore.emitChange();
       break;
 

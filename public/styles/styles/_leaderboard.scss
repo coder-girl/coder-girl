@@ -1,0 +1,53 @@
+
+.leaderboard-header {
+  font-family: 'Quicksand-regular', sans-serif;
+  text-align: center;
+
+}
+
+.custom-card {
+  @include card-container(
+  $background: white, 
+  $color: white, 
+  $border: 1px solid #000,
+  $radius: 0px, 
+  $shadow: 0 4px 10px black, 
+  $padding: 0rem,
+  $margin: 1rem 
+  );
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-right: 0;
+}
+
+.custom-card-divider {
+  @include card-divider(
+  $background: black,
+  $padding: 0rem
+  );
+  width: 100%;
+  margin: 0;
+  line-height: 1.2em;
+  font-size: 0.8em;
+  padding-left: 0.5em;
+}
+
+.card-list-item {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+}
+
+ul {
+  padding: 0rem;
+  margin: 0;
+  border: 0;
+}
+
+.grid-content{
+  padding: 0;
+}
+
+

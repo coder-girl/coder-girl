@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-21 16:08:02
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-28 17:38:05
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-06-01 10:54:39
 */
 
 'use strict';
@@ -61,19 +61,15 @@ var Login = React.createClass({
 
     return (
 
-      <div className="grid-block login test2">
+      <div className="grid-block login">
         <div className="grid-content">
           <div className="grid-container">
-            <form onSubmit={this.handleLogin}>
-              <label htmlFor="right-label" className="right inline"> Email</label>
+            <form onSubmit={this.handleLogin} className="formContainer">
+              <a className="instagramLogin" href= '/auth/instagram'> <i className="fa fa-instagram fa-3x"></i><span>Log in with Instagram!</span> </a>
               <input type="email" id="right-label" className="user-email" placeholder="Enter your email" ref="email" />
-              <label htmlFor="right2-label" className="right inline"> Password</label>
               <input type="password" id="right2-label" className="user-password" placeholder="Enter your password" ref="password" />
-              <a className="formSignInViaInstagram" href="/auth/instagram">Sign up through Instagram!</a>
-              <p>
-                <Link to="signup">Sign up for a new Coder Girl account</Link>
-              </p>
-              <input type="submit" className="tiny success button right inline" value="Sumbit" />
+              <input type="submit" className="loginButton button" value="Log in!" align="right" />
+              <Link to="signup" className="signUpLink">No account? Join up to get your code on!</Link>
             </form>
           </div>
         </div>

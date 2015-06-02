@@ -2,13 +2,17 @@
 'use strict';
 
 var React = require('react/addons');
-var AuthActions = require('../actions/AuthActions');
+var Select = require('react-select');
 var Router = require('react-router');
 var Link = Router.Link;
+
+var AuthActions = require('../actions/AuthActions');
 var AuthStore = require('../stores/AuthStore');
+var SelectField = require('./SelectField');
+
+var COUNTRIES = require('../constants/countries');
 
 var Signup = React.createClass({
-
 
   displayName: 'Signup',
   mixins: [Router.State, Router.Navigation],
@@ -27,7 +31,7 @@ var Signup = React.createClass({
     var email = React.findDOMNode(this.refs.email).value.trim();
     var password = React.findDOMNode(this.refs.password).value.trim();
     var passwordConfirm = React.findDOMNode(this.refs.passwordConfirm).value.trim();
-    var country = React.findDOMNode(this.refs.country).value.trim();
+    var country = React.findDOMNode(this.refs.country).children[0].children[0].value.trim();
 
     if(password !== passwordConfirm){
 
@@ -39,24 +43,19 @@ var Signup = React.createClass({
 
   },
 
-
   _onChange : function(){
     this.setState ({
       username: AuthStore.getUser()
     })
   },
 
-
   componentDidMount: function() {
-
     AuthStore.addChangeListener(this._onChange);
-
   },
 
   componentWillUnmount: function() {
     AuthStore.removeChangeListener(this._onChange);
   },
-
 
   render: function() {
 
@@ -65,49 +64,20 @@ var Signup = React.createClass({
     }
     
     return (
-      <div>
-        <form onSubmit={this.handleSignup}>
-          <div className="row">
-            <div className="large-6 large-centered columns loginInDialog">
-            <h5><a className="formSignInViaInstagram" href="/auth/instagram">Sign up through Instagram!</a></h5>
-              <div className="formContainer">
-                <div className="row">
-                  <div className="large-3 columns">
-                    <label htmlFor="right-label" className="right inline"> Email</label>
-                  </div>
-                  <div className="large-9 columns">
-                    <input type="email" id="right-label" className="user-email" placeholder="Enter your email" ref="email" />
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="large-3 columns">
-                    <label htmlFor="right-label" className="right inline">Country</label>
-                  </div>
-                  <div className="large-9 columns">
-                    <input type="text" id="right-label" placeholder="Enter your country" ref="country" />
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="large-3 columns">
-                    <label htmlFor="right2-label" className="right inline"> Password</label>
-                  </div>
-                  <div className="large-9 columns">
-                    <input type="password" id="right2-label" className="user-password" placeholder="Enter your password" ref="password" />
-                  </div>
-                  <div className="large-9 columns">
-                    <input type="password" id="right2-label" className="user-password" placeholder="Enter your password again" ref="passwordConfirm" />
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="large-12 columns">
-                    <input type="submit" className="tiny success button right inline" value="Submit" />
-                  </div>
-                </div>
-                <h6><Link className="formSignInViaInstagram" to="login">Login to existing account.</Link></h6>
-              </div>
-            </div>
+      <div className="grid-block login">
+        <div className="grid-content">
+          <div className="grid-container">
+            <form onSubmit={this.handleSignup} className= "formContainer">
+              <a className="instagramLogin" href= '/auth/instagram'> <i className="fa fa-instagram fa-3x"></i><span>Log in with Instagram!</span> </a>
+              <input type="email" placeholder="Enter your email" ref="email" />
+              <SelectField id="right-label" placeholder="Enter your country" ref="country" OPTIONS={COUNTRIES} />
+              <input type="password" placeholder="Enter your password" ref="password" />
+              <input type="password" placeholder="Re-enter your password" ref="passwordConfirm" />
+              <input type="submit" className="loginButton button" value="Let's Get Coding!" />
+                <Link to="login" className="signUpLink">Already have an account? Log in!</Link>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
     );
   }

@@ -1,0 +1,28 @@
+@import 'variables';
+
+.menu-bar {
+  font-family: 'Quicksand-regular', sans-serif;
+  li {
+    img {
+        width: auto;
+        height: 3rem;
+        margin: 5 0 5 10; 
+    }
+
+    a{
+      font-size: x-large;
+      span{
+        line-height: 32px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+
+button {
+  background-color: $aqua;
+  border: 0;
+  color: white;
+}
+
