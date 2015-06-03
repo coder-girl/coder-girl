@@ -4,9 +4,8 @@
   "license": "Proprietary",
   "private": true,
   "scripts": {
-    "start": "gulp",
-    "test": "jest",
-    "postinstall": "bash ./post_install.sh"
+    "start": "node server/server.js",
+    "test": "./node_modules/jest/bin/jest"
   },
   "jest": {
     "rootDir": "./public/js/components",
@@ -26,6 +25,7 @@
     ]
   },
   "dependencies": {
+    "bower": "^1.4.1",
     "async": "^1.1.0",
     "bcrypt-nodejs": "0.0.3",
     "bluebird": "^2.9.26",
@@ -88,4 +88,8 @@
     "gulp-uglify": "^1.2.0",
     "gulp-webserver": "^0.9.1",
     "reactify": "^1.1.1"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
 }
