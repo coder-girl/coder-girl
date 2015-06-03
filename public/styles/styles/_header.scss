@@ -3,10 +3,12 @@
 .menu-bar {
   font-family: 'Quicksand-regular', sans-serif;
   li {
+    margin: 0;
     img {
         width: auto;
         height: 3rem;
-        margin: 5 0 5 10; 
+        margin: 5 0 5 10;
+        padding: 0; 
     }
 
     a{
@@ -15,7 +17,16 @@
         line-height: 32px;
         vertical-align: middle;
       }
+      & img {
+        padding: 0;
+        margin: 0;
+      }
     }
+  .icon {
+    a {
+      padding: 8px 0 8px 15px;
+    }
+  }
   }
 }
 

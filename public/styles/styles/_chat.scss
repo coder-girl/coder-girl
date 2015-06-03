@@ -1,0 +1,27 @@
+@import 'variables';
+
+
+div.chat-section {
+  padding: 30px 25px 10px 25px;
+  overflow: hidden;
+  background-color: $offBlack;
+  color: white;
+
+  textarea {
+    border: solid 1px lightgrey;
+    background-color: $offBlack;
+    color: white;
+    margin-bottom: 0;
+    resize: none;
+  }
+
+  .message-section {
+    max-height: 25%;
+    overflow: scroll;
+    padding: 10px;
+  }
+
+  .message-list {
+    height: 100%;
+  }
+}
