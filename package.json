@@ -6,8 +6,8 @@
   "scripts": {
     "preinstall": "npm install -g bower",
     "start": "node server/server.js",
-    "test": "jest",
-    "post-install": "bower install"
+    "test": "./node_modules/jest/bin/jest",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "jest": {
     "rootDir": "./public/js/components",
