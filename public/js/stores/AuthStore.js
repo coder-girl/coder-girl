@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-22 11:03:34
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-30 16:38:06
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-06-02 19:26:11
 */
 
 'use strict';
@@ -44,8 +44,7 @@ var AuthStore = objectAssign({}, EventEmitter.prototype, {
   }
 });
 
-AppDispatcher.register(function(payload) {
-  var action = payload.action;
+AppDispatcher.register(function(action) {
 
   switch (action.actionType) {
 

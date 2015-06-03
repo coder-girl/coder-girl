@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-21 16:17:55
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-28 17:53:28
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-06-02 19:22:11
 */
 
 'use strict';
@@ -20,7 +20,7 @@ var authActions = {
       type: 'POST',
       data: user,
       success: function(data){
-        AppDispatcher.handleViewAction({
+        AppDispatcher.dispatch({
           actionType: AppConstants.LOGIN_USER,
           data: data
         })
@@ -39,7 +39,7 @@ var authActions = {
       type: 'POST',
       data: user,
       success: function(data){
-        AppDispatcher.handleViewAction({
+        AppDispatcher.dispatch({
           actionType: AppConstants.SIGNUP_USER,
           data: data
         })
@@ -51,7 +51,7 @@ var authActions = {
   },
 
   logout: function(){
-    AppDispatcher.handleViewAction({
+    AppDispatcher.dispatch({
       actionType: AppConstants.LOGOUT_USER
     })
   },
@@ -63,7 +63,7 @@ var authActions = {
       type: 'GET',
       data: data,
       success: function(user){
-        AppDispatcher.handleViewAction({
+        AppDispatcher.dispatch({
           actionType: AppConstants.INSTAGRAM_SET_CURRENT_USER,
           data: user
         })

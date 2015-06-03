@@ -1,8 +1,8 @@
 /* 
 * @Author: Mark Bennett
 * @Date:   2015-05-25 19:33:52
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-30 17:39:14
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-06-02 19:29:04
 */
 
 'use strict';
@@ -41,20 +41,19 @@ var MessageStore = objectAssign({}, eventEmitter.prototype, {
 
 });
 
-MessageStore.dispatchToken = AppDispatcher.register(function(payload) {
-  var action = payload.action;
-  
+MessageStore.dispatchToken = AppDispatcher.register(function(action) {
+
   switch(action.actionType) {
 
     case ChatConstants.CREATE_MESSAGE:
-      _messages[payload.action.data.createdAt] = payload.action.data;
-      _lastAuthor = payload.action.data.username;
+      _messages[action.data.createdAt] = action.data;
+      _lastAuthor = action.data.username;
       MessageStore.emitChange();
       break;
 
     case ChatConstants.RECEIVE_MESSAGES:
       _messages = {};
-      _messages = payload.action.data;
+      _messages = action.data;
       MessageStore.emitChange();
       break;
 

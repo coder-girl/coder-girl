@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-28 13:13:49
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-30 16:00:31
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-06-02 19:22:31
 */
 
 'use strict';
@@ -21,7 +21,7 @@ var challengeActions = {
       dataType: 'json',
       type: 'GET',
       success: function(challenge){
-        AppDispatcher.handleViewAction({
+        AppDispatcher.dispatch({
           actionType: AppConstants.SET_CHALLENGE,
           data: challenge
         });
@@ -42,12 +42,12 @@ var challengeActions = {
         var pointValue = ChallengeStore.getChallenge().pointValue;
         UserActions.updateUserScoreAndLevel(pointValue);
 
-        AppDispatcher.handleViewAction({
+        AppDispatcher.dispatch({
           actionType: AppConstants.PASS_CHALLENGE,
           data: e.data
         })
       } else {
-        AppDispatcher.handleViewAction({
+        AppDispatcher.dispatch({
           actionType: AppConstants.FAIL_CHALLENGE
         })
       }
