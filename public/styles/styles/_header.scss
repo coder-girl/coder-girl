@@ -11,22 +11,22 @@
         padding: 0; 
     }
 
-    a{
+    a {
       font-size: x-large;
-      span{
-        line-height: 32px;
-        vertical-align: middle;
-      }
       & img {
         padding: 0;
         margin: 0;
       }
     }
-  .icon {
+  }
+  #icon {
     a {
-      padding: 8px 0 8px 15px;
+      padding: 5px;
     }
   }
+  .logOut {
+    padding-right: 10px;
+    padding-top: 8px;
   }
 }
 

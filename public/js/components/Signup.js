@@ -30,7 +30,7 @@ var Signup = React.createClass({
     var email = React.findDOMNode(this.refs.email).value.trim();
     var password = React.findDOMNode(this.refs.password).value.trim();
     var passwordConfirm = React.findDOMNode(this.refs.passwordConfirm).value.trim();
-    var country = React.findDOMNode(this.refs.country).children[0].children[0].value.trim();
+    var country = React.findDOMNode(this.refs.country).value.trim();
 
     if(password !== passwordConfirm){
 
