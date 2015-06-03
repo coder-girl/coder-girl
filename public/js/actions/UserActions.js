@@ -1,8 +1,8 @@
 /* 
 * @Author: Mark Bennett
 * @Date:   2015-05-30 15:38:30
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-01 10:45:11
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-06-02 19:23:08
 */
 
 'use strict';
@@ -21,7 +21,7 @@ var userActions = {
     user.score += pointValue;
     var score = user.score;
 
-    AppDispatcher.handleViewAction({
+    AppDispatcher.dispatch({
       actionType: AppConstants.UPDATE_USER,
       data: user
     });

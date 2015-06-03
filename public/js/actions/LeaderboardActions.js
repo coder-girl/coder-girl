@@ -76,7 +76,7 @@ getPics: function(topScorers){
 
   async.map(topScorers, callforImages, function(err, results){
       console.log(err)
-      AppDispatcher.handleServerAction({
+      AppDispatcher.dispatch({
         actionType: AppConstants.GET_PICS,
         data: results
       })
