@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "start": "node server/server.js",
-    "test": "./node_modules/jest/bin/jest"
+    "test": "jest"
   },
   "jest": {
     "rootDir": "./public/js/components",
