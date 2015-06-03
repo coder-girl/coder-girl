@@ -4,8 +4,10 @@
   "license": "Proprietary",
   "private": true,
   "scripts": {
+    "preinstall": "npm install -g bower",
     "start": "node server/server.js",
-    "test": "jest"
+    "test": "jest",
+    "post-install": "bower install"
   },
   "jest": {
     "rootDir": "./public/js/components",
