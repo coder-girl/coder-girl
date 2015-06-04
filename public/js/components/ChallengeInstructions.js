@@ -1,8 +1,13 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-28 14:44:31
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-06-04 18:06:03
+<<<<<<< HEAD
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-06-05 10:32:35
+=======
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-06-03 18:37:54
+>>>>>>> (feat) Update challenge model to include challenge hints
 */
 
 'use strict';
@@ -19,17 +24,35 @@ var ChallengeInstructions = React.createClass({
   getInitialState: function() {
     return {
       instructions: '',
-      results: []
+      results: [],
+      level: null,
+      hint1: "",
+      hint2: "",
+      hintsShown: 0
     };
   },
 
   _onChange: function() {
-    console.log('the instructions change');
+    var challenge = ChallengeStore.getChallenge();
     this.setState({
-      instructions: ChallengeStore.getChallenge().instructions,
-      results: ChallengeStore.getChallenge().results
+      instructions: challenge.instructions,
+      results: challenge.results,
+      challengeNumber: challenge.testCode,
+      hint1: challenge.hint1,
+      hint2: challenge.hint2
     });
     console.log('results', this.state.results)
+  },
+
+  showHint: function() {
+    var hint;
+    if (!this.state.hintsShown) {
+      hint = this.state.hint1;
+    } else {
+      hint = this.state.hint2;
+    }
+    this.state.hintShown++;
+
   },
 
   componentDidMount: function() {
@@ -47,9 +70,10 @@ var ChallengeInstructions = React.createClass({
 
     return (
       <div>
-        <h4 className="marginPullTop5">Your Challenge!</h4>
+        <h4 className="marginPullTop5">Challenge {this.state.challengeNumber}: </h4>
         <p> {this.state.instructions} </p>
         {testResults}
+        <button onClick={showHint}>Show hint</button>
       </div>
     );
   }

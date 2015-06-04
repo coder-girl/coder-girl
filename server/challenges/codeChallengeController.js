@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-25 11:12:43
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-06-01 12:31:49
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-06-03 18:10:16
 */
 
 'use strict';
@@ -23,24 +23,19 @@ module.exports = {
     var challenge = req.body;
 
     if(!challenge.hasOwnProperty('title')){
-
       next(new Error('Challenges must have a title'));
-
     } else if (!challenge.hasOwnProperty('content')){
-
       next(new Error('Challenges must have content'));
-
     } else if (!challenge.hasOwnProperty('instructions')){
-
       next(new Error('Challenges must have instructions'));
-
     } else if(!challenge.hasOwnProperty('testCode')){
-
       next(new Error('Challenges must have a testCode'));
-
     } else if(!challenge.hasOwnProperty('pointValue')) {
-
       next(new Error('Challenges must have point value'));
+    } else if(!challenge.hasOwnProperty('hint1')) {
+      next(new Error('Challenges must have a hint1 value'));
+    } else if(!challenge.hasOwnProperty('pointValue')) {
+      next(new Error('Challenges must have a hint2 value'));
     }
 
     Challenge.findOrCreate({ 
@@ -49,7 +44,9 @@ module.exports = {
         content: req.body.content,
         instructions: req.body.instructions,
         testCode: req.body.testCode,
-        pointValue: req.body.pointValue
+        pointValue: req.body.pointValue,
+        hint1: req.body.hint1,
+        hint2: req.body.hint2
     }})
     .then(function(challenge){
       res.sendStatus(200)
