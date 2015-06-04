@@ -30,8 +30,7 @@ var LeaderboardStore = objectAssign({}, EventEmitter.prototype, {
 
 })
 
-AppDispatcher.register(function(payload){
-  var action = payload.action;
+AppDispatcher.register(function(action){
   switch(action.actionType){
     case AppConstants.GET_PICS:
       updatePictureArray(action.data);

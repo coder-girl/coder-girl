@@ -1,8 +1,8 @@
 /* 
 * @Author: Mark Bennett
 * @Date:   2015-05-25 20:27:34
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-28 15:27:15
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-06-02 19:21:27
 */
 
 'use strict';
@@ -14,7 +14,7 @@ var AuthStore = require('../stores/AuthStore');
 var socket = io.connect();
 
 socket.on('new message', function(data) {
-  AppDispatcher.handleViewAction({
+  AppDispatcher.dispatch({
     actionType: ChatConstants.CREATE_MESSAGE,
     data: data
   });
@@ -41,7 +41,7 @@ var MessageActions = {
       dataType: 'json',
       type: 'GET',
       success: function(data){
-        AppDispatcher.handleViewAction({
+        AppDispatcher.dispatch({
           actionType: ChatConstants.RECEIVE_MESSAGES,
           data: data
         });

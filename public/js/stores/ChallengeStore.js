@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-28 15:28:17
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-29 15:57:21
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-06-02 19:26:00
 */
 
 'use strict';
@@ -57,9 +57,7 @@ var challengeStore = objectAssign({}, EventEmitter.prototype, {
 
 });
 
-AppDispatcher.register(function(payload){
-  var action = payload.action;
-
+AppDispatcher.register(function(action){
   switch (action.actionType){
 
     case AppConstants.SET_CHALLENGE:

@@ -14,15 +14,16 @@ getPics: function(topScorers){
 
   var callforImages= function(item, next){
 
-      if(!item.instagramID){
+    var photoInfo = {
+      id: item.username, 
+      src: '../asset/CoderGirl0101aWhiteBackground.png', 
+      title: '',
+      score: item.score,
+      username: item.username
+    }
 
-        var photoInfo = {
-          id: item.username, 
-          src: '../asset/CoderGirl0101aWhitebackground.png', 
-          title: '',
-          score: item.score,
-          username: item.username
-        }
+
+      if(!item.instagramID){
 
         next(null, photoInfo);
 
@@ -39,13 +40,6 @@ getPics: function(topScorers){
 
             if(!result.data){
                 console.log("Error message from Instagram:", result.meta.error_message);
-                var photoInfo = {
-                  id: item.username, 
-                  src: '../asset/CoderGirl0101aWhitebackground.png', 
-                  title: '',
-                  score: item.score,
-                  username: item.username
-                }
                 next(null, photoInfo);
             } else {
 
@@ -76,7 +70,7 @@ getPics: function(topScorers){
 
   async.map(topScorers, callforImages, function(err, results){
       console.log(err)
-      AppDispatcher.handleServerAction({
+      AppDispatcher.dispatch({
         actionType: AppConstants.GET_PICS,
         data: results
       })

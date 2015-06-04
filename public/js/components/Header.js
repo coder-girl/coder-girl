@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-22 19:30:58
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-06-01 13:49:03
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-06-03 10:57:59
 */
 
 'use strict';
@@ -26,7 +26,6 @@ var Header = React.createClass({
   },
 
   getInitialState: function() {
-    // and emit a change for this view component to update the username 
 
     if (this.getParameterByName('name')) {
       var username = this.getParameterByName('name');
@@ -64,8 +63,21 @@ var Header = React.createClass({
 
   render: function() {
 
+    var menuRight;
 
-    if (window.localStorage.getItem('io.codergirl')) {
+    if (this.state.username) {
+
+      menuRight =  <div className="menu-group-right">
+                    <ul className="menu-bar dark">
+                      <li className="welcome-header">Get your code on, {this.state.username}</li>
+                      <li className="logOut">
+                        <button onClick={this.handleLogout}>Logout</button>
+                      </li>
+                    </ul>
+                  </div>
+      } else {
+        menuRight = <div></div>
+      }
 
       return (
         <div className="grid-block shrink wrap">
@@ -73,56 +85,23 @@ var Header = React.createClass({
             <div className="menu-group dark">
               <div className="menu-group left">
                 <ul className="menu-bar dark" data-topbar role="navigation">
-                  <li>
-                    <Link to="home"><img className= "logo" src="../asset/icon.png"></img></Link>
+                  <li id="icon">
+                    <Link to="login"><img className= "logo" src="../asset/CoderGirl-WhiteBackground.png"></img></Link>
                   </li>
                   <li id="name">
-                    <Link to="home">Coder Girl</Link>
+                    <Link to="home"> <span>Coder Girl</span></Link>
                   </li>
                   <li>
                     <Link to="about">About</Link>
                   </li>
                 </ul>
               </div>
-              <div className="menu-group-right">
-                <ul className="menu-bar dark">
-                  <li className="welcome-header">Get your code on, {this.state.username}</li>
-                  <li className="logOut">
-                    <button onClick={this.handleLogout}>Logout</button>
-                  </li>
-                </ul>
-              </div>
+              {menuRight}
             </div>
           </div>
         </div>
       );
 
-    } else {
-
-      return (
-        <div className="grid-block shrink wrap">
-          <div className="fullWidth">
-            <div className="menu-group dark">
-              <div className="menu-group left">
-                <ul className="menu-bar dark" data-topbar role="navigation">
-                <li>
-                  <img className= "logo" src="../asset/icon.png"></img>
-                </li>
-                  <li>
-                    <Link to="home" id="name"> <span>Coder Girl</span></Link>
-                  </li>
-                  <li>
-                    <Link to="about"><span>About</span></Link>
-                  </li>
-                </ul>
-              </div>
-              <div className="menu-group-right">
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
   }
 });
 
