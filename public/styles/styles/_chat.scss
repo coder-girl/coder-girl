@@ -12,6 +12,8 @@ div.chat-section {
   textarea {
     border: solid 1px lightgrey;
     background-color: $offBlack;
+    position: relative;
+    top: 4px;
     color: white;
     margin-bottom: 0;
     resize: none;
@@ -23,13 +25,14 @@ div.chat-section {
 
   .message-section {
     max-height: 25%;
-    overflow: scroll;
     padding: 5px 10px;
+
+    .message-list {
+      max-height: inherit;
+      overflow-y: auto;
+    }
   }
 
-  .message-list {
-    max-height: 100%;
-  }
 
   span {
     message-date {
