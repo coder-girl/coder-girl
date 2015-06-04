@@ -63,9 +63,8 @@ var Signup = React.createClass({
   render: function() {
 
     var countryOptions = COUNTRIES.map(function(country) {
-      return (<option value="country.value">{country.label}</option>)
-    }) 
-
+      return (<option value={country.value}> {country.label} </option>)
+    });
     
     return (
       <div className="grid-block login">
