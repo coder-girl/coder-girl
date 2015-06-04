@@ -70,10 +70,33 @@ var authActions = {
       },
       error: function(xhr, status, error){
         throw(error);
-      }.bind(this) //NOTE: we may need a .bind(this) here-ish
+      }.bind(this) 
 
     })
-  }
+  },
+
+
+  isAuth: function(tokenObject) {
+    $.ajax({
+      url: 'api/users/signedin',
+      type: 'GET',
+      headers: {
+        'x-access-token': tokenObject
+      },
+      success: function(data) {
+        AppDispatcher.dispatch({
+          actionType: AppConstants.VERIFY_SIGNIN,
+          data: data
+        });
+      },
+      error: function(xhr, status, error) {
+        console.error(xhr, status, error);
+        AppDispatcher.dispatch({
+          actionType: AppConstants.REDIRECT_USER
+        });
+      }.bind(this)
+    });
+  },
 };
 
 module.exports = authActions;

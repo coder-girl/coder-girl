@@ -26,7 +26,6 @@ var Header = React.createClass({
   },
 
   getInitialState: function() {
-    // and emit a change for this view component to update the username 
 
     if (this.getParameterByName('name')) {
       var username = this.getParameterByName('name');
@@ -64,40 +63,21 @@ var Header = React.createClass({
 
   render: function() {
 
+    var menuRight;
 
-    if (window.localStorage.getItem('io.codergirl')) {
+    if (this.state.username) {
 
-      return (
-        <div className="grid-block shrink wrap">
-          <div className="fullWidth">
-            <div className="menu-group dark">
-              <div className="menu-group left">
-                <ul className="menu-bar dark" data-topbar role="navigation">
-                  <li id="icon">
-                    <Link to="home"><img className= "logo" src="../asset/CoderGirl-WhiteBackground.png"></img></Link>
-                  </li>
-                  <li id="name">
-                    <Link to="home">Coder Girl</Link>
-                  </li>
-                  <li>
-                    <Link to="about">About</Link>
-                  </li>
-                </ul>
-              </div>
-              <div className="menu-group-right">
-                <ul className="menu-bar dark">
-                  <li className="welcome-header">Get your code on, {this.state.username}</li>
-                  <li className="logOut">
-                    <button onClick={this.handleLogout}>Logout</button>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-
-    } else {
+      menuRight =  <div className="menu-group-right">
+                    <ul className="menu-bar dark">
+                      <li className="welcome-header">Get your code on, {this.state.username}</li>
+                      <li className="logOut">
+                        <button onClick={this.handleLogout}>Logout</button>
+                      </li>
+                    </ul>
+                  </div>
+      } else {
+        menuRight = <div></div>
+      }
 
       return (
         <div className="grid-block shrink wrap">
@@ -112,17 +92,16 @@ var Header = React.createClass({
                     <Link to="home"> <span>Coder Girl</span></Link>
                   </li>
                   <li>
-                    <Link to="about"><span>About</span></Link>
+                    <Link to="about">About</Link>
                   </li>
                 </ul>
               </div>
-              <div className="menu-group-right">
-              </div>
+              {menuRight}
             </div>
           </div>
         </div>
       );
-    }
+
   }
 });
 
