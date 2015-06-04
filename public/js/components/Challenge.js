@@ -20,10 +20,10 @@ var Challenge = React.createClass({
   render: function() {
     return (
       <div className="horizontal grid-block">
-        <div className="medium-6 grid-block">
+        <div className="medium-6 grid-block marginTop10 marginLeft10">
           <ChallengeInstructions/>
         </div>
-        <div className="medium-6 grid-block">
+        <div className="medium-6 grid-block marginTop10">
           <ChallengeEditor/>
         </div>
       </div>
