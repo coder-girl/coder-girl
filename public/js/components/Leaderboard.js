@@ -60,9 +60,6 @@ var Leaderboard = React.createClass({
 
   render: function() {
 
-    if (!window.localStorage.getItem('io.codergirl')) {
-      this.transitionTo('/login');
-    }
     var self = this;
     var evens = this.state.pictures.filter(function(item, index){ return index % 2 === 0});
     var odds = this.state.pictures.filter(function(item, index){return index %2 !== 0});

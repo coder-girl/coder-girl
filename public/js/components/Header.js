@@ -75,7 +75,6 @@ var Header = React.createClass({
                       </li>
                     </ul>
                   </div>
-
       } else {
         menuRight = <div></div>
       }

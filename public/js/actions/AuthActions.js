@@ -84,14 +84,14 @@ var authActions = {
         'x-access-token': tokenObject
       },
       success: function(data) {
-        AppDispatcher.handleServerAction({
+        AppDispatcher.dispatch({
           actionType: AppConstants.VERIFY_SIGNIN,
           data: data
         });
       },
       error: function(xhr, status, error) {
         console.error(xhr, status, error);
-        AppDispatcher.handleServerAction({
+        AppDispatcher.dispatch({
           actionType: AppConstants.REDIRECT_USER
         });
       }.bind(this)
