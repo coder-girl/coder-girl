@@ -16,7 +16,7 @@ getPics: function(topScorers){
 
     var photoInfo = {
       id: item.username, 
-      src: '../asset/CoderGirl0101aWhiteBackground.png', 
+      src: '../asset/CoderGirl-WhiteBackground.png', 
       title: '',
       score: item.score,
       username: item.username
