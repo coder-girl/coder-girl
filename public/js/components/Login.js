@@ -23,9 +23,6 @@ var Login = React.createClass({
     AuthActions.isAuth(window.localStorage.getItem('io.codergirl'));
 
     return {
-      email: '',
-      password: '',
-      username: null,
       user: null
     };
   },
