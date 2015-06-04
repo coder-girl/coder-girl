@@ -44,9 +44,13 @@ var Signup = React.createClass({
 
   _onChange : function(){
     this.setState ({
-      username: AuthStore.getUser()
-    })
+      user: AuthStore.getUser()
+    });
+    if(this.state.user.isAuth){
+      this.transitionTo('/home');
+    }
   },
+
 
   componentDidMount: function() {
     AuthStore.addChangeListener(this._onChange);
@@ -57,12 +61,11 @@ var Signup = React.createClass({
   },
 
   render: function() {
-    if(window.localStorage.getItem('io.codergirl')) {
-      this.transitionTo('/');
-    }
+
     var countryOptions = COUNTRIES.map(function(country) {
       return (<option value="country.value">{country.label}</option>)
     }) 
+
     
     return (
       <div className="grid-block login">
