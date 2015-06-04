@@ -1,0 +1,49 @@
+@import 'variables';
+
+
+div.chat-section {
+  width: 100%;
+  margin: 0 10px 10px 10px;
+  padding: 20px 20px 10px 20px;
+  overflow: hidden;
+  background-color: $offBlack;
+  color: white;
+
+  textarea {
+    border: solid 1px lightgrey;
+    background-color: $offBlack;
+    position: relative;
+    top: 4px;
+    color: white;
+    margin-bottom: 0;
+    resize: none;
+  }
+  
+  ul.message-list {
+    list-style-type: none;
+  }
+
+  .message-section {
+    max-height: 25%;
+    padding: 5px 10px;
+
+    .message-list {
+      max-height: inherit;
+      overflow-y: auto;
+    }
+  }
+
+
+  span {
+    message-date {
+      float: right;
+    }
+  }
+
+  span {
+    message-text {
+      position: relative;
+      left: 5px;
+    }
+  }
+}

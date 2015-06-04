@@ -2,12 +2,13 @@
 * @Author: Mark Bennett
 * @Date:   2015-06-01 11:49:48
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-01 12:31:49
+* @Last Modified time: 2015-06-03 15:00:59
 */
 
 'use strict';
 
 module.exports = [ 
+  {label: 'United States', value: 'US'}, 
   {label: 'Afghanistan', value: 'AF'}, 
   {label: 'Åland Islands', value: 'AX'}, 
   {label: 'Albania', value: 'AL'}, 
@@ -237,7 +238,6 @@ module.exports = [
   {label: 'Ukraine', value: 'UA'}, 
   {label: 'United Arab Emirates', value: 'AE'}, 
   {label: 'United Kingdom', value: 'GB'}, 
-  {label: 'United States', value: 'US'}, 
   {label: 'United States Minor Outlying Islands', value: 'UM'}, 
   {label: 'Uruguay', value: 'UY'}, 
   {label: 'Uzbekistan', value: 'UZ'}, 
