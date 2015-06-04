@@ -19,6 +19,7 @@ var _authStore = {
 
 var setCurrentUser = function(data){
   _authStore.currentUser = data;
+  _authStore.currentUser.isAuth = true;
   var userToken = JSON.stringify(data.token);
   window.localStorage.setItem('io.codergirl', userToken);
 };
@@ -27,6 +28,10 @@ var clearCurrentUser = function() {
   _authStore.currentUser = null;
   window.localStorage.removeItem('io.codergirl');
   window.location = '/';
+};
+
+var invalidateUser = function(){
+  _authStore.currentUser.isAuth = false;
 };
 
 var AuthStore = objectAssign({}, EventEmitter.prototype, {
@@ -71,6 +76,16 @@ AppDispatcher.register(function(action) {
     case AppConstants.UPDATE_USER:
       setCurrentUser(action.data);
       AuthStore.emitChange();
+      break;
+
+    case AppConstants.VERIFY_SIGNIN:
+      setCurrentUser(action.data)
+      AuthStore.emitChange(); 
+      break;
+
+    case AppConstants.REDIRECT_USER:
+      invalidateUser();
+      AuthStore.emitChange(); 
       break;
 
     default:

@@ -43,12 +43,12 @@ var routes = (
   <Route name="about" path="/about" handler={About}/>
   <Route name="login" path="/login" handler={Login}/>
   <Route name="signup" path="/signup" handler={Signup}/>
-  <Route name="home" path="/" handler={Home}>
+  <Route name="home" path="/home" handler={Home}>
     <Route name="challenge" path="/challenge" handler={Challenge}/>
     <Route name="congrats" path="/congrats" handler={Congrats}/>
     <DefaultRoute name="welcome" handler={Welcome}/>
   </Route>
-  <DefaultRoute handler={Home}/>
+  <DefaultRoute handler={Login}/>
   <Router.NotFoundRoute handler={Home}/>
 </Route>
 );

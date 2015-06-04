@@ -20,10 +20,13 @@ var Login = React.createClass({
   mixins: [Router.State, Router.Navigation],
 
   getInitialState: function() {
+    AuthActions.isAuth(window.localStorage.getItem('io.codergirl'));
+
     return {
       email: '',
       password: '',
-      username: null
+      username: null,
+      user: null
     };
   },
 
@@ -37,8 +40,11 @@ var Login = React.createClass({
 
   _onChange: function() {
     this.setState ({
-      username: AuthStore.getUser()
+      user: AuthStore.getUser()
     });
+    if(this.state.user.isAuth){
+      this.transitionTo('/home');
+    }
   },
 
 
@@ -48,6 +54,7 @@ var Login = React.createClass({
 
   },
 
+
   componentWillUnmount: function() {
     AuthStore.removeChangeListener(this._onChange);
   },
@@ -55,9 +62,7 @@ var Login = React.createClass({
 
   render: function() {
 
-    if (window.localStorage.getItem('io.codergirl')) {
-      this.transitionTo('/');
-    }
+
 
     return (
 

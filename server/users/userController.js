@@ -92,6 +92,37 @@ module.exports = {
       });
   },
 
+  checkAuth: function(req, res, next) {
+    var token = req.headers['x-access-token'];
+    if (!token) {
+      next(new Error('No token'));
+    } else {
+
+      var parsedToken = JSON.parse(token);
+      console.log("parsed:", parsedToken);
+      var user = jwt.decode(parsedToken, 'codingisfun');
+      console.log("user:", user);
+      User.find({
+        where: {
+          name: user
+        }
+      })
+        .then(function(foundUser) {
+          if (foundUser) {
+            var userInfo = getUserInfo(foundUser);
+            userInfo.token = JSON.parse(token);
+            console.log("userInfo for found user", userInfo);
+            res.send(userInfo);
+          } else {
+            res.status(401);
+          }
+        })
+        .error(function(error) {
+          next(error);
+        });
+    }
+  },
+
   updateUser: function(req, res, next) {
     var name = req.params.name;
     var score = req.body.score;

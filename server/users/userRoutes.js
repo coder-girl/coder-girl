@@ -19,7 +19,7 @@
 
   app.put('/:name', userController.updateUser);
   
- // app.get('/signedin', userController.checkAuth);
+  app.get('/signedin', userController.checkAuth);
   app.get('/user', userController.getUser);
   app.get('/instagram', userController.instagramLogin);
   app.get('/instagram/callback', userController.instagramCallback);

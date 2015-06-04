@@ -49,6 +49,7 @@
     "pg": "^4.3.0",
     "pg-hstore": "^2.3.2",
     "react": "^0.13.3",
+    "react-cookie": "^0.2.2",
     "react-emoji": "^0.3.2",
     "react-foundation-apps": "^0.6.1",
     "react-router": "^0.13.3",
