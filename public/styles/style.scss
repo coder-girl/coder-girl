@@ -24,8 +24,8 @@ body{
 }
 
 #editor {
-  width: 92%;
-  height: 100%;
+  width: 98%;
+  height: 92%;
 }
 
 .sidepanel {
@@ -102,4 +102,44 @@ label {
     }
   }
 }
+
+.marginTop10 {
+ margin-top: 10px;
+}
+
+.marginLeft10 {
+  margin-left: 10px;
+}
+
+.marginPullTop5 {
+  margin-top: -5px
+}
+
+.bottom-bar  {
+  background-color: #1a2125;
+  border-top: 1px solid #0b0e10;
+  box-sizing: border-box;
+  height: 50px;
+  width:98%; 
+}
+
+.action-bar-inner {
+  height: 100%;
+  width: 100%;
+  padding: 5px 7px;
+}
+
+.button-horizontal {
+  float: right;
+}
+
+.ui-button {
+  cursor: pointer;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  font-weight: bold !important; 
+  height: 38px !important;
+  padding: 0 .9em !important;
+}
+
 

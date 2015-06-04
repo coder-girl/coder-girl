@@ -42,7 +42,7 @@ var ChallengeInstructions = React.createClass({
   render: function() {
     return (
       <div>
-        <h4>Your Challenge!</h4>
+        <h4 className="marginPullTop5">Your Challenge!</h4>
         <p> {this.state.instructions} </p>
         { this.state.results.map(function(testResult){ return
         <p> {testResult} </p>

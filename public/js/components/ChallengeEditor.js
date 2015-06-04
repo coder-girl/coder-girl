@@ -58,7 +58,11 @@ var ChallengeEditor = React.createClass({
     return (
       <div className="challengeEditor">
         <Editor theme="github" mode="javascript" />
-        <button onClick={this.handleSubmit}>Submit</button>
+        <div className="bottom-bar">
+          <div className="action-bar-inner">
+        <button className="button-horizontal ui-button" onClick={this.handleSubmit}>Submit</button>
+      </div>
+      </div>
       </div>
     );
   }
