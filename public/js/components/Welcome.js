@@ -1,8 +1,9 @@
 /* 
+<<<<<<< HEAD
  * @Author: Mark Bennett
  * @Date:   2015-05-27 19:54:19
  * @Last Modified by:   nimi
- * @Last Modified time: 2015-06-05 12:35:41
+ * @Last Modified time: 2015-06-06 16:58:29
  */
 
 'use strict';
@@ -33,41 +34,44 @@ var Welcome = React.createClass({
     var canvas = document.getElementById('welcomeBoard');
     var width = canvas.offsetWidth;
     // points will be equally distributed across x-axis
-    var x = width / 5;
+    var distance = width/5;
 
     // create the points for the path
-    var pointsCreator = function(distancebetweenPoints, numberofPoints) {
-      var results = [];
+    var pointsCreator = function(distanceBetweenPoints, numberofPoints){
+      var results = []
       var direction = 1;
-      var x = 20;
+      var x = distanceBetweenPoints/2;
       var y = canvas.offsetHeight - 50;
-      for (var i = 0; i <= numberofPoints; i++) {
-        direction *= -1;
-        var coordinates = {};
+      for(var i = 0; i < numberofPoints; i++){
+        direction*= -1; 
+        var coordinates = {}
         coordinates.x = x;
-        coordinates.y = y + (5 * direction);
+        coordinates.y = y + (10*direction);
         results.push(coordinates);
-        x += distancebetweenPoints;
-        if (x >= width) {
-          x = width - 20;
+        x+= distanceBetweenPoints
+        if(x >= width){
+          x = width - (distanceBetweenPoints/2)
         }
       }
 
       return results;
-    };
-    var points = pointsCreator(x, 5);
+    }
+     var points = pointsCreator(distance, 5);
     paper.setup(canvas);
 
     var levelLine = new paper.Path();
     levelLine.strokeColor = 'black';
     levelLine.strokeWidth = 10;
+    levelLine.add(new paper.Point(0, (points[0].y-20)))
 
-    points.forEach(function(point) {
-      levelLine.add(new paper.Point(point.x, point.y));
-      var circle = new paper.Path.Circle(new paper.Point(point.x, point.y), 10);
+    points.forEach(function(point){
+      levelLine.add(new paper.Point(point.x, point.y))
+      var circle = new paper.Path.Circle(new paper.Point(point.x, point.y), 20)
       circle.fillColor = 'white';
       circle.strokeColor = 'black';
     });
+
+    levelLine.add(new paper.Point((width-1), (points[points.length-1].y - 20)))
 
     levelLine.closed = false;
     levelLine.smooth();
