@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-28 14:44:31
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-05 12:18:09
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-06-05 16:50:52
 */
 
 'use strict';
@@ -29,7 +29,6 @@ var ChallengeInstructions = React.createClass({
 
   _onChange: function() {
     var challenge = ChallengeStore.getChallenge();
-    debugger;
     this.setState({
       instructions: challenge.instructions,
       results: challenge.results,
