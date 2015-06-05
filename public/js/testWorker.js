@@ -2,19 +2,22 @@
 * @Author: nimi
 * @Date:   2015-05-26 17:08:55
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-28 15:52:53
+* @Last Modified time: 2015-06-04 17:25:29
 */
 
 'use strict';
 
-self.addEventListener('message', function(e) {
-  // Send the message back.
+
+self.onmessage = function(event){
   var testCode = e.data[0];
   var userCode = e.data[1];
 
   importScripts('./tests/' + testCode + '.js');
 
+  self.postMessage({started: true});
+
   var result = eval(test(userCode)) ;
+  result.finished = true;
 
   self.postMessage(result)
-}, false);
+}
