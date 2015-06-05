@@ -43,15 +43,23 @@ getPics: function(topScorers){
                 next(null, photoInfo);
             } else {
 
+                var picArray = []
+
+                for(var i=0; i< result.data.length; i++){
+                  picArray.push(result.data[i].images.low_resolution.url)
+                }
+
                 var photoInfo = { 
                         instagramUsername: result.data[0].user.username,
                         id: item.username, 
                         url: result.data[0].link, 
                         src: result.data[0].images.low_resolution.url, 
+                        allPics: picArray,
                         title: result.data[0].caption ? result.data[0].caption.text : '',
                         score: item.score,
                         username: item.username
                       }
+
                 next(null, photoInfo);
 
               }
