@@ -21,7 +21,7 @@ var getUserInfo = function(user) {
   var email = user.get('email');
   return {
     username: username,
-    level: level,
+    challengeNumber: level,
     score: score,
     country: country,
     email: email

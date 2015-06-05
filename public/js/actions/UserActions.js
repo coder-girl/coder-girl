@@ -17,7 +17,7 @@ var userActions = {
   updateUserScoreAndLevel: function(pointValue){
     var user = AuthStore.getUser();
     var name = user.username;
-    user.level += 1; 
+    user.challengeNumber += 1; 
     user.score += pointValue;
     var score = user.score;
 
