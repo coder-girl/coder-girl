@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-28 14:44:31
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-05-29 10:21:10
+* @Last Modified time: 2015-06-04 18:06:03
 */
 
 'use strict';
@@ -29,6 +29,7 @@ var ChallengeInstructions = React.createClass({
       instructions: ChallengeStore.getChallenge().instructions,
       results: ChallengeStore.getChallenge().results
     });
+    console.log('results', this.state.results)
   },
 
   componentDidMount: function() {
@@ -40,13 +41,15 @@ var ChallengeInstructions = React.createClass({
   },
 
   render: function() {
+    var testResults = this.state.results.map(function(testResult){
+      return <p> {testResult} </p>
+    })
+
     return (
       <div>
         <h4 className="marginPullTop5">Your Challenge!</h4>
         <p> {this.state.instructions} </p>
-        { this.state.results.map(function(testResult){ return
-        <p> {testResult} </p>
-        }) }
+        {testResults}
       </div>
     );
   }
