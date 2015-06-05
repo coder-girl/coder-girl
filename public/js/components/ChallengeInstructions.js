@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-28 14:44:31
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-06-04 18:06:03
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-06-05 12:18:09
 */
 
 'use strict';
@@ -19,17 +19,47 @@ var ChallengeInstructions = React.createClass({
   getInitialState: function() {
     return {
       instructions: '',
-      results: []
+      results: [],
+      challengeNumber: null,
+      hint1: "",
+      hint2: "",
+      hintsShown: 0
     };
   },
 
   _onChange: function() {
-    console.log('the instructions change');
+    var challenge = ChallengeStore.getChallenge();
+    debugger;
     this.setState({
-      instructions: ChallengeStore.getChallenge().instructions,
-      results: ChallengeStore.getChallenge().results
+      instructions: challenge.instructions,
+      results: challenge.results,
+      challengeNumber: challenge.testCode,
+      hint1: challenge.hint1,
+      hint2: challenge.hint2
     });
-    console.log('results', this.state.results)
+  },
+
+  incrementHintsShown: function() {
+    this.setState({
+      hintsShown: ++this.state.hintsShown
+    });
+  },
+
+  getHints: function() {
+    var hint = "hint";
+    var hints = [];
+    var hintsShown = this.state.hintsShown;
+    var i = 1;
+    while (i <= hintsShown) {
+      hint += i;
+      hints.push(this.state[hint]);
+      hint = hint.slice(0, 4);
+      i++;
+    }
+
+    return hints.map(function(hint, i) {
+      return <p className="challenge-hint" key={i}> Hint: {hint} </p>
+    });
   },
 
   componentDidMount: function() {
@@ -43,13 +73,22 @@ var ChallengeInstructions = React.createClass({
   render: function() {
     var testResults = this.state.results.map(function(testResult){
       return <p> {testResult} </p>
-    })
+    });
+    var button = this.state.hintsShown < 2 ? 
+      <button className="button hint-button" ref="hint" onClick={this.incrementHintsShown}>Show hint</button> : 
+      null; 
+
+    var hints = this.getHints();
 
     return (
       <div>
-        <h4 className="marginPullTop5">Your Challenge!</h4>
+        <h4 className="marginPullTop5">Challenge {this.state.challengeNumber}: </h4>
         <p> {this.state.instructions} </p>
-        {testResults}
+        <div className="hints-wrapper">
+          {hints}
+        </div>
+        {button}
+        {testResults}       
       </div>
     );
   }
