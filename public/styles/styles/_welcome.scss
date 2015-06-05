@@ -1,5 +1,6 @@
 
-h1 {
+.welcome-title {
+  z-index: 5;
   font-family: 'Quicksand-regular', sans-serif;
 }
 
@@ -11,4 +12,14 @@ a {
     color: $darkPurple;
   }
 
+}
+
+canvas {
+  width: inherit;
+  height: inherit;
+  padding: 10px;
+}
+
+.welcome-container {
+  width: 100%
 }
