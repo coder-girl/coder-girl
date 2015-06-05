@@ -4,6 +4,13 @@ var React = require('react/addons');
 var LeaderboardActions = require('../actions/LeaderboardActions');
 var LeaderboardStore = require('../stores/LeaderboardStore');
 var Router = require('react-router');
+var Modal = require('react-modal');
+var appElement = document.getElementById('app');
+
+
+Modal.setAppElement(appElement);
+Modal.injectCSS();
+
 
 
 var Leaderboard = React.createClass({
@@ -22,8 +29,47 @@ var Leaderboard = React.createClass({
     //Default instagram key is app client id
     return { 
       pictures: [],
-      username: ''
+      username: '',
+      modalIsOpen: false,
+      modalPicSrc: '',
+      currentModalPicIndex: 0,
+      modalUser: '',
+      picArray: [],
     };
+  },
+
+  openModal: function(recentPic, allPics, modalUser) {
+    console.log('recentPic', recentPic);
+    console.log('allpics', allPics);
+    this.setState({
+      modalIsOpen: true,
+      modalPicSrc: recentPic,
+      modalPicArray: allPics,
+      modalUser: modalUser,
+    });
+    console.log('state', this.state);
+    console.log("state's modalPicSrc", this.state.modalPicSrc);
+    console.log("state's modalpicarray", this.state.modalPicArray)
+  },
+
+  closeModal: function() {
+    this.setState({modalIsOpen: false});
+  },
+
+  advancePic: function(){
+    var index;
+
+    if(this.state.picArray[this.state.currentModalPicIndex + 1]){
+      index = this.state.currentModalPicIndex + 1;
+    } else {
+      index = 0
+    }
+
+    this.setState({
+      currentModalPicIndex: index,
+      modalPicSrc: this.state.picArray[index]
+    })
+    console.log("index in advancePic", index);
   },
 
   _onChange : function(){
@@ -69,9 +115,22 @@ var Leaderboard = React.createClass({
       return (
         <li key={p.id} className="card-list-item">
           <div className="custom-card">
-            <img onMouseOver={self.showUser.bind(null, p.instagramUsername)} ref={p.id} src={p.src} title={p.title} />
+            <div>
+              <Modal className="picModal"
+                isOpen={self.state.modalIsOpen}
+                onRequestClose={self.closeModal}
+              >
+                <p>{self.state.modalUser}</p>
+                <p>{self.modalPicSrc}</p>
+                <img onClick={self.advancePic} src={self.modalPicSrc} />
+                <button onClick={self.closeModal}>close</button>
+              </Modal>
+            </div>
+            <a>
+              <img onClick={self.openModal.bind(null, p.src, p.allPics, p.username)} ref={p.id} src={p.src} title={p.title} />
+            </a>
             <div className="custom-card-divider">
-              <div>{p.username}</div>
+              <a href={p.url} target="new"><div>{p.username}</div></a>
               <div>{p.score} Points</div>
             </div>
           </div>
