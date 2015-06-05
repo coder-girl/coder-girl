@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-28 14:44:31
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-06-04 16:39:35
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-06-05 12:23:12
 */
 
 'use strict';
@@ -21,6 +21,7 @@ var ChallengeEditor = React.createClass({
   mixins: [Router.State, Router.Navigation],
 
   getInitialState: function() {
+    debugger;
     var testCode = AuthStore.getUser().challengeNumber;
     ChallengeActions.getChallenge(testCode);
     return {

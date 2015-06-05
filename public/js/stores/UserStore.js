@@ -9,26 +9,23 @@ var _userStore = {
 };
 
 var calculateLevel = function(score, challengeNumber) {
-  var pointsNeedToLevel = [ 0, 100, 350, 700, 1100, 1500, 2000, 2600, 3300, 4100];
+  var pointsNeededToLevel = [ 0, 100, 350, 700, 1100, 1500, 2000, 2600, 3300, 4100];
 
-  var index = 0;
+  var index = 1;
 
-  while (pointsNeedToLevel[index] < score) {
+  while (pointsNeededToLevel[index] < score) {
     index++;
   }
 
-  var lastTotalPoints = pointsNeedToLevel[index-1];
-
+  var lastTotalPoints = pointsNeededToLevel[index-1];
   var pointsEarnedThisLevel = score - lastTotalPoints; 
-
-  var pointsNeedThisLevel = pointsNeedToLevel[index] - lastTotalPoints; 
-
+  var pointsNeededThisLevel = pointsNeededToLevel[index] - lastTotalPoints; 
   var level = index;
 
   return  {
     'level': level,
     'percentageCompleted': pointsEarnedThisLevel,
-    'totalPoints': pointsNeedThisLevel
+    'totalPoints': pointsNeededThisLevel
   }
 };
 
@@ -46,7 +43,7 @@ var UserStore = objectAssign({}, EventEmitter.prototype, {
   getUser: function(){
     return _userStore.currentUser;
   },
-  getLevel: function(score,challengeNumber){
+  getLevel: function(score, challengeNumber){
     return calculateLevel(score, challengeNumber);
   }
 });

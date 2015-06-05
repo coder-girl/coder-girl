@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-28 13:13:49
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-06-04 19:42:58
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-06-05 13:02:52
 */
 
 'use strict';
@@ -55,6 +55,9 @@ var challengeActions = {
         window.clearTimeout(timeout);
         timeout = undefined;
         if(event.data.pass){
+          var pointValue = ChallengeStore.getChallenge().pointValue;
+          UserActions.updateUserScoreAndLevel(pointValue);
+
           AppDispatcher.dispatch({
             actionType: AppConstants.PASS_CHALLENGE
           })

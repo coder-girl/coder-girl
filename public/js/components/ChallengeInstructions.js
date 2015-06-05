@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-28 14:44:31
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-05 11:41:02
+* @Last Modified time: 2015-06-05 12:18:09
 */
 
 'use strict';
@@ -29,6 +29,7 @@ var ChallengeInstructions = React.createClass({
 
   _onChange: function() {
     var challenge = ChallengeStore.getChallenge();
+    debugger;
     this.setState({
       instructions: challenge.instructions,
       results: challenge.results,
@@ -56,8 +57,8 @@ var ChallengeInstructions = React.createClass({
       i++;
     }
 
-    return hints.map(function(hint) {
-      return <p className="challenge-hint"> Hint: {hint} </p>
+    return hints.map(function(hint, i) {
+      return <p className="challenge-hint" key={i}> Hint: {hint} </p>
     });
   },
 
