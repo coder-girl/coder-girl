@@ -34,23 +34,20 @@ var Leaderboard = React.createClass({
       modalPicSrc: '',
       currentModalPicIndex: 0,
       modalUser: '',
-      picArray: [],
+      modalPicArray: [],
     };
   },
 
   openModal: function(recentPic, allPics, modalUser) {
-    console.log('recentPic', recentPic);
-    console.log('allpics', allPics);
     this.setState({
       modalIsOpen: true,
       modalPicSrc: recentPic,
       modalPicArray: allPics,
       modalUser: modalUser,
     });
-    console.log('state', this.state);
-    console.log("state's modalPicSrc", this.state.modalPicSrc);
-    console.log("state's modalpicarray", this.state.modalPicArray)
+
   },
+
 
   closeModal: function() {
     this.setState({modalIsOpen: false});
@@ -59,7 +56,7 @@ var Leaderboard = React.createClass({
   advancePic: function(){
     var index;
 
-    if(this.state.picArray[this.state.currentModalPicIndex + 1]){
+    if(this.state.modalPicArray[this.state.currentModalPicIndex + 1]){
       index = this.state.currentModalPicIndex + 1;
     } else {
       index = 0
@@ -67,9 +64,8 @@ var Leaderboard = React.createClass({
 
     this.setState({
       currentModalPicIndex: index,
-      modalPicSrc: this.state.picArray[index]
+      modalPicSrc: this.state.modalPicArray[index]
     })
-    console.log("index in advancePic", index);
   },
 
   _onChange : function(){
@@ -121,8 +117,7 @@ var Leaderboard = React.createClass({
                 onRequestClose={self.closeModal}
               >
                 <p>{self.state.modalUser}</p>
-                <p>{self.modalPicSrc}</p>
-                <img onClick={self.advancePic} src={self.modalPicSrc} />
+                <img onClick={self.advancePic} src={self.state.modalPicSrc} />
                 <button onClick={self.closeModal}>close</button>
               </Modal>
             </div>
@@ -142,16 +137,28 @@ var Leaderboard = React.createClass({
 
     var oddPictures = odds.map(function(p){
       return (
-        <li key={p.id}>
-          <div className="custom-card">
-            <img onMouseOver={self.showUser.bind(null, p.instagramUsername)} ref={p.id} src={p.src} title={p.title} />
-            <div className="custom-card-divider">
-              <div>{p.username}</div>
-              <div>{p.score} Points</div>
-            </div>
-          </div>
-        </li>
-      )
+              <li key={p.id} className="card-list-item">
+                <div className="custom-card">
+                  <div>
+                    <Modal className="picModal"
+                      isOpen={self.state.modalIsOpen}
+                      onRequestClose={self.closeModal}
+                    >
+                      <p>{self.state.modalUser}</p>
+                      <img onClick={self.advancePic} src={self.state.modalPicSrc} />
+                      <button onClick={self.closeModal}>close</button>
+                    </Modal>
+                  </div>
+                  <a>
+                    <img onClick={self.openModal.bind(null, p.src, p.allPics, p.username)} ref={p.id} src={p.src} title={p.title} />
+                  </a>
+                  <div className="custom-card-divider">
+                    <a href={p.url} target="new"><div>{p.username}</div></a>
+                    <div>{p.score} Points</div>
+                  </div>
+                </div>
+              </li>
+            )
     });
 
     if (!evenPictures.length){
