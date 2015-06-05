@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-28 14:44:31
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-30 16:37:49
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-06-04 16:39:35
 */
 
 'use strict';
@@ -35,7 +35,7 @@ var ChallengeEditor = React.createClass({
     editor.getSession().setValue(code);
     this.setState.testCode = AuthStore.getUser().level;
     if (change === 'passed') {
-      this.transitionTo('/congrats');
+      this.transitionTo('congrats');
     }
   },
 
