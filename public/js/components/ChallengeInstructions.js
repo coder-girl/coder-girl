@@ -1,13 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-28 14:44:31
-<<<<<<< HEAD
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-05 10:32:35
-=======
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-03 18:37:54
->>>>>>> (feat) Update challenge model to include challenge hints
+* @Last Modified time: 2015-06-05 10:34:11
 */
 
 'use strict';
@@ -25,7 +20,7 @@ var ChallengeInstructions = React.createClass({
     return {
       instructions: '',
       results: [],
-      level: null,
+      challengeNumber: null,
       hint1: "",
       hint2: "",
       hintsShown: 0
@@ -51,8 +46,10 @@ var ChallengeInstructions = React.createClass({
     } else {
       hint = this.state.hint2;
     }
-    this.state.hintShown++;
+    this.state.hintsShown++;
+    if (this.state.hintsShown >= 2) {
 
+    }
   },
 
   componentDidMount: function() {
@@ -73,7 +70,7 @@ var ChallengeInstructions = React.createClass({
         <h4 className="marginPullTop5">Challenge {this.state.challengeNumber}: </h4>
         <p> {this.state.instructions} </p>
         {testResults}
-        <button onClick={showHint}>Show hint</button>
+        <button className="button hint-button" onClick={showHint}>Show hint</button>
       </div>
     );
   }
