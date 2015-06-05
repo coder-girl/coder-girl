@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-28 13:13:49
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-06-04 17:19:36
+* @Last Modified time: 2015-06-04 17:24:03
 */
 
 'use strict';
@@ -36,7 +36,7 @@ var challengeActions = {
   submitCode: function(userCode, testCode){
     var testWorker = new Worker('./js/testWorker.js');
     testWorker.postMessage([testCode, userCode]);
-    testWorker.onMessage(function(event) {
+    testWorker.onmessage = function(event) {
       if(event.data.started){ // the worker has fired off a message saying it's begun evaluating the code
         var timeout = window.setTimeout(function(){
           testWorker.stop();
@@ -49,7 +49,7 @@ var challengeActions = {
             data: result
           })
         },2000)
-      } else if(event.data.complete){
+      } else if(event.data.finished){
         window.clearTimeout(timeout);
         if(event.data.pass){
           AppDispatcher.dispatch({
@@ -63,7 +63,7 @@ var challengeActions = {
         }
       }
       
-    });
+    };
   }
 };
 
