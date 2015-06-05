@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-28 14:44:31
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-05 10:34:11
+* @Last Modified time: 2015-06-05 11:41:02
 */
 
 'use strict';
@@ -36,20 +36,29 @@ var ChallengeInstructions = React.createClass({
       hint1: challenge.hint1,
       hint2: challenge.hint2
     });
-    console.log('results', this.state.results)
   },
 
-  showHint: function() {
-    var hint;
-    if (!this.state.hintsShown) {
-      hint = this.state.hint1;
-    } else {
-      hint = this.state.hint2;
-    }
-    this.state.hintsShown++;
-    if (this.state.hintsShown >= 2) {
+  incrementHintsShown: function() {
+    this.setState({
+      hintsShown: ++this.state.hintsShown
+    });
+  },
 
+  getHints: function() {
+    var hint = "hint";
+    var hints = [];
+    var hintsShown = this.state.hintsShown;
+    var i = 1;
+    while (i <= hintsShown) {
+      hint += i;
+      hints.push(this.state[hint]);
+      hint = hint.slice(0, 4);
+      i++;
     }
+
+    return hints.map(function(hint) {
+      return <p className="challenge-hint"> Hint: {hint} </p>
+    });
   },
 
   componentDidMount: function() {
@@ -63,14 +72,22 @@ var ChallengeInstructions = React.createClass({
   render: function() {
     var testResults = this.state.results.map(function(testResult){
       return <p> {testResult} </p>
-    })
+    });
+    var button = this.state.hintsShown < 2 ? 
+      <button className="button hint-button" ref="hint" onClick={this.incrementHintsShown}>Show hint</button> : 
+      null; 
+
+    var hints = this.getHints();
 
     return (
       <div>
         <h4 className="marginPullTop5">Challenge {this.state.challengeNumber}: </h4>
         <p> {this.state.instructions} </p>
-        {testResults}
-        <button className="button hint-button" onClick={showHint}>Show hint</button>
+        <div className="hints-wrapper">
+          {hints}
+        </div>
+        {button}
+        {testResults}       
       </div>
     );
   }
