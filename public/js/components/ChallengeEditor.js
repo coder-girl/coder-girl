@@ -21,7 +21,7 @@ var ChallengeEditor = React.createClass({
   mixins: [Router.State, Router.Navigation],
 
   getInitialState: function() {
-    var testCode = AuthStore.getUser().level;
+    var testCode = AuthStore.getUser().challengeNumber;
     ChallengeActions.getChallenge(testCode);
     return {
       codeContent: '',
