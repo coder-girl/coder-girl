@@ -13,6 +13,7 @@ var ChallengeActions = require('../actions/ChallengeActions');
 var Router = require('react-router');
 var ChallengeStore = require('../stores/ChallengeStore');
 var AuthStore = require('../stores/AuthStore');
+var Chat = require('../components/Chat');
 
 var ChallengeEditor = React.createClass({
 
@@ -20,17 +21,17 @@ var ChallengeEditor = React.createClass({
   mixins: [Router.State, Router.Navigation],
 
   getInitialState: function() {
-    var testCode = AuthStore.getUser().level
+    var testCode = AuthStore.getUser().challengeNumber;
     ChallengeActions.getChallenge(testCode);
     return {
       codeContent: '',
       testCode: testCode
-    }
+    };
   },
 
-  _onChange: function(){
+  _onChange: function() {
     var change = ChallengeStore.getChangeType();
-    var editor = ace.edit("editor");
+    var editor = ace.edit('editor');
     var code = ChallengeStore.getChallenge().content;
     editor.getSession().setValue(code);
     this.setState.testCode = AuthStore.getUser().level;
@@ -47,14 +48,14 @@ var ChallengeEditor = React.createClass({
     ChallengeStore.removeChangeListener(this._onChange);
   },
 
-  handleSubmit: function(){
-    var editor = ace.edit("editor");
+  handleSubmit: function() {
+    var editor = ace.edit('editor');
     var userCode = editor.getSession().getValue();
     var testCode = this.state.testCode;
     ChallengeActions.submitCode(userCode, testCode);
-  }, 
+  },
 
-   render: function() {
+  render: function() {
     return (
       <div className="challengeEditor">
         <Editor theme="github" mode="javascript" />
@@ -67,6 +68,6 @@ var ChallengeEditor = React.createClass({
     );
   }
 
-})
+});
 
 module.exports = ChallengeEditor;
