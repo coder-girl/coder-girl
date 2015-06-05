@@ -14,28 +14,31 @@ var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
 var Doughnut = require('react-chartjs').Doughnut;
+var UserStore = require('../stores/UserStore');
 
-var chartData = [
-  {
-    value: 450,
-    color: '#8E2BC8',
+var calculateUserChartData = function(score, challengeNumber) {
+  var data = UserStore.getLevel(score, challengeNumber);
+  console.log(data);
+  var percentageCompleted = data.percentageCompleted;
+  var totalPercentage = data.totalPoints - percentageCompleted;
+  var chartData = [
+    {
+      value: percentageCompleted,
+      color: '#8E2BC8',
+      highlight: '#8E2BC8',
+      label: 'Points Earned'
+    },
+    {
+      value: totalPercentage,
+      color: '#5BC0BA',
+      highlight: '#5BC0BA',
+      label: 'Points till Level Up'
+    }
+  ];
 
-    highlight: '#8E2BC8',
-    label: 'Points Earned'
-  },
-  {
-    value: 300,
-    color: '#5BC0BA',
-    highlight: '#5BC0BA',
-    label: 'Points till Level Up'
-  }
-];
+  return chartData;
+};
 
-var MyComponent = React.createClass({
-  render: function() {
-    return <Doughnut data={chartData} width="200" height="250" />;
-  }
-});
 
 var ChallengeComplete = React.createClass({
 
@@ -64,16 +67,20 @@ var ChallengeComplete = React.createClass({
 
   render: function() {
     var user = this.state.user;
+    var level = UserStore.getLevel(user.score, user.challengeNumber).level;
+    console.log('user', user)
+    var data = calculateUserChartData(user.score, level);
+    console.log(data);
     return (
       <div className="congrats-wrapper">
         <h1 className="congrats-title">
           Congratulations! You solved Challenge
-          <span className="congrats-level">{user.level - 1}</span>
+          <span className="challenge-number"> {user.challengeNumber - 1}</span>
         </h1>
         <h3 className="congrats-user-score">Current score: {user.score} points</h3>
         <div id="challengeDiv">
-          <Doughnut data={chartData} width="200" height="250" />
-          <h3 className="currentLevel">{user.level - 1}</h3>
+          <Doughnut data={data} width="200" height="250" />
+          <h3 className="current-user-level">Current Level: {level}</h3>
         </div>
         <Link to="challenge">Continue coding</Link>
       </div>
