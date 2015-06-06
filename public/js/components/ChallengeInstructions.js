@@ -30,8 +30,12 @@ var ChallengeInstructions = React.createClass({
 
   _onChange: function() {
     var challenge = ChallengeStore.getChallenge();
+    var instructionsArray = challenge.instructions.split("<br>");
+    var instructions = instructionsArray.map(function(section, i){
+      return <p key={i}> {section} </p>
+    });
     this.setState({
-      instructions: challenge.instructions,
+      instructions: instructions,
       results: challenge.results,
       challengeNumber: challenge.testCode,
       challengeTitle: challenge.title,
@@ -80,6 +84,7 @@ var ChallengeInstructions = React.createClass({
       null; 
 
     var hints = this.getHints();
+
 
     return (
       <div>
