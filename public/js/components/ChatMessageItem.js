@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 19:04:29
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-03 12:37:41
+* @Last Modified time: 2015-06-06 16:16:35
 */
 
 'use strict';
@@ -32,10 +32,12 @@ var MessageItem = React.createClass({
     return (
       <li className="message-item">
         {author}
-        <div className="message-date-and-text">
-          <span className="message-text">{ this.emojify(message.text, {emojiType: 'emojione'}) }</span>
-          <span className="message-date">{ prettyDate }</span>
-        </div> 
+          <div className="message-text-wrapper">
+            <span className="message-text">{ this.emojify(message.text, {emojiType: 'emojione'}) }</span>
+          </div> 
+          <div className="message-date-wrapper">
+            <span className="message-date">{ prettyDate }</span>
+          </div> 
       </li>
     );
   }

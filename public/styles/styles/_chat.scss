@@ -2,48 +2,67 @@
 
 
 div.chat-section {
-  width: 100%;
-  margin: 0 10px 10px 10px;
-  padding: 20px 20px 10px 20px;
+  border: solid 1px lightgrey;
+  width: 400px;
   overflow: hidden;
   background-color: $offBlack;
-  color: white;
+  color: lightgrey;
+  position: relative;
+
+  .chat-menu-bar {
+    height: 25px;
+    line-height: 35px;
+    background-color: $offBlack;
+    border: solid 1px grey;
+
+    .close-button {
+      line-height: 0;
+    }
+  }
 
   textarea {
+    min-height: 30px;
     border: solid 1px lightgrey;
     background-color: $offBlack;
-    position: relative;
-    top: 4px;
-    color: white;
-    margin-bottom: 0;
+    position: fixed;
+    bottom: 0;
+    color: grey;
     resize: none;
+    margin: 0;
+    width: 398px;
+    font-size: .9rem;
   }
   
   ul.message-list {
     list-style-type: none;
+    line-height: 1.2;
+    font-size: .9rem;
   }
 
   .message-section {
-    max-height: 25%;
+    max-height: 40%;
     padding: 5px 10px;
+    margin-bottom: 170px;
 
     .message-list {
       max-height: inherit;
       overflow-y: auto;
-    }
-  }
 
+      .message-item {
+        padding: 8px 3px;
+        clear: both;
+      }
 
-  span {
-    message-date {
-      float: right;
-    }
-  }
-
-  span {
-    message-text {
-      position: relative;
-      left: 5px;
+      .message-text-wrapper {
+        float: left;
+        width: 60%;
+        position: relative;
+        left: 5px;
+        margin: 0;
+      }
+      .message-date-wrapper {
+        float: right;
+      }    
     }
   }
 }

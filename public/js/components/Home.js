@@ -61,9 +61,7 @@ var Home = React.createClass({
           <div className="shorty grid-block">
             <RouteHandler/>
           </div>
-          <div className="grid-block">
-            <Chat/>
-          </div>
+          <Chat/>
         </div>
         <div className="medium-3 grid-block">
           <Leaderboard/>
