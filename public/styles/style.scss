@@ -345,13 +345,13 @@ label {
 
 div#cloud {
     position: relative;
-    bottom: 294px;
+    bottom: 305px;
     left:750px
 }
 
 div#cloud2 {
     position: relative;
-    bottom: 383px;
+    bottom: 411px;
     left: 397px;
 }
 
@@ -420,8 +420,8 @@ div#cloud2 {
 //Animate
 
 .cloud-1{
-  -webkit-animation: moveclouds 25s linear infinite;
-  -moz-animation: moveclouds 25s linear infinite;
+  -webkit-animation: moveclouds 35s linear infinite;
+  -moz-animation: moveclouds 35s linear infinite;
 }
 
 .cloud-2{
