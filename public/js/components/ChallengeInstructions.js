@@ -23,16 +23,22 @@ var ChallengeInstructions = React.createClass({
       challengeNumber: null,
       hint1: "",
       hint2: "",
-      hintsShown: 0
+      hintsShown: 0,
+      challengeTitle: "",
     };
   },
 
   _onChange: function() {
     var challenge = ChallengeStore.getChallenge();
+    var instructionsArray = challenge.instructions.split("<br>");
+    var instructions = instructionsArray.map(function(section, i){
+      return <p key={i}> {section} </p>
+    });
     this.setState({
-      instructions: challenge.instructions,
+      instructions: instructions,
       results: challenge.results,
       challengeNumber: challenge.testCode,
+      challengeTitle: challenge.title,
       hint1: challenge.hint1,
       hint2: challenge.hint2
     });
@@ -79,9 +85,10 @@ var ChallengeInstructions = React.createClass({
 
     var hints = this.getHints();
 
+
     return (
       <div>
-        <h4 className="marginPullTop5">Challenge {this.state.challengeNumber}: </h4>
+        <h4 className="marginPullTop5">{this.state.challengeTitle}</h4>
         <p> {this.state.instructions} </p>
         <div className="hints-wrapper">
           {hints}
