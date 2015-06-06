@@ -23,7 +23,8 @@ var ChallengeInstructions = React.createClass({
       challengeNumber: null,
       hint1: "",
       hint2: "",
-      hintsShown: 0
+      hintsShown: 0,
+      challengeTitle: "",
     };
   },
 
@@ -33,6 +34,7 @@ var ChallengeInstructions = React.createClass({
       instructions: challenge.instructions,
       results: challenge.results,
       challengeNumber: challenge.testCode,
+      challengeTitle: challenge.title,
       hint1: challenge.hint1,
       hint2: challenge.hint2
     });
@@ -81,7 +83,7 @@ var ChallengeInstructions = React.createClass({
 
     return (
       <div>
-        <h4 className="marginPullTop5">Challenge {this.state.challengeNumber}: </h4>
+        <h4 className="marginPullTop5">{this.state.challengeTitle}</h4>
         <p> {this.state.instructions} </p>
         <div className="hints-wrapper">
           {hints}
