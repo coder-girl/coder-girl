@@ -297,7 +297,13 @@ label {
 div#cloud {
     position: relative;
     bottom: 305px;
-    left:100px
+    left:750px
+}
+
+div#cloud2 {
+    position: relative;
+    bottom: 411px;
+    left: 397px;
 }
 
 .clouds {
@@ -329,5 +335,87 @@ div#cloud {
 
 .clouds:after {
 	width: 18px; height: 21px;
-	top: -9px; left: auto; right: -2px;
+	top: -9px; left: auto; right: 0px;
 }
+
+.clouds.cloud-2 {
+    position: relative;
+    right: 100px;
+}
+
+.clouds.cloud-3 {
+    position: relative;
+    top: -22px;
+    left: 500px;
+}
+
+.clouds.cloud-4 {
+    position: relative;
+    /* top: 395px; */
+    left: 400px;
+    bottom: 150px;
+}
+
+.clouds.cloud-5 {
+    position: relative;
+    left: 150px;
+    bottom: 125px;
+}
+
+.clouds.cloud-6 {
+    position: relative;
+    bottom: 100px;
+    left: 350px;
+}
+
+//Animate
+
+.cloud-1{
+  -webkit-animation: moveclouds 35s linear infinite;
+  -moz-animation: moveclouds 35s linear infinite;
+}
+
+.cloud-2{
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  -webkit-animation: moveclouds 29s linear infinite;
+  -moz-animation: moveclouds 29s linear infinite;
+}
+
+.cloud-3{
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -webkit-animation: moveclouds 30s linear infinite;
+  -moz-animation: moveclouds 30s linear infinite;
+}
+
+.cloud-4{
+  -webkit-transform: scale(0.75);
+  -moz-transform: scale(0.75);
+  -webkit-animation: moveclouds 34s linear infinite;
+  -moz-animation: moveclouds 34s linear infinite;
+}
+
+.cloud-5{
+  -webkit-animation: moveclouds 35s linear infinite;
+  -moz-animation: moveclouds 35s linear infinite;
+}
+
+.cloud-6{
+  -webkit-transform: scale(0.65);
+  -webkit-transform: translate(-15,15);
+  -moz-transform: scale(0.65);
+  -webkit-animation: moveclouds 33s linear infinite;
+  -moz-animation: moveclouds 33s linear infinite;
+}
+
+@-webkit-keyframes moveclouds {
+  0% {margin-left: 1100px;}
+  100% {margin-left: -1100px;}
+}
+
+@-moz-keyframes moveclouds {
+  0% {margin-left: 1100px;}
+  100% {margin-left: -1100px;}
+}
+

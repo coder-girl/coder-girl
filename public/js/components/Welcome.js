@@ -200,6 +200,19 @@ var Welcome = React.createClass({
         </div>
         <div id="cloud">
           <div className="clouds cloud-1"></div>
+          <div className="clouds cloud-2"></div>
+          <div className="clouds cloud-3"></div>
+          <div className="clouds cloud-4"></div>
+          <div className="clouds cloud-5"></div>
+          <div className="clouds cloud-6"></div>
+        </div>
+        <div id="cloud2">
+          <div className="clouds cloud-1"></div>
+          <div className="clouds cloud-2"></div>
+          <div className="clouds cloud-3"></div>
+          <div className="clouds cloud-4"></div>
+          <div className="clouds cloud-5"></div>
+          <div className="clouds cloud-6"></div>
         </div>
       </div>
     );
