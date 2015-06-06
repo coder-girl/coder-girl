@@ -1,3 +1,22 @@
 #editor {
   z-index: 0;
 }
+
+
+.testResults {
+  color: $purple;
+}
+
+.hints-wrapper {
+  font-weight: 900;
+  font-style: italic;
+
+}
+
+
+.instructionPanel {
+  border-right: solid;
+  border-width: thin;
+  letter-spacing: 0.09em;
+  overflow-y: scroll;
+}

@@ -42,6 +42,10 @@ var ChallengeInstructions = React.createClass({
       hint1: challenge.hint1,
       hint2: challenge.hint2
     });
+
+    if(this.state.results.length > 0){
+      this._scrollToBottom();
+    }
   },
 
   incrementHintsShown: function() {
@@ -75,9 +79,16 @@ var ChallengeInstructions = React.createClass({
     ChallengeStore.removeChangeListener(this._onChange);
   },
 
+
+  _scrollToBottom: function() {
+    var node = React.findDOMNode(this.refs.instructionPanel);
+    node.scrollTop = node.scrollHeight;
+  },
+
+
   render: function() {
     var testResults = this.state.results.map(function(testResult){
-      return <p> {testResult} </p>
+      return <p ref="testResults" className="testResults"> {testResult} </p>
     });
     var button = this.state.hintsShown < 2 ? 
       <button className="button hint-button" ref="hint" onClick={this.incrementHintsShown}>Show hint</button> : 
@@ -87,14 +98,14 @@ var ChallengeInstructions = React.createClass({
 
 
     return (
-      <div>
+      <div className="instructionPanel" ref="instructionPanel">
         <h4 className="marginPullTop5">{this.state.challengeTitle}</h4>
         <p> {this.state.instructions} </p>
         <div className="hints-wrapper">
           {hints}
         </div>
         {button}
-        {testResults}       
+        <p>{testResults}</p>    
       </div>
     );
   }
