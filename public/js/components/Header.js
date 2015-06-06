@@ -92,7 +92,7 @@ var Header = React.createClass({
                     <Link to="home"> <span>Coder Girl</span></Link>
                   </li>
                   <li>
-                    <Link to="about">About</Link>
+                    <Link to="about"><span>About</span></Link>
                   </li>
                 </ul>
               </div>
