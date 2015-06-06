@@ -71,7 +71,7 @@ var Login = React.createClass({
               <input type="email" id="right-label" className="user-email" placeholder="Enter your email" ref="email" />
               <input type="password" id="right2-label" className="user-password" placeholder="Enter your password" ref="password" />
               <input type="submit" className="loginButton button" value="Log in!" align="right" />
-              <Link to="signup" className="signUpLink">No account? Join up to get your code on!</Link>
+              <Link to="signup" className="signUpLink"><div>No account?</div><div className="joinUp">Join up to get your code on!</div></Link>
             </form>
           </div>
         </div>
