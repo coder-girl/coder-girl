@@ -1,8 +1,9 @@
 /* 
+<<<<<<< HEAD
  * @Author: Mark Bennett
  * @Date:   2015-05-27 19:54:19
  * @Last Modified by:   nimi
- * @Last Modified time: 2015-06-06 17:00:26
+ * @Last Modified time: 2015-06-06 17:00:59
  */
 
 'use strict';
@@ -36,6 +37,7 @@ var Welcome = React.createClass({
     var user = AuthStore.getUser()
     console.log(user)
     var canvas = document.getElementById('welcomeBoard');
+    var project = paper.setup(canvas);
     var width = canvas.offsetWidth;
     var count = 1;
     // points will be equally distributed across x-axis
@@ -64,7 +66,6 @@ var Welcome = React.createClass({
     }
 
     var points = pointsCreator(distance, 5);
-    paper.setup(canvas);
 
     var levelLine = new paper.Path();
     levelLine.strokeColor = 'black';
