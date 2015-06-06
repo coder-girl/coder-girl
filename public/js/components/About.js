@@ -17,19 +17,21 @@ var About = React.createClass({
         </div>
 
         <div className="bar2 features">
-          <div className="feature-block">
-            <h3 className="feature">Learn core skills</h3>
-            <h6 className="description">Build a reliable foundation of programming techniques.</h6>
-          </div>
+          <div className="content-container">
+            <div className="feature-block">
+              <h3 className="feature">Learn core skills</h3>
+              <h6 className="description">Build a reliable foundation of programming techniques.<br/></h6>
+            </div>
 
-          <div className="feature-block">
-            <h3 className="feature">Tackle challenges</h3>
-            <h6 className="description">Earn points and level-up as you work through engaging problems.</h6>
-          </div>
+            <div className="feature-block">
+              <h3 className="feature">Tackle challenges</h3>
+              <h6 className="description">Earn points and level-up as you work through engaging problems.</h6>
+            </div>
 
-          <div className="feature-block">
-            <h3 className="feature">Collaborate with friends</h3>
-            <h6 className="description">Offer or receive help while participating in a highly social environment.</h6>
+            <div className="feature-block">
+              <h3 className="feature">Collaborate with friends</h3>
+              <h6 className="description">Offer or receive help while participating in a highly social environment.</h6>
+            </div>
           </div>
         </div>
 
@@ -39,7 +41,7 @@ var About = React.createClass({
             <h4>Today's stats are bleak. We strive to get girls interested in Computer Science and programming at a young age in order to address the current disparity.</h4>
           </div>
 
-          <div className="all-stats">
+          <div className="all-stats content-container">
 
             <div className="stat-block">
               <p className="stat-description-only">Only</p>
@@ -63,7 +65,7 @@ var About = React.createClass({
             <h4>Check out the engineers behind Coder Girl.</h4>
           </div>
 
-          <div className="all-members">
+          <div className="all-members content-container">
 
             <div className="team-member-block">
               <img id="lauren-pic" src="./../../asset/lauren.jpeg" />
@@ -106,7 +108,7 @@ var About = React.createClass({
             <h4>Check out the tools used to build Coder Girl.</h4>
           </div>
 
-          <div className="stack-block">
+          <div className="stack-block content-container">
             <div className="stack-group stack-frontend">
               <a href="#" className="react" alt="React.js"><img className="stack" src="#"/></a>
               <a href="#" className="flux" alt="Flux"><img className="stack" src="#"/></a>
@@ -128,8 +130,10 @@ var About = React.createClass({
         </div>
 
         <div className="bar6 footer">
-          <a href="http://www.coder-girl.io" className="get-started">Start learning with Coder Girl</a>
-          <p className="copyright">&copy;Coder Girl, 2015</p>
+          <div className="content-container">
+            <h5><a href="http://www.coder-girl.io" className="get-started">Start learning with Coder Girl</a></h5>
+            <p className="copyright">&copy;Coder Girl, 2015</p>
+          </div>
         </div>
       </div>
 
