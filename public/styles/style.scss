@@ -133,7 +133,8 @@ label {
     margin: 30px;
     width: 80px;
     height: 80px;
-    bottom: 432px;
+    bottom: 423px;
+    z-index: 10;
 }
 .sun-face {
     position: absolute;
@@ -296,13 +297,13 @@ label {
 
 div#cloud {
     position: relative;
-    bottom: 305px;
+    bottom: 294px;
     left:750px
 }
 
 div#cloud2 {
     position: relative;
-    bottom: 411px;
+    bottom: 383px;
     left: 397px;
 }
 
