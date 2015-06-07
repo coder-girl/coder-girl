@@ -127,6 +127,12 @@ label {
     height: 38px !important;
     padding: 0 .9em !important;
 }
+
+
+// credits to http://codepen.io/zmmbreeze/pen/guLfC
+// & credits to http://codepen.io/trishasalas/pen/DgEjI
+// sun
+
 .sun {
     float: left;
     position: relative;
@@ -162,6 +168,7 @@ label {
     -o-border-radius: 0.4em / 0.8em;
     -ms-border-radius: 0.4em / 0.8em;
     border-radius: 0.4em / 0.8em;
+    animation: 7s eyes ease infinite;
 }
 .sun-leye:after,
 .sun-reye:after {
@@ -282,6 +289,49 @@ label {
     left: 50%;
     width: 2px;
     height: 160%;
+}
+
+@-moz-keyframes eyes {
+  0% { transform: translate3d(0,0,0); }
+  34% { opacity: 1 }
+  35% { opacity: 0 }
+  36% { opacity: 1 }
+  38% { opacity: 1 }
+  39% { opacity: 0 }
+  40% { opacity: 1 }
+  42% { transform: translate3d(0,0,0); }
+  45% { transform: translate3d(40px,0,0); }
+  48% { opacity: 1 }
+  49% { opacity: 0 }
+  50% { opacity: 1 }
+  55% { transform: translate3d(40px,0,0); }
+  58% { transform: translate3d(0,0,0); }
+  100% { transform: translate3d(0,0,0); }
+}
+
+@-webkit-keyframes eyes {
+  0% { transform: translate3d(0,0,0); }
+  14% { opacity: 1 }
+  15% { opacity: 0 }
+  36% { opacity: 1 }
+  38% { opacity: 1 }
+  39% { opacity: 0 }
+  40% { opacity: 1 }
+  42% { transform: translate3d(0,0,0); }
+  45% { transform: translate3d(5px,0,0); }
+  48% { opacity: 1 }
+  49% { opacity: 0 }
+  50% { opacity: 1 }
+  55% { transform: translate3d(5px,0,0); }
+  58% { transform: translate3d(0,0,0); }
+  60% { transform: translate3d(0,0,0); }
+  65% { transform: translate3d(-5px,0,0); }
+  68% { opacity: 1 }
+  69% { opacity: 0 }
+  70% { opacity: 1 }
+  75% { transform: translate3d(-5px,0,0); }
+  78% { transform: translate3d(0,0,0); }
+  100% { transform: translate3d(0,0,0); }
 }
 #welcomeBoard {
     height: 100%;
