@@ -225,6 +225,18 @@ var Welcome = React.createClass({
             <div className="clouds cloud-6"></div>
           </div>
         </div>
+        <div id="smoke">
+          <span className="smokeCircle0"></span>
+          <span className="smokeCircle1"></span>
+          <span className="smokeCircle2"></span>
+          <span className="smokeCircle3"></span>
+          <span className="smokeCircle4"></span>
+          <span className="smokeCircle5"></span>
+          <span className="smokeCircle6"></span>
+          <span className="smokeCircle7"></span>
+          <span className="smokeCircle8"></span>
+          <span className="smokeCircle9"></span>
+        </div>
       </div>
     );
   }
