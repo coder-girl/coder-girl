@@ -16,10 +16,13 @@ a {
 
 canvas {
   width: inherit;
-  height: 100%;
+  height: inherit;
   padding: 10px;
+  background-image: url('../asset/section1Background.png');
+  background-size: 100% 100%;
 }
 
 .welcome-container {
-  width: 100%
+  width: 100%;
+  height: 100%;
 }
