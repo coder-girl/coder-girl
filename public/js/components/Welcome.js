@@ -249,6 +249,15 @@ var Welcome = React.createClass({
       });
     }); 
 
+    var smokeX = $('#welcomeBoard').width() - 27;
+
+    $('#smoke').css({
+      position: 'absolute',
+      bottom: '-21%',
+      right: smokeX,
+      opacity: '0.2'
+    });
+
     return (
       <div className="welcome-container">
         <div className="welcome-title">
