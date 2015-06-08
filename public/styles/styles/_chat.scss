@@ -7,11 +7,13 @@ div.chat-section {
   overflow: hidden;
   background-color: $offBlack;
   color: lightgrey;
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  max-height: 45%;
 
   .chat-menu-bar {
     height: 25px;
-    line-height: 35px;
+    line-height: 25px;
     background-color: $offBlack;
     border: solid 1px grey;
 
@@ -32,21 +34,14 @@ div.chat-section {
     width: 398px;
     font-size: .9rem;
   }
-  
-  ul.message-list {
-    list-style-type: none;
-    line-height: 1.2;
-    font-size: .9rem;
-  }
 
   .message-section {
-    max-height: 40%;
     padding: 5px 10px;
-    margin-bottom: 170px;
 
     .message-list {
-      max-height: inherit;
-      overflow-y: auto;
+      list-style-type: none;
+      line-height: 1.2;
+      font-size: .9rem;
 
       .message-item {
         padding: 8px 3px;
