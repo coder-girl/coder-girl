@@ -133,13 +133,20 @@ label {
 // & credits to http://codepen.io/trishasalas/pen/DgEjI
 // sun
 
+
+
+#positionDivs{
+  display:inline-block;
+  position: absolute;
+}
+
 .sun {
     float: left;
     position: relative;
     margin: 30px;
     width: 80px;
     height: 80px;
-    bottom: 423px;
+    right: 1098px;
     z-index: 10;
 }
 .sun-face {
@@ -333,6 +340,11 @@ label {
   78% { transform: translate3d(0,0,0); }
   100% { transform: translate3d(0,0,0); }
 }
+
+#welcomeBoard {
+    height: 100%;
+}
+
 //  http://thecodeplayer.com/walkthrough/pure-css3-animated-clouds-background
 //clouds
 
@@ -342,14 +354,13 @@ label {
 
 div#cloud {
     position: relative;
-    bottom: 294px;
-    left:750px
+    top: 45px;
 }
 
 div#cloud2 {
     position: relative;
-    bottom: 383px;
-    left: 397px;
+    bottom: 56px;
+    left: 100px;
 }
 
 .clouds {
@@ -386,31 +397,25 @@ div#cloud2 {
 
 .clouds.cloud-2 {
     position: relative;
-    right: 100px;
 }
 
 .clouds.cloud-3 {
     position: relative;
-    top: -22px;
-    left: 500px;
 }
 
 .clouds.cloud-4 {
     position: relative;
     /* top: 395px; */
     left: 400px;
-    bottom: 150px;
 }
 
 .clouds.cloud-5 {
     position: relative;
     left: 150px;
-    bottom: 125px;
 }
 
 .clouds.cloud-6 {
     position: relative;
-    bottom: 100px;
     left: 350px;
 }
 
@@ -456,13 +461,13 @@ div#cloud2 {
 }
 
 @-webkit-keyframes moveclouds {
-  0% {margin-left: 1100px;}
-  100% {margin-left: -1100px;}
+  0% {margin-left: 100px;}
+  100% {margin-left: -1200px;}
 }
 
 @-moz-keyframes moveclouds {
-  0% {margin-left: 1100px;}
-  100% {margin-left: -1100px;}
+  0% {margin-left: 100px;}
+  100% {margin-left: -1600px;}
 }
 
 // credits to http://codepen.io/verlok/pen/nLsdB
@@ -470,8 +475,8 @@ div#cloud2 {
 
 #smoke {
   position: absolute;
-  bottom: 300px;
-  left: 50px;
+  right: 1200px;
+  bottom: -50px;
 }
 
 #smoke span {
@@ -575,3 +580,220 @@ div#cloud2 {
   animation: smokeR 10s 9s infinite;
 }
 
+
+// credits to http://codepen.io/lbebber/pen/jEqmyN
+// butterfly
+
+@-moz-keyframes borboletas-pos-loop {
+  0% {
+    -moz-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  25% {
+    -moz-transform: translate(100px, 0);
+    transform: translate(100px, 0);
+  }
+  50% {
+    -moz-transform: translate(30px, -70px);
+    transform: translate(30px, -70px);
+  }
+  75% {
+    -moz-transform: translate(0px, 20px);
+    transform: translate(0px, 20px);
+  }
+  100% {
+    -moz-transform: translate(-100px, -50px);
+    transform: translate(-100px, -50px);
+  }
+}
+@-webkit-keyframes borboletas-pos-loop {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  25% {
+    -webkit-transform: translate(100px, 0);
+    transform: translate(100px, 0);
+  }
+  50% {
+    -webkit-transform: translate(30px, -70px);
+    transform: translate(30px, -70px);
+  }
+  75% {
+    -webkit-transform: translate(0px, 20px);
+    transform: translate(0px, 20px);
+  }
+  100% {
+    -webkit-transform: translate(-100px, -50px);
+    transform: translate(-100px, -50px);
+  }
+}
+.borboletas {
+  position: absolute;
+  right: 500px;
+  -moz-animation: borboletas-pos-loop 7s ease-in-out infinite alternate-reverse;
+  -webkit-animation: borboletas-pos-loop 7s ease-in-out infinite alternate-reverse;
+  animation: borboletas-pos-loop 7s ease-in-out infinite alternate-reverse;
+}
+
+.borboleta-oval-squish {
+  -moz-transform: scale(0.3, 1);
+  -ms-transform: scale(0.3, 1);
+  -webkit-transform: scale(0.3, 1);
+  transform: scale(0.3, 1);
+}
+
+@-moz-keyframes borboleta-radial-loop {
+  0% {
+    -moz-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes borboleta-radial-loop {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.borboleta-1 {
+  -moz-animation: borboleta-radial-loop 10s linear infinite;
+  -webkit-animation: borboleta-radial-loop 10s linear infinite;
+  animation: borboleta-radial-loop 10s linear infinite;
+}
+
+.borboleta-2 {
+  -moz-animation: borboleta-radial-loop 15s linear infinite;
+  -webkit-animation: borboleta-radial-loop 15s linear infinite;
+  animation: borboleta-radial-loop 15s linear infinite;
+}
+
+@-moz-keyframes borboleta-oval-loop {
+  0% {
+    -moz-transform: rotate(0) scale(3.3, 1);
+    transform: rotate(0) scale(3.3, 1);
+  }
+  100% {
+    -moz-transform: rotate(-360deg) scale(3.3, 1);
+    transform: rotate(-360deg) scale(3.3, 1);
+  }
+}
+@-webkit-keyframes borboleta-oval-loop {
+  0% {
+    -webkit-transform: rotate(0) scale(3.3, 1);
+    transform: rotate(0) scale(3.3, 1);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg) scale(3.3, 1);
+    transform: rotate(-360deg) scale(3.3, 1);
+  }
+}
+
+.borboleta-oval {
+  position: absolute;
+  -moz-animation: borboleta-radial-loop 1.2s linear infinite;
+  -webkit-animation: borboleta-radial-loop 1.2s linear infinite;
+  animation: borboleta-radial-loop 1.2s linear infinite;
+}
+
+.borboleta-radial {
+  position: absolute;
+  left: 80px;
+  top: 0;
+  -moz-animation: borboleta-oval-loop 1.2s linear infinite;
+  -webkit-animation: borboleta-oval-loop 1.2s linear infinite;
+  animation: borboleta-oval-loop 1.2s linear infinite;
+}
+
+.borboleta-2 .borboleta-oval {
+  -moz-animation: borboleta-radial-loop 1.5s linear infinite;
+  -webkit-animation: borboleta-radial-loop 1.5s linear infinite;
+  animation: borboleta-radial-loop 1.5s linear infinite;
+}
+
+.borboleta-2 .borboleta-radial {
+  -moz-animation: borboleta-oval-loop 1.5s linear infinite;
+  -webkit-animation: borboleta-oval-loop 1.5s linear infinite;
+  animation: borboleta-oval-loop 1.5s linear infinite;
+}
+
+.borboleta-gfx {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 20px;
+}
+
+@-moz-keyframes borboleta-gfx-upright-loop {
+  0% {
+    -moz-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -moz-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+@-webkit-keyframes borboleta-gfx-upright-loop {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+
+.borboleta-1 .borboleta-gfx {
+  -moz-animation: borboleta-gfx-upright-loop 10s linear infinite;
+  -webkit-animation: borboleta-gfx-upright-loop 10s linear infinite;
+  animation: borboleta-gfx-upright-loop 10s linear infinite;
+}
+
+.borboleta-2 .borboleta-gfx {
+  -moz-animation: borboleta-gfx-upright-loop 15s linear infinite;
+  -webkit-animation: borboleta-gfx-upright-loop 15s linear infinite;
+  animation: borboleta-gfx-upright-loop 15s linear infinite;
+}
+
+@-moz-keyframes borboleta-anim-loop {
+  0% {
+    -moz-transform: scale(1, 1.2) rotate(40deg);
+    transform: scale(1, 1.2) rotate(40deg);
+  }
+  100% {
+    -moz-transform: scale(0.7, -1) rotate(-40deg);
+    transform: scale(0.7, -1) rotate(-40deg);
+  }
+}
+@-webkit-keyframes borboleta-anim-loop {
+  0% {
+    -webkit-transform: scale(1, 1.2) rotate(40deg);
+    transform: scale(1, 1.2) rotate(40deg);
+  }
+  100% {
+    -webkit-transform: scale(0.7, -1) rotate(-40deg);
+    transform: scale(0.7, -1) rotate(-40deg);
+  }
+}
+
+.borboleta-anim {
+  background: radial-gradient(closest-side at 50% 50%, #ffffff 50%, rgba(255, 255, 255, 0) 50%), radial-gradient(closest-side at 50% 50%, #ffffff 50%, rgba(215, 137, 209, 0) 50%);
+  background-repeat: no-repeat;
+  background-size: 90% 70%,100% 70%;
+  background-position: 20% -40%,0 40%;
+  width: 25px;
+  height: 20px;
+  -moz-animation: borboleta-anim-loop 150ms ease-in-out infinite alternate-reverse;
+  -webkit-animation: borboleta-anim-loop 150ms ease-in-out infinite alternate-reverse;
+  animation: borboleta-anim-loop 150ms ease-in-out infinite alternate-reverse;
+}

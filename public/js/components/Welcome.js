@@ -212,48 +212,72 @@ var Welcome = React.createClass({
           <span className="welcome-username">{this.state.user.username}</span>
         </div>
         <canvas id="welcomeBoard"></canvas>
-        <div id="happySun">
-          <div className="sun hidden">
-            <div className="sun-face">
-              <div className="sun-hlight"></div>
-              <div className="sun-leye"></div>
-              <div className="sun-reye"></div>
-              <div className="sun-lred"></div>
-              <div className="sun-rred"></div>
-              <div className="sun-nose"></div>
+        <div id="positionDivs">
+          <div id="happySun">
+            <div className="sun hidden">
+              <div className="sun-face">
+                <div className="sun-hlight"></div>
+                <div className="sun-leye"></div>
+                <div className="sun-reye"></div>
+                <div className="sun-lred"></div>
+                <div className="sun-rred"></div>
+                <div className="sun-nose"></div>
+              </div>
+              <div className="sun-anime">
+                <div className="sun-ball"></div>
+              </div>
             </div>
-            <div className="sun-anime">
-              <div className="sun-ball"></div>
+            <div id="cloud" className="hidden">
+              <div className="clouds cloud-1"></div>
+              <div className="clouds cloud-2"></div>
+              <div className="clouds cloud-4"></div>
+              <div className="clouds cloud-3"></div>
+              <div className="clouds cloud-6"></div>
+              <div className="clouds cloud-5"></div>
+            </div>
+            <div id="cloud2" className="hidden">
+              <div className="clouds cloud-4"></div>
+              <div className="clouds cloud-2"></div>
+              <div className="clouds cloud-6"></div>
+              <div className="clouds cloud-1"></div>
             </div>
           </div>
-          <div id="cloud" className="hidden">
-            <div className="clouds cloud-1"></div>
-            <div className="clouds cloud-2"></div>
-            <div className="clouds cloud-3"></div>
-            <div className="clouds cloud-4"></div>
-            <div className="clouds cloud-5"></div>
-            <div className="clouds cloud-6"></div>
+          <div id="smoke">
+            <span className="smokeCircle0"></span>
+            <span className="smokeCircle1"></span>
+            <span className="smokeCircle2"></span>
+            <span className="smokeCircle3"></span>
+            <span className="smokeCircle4"></span>
+            <span className="smokeCircle5"></span>
+            <span className="smokeCircle6"></span>
+            <span className="smokeCircle7"></span>
+            <span className="smokeCircle8"></span>
+            <span className="smokeCircle9"></span>
           </div>
-          <div id="cloud2" className="hidden">
-            <div className="clouds cloud-1"></div>
-            <div className="clouds cloud-2"></div>
-            <div className="clouds cloud-3"></div>
-            <div className="clouds cloud-4"></div>
-            <div className="clouds cloud-5"></div>
-            <div className="clouds cloud-6"></div>
+          <div className="borboletas">
+            <div className="borboleta-1">
+              <div className="borboleta-oval-squish">
+                <div className="borboleta-oval">
+                  <div className="borboleta-radial">
+                    <div className="borboleta-gfx">
+                      <div className="borboleta-anim"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="borboleta-2">
+              <div className="borboleta-oval-squish">
+                <div className="borboleta-oval">
+                  <div className="borboleta-radial">
+                    <div className="borboleta-gfx">
+                      <div className="borboleta-anim"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div id="smoke">
-          <span className="smokeCircle0"></span>
-          <span className="smokeCircle1"></span>
-          <span className="smokeCircle2"></span>
-          <span className="smokeCircle3"></span>
-          <span className="smokeCircle4"></span>
-          <span className="smokeCircle5"></span>
-          <span className="smokeCircle6"></span>
-          <span className="smokeCircle7"></span>
-          <span className="smokeCircle8"></span>
-          <span className="smokeCircle9"></span>
         </div>
       </div>
     );
