@@ -5,7 +5,7 @@ div.chat-section {
   border: solid 1px lightgrey;
   width: 400px;
   overflow: hidden;
-  background-color: $offBlack;
+  background-color: rgba(0,0,0,.8);
   color: lightgrey;
   position: absolute;
   bottom: 0;
@@ -18,7 +18,6 @@ div.chat-section {
   .chat-menu-bar {
     height: 25px;
     line-height: 25px;
-    background-color: $offBlack;
     border: solid 1px grey;
 
     .close-button {
@@ -29,7 +28,7 @@ div.chat-section {
   textarea {
     min-height: 30px;
     border: solid 1px lightgrey;
-    background-color: $offBlack;
+    background-color: inherit;
     position: fixed;
     bottom: 0;
     color: grey;
