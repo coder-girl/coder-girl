@@ -470,11 +470,6 @@ div#cloud2 {
 // credits to http://codepen.io/verlok/pen/nLsdB
 // smoke
 
-#smoke {
-  position: absolute;
-  right: 1200px;
-  bottom: -50px;
-}
 
 #smoke span {
   display: block;
@@ -490,6 +485,7 @@ div#cloud2 {
 /* Smoke animation */
 @-webkit-keyframes smokeL {
   0% {
+    opacity: 0;
     -moz-transform: scale(0.2) translate(0, 0);
     -webkit-transform: scale(0.2) translate(0, 0);
     transform: scale(0.2) translate(0, 0);
@@ -509,6 +505,7 @@ div#cloud2 {
 }
 @-webkit-keyframes smokeR {
   0% {
+    opacity: 0;
     -moz-transform: scale(0.2) translate(0, 0);
     -webkit-transform: scale(0.2) translate(0, 0);
     transform: scale(0.2) translate(0, 0);
