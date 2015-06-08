@@ -5,11 +5,10 @@ var About = React.createClass({
     return (
       <div id="about-container">
 
-        <div className="bar0">
-          <img src="./../../asset/girls-coding.jpg" alt="Girls coding together"/>
-        </div>
-
         <div className="bar1 title">
+          <div className="girls-coding content-container">
+            <img src="./../../asset/girls-coding.jpg" alt="Girls coding together"/>
+          </div>
           <div className="title-block title-block-left">
             <h1>Made for girls, by girls (mostly)</h1>
             <h4>Learn to program alongside other like-minded girls in a collaborative environment.</h4>
@@ -118,12 +117,12 @@ var About = React.createClass({
               <a href="#" className="node"><img className="stack" alt="Node.js" src="./../../asset/node.png"/></a>
               <a href="#" className="socketio"><img className="stack" alt="Socket.io" src="./../../asset/socketio.png"/></a>
               <a href="#" className="postgresql"><img className="stack" alt="PostgreSQL" src="./../../asset/postgresql.jpg"/></a>
+              <a href="#" className="instagram"><img className="stack" alt="Instagram API" src="./../../asset/instagram.jpg"/></a>
             </div>
             <div className="stack-group stack-devops">
               <a href="#" className="gulp"><img className="stack" alt="Gulp" src="./../../asset/gulp.png"/></a>
               <a href="#" className="jasmine"><img className="stack" alt="Jasmine" src="./../../asset/jasmine.png"/></a>
               <a href="#" className="travisci"><img className="stack" alt="TravisCI" src="./../../asset/travisci.jpg"/></a>
-              <a href="#" className="instagram"><img className="stack" alt="Instagram API" src="./../../asset/instagram.jpg"/></a>
             </div>
           </div>  
         </div>

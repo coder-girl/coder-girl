@@ -42,14 +42,17 @@ body {
         height: 450px;
       }
 
-      .bar0 {
-        text-align: center;
-        background-color: $greyText;
-      }
-      
       .bar1 {
-        display: table-cell;
-        vertical-align: middle;
+        .girls-coding {
+          height: inherit;
+          max-width: 60%;
+          float: left;
+
+          img {
+            height: inherit;
+            max-width: 100%;
+          }
+        }
       }
 
       .bar2 {
@@ -122,8 +125,9 @@ body {
           width: 100%;
         }
         .stack-group {
-          float: right;
+          float: left;
           margin: 10px 0;
+          max-width: 20%;
           a {
             border: none;
             display: inline-block
@@ -134,7 +138,11 @@ body {
               height: 80px;
             }
             img {
-              width: 200px;
+              width: auto;
+              height: auto;
+              min-width: 100%;
+              min-height: 100%;
+              padding: 20px 40px;
             }
           }
         }
@@ -155,7 +163,7 @@ body {
         }
       }
 
-      .content-container, .title-block, .feature-block {
+      .content-container, .title-block, .feature-block, .stack-group {
         position: relative;
         top: 50%;
         -webkit-transform: translateY(-50%);
