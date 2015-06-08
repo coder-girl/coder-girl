@@ -4,7 +4,7 @@
  * @Author: Mark Bennett
  * @Date:   2015-05-27 19:54:19
  * @Last Modified by:   nimi
- * @Last Modified time: 2015-06-06 17:01:30
+ * @Last Modified time: 2015-06-08 12:37:53
  */
 
 'use strict';
@@ -20,8 +20,8 @@ var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
 
 var Welcome = React.createClass({
-
   getInitialState: function() {
+    paper.install(window);
     return {
       user: {}
     };
@@ -35,7 +35,7 @@ var Welcome = React.createClass({
   },
 
   componentDidMount: function() {
-    paper.install(window);
+    
     var user = AuthStore.getUser();
     console.log(user);
     var canvas = document.getElementById('welcomeBoard');
@@ -81,6 +81,13 @@ var Welcome = React.createClass({
     levelLine.strokeColor = 'black';
     levelLine.strokeWidth = 10;
     levelLine.add(new paper.Point(0, (points[0].y - 20)));
+    var houseURL = '../asset/house.png';
+    var house = new paper.Raster(houseURL);
+    house.onLoad = function(){
+      house.opacity = 0;
+      house.scaling= 0.75;
+      house.position = new paper.Point(width/5, ((canvas.offsetHeight)/2) + 40)
+    }
     var userBubble = pathCreator('m 245.41842,595.31803 c 0,0 9.0884,-18.5276 -52.50162,-81.84478 -61.93879,-63.67572 -59.96515,-94.64594 -59.73994,-123.27872 0.29053,-36.93671 44.82182,-118.16526 106.05953,-119.90096 54.12684,-1.53415 115.70215,75.80676 115.56646,119.60555 -3.65588,90.09688 -68.26674,132.12215 -109.38443,205.41891 z');
     userBubble.scaling = 0.22;
     userBubble.fillColor = '#8E2BC8';
@@ -124,11 +131,23 @@ var Welcome = React.createClass({
                 sun.children[i].classList.remove('hidden');
               }
             }
+          } else if(counter===0){
+            house.animate({
+              properties : {
+                opacity: 1
+
+              },
+              settings: {
+                duration: 1500,
+                easing: 'swing'
+              }
+            })
           }
 
+     
           var overlayCircle = new paper.Path.Circle(new paper.Point(points[counter].x, points[counter].y), 20);
           overlayCircle.opacity = 0;
-          overlayCircle.fillColor = '#5BC0BA';
+          overlayCircle.fillColor = '#25E0CD';
           overlayCircle.animate({
             properties: {
               opacity: 1
@@ -146,7 +165,7 @@ var Welcome = React.createClass({
               }
             },
             settings: {
-              duration: 1500,
+              duration: 1200,
               easing: 'swing'
             }
           });
@@ -169,7 +188,7 @@ var Welcome = React.createClass({
           easing: 'swing'
         }
       });
-    }, 6100);
+    }, (4*1500+100 /* the four will later be currentChallenge +1*/));
     paper.view.draw();
     this.setState({
       user: AuthStore.getUser()
