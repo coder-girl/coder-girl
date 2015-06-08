@@ -141,12 +141,11 @@ label {
 }
 
 .sun {
-    float: left;
     position: relative;
     margin: 30px;
     width: 80px;
     height: 80px;
-    right: 1098px;
+    right: 104%;
     z-index: 10;
 }
 .sun-face {
@@ -353,14 +352,14 @@ label {
 }
 
 div#cloud {
-    position: relative;
-    top: 45px;
+    position: absolute;
+    top: 50%;
 }
 
 div#cloud2 {
-    position: relative;
-    bottom: 56px;
-    left: 100px;
+    position: absolute;
+    bottom: 22%;
+    left: 74%;
 }
 
 .clouds {
@@ -584,18 +583,19 @@ div#cloud2 {
 // credits to http://codepen.io/lbebber/pen/jEqmyN
 // butterfly
 
+
 @-moz-keyframes borboletas-pos-loop {
   0% {
     -moz-transform: translate(0, 0);
-    transform: translate(0, 0);
+    transform: translate(0px, 0px);
   }
   25% {
     -moz-transform: translate(100px, 0);
-    transform: translate(100px, 0);
+    transform: translate(0px, 0px);
   }
   50% {
     -moz-transform: translate(30px, -70px);
-    transform: translate(30px, -70px);
+    transform: translate(0px, -70px);
   }
   75% {
     -moz-transform: translate(0px, 20px);
@@ -603,7 +603,7 @@ div#cloud2 {
   }
   100% {
     -moz-transform: translate(-100px, -50px);
-    transform: translate(-100px, -50px);
+    transform: translate(0px, -50px);
   }
 }
 @-webkit-keyframes borboletas-pos-loop {
@@ -613,11 +613,11 @@ div#cloud2 {
   }
   25% {
     -webkit-transform: translate(100px, 0);
-    transform: translate(100px, 0);
+    transform: translate(0px, 0);
   }
   50% {
     -webkit-transform: translate(30px, -70px);
-    transform: translate(30px, -70px);
+    transform: translate(0px, -70px);
   }
   75% {
     -webkit-transform: translate(0px, 20px);
@@ -625,12 +625,10 @@ div#cloud2 {
   }
   100% {
     -webkit-transform: translate(-100px, -50px);
-    transform: translate(-100px, -50px);
+    transform: translate(0px, -50px);
   }
 }
 .borboletas {
-  position: absolute;
-  right: 500px;
   -moz-animation: borboletas-pos-loop 7s ease-in-out infinite alternate-reverse;
   -webkit-animation: borboletas-pos-loop 7s ease-in-out infinite alternate-reverse;
   animation: borboletas-pos-loop 7s ease-in-out infinite alternate-reverse;
@@ -787,7 +785,7 @@ div#cloud2 {
 }
 
 .borboleta-anim {
-  background: radial-gradient(closest-side at 50% 50%, #ffffff 50%, rgba(255, 255, 255, 0) 50%), radial-gradient(closest-side at 50% 50%, #ffffff 50%, rgba(215, 137, 209, 0) 50%);
+  background: radial-gradient(closest-side at 50% 50%, $purple 50%, rgba(255, 255, 255, 0) 50%), radial-gradient(closest-side at 50% 50%, $purple 50%, rgba(215, 137, 209, 0) 50%);
   background-repeat: no-repeat;
   background-size: 90% 70%,100% 70%;
   background-position: 20% -40%,0 40%;
@@ -796,4 +794,9 @@ div#cloud2 {
   -moz-animation: borboleta-anim-loop 150ms ease-in-out infinite alternate-reverse;
   -webkit-animation: borboleta-anim-loop 150ms ease-in-out infinite alternate-reverse;
   animation: borboleta-anim-loop 150ms ease-in-out infinite alternate-reverse;
+}
+
+
+#butterflies{
+  position: absolute;
 }

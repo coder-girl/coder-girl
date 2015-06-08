@@ -6,8 +6,7 @@
  * @Last Modified by:   nimi
  * @Last Modified time: 2015-06-08 12:37:53
  */
-
-'use strict';
+'use strict'
 
 var React = require('react');
 var AuthStore = require('../stores/AuthStore');
@@ -205,6 +204,14 @@ var Welcome = React.createClass({
       greeting += ' back';
     }
 
+    $(document).bind('mousemove', function(e) {
+      console.log('e:', e, 'pageX:', e.pageX);
+      $('#butterflies').css({
+       left: e.pageX - $('#welcomeBoard').width(),
+       top: e.pageY - 50
+      });
+    });
+
     return (
       <div className="welcome-container">
         <div className="welcome-title">
@@ -254,24 +261,26 @@ var Welcome = React.createClass({
             <span className="smokeCircle8"></span>
             <span className="smokeCircle9"></span>
           </div>
-          <div className="borboletas">
-            <div className="borboleta-1">
-              <div className="borboleta-oval-squish">
-                <div className="borboleta-oval">
-                  <div className="borboleta-radial">
-                    <div className="borboleta-gfx">
-                      <div className="borboleta-anim"></div>
+          <div id="butterflies">
+            <div className="borboletas">
+              <div className="borboleta-1">
+                <div className="borboleta-oval-squish">
+                  <div className="borboleta-oval">
+                    <div className="borboleta-radial">
+                      <div className="borboleta-gfx">
+                        <div className="borboleta-anim"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="borboleta-2">
-              <div className="borboleta-oval-squish">
-                <div className="borboleta-oval">
-                  <div className="borboleta-radial">
-                    <div className="borboleta-gfx">
-                      <div className="borboleta-anim"></div>
+              <div className="borboleta-2">
+                <div className="borboleta-oval-squish">
+                  <div className="borboleta-oval">
+                    <div className="borboleta-radial">
+                      <div className="borboleta-gfx">
+                        <div className="borboleta-anim"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
