@@ -340,9 +340,6 @@ label {
   100% { transform: translate3d(0,0,0); }
 }
 
-#welcomeBoard {
-    height: 100%;
-}
 
 //  http://thecodeplayer.com/walkthrough/pure-css3-animated-clouds-background
 //clouds
@@ -799,4 +796,5 @@ div#cloud2 {
 
 #butterflies{
   position: absolute;
+  width: 100px
 }
