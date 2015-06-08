@@ -133,9 +133,11 @@ var Leaderboard = React.createClass({
                       </div>
                     </Modal>
                   </div>
+                  <div className="picture">
                   <a>
                     <img onMouseEnter={self.showUser.bind(null, p.id)} onMouseLeave={self.showUser.bind(null, p.id)} onClick={self.openModal.bind(null, p.src, p.allPics, p.username, p.url)} ref={p.id} src={p.src} title={p.title} />
                   </a>
+                  </div>
                   <div ref={p.id} className="custom-card-divider">
                    <div>{p.username}</div>
                     <div>{p.score} Points</div>
