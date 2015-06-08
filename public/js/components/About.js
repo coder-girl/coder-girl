@@ -110,21 +110,20 @@ var About = React.createClass({
 
           <div className="stack-block content-container">
             <div className="stack-group stack-frontend">
-              <a href="#" className="react" alt="React.js"><img className="stack" src="#"/></a>
-              <a href="#" className="flux" alt="Flux"><img className="stack" src="#"/></a>
-              <a href="#" className="foundation" alt="Foundation"><img className="stack" src="#"/></a>
+              <a href="#" className="react"><img className="stack" alt="React" src="./../../asset/react.png"/></a>
+              <a href="#" className="flux"><img className="stack" alt="Flux" src="./../../asset/flux.png"/></a>
+              <a href="#" className="foundation"><img className="stack" alt="Foundation" src="./../../asset/foundation.png"/></a>
             </div>
             <div className="stack-group stack-backend">
-              <a href="#" className="node" alt="Node.js"><img className="stack" src=""/></a>
-              <a href="#" className="express" alt="Express"><img className="stack" src=""/></a>
-              <a href="#" className="socketio" alt="Socket.io"><img className="stack" src=""/></a>
-              <a href="#" className="postgresql" alt="PostgreSQL"><img className="stack" src=""/></a>
+              <a href="#" className="node"><img className="stack" alt="Node.js" src="./../../asset/node.png"/></a>
+              <a href="#" className="socketio"><img className="stack" alt="Socket.io" src="./../../asset/socketio.png"/></a>
+              <a href="#" className="postgresql"><img className="stack" alt="PostgreSQL" src="./../../asset/postgresql.jpg"/></a>
             </div>
             <div className="stack-group stack-devops">
-              <a href="#" className="gulp" alt="Gulp"><img className="stack" src=""/></a>
-              <a href="#" className="jasmine" alt="Jasmine"><img className="stack" src=""/></a>
-              <a href="#" className="travisci" alt="TravisCI"><img className="stack" src=""/></a>
-              <a href="#" className="instagram" alt="Instagram API"><img className="stack" src=""/></a>
+              <a href="#" className="gulp"><img className="stack" alt="Gulp" src="./../../asset/gulp.png"/></a>
+              <a href="#" className="jasmine"><img className="stack" alt="Jasmine" src="./../../asset/jasmine.png"/></a>
+              <a href="#" className="travisci"><img className="stack" alt="TravisCI" src="./../../asset/travisci.jpg"/></a>
+              <a href="#" className="instagram"><img className="stack" alt="Instagram API" src="./../../asset/instagram.jpg"/></a>
             </div>
           </div>  
         </div>
