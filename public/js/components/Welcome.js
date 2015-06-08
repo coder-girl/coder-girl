@@ -4,7 +4,7 @@
  * @Author: Mark Bennett
  * @Date:   2015-05-27 19:54:19
  * @Last Modified by:   nimi
- * @Last Modified time: 2015-06-08 12:37:53
+ * @Last Modified time: 2015-06-08 15:14:21
  */
 'use strict';
 
@@ -86,6 +86,19 @@ var Welcome = React.createClass({
       house.scaling = 0.75;
       house.position = new paper.Point(width / 5, ((canvas.offsetHeight) / 2) + 40);
     };
+    var girlURL = '../asset/girlWithPanda.png';
+    var girl = new paper.Raster(girlURL);
+    girl.onLoad = function() {
+      girl.opacity = 0;
+      girl.position = new paper.Point((width*3) / 5, (( 2* canvas.offsetHeight) / 3) + 40);
+    };
+    var treesURL = '../asset/trees.png';
+    var trees = new paper.Raster(treesURL);
+    trees.onLoad = function() {
+      trees.opacity = 0;
+      trees.position = new paper.Point((width*5) / 6, ((2*canvas.offsetHeight) / 3) + 10);
+    };
+
     var userBubble = pathCreator('m 245.41842,595.31803 c 0,0 9.0884,-18.5276 -52.50162,-81.84478 -61.93879,-63.67572 -59.96515,-94.64594 -59.73994,-123.27872 0.29053,-36.93671 44.82182,-118.16526 106.05953,-119.90096 54.12684,-1.53415 115.70215,75.80676 115.56646,119.60555 -3.65588,90.09688 -68.26674,132.12215 -109.38443,205.41891 z');
     userBubble.scaling = 0.22;
     userBubble.fillColor = '#8E2BC8';
@@ -118,7 +131,7 @@ var Welcome = React.createClass({
 
     var counter = -1;
     (function next() {
-      if (counter >= 2) {
+      if (counter >= 3) {
         return;
       } else {
         setTimeout(function() {
@@ -137,12 +150,31 @@ var Welcome = React.createClass({
               },
               settings: {
                 duration: 1500,
-                easing: 'swing'
+                easing: 'easeInBounce'
               }
             });
+          } else if (counter === 1) {
+            girl.animate({
+              properties: {
+                opacity: 1
+              },
+              settings: {
+                duration: 1500,
+                easing: 'easeInBounce'
+              }
+            });
+          } else if( counter === 3){
+            trees.animate({
+              properties: {
+                opacity: 1,
+                scale: 1.5
+              },
+              settings: {
+                duration: 1500,
+                easing: 'easeInBounce'
+              }
+            })
           }
-
-
           var overlayCircle = new paper.Path.Circle(new paper.Point(points[counter].x, points[counter].y), 20);
           overlayCircle.opacity = 0;
           overlayCircle.fillColor = '#25E0CD';
@@ -186,7 +218,7 @@ var Welcome = React.createClass({
           easing: 'swing'
         }
       });
-    }, (4 * 1500 + 100 /* the four will later be currentChallenge +1*/ ));
+    }, (5 * 1500 + 100 /* the four will later be currentChallenge +1*/ ));
     paper.view.draw();
     this.setState({
       user: AuthStore.getUser()
@@ -205,7 +237,6 @@ var Welcome = React.createClass({
     }
 
     $(document).bind('mousemove', function(e) {
-      console.log('e:', e, 'pageX:', e.pageX);
       $('#butterflies').css({
         left: e.pageX - $('#welcomeBoard').width(),
         top: e.pageY - 50
