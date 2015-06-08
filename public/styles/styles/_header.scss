@@ -7,8 +7,10 @@
     img {
         width: auto;
         height: 3rem;
-        margin: 5 0 5 10;
         padding: 0; 
+        border-radius: 50%;
+        margin-top: 0.12em;
+        vertical-align: none;
     }
 
     a {
@@ -37,3 +39,6 @@ button {
   color: white;
 }
 
+#logo {
+  margin-top: 0.12em;
+}
