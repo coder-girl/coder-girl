@@ -40,6 +40,14 @@ getPics: function(topScorers){
 
             if(!result.data){
                 console.log("Error message from Instagram:", result.meta.error_message);
+               
+                var photoInfo = {
+                  id: item.username, 
+                  src: '../asset/CoderGirl-WhiteBackground.png', 
+                  title: '',
+                  score: item.score,
+                  username: item.username
+                }
                 next(null, photoInfo);
             } else {
 
@@ -67,7 +75,14 @@ getPics: function(topScorers){
             },
             error: function(xhr, status, error){
               console.error(xhr, status, error)
-              next(error);
+              var photoInfo = {
+                id: item.username, 
+                src: '../asset/CoderGirl-WhiteBackground.png', 
+                title: '',
+                score: item.score,
+                username: item.username
+              }
+              next(null, photoInfo);
             }
           })
 
