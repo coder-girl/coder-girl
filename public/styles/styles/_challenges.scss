@@ -2,7 +2,6 @@
   z-index: 0;
 }
 
-
 .testResults {
   color: $purple;
 }
@@ -10,13 +9,16 @@
 .hints-wrapper {
   font-weight: 900;
   font-style: italic;
+}
+
+.hint-button {
+  padding: 0 12px;
 
 }
 
-
 .instructionPanel {
-  border-right: solid;
   border-width: thin;
   letter-spacing: 0.09em;
   overflow-y: scroll;
+  padding: 0 15px;
 }

@@ -28,15 +28,21 @@
   }
   .logOut {
     padding-right: 10px;
-    padding-top: 8px;
   }
 }
 
 
 button {
-  background-color: $aqua;
+  padding: 0 .9em;
+  background-color: $purple;
   border: 0;
   color: white;
+  height: 38px;
+  margin-top: 4px;
+
+  &:hover {
+    background-color: $darkPurple;
+  }
 }
 
 #logo {
