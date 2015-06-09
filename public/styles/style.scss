@@ -5,19 +5,16 @@
 @import "styles/loginSignup";
 @import "styles/header";
 @import "styles/leaderboard";
-@import "styles/welcome";
 @import "styles/chat";
 @import "styles/challenges";
 @import "styles/about";
 @import "styles/congrats";
+@import "styles/welcome";
 
 body{
   font-family: 'Raleway-regular', sans-serif;
 }
-.shorty {
-    height: 50%;
-    overflow: hidden;
-}
+
 .challengeEditor {
   width: 100%;
   overflow: hidden;
@@ -33,9 +30,6 @@ body{
     float: right;
 }
 
-div.chat-section {
-    width: 100%;
-}
 .message-section {
     max-height: 40%;
 }
