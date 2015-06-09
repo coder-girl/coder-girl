@@ -61,20 +61,23 @@ body {
       .bar2 {
         height: 200px;
         background-color: $aqua;
-        padding: 0 30px;
+        padding: 0 1.3rem;
+
+        .feature-icon {
+          float: left;
+          height: 100%;
+          padding: 0 .5rem;
+          position: relative;
+          bottom: 3rem;
+          i {
+            color: white;
+          }
+        }
+
         .feature-block {
           width: 25%;
           float: left;
-          padding: 0 10px;
-          margin-left: 80px;
-
-          .feature {
-            margin-top: 40px;
-          }
-
-          .description {
-            width: 80%;
-          }
+          margin: 0 1.2rem;
         }  
 
       }
@@ -127,6 +130,9 @@ body {
             i {
               color: #9A9A9A;
               margin: 0 8px;
+              &:hover {
+                color: silver;
+              }
             }
           }
         }

@@ -17,16 +17,25 @@ var About = React.createClass({
 
         <div className="bar2 features">
           <div className="content-container">
+            <div className="feature-icon">
+              <i className="fa fa-code fa-3x"></i>
+            </div>
             <div className="feature-block">
               <h3 className="feature">Learn core skills</h3>
               <h6 className="description">Build a reliable foundation of programming techniques.<br/></h6>
             </div>
 
+            <div className="feature-icon">
+              <i className="fa fa-star-o fa-3x"></i>
+            </div>
             <div className="feature-block">
               <h3 className="feature">Tackle challenges</h3>
               <h6 className="description">Earn points and level-up as you work through engaging problems.</h6>
             </div>
 
+            <div className="feature-icon">
+              <i className="fa fa-comments-o fa-3x"></i>
+            </div>
             <div className="feature-block">
               <h3 className="feature">Collaborate with friends</h3>
               <h6 className="description">Offer or receive help while participating in a highly social environment.</h6>
@@ -70,15 +79,15 @@ var About = React.createClass({
               <img id="lauren-pic" src="./../../asset/lauren.jpeg" />
               <h5 className="member-name">Lauren<br/>Spiegel</h5>
               <p className="member-description">A nifty good time.</p>
-              <a className="github" href="#"><i className="fa fa-github fa-lg"></i></a>
-              <a className="linkedin" href="#"><i className="fa fa-linkedin fa-lg"></i></a>
+              <a className="github" href="https://github.com/CodeRevelRepeat"><i className="fa fa-github fa-lg"></i></a>
+              <a className="linkedin" href="https://www.linkedin.com/in/spiegel"><i className="fa fa-linkedin fa-lg"></i></a>
             </div>
 
             <div className="team-member-block">
               <img id="dave-pic" src="./../../asset/dave.jpeg" />
               <h5 className="member-name">Dave<br/>Trinh</h5>
               <p className="member-description">Bundle of energy.</p>
-              <a className="github" href="#"><i className="fa fa-github fa-lg"></i></a>
+              <a className="github" href="https://github.com/DaveDH2"><i className="fa fa-github fa-lg"></i></a>
               <a className="linkedin" href="#"><i className="fa fa-linkedin fa-lg"></i></a>
             </div>    
 
@@ -86,15 +95,15 @@ var About = React.createClass({
               <img id="nimi-pic" src="./../../asset/nimi.jpeg" />
               <h5 className="member-name">Nimi<br/>Dharithreesan</h5>
               <p className="member-description">All-around badass.</p>
-              <a className="github" href="#"><i className="fa fa-github fa-lg"></i></a>
-              <a className="linkedin" href="#"><i className="fa fa-linkedin fa-lg"></i></a>
+              <a className="github" href="https://github.com/ndharithreesan"><i className="fa fa-github fa-lg"></i></a>
+              <a className="linkedin" href="https://www.linkedin.com/in/ndharithreesan"><i className="fa fa-linkedin fa-lg"></i></a>
             </div>
 
             <div className="team-member-block">
               <img id="mark-pic" src="./../../asset/mark.jpg" />
               <h5 className="member-name">Mark<br/>Bennett</h5>
               <p className="member-description">Extremely huggable.</p>
-              <a className="github" href="#"><i className="fa fa-github fa-lg"></i></a>
+              <a className="github" href="https://github.com/mwbennett"><i className="fa fa-github fa-lg"></i></a>
               <a className="linkedin" href="#"><i className="fa fa-linkedin fa-lg"></i></a>
             </div>
 
