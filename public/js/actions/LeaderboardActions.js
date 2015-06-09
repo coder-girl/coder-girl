@@ -40,6 +40,7 @@ getPics: function(topScorers){
 
             if(!result.data){
                 console.log("Error message from Instagram:", result.meta.error_message);
+               
                 next(null, photoInfo);
             } else {
 
@@ -49,7 +50,7 @@ getPics: function(topScorers){
                   picArray.push(result.data[i].images.low_resolution.url)
                 }
 
-                var photoInfo = { 
+                    photoInfo = { 
                         instagramUsername: result.data[0].user.username,
                         id: item.username, 
                         url: result.data[0].link, 
@@ -67,7 +68,7 @@ getPics: function(topScorers){
             },
             error: function(xhr, status, error){
               console.error(xhr, status, error)
-              next(error);
+              next(null, photoInfo);
             }
           })
 
