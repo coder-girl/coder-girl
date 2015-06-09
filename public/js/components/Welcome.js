@@ -2,7 +2,7 @@
  * @Author: Mark Bennett
  * @Date:   2015-05-27 19:54:19
  * @Last Modified by:   nimi
- * @Last Modified time: 2015-06-08 18:20:38
+ * @Last Modified time: 2015-06-08 19:56:03
  */
 'use strict';
 
@@ -84,14 +84,6 @@ var Welcome = React.createClass({
       house.opacity = 0;
       house.scaling = 0.75;
       house.position = houseCenter
-      var smokeTop = ((houseCenter.y - (house.size.height/2)) + 2);
-      var smokeRight = width * 0.97
-      $('#smoke').css({
-        position: 'absolute',
-        top: '' + smokeTop,
-        right: '' + smokeRight,
-        opacity: '0.2'
-      });
     };
     var girlURL = '../asset/girlWithPanda.png';
     var girl = new paper.Raster(girlURL);
@@ -106,9 +98,13 @@ var Welcome = React.createClass({
       trees.position = new paper.Point((width*18) / 22, ((23*canvas.offsetHeight) / 32));
     };
 
+    var nextURL = '../asset/rightarrow.png';
+
     var userBubble = pathCreator('m 245.41842,595.31803 c 0,0 9.0884,-18.5276 -52.50162,-81.84478 -61.93879,-63.67572 -59.96515,-94.64594 -59.73994,-123.27872 0.29053,-36.93671 44.82182,-118.16526 106.05953,-119.90096 54.12684,-1.53415 115.70215,75.80676 115.56646,119.60555 -3.65588,90.09688 -68.26674,132.12215 -109.38443,205.41891 z');
     userBubble.scaling = 0.22;
-    userBubble.fillColor = '#8E2BC8';
+    userBubble.fillColor = '#FFDA08'
+    userBubble.strokeColor = '#fe3a3a';
+    userBubble.strokeWidth= 2;
     userBubble.position = new paper.Point(0 - (distance / 2), (points[0].y - 70));
 
     // add a path point and a circle at every point in the array, also add the level number (hardcoded in for now)
@@ -133,6 +129,7 @@ var Welcome = React.createClass({
 
     levelLine.closed = false;
     levelLine.smooth();
+
 
     var counter = -1;
     (function next() {
@@ -221,7 +218,8 @@ var Welcome = React.createClass({
           duration: 1500,
           easing: 'swing'
         }
-      });
+      })
+
     }, (5 * 1500 + 100 /* the four will later be currentChallenge +1*/ ));
     paper.view.draw();
     this.setState({
@@ -259,8 +257,8 @@ var Welcome = React.createClass({
     return (
       <div className="welcome-container">
         <div className="welcome-title">
-          {greeting},
-          <span className="welcome-username">{this.state.user.username}</span>
+          {greeting}, 
+          <span className="welcome-username"> {this.state.user.username}</span>
         </div>
         <canvas id="welcomeBoard"></canvas>
         <div id="positionDivs">
@@ -291,18 +289,6 @@ var Welcome = React.createClass({
               <div className="clouds cloud-2"></div>
               <div className="clouds cloud-6"></div>
               <div className="clouds cloud-1"></div>
-            </div>
-            <div id="smoke" className="hidden">
-              <span className="smokeCircle0"></span>
-              <span className="smokeCircle1"></span>
-              <span className="smokeCircle2"></span>
-              <span className="smokeCircle3"></span>
-              <span className="smokeCircle4"></span>
-              <span className="smokeCircle5"></span>
-              <span className="smokeCircle6"></span>
-              <span className="smokeCircle7"></span>
-              <span className="smokeCircle8"></span>
-              <span className="smokeCircle9"></span>
             </div>
           </div>
           <div id="butterflies">
