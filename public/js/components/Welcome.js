@@ -4,7 +4,7 @@
  * @Author: Mark Bennett
  * @Date:   2015-05-27 19:54:19
  * @Last Modified by:   nimi
- * @Last Modified time: 2015-06-08 16:55:30
+ * @Last Modified time: 2015-06-08 17:08:48
  */
 'use strict';
 
@@ -223,14 +223,6 @@ var Welcome = React.createClass({
           duration: 1500,
           easing: 'swing'
         }
-      });
-      new paper.PointText({
-        point: [(points[counter + 1].x - (distance/3)), points[counter + 1].y + 35],
-        content: 'Click to code!',
-        fillColor: 'black',
-        fontFamily: 'Courier New',
-        fontWeight: 'bold',
-        fontSize: 15
       });
     }, (5 * 1500 + 100 /* the four will later be currentChallenge +1*/ ));
     paper.view.draw();
