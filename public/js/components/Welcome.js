@@ -4,7 +4,7 @@
  * @Author: Mark Bennett
  * @Date:   2015-05-27 19:54:19
  * @Last Modified by:   nimi
- * @Last Modified time: 2015-06-08 15:14:21
+ * @Last Modified time: 2015-06-08 16:55:30
  */
 'use strict';
 
@@ -77,14 +77,23 @@ var Welcome = React.createClass({
 
     var levelLine = new paper.Path();
     levelLine.strokeColor = 'black';
-    levelLine.strokeWidth = 10;
+    levelLine.strokeWidth = 5;
     levelLine.add(new paper.Point(0, (points[0].y - 20)));
     var houseURL = '../asset/house.png';
     var house = new paper.Raster(houseURL);
     house.onLoad = function() {
+      var houseCenter = new paper.Point(width / 5, ((canvas.offsetHeight) / 2) + 40)
       house.opacity = 0;
       house.scaling = 0.75;
-      house.position = new paper.Point(width / 5, ((canvas.offsetHeight) / 2) + 40);
+      house.position = houseCenter
+      var smokeTop = ((houseCenter.y - (house.size.height/2)) + 2);
+      var smokeRight = width * 0.97
+      $('#smoke').css({
+        position: 'absolute',
+        top: '' + smokeTop,
+        right: '' + smokeRight,
+        opacity: '0.2'
+      });
     };
     var girlURL = '../asset/girlWithPanda.png';
     var girl = new paper.Raster(girlURL);
@@ -102,8 +111,6 @@ var Welcome = React.createClass({
     var userBubble = pathCreator('m 245.41842,595.31803 c 0,0 9.0884,-18.5276 -52.50162,-81.84478 -61.93879,-63.67572 -59.96515,-94.64594 -59.73994,-123.27872 0.29053,-36.93671 44.82182,-118.16526 106.05953,-119.90096 54.12684,-1.53415 115.70215,75.80676 115.56646,119.60555 -3.65588,90.09688 -68.26674,132.12215 -109.38443,205.41891 z');
     userBubble.scaling = 0.22;
     userBubble.fillColor = '#8E2BC8';
-    userBubble.strokeColor = '#5BC0BA';
-    userBubble.strokeWidth = 2;
     userBubble.position = new paper.Point(0 - (distance / 2), (points[0].y - 70));
 
     // add a path point and a circle at every point in the array, also add the level number (hardcoded in for now)
@@ -114,7 +121,7 @@ var Welcome = React.createClass({
       point.circle.fillColor = 'white';
       point.circle.strokeColor = 'black';
       point.level = new paper.PointText({
-        point: [point.x - 5, point.y + 5],
+        point: [point.x - 6, point.y + 5],
         content: count,
         fillColor: 'black',
         fontFamily: 'Courier New',
@@ -166,8 +173,7 @@ var Welcome = React.createClass({
           } else if( counter === 3){
             trees.animate({
               properties: {
-                opacity: 1,
-                scale: 1.5
+                opacity: 1
               },
               settings: {
                 duration: 1500,
@@ -177,7 +183,7 @@ var Welcome = React.createClass({
           }
           var overlayCircle = new paper.Path.Circle(new paper.Point(points[counter].x, points[counter].y), 20);
           overlayCircle.opacity = 0;
-          overlayCircle.fillColor = '#25E0CD';
+          overlayCircle.fillColor = '#fe3a3a';
           overlayCircle.animate({
             properties: {
               opacity: 1
@@ -218,6 +224,14 @@ var Welcome = React.createClass({
           easing: 'swing'
         }
       });
+      new paper.PointText({
+        point: [(points[counter + 1].x - (distance/3)), points[counter + 1].y + 35],
+        content: 'Click to code!',
+        fillColor: 'black',
+        fontFamily: 'Courier New',
+        fontWeight: 'bold',
+        fontSize: 15
+      });
     }, (5 * 1500 + 100 /* the four will later be currentChallenge +1*/ ));
     paper.view.draw();
     this.setState({
@@ -241,16 +255,7 @@ var Welcome = React.createClass({
         left: e.pageX - $('#welcomeBoard').width(),
         top: e.pageY - 50
       });
-    });
-
-    var smokeX = $('#welcomeBoard').width() - 27;
-
-    $('#smoke').css({
-      position: 'absolute',
-      bottom: '-21%',
-      right: smokeX,
-      opacity: '0.2'
-    });
+    }); 
 
     return (
       <div className="welcome-container">
