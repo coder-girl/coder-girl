@@ -8,7 +8,7 @@
 'use strict';
 
 var bcrypt = require('bcrypt-nodejs');
-var generateName = require('sillyname');
+var generateName = require('./silliestName');
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('User', {
