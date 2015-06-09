@@ -8,8 +8,9 @@ var Modal = require('react-modal');
 var appElement = document.getElementById('app');
 
 
+
 Modal.setAppElement(appElement);
-// Modal.injectCSS();
+
 
 
 
@@ -93,9 +94,19 @@ var Leaderboard = React.createClass({
     }
   },
 
+
+
   componentWillUnmount: function() {
     LeaderboardStore.removeChangeListener(this._onChange);
   },
+
+
+  showUser: function(id){
+    var node = React.findDOMNode(this.refs[id]);
+    $(node).toggle();
+
+  },
+
 
 
   render: function() {
@@ -105,7 +116,8 @@ var Leaderboard = React.createClass({
     var odds = this.state.pictures.filter(function(item, index){return index %2 !== 0});
 
 
-    var evenPictures = evens.map(function(p){
+
+    var evenPictures = evens.map(function(p, index){
       return (
               <li key={p.id} className="card-list-item">
                 <div className="custom-card">
@@ -121,10 +133,12 @@ var Leaderboard = React.createClass({
                       </div>
                     </Modal>
                   </div>
+                  <div className="picture">
                   <a>
-                    <img onClick={self.openModal.bind(null, p.src, p.allPics, p.username, p.url)} ref={p.id} src={p.src} title={p.title} />
+                    <img onMouseEnter={self.showUser.bind(null, p.id)} onMouseLeave={self.showUser.bind(null, p.id)} onClick={self.openModal.bind(null, p.src, p.allPics, p.username, p.url)} ref={p.id} src={p.src} title={p.title} />
                   </a>
-                  <div className="custom-card-divider">
+                  </div>
+                  <div ref={p.id} className="custom-card-divider">
                    <div>{p.username}</div>
                     <div>{p.score} Points</div>
                   </div>
@@ -152,9 +166,9 @@ var Leaderboard = React.createClass({
                     </Modal>
                   </div>
                   <a>
-                    <img onClick={self.openModal.bind(null, p.src, p.allPics, p.username, p.url)} ref={p.id} src={p.src} title={p.title} />
+                    <img onMouseEnter={self.showUser.bind(null, p.id)} onMouseLeave={self.showUser.bind(null, p.id)} onClick={self.openModal.bind(null, p.src, p.allPics, p.username, p.url)} ref={p.id} src={p.src} title={p.title} />
                   </a>
-                  <div className="custom-card-divider">
+                  <div ref={p.id} className="custom-card-divider">
                    <div>{p.username}</div>
                     <div>{p.score} Points</div>
                   </div>
