@@ -7,7 +7,7 @@ var About = React.createClass({
 
         <div className="bar1 title">
           <div className="girls-coding content-container">
-            <img src="./../../asset/girls-coding.jpg" alt="Girls coding together"/>
+            <img className="girls-coding-image" src="./../../asset/girls-coding.jpg" alt="Girls coding together"/>
           </div>
           <div className="title-block title-block-left">
             <h1>Made for girls, by girls (mostly)</h1>
@@ -70,32 +70,32 @@ var About = React.createClass({
               <img id="lauren-pic" src="./../../asset/lauren.jpeg" />
               <h5 className="member-name">Lauren<br/>Spiegel</h5>
               <p className="member-description">A nifty good time.</p>
-              <a className="github" href="#"></a>
-              <a className="linkedin" href="#"></a>
+              <a className="github" href="#"><i className="fa fa-github fa-lg"></i></a>
+              <a className="linkedin" href="#"><i className="fa fa-linkedin fa-lg"></i></a>
             </div>
 
             <div className="team-member-block">
               <img id="dave-pic" src="./../../asset/dave.jpeg" />
               <h5 className="member-name">Dave<br/>Trinh</h5>
               <p className="member-description">Bundle of energy.</p>
-              <a className="github" href="#"></a>
-              <a className="linkedin" href="#"></a>
+              <a className="github" href="#"><i className="fa fa-github fa-lg"></i></a>
+              <a className="linkedin" href="#"><i className="fa fa-linkedin fa-lg"></i></a>
             </div>    
 
             <div className="team-member-block">
               <img id="nimi-pic" src="./../../asset/nimi.jpeg" />
               <h5 className="member-name">Nimi<br/>Dharithreesan</h5>
               <p className="member-description">All-around badass.</p>
-              <a className="github" href="#"></a>
-              <a className="linkedin" href="#"></a>
+              <a className="github" href="#"><i className="fa fa-github fa-lg"></i></a>
+              <a className="linkedin" href="#"><i className="fa fa-linkedin fa-lg"></i></a>
             </div>
 
             <div className="team-member-block">
               <img id="mark-pic" src="./../../asset/mark.jpg" />
               <h5 className="member-name">Mark<br/>Bennett</h5>
               <p className="member-description">Extremely huggable.</p>
-              <a className="github" href="#"></a>
-              <a className="linkedin" href="#"></a>
+              <a className="github" href="#"><i className="fa fa-github fa-lg"></i></a>
+              <a className="linkedin" href="#"><i className="fa fa-linkedin fa-lg"></i></a>
             </div>
 
           </div>
@@ -108,22 +108,46 @@ var About = React.createClass({
           </div>
 
           <div className="stack-block content-container">
+
             <div className="stack-group stack-frontend">
-              <a href="#" className="react"><img className="stack" alt="React" src="./../../asset/react.png"/></a>
-              <a href="#" className="flux"><img className="stack" alt="Flux" src="./../../asset/flux.png"/></a>
-              <a href="#" className="foundation"><img className="stack" alt="Foundation" src="./../../asset/foundation.png"/></a>
+              <div className="stack-single">
+                <a href="https://facebook.github.io/react/" className="react"><img className="stack" alt="React" src="./../../asset/react.png"/></a>
+              </div>
+              <div className="stack-single">
+                <a href="http://foundation.zurb.com/apps/" className="foundation"><img className="stack" alt="Foundation" src="./../../asset/foundation.png"/></a>
+              </div>
+              <div className="stack-single">
+                <a href="https://facebook.github.io/flux/" className="flux"><img className="stack" alt="Flux" src="./../../asset/flux.png"/></a>
+              </div>
             </div>
+
             <div className="stack-group stack-backend">
-              <a href="#" className="node"><img className="stack" alt="Node.js" src="./../../asset/node.png"/></a>
-              <a href="#" className="socketio"><img className="stack" alt="Socket.io" src="./../../asset/socketio.png"/></a>
-              <a href="#" className="postgresql"><img className="stack" alt="PostgreSQL" src="./../../asset/postgresql.jpg"/></a>
-              <a href="#" className="instagram"><img className="stack" alt="Instagram API" src="./../../asset/instagram.jpg"/></a>
+              <div className="stack-single">
+                <a href="https://nodejs.org/" className="node"><img className="stack" alt="Node.js" src="./../../asset/node.png"/></a>
+              </div>
+              <div className="stack-single">
+                <a href="http://socket.io/" className="socketio"><img className="stack" alt="Socket.io" src="./../../asset/socketio.png"/></a>
+              </div>
+              <div className="stack-single">
+                <a href="www.postgresql.org/" className="postgresql"><img className="stack" alt="PostgreSQL" src="./../../asset/postgresql.jpg"/></a>
+              </div>
+              <div className="stack-single">
+                <a href="https://instagram.com/developer/" className="instagram"><img className="stack" alt="Instagram API" src="./../../asset/instagram.jpg"/></a>
+              </div>
             </div>
+
             <div className="stack-group stack-devops">
-              <a href="#" className="gulp"><img className="stack" alt="Gulp" src="./../../asset/gulp.png"/></a>
-              <a href="#" className="jasmine"><img className="stack" alt="Jasmine" src="./../../asset/jasmine.png"/></a>
-              <a href="#" className="travisci"><img className="stack" alt="TravisCI" src="./../../asset/travisci.jpg"/></a>
+              <div className="stack-single">              
+                <a href="http://jasmine.github.io/" className="jasmine"><img className="stack" alt="Jasmine" src="./../../asset/jasmine.png"/></a>
+              </div>
+              <div className="stack-single">
+                <a href="https://travis-ci.org/" className="travisci"><img className="stack" alt="TravisCI" src="./../../asset/travisci.jpg"/></a>
+              </div>
+              <div className="stack-single">
+                <a href="http://gulpjs.com/" className="gulp"><img className="stack" alt="Gulp" src="./../../asset/gulp.png"/></a>
+              </div>
             </div>
+
           </div>  
         </div>
 

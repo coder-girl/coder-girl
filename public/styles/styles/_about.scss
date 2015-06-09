@@ -45,12 +45,15 @@ body {
       .bar1 {
         .girls-coding {
           height: inherit;
-          max-width: 60%;
+          width: 60%;
           float: left;
 
           img {
-            height: inherit;
+            max-height: 80%;
             max-width: 100%;
+            margin: 0 auto;
+            display: block;
+            border: solid 1px $aqua;
           }
         }
       }
@@ -101,6 +104,8 @@ body {
 
         .all-members {
           float: left;
+          width: 60%;
+          padding: 20px;
 
           .team-member-block {
             float: left;
@@ -113,6 +118,15 @@ body {
               width: 100px;
               border-radius: 100%;
               border: solid 1px $aqua;
+            }
+
+            p {
+              margin-bottom: .5rem;
+            }
+
+            i {
+              color: #9A9A9A;
+              margin: 0 8px;
             }
           }
         }
@@ -142,8 +156,11 @@ body {
               height: auto;
               min-width: 100%;
               min-height: 100%;
-              padding: 20px 40px;
             }
+          }
+
+          .stack-single {
+            padding: 20px 40px;
           }
         }
       }
@@ -163,7 +180,7 @@ body {
         }
       }
 
-      .content-container, .title-block, .feature-block, .stack-group {
+      .content-container, .title-block, .feature-block, .stack-group, .girls-coding-image {
         position: relative;
         top: 50%;
         -webkit-transform: translateY(-50%);
