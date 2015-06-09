@@ -77,17 +77,16 @@ label {
   background-color: gray;
   border-top: none;
   box-sizing: border-box;
-  height: 5%;
   width:98%; 
-  z-index: 1;
   position: absolute;
-  bottom: 15;
+  bottom: 0;
+  padding: 3px 5px 5px 3px;
 }
 
 .action-bar-inner {
   height: 100%;
   width: 100%;
-  padding: 0 7px;
+  padding: 0 10px;
 }
 
 .button-horizontal {
