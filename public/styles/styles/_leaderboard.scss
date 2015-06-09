@@ -2,7 +2,10 @@
 .leaderboard-header {
   font-family: 'Quicksand-regular', sans-serif;
   text-align: center;
-
+  background-color: rgb(211, 211, 211);
+  border-left: solid 1px black;
+  margin: 0;
+  padding: 6px 0;
 }
 
 .custom-card {
@@ -23,7 +26,6 @@
 
 .custom-card-divider {
   @include card-divider(
-  $background: black,
   $padding: 0rem
   );
   width: 100%;
@@ -34,7 +36,7 @@
   display: none;
   margin-top: -19%;
   z-index: 2;
-  background: rgba(0, 0, 0, 1);
+  background: rgba(0, 0, 0, .7);
   position: relative;
 }
 
@@ -59,9 +61,6 @@ ul {
 .grid-content{
   padding: 0;
 }
-
-
-
 
 
 .ReactModal__Overlay {
