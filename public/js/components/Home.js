@@ -58,12 +58,8 @@ var Home = React.createClass({
     return (
       <div className="grid-block">
         <div className="medium-9 vertical grid-block">
-          <div className="shorty grid-block">
-            <RouteHandler/>
-          </div>
-          <div className="grid-block">
-            <Chat/>
-          </div>
+          <RouteHandler/>
+          <Chat/>
         </div>
         <div className="medium-3 grid-block">
           <Leaderboard/>

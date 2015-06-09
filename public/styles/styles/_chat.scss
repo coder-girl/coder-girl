@@ -2,48 +2,69 @@
 
 
 div.chat-section {
-  width: 100%;
-  margin: 0 10px 10px 10px;
-  padding: 20px 20px 10px 20px;
+  border: solid 1px lightgrey;
+  width: 400px;
   overflow: hidden;
-  background-color: $offBlack;
-  color: white;
+  background-color: rgba(0,0,0,.8);
+  color: lightgrey;
+  position: absolute;
+  bottom: 0;
+  max-height: 45%;
+
+  .chat-window {
+    height: 250px;
+  }
+
+  .chat-menu-bar {
+    height: 25px;
+    line-height: 25px;
+    border: solid 1px grey;
+
+    .close-button {
+      line-height: 0;
+    }
+  }
 
   textarea {
+    min-height: 30px;
     border: solid 1px lightgrey;
-    background-color: $offBlack;
-    position: relative;
-    top: 4px;
-    color: white;
-    margin-bottom: 0;
+    background-color: inherit;
+    position: fixed;
+    bottom: 0;
+    color: grey;
     resize: none;
-  }
-  
-  ul.message-list {
-    list-style-type: none;
+    margin: 0;
+    width: 398px;
+    font-size: .9rem;
   }
 
   .message-section {
-    max-height: 25%;
     padding: 5px 10px;
+    height: inherit;
+    overflow: hidden;
 
     .message-list {
-      max-height: inherit;
+      height: 190px;
       overflow-y: auto;
-    }
-  }
+      list-style-type: none;
+      line-height: 1.2;
+      font-size: .9rem;
 
+      .message-item {
+        padding: 8px 3px;
+        clear: both;
+      }
 
-  span {
-    message-date {
-      float: right;
-    }
-  }
-
-  span {
-    message-text {
-      position: relative;
-      left: 5px;
+      .message-text-wrapper {
+        float: left;
+        width: 60%;
+        position: relative;
+        left: 5px;
+        margin: 0;
+      }
+      .message-date-wrapper {
+        float: right;
+      }    
     }
   }
 }

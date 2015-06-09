@@ -11,7 +11,6 @@
 @import "styles/challenges";
 
 
-
 body{
   font-family: 'Raleway-regular', sans-serif;
 }
@@ -36,27 +35,6 @@ body{
 
 .leaderboard-container { 
   float: right;
-}
-
-div.chat-section {
-  width: 100%;
-}
-
-.message-section {
-  max-height: 40%;
-}
-
-ul.message-list {
-  list-style-type: none;
-}
-
-span.message-date {
-  float: right;
-}
-
-span.message-text {
-  position: relative;
-  left: 5px;
 }
 
 h6 {

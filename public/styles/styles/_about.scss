@@ -1,0 +1,182 @@
+@import 'variables';
+
+body {
+  .main-content {
+    #about-container {
+      font-family: Helvetica;
+      h1 {
+        font-size: 36pt;
+        color: #000000;
+      }
+      h2 {
+        font-size: 36pt;
+        color: #000000;
+      }
+      h3 {
+        font-size: 20pt;
+        color: #FFFFFF;
+      }
+      h4 {
+        font-size: 20pt;
+        color: $greyText;
+      }
+      h5 {
+        font-size: 14pt;
+        color: $aqua;
+      }  
+      h6 {
+        font-size: 13pt;
+        color: #FFFFFF;
+      }
+      p {
+        font-size: 12pt;
+        color: $greyText;
+      }
+      .bar1, .bar2, .bar3, .bar4, .bar5, .bar6 {
+        position: relative;
+        width: 100%;
+        vertical-align: middle;
+      }
+
+      .bar1, .bar3, .bar4 {
+        height: 450px;
+      }
+
+      .bar5 {
+        height: 600px;
+      }
+
+      .bar0 {
+        text-align: center;
+        background-color: $greyText;
+      }
+      
+      .bar1 {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      .bar2 {
+        height: 200px;
+        background-color: $aqua;
+        padding: 0 30px;
+        .feature-block {
+          width: 25%;
+          float: left;
+          padding: 0 10px;
+          margin-left: 80px;
+
+          .description {
+            width: 80%;
+          }
+        }  
+
+      }
+
+      .bar3 {
+        .all-stats {
+          text-align: right;
+          float: right;
+          width: 50%;
+          margin: 0 5%;
+        }
+
+        .stat-block {
+          float: right;
+          width: 50%;
+          text-align: center;
+          padding: 10% 5%;
+        }
+
+        .stat-description-only {
+          margin-bottom: 0;
+        }
+      }
+
+      .bar4 {
+        background-color: $greyBackground;
+
+        .all-members {
+          float: left;
+
+          .team-member-block {
+            float: left;
+            text-align: center;
+            width: 25%;
+            padding: 0 8px;
+
+            img {
+              height: 100px;
+              width: 100px;
+              border-radius: 100%;
+              border: solid 1px $aqua;
+            }
+          }
+        }
+      }
+
+      .bar5 {
+        .content-container {
+          height: 100%;
+          width: 100%;
+        }
+        .stack-group {
+          float: right;
+          margin: 10px 0;
+          a {
+            border: none;
+            display: inline-block
+            img {
+              borer-radius: 20%;
+              width: 100px;
+              height: 80px;
+            }
+            img:hover {
+              background-color: rgba(120, 53, 75, .4);
+            }
+          }
+        }
+      }
+
+      .bar6 {
+        height: 150px;
+        background-color: $offBlack;
+        text-align: center;
+        h5 {
+          margin-top: 10px;
+          a {
+            color: $aqua;
+            &:hover {
+              color: $aquaHover;
+            }
+          }
+        }
+      }
+
+      .content-container, .title-block, .feature-block {
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+
+      .title-block {
+        display: inline-block;
+        padding: 40px;
+        width: 40%;
+      }
+
+      .title-block-left {
+        float: right;
+      }
+
+      .title-block-right {
+        text-align: right;
+        float: left;
+      }
+
+    }
+  }
+}
+
