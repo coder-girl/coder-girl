@@ -1,0 +1,45 @@
+﻿@import 'variables';
+
+canvas {
+  margin-left: 1rem;
+  border: 1px solid black;
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+}
+
+.congrats-info{
+  margin: 0 auto;
+  display: table;
+}
+
+.congrats-continueDiv {
+  margin:auto;
+  text-align: center;
+  width:100%;
+  margin-top: 1rem;
+}
+
+.congrats-title{
+  text-align:center;
+}
+
+.doughnut{
+  display: block;
+  margin: auto;
+}
+
+.congrats-info h3 {
+    
+}
+
+a.congratsContinue {
+  display: block;
+  width: 12.5rem;
+  height: 2.31rem;
+  line-height: 2.18rem;
+  background-color: $purple;
+  color: #FFF;
+  margin: 0 auto;
+}
+
