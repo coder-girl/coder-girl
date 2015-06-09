@@ -23,6 +23,7 @@ var Editor = React.createClass({
     var editor = ace.edit(this.props.name);
     editor.getSession().setMode('ace/mode/' + this.props.mode);
     editor.setTheme('ace/theme/' + this.props.theme);
+    editor.session.setOption("wrap", true);
   },
   render: function() {
     return (<div>
