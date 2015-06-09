@@ -41,13 +41,6 @@ getPics: function(topScorers){
             if(!result.data){
                 console.log("Error message from Instagram:", result.meta.error_message);
                
-                var photoInfo = {
-                  id: item.username, 
-                  src: '../asset/CoderGirl-WhiteBackground.png', 
-                  title: '',
-                  score: item.score,
-                  username: item.username
-                }
                 next(null, photoInfo);
             } else {
 
@@ -57,7 +50,7 @@ getPics: function(topScorers){
                   picArray.push(result.data[i].images.low_resolution.url)
                 }
 
-                var photoInfo = { 
+                    photoInfo = { 
                         instagramUsername: result.data[0].user.username,
                         id: item.username, 
                         url: result.data[0].link, 
@@ -75,13 +68,6 @@ getPics: function(topScorers){
             },
             error: function(xhr, status, error){
               console.error(xhr, status, error)
-              var photoInfo = {
-                id: item.username, 
-                src: '../asset/CoderGirl-WhiteBackground.png', 
-                title: '',
-                score: item.score,
-                username: item.username
-              }
               next(null, photoInfo);
             }
           })
