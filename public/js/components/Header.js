@@ -64,8 +64,11 @@ var Header = React.createClass({
   render: function() {
 
     var menuRight;
+    var correctLink;
 
     if (this.state.username) {
+
+      correctLink = "home";
 
       menuRight =  <div className="menu-group-right">
                     <ul className="menu-bar dark">
@@ -77,6 +80,7 @@ var Header = React.createClass({
                   </div>
       } else {
         menuRight = <div></div>
+        correctLink = "login";
       }
 
       return (
@@ -86,10 +90,10 @@ var Header = React.createClass({
               <div className="menu-group left">
                 <ul className="menu-bar dark" data-topbar role="navigation">
                   <li id="icon">
-                    <Link to="login"><img className= "logo" id="logo" src="../asset/CoderGirl-WhiteBackground.png"></img></Link>
+                    <Link to={correctLink}><img className= "logo" id="logo" src="../asset/CoderGirl-WhiteBackground.png"></img></Link>
                   </li>
                   <li id="name">
-                    <Link to="home"> <span>Coder Girl</span></Link>
+                    <Link to={correctLink}> <span>Coder Girl</span></Link>
                   </li>
                   <li>
                     <Link to="about"><span>About</span></Link>
