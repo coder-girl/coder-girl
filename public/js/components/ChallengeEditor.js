@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-28 14:44:31
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-06-05 16:50:50
+* @Last Modified time: 2015-06-10 12:50:49
 */
 
 'use strict';
@@ -24,7 +24,7 @@ var ChallengeEditor = React.createClass({
     var testCode = AuthStore.getUser().challengeNumber;
     ChallengeActions.getChallenge(testCode);
     return {
-      codeContent: '',
+      code: '',
       testCode: testCode
     };
   },
@@ -32,7 +32,7 @@ var ChallengeEditor = React.createClass({
   _onChange: function() {
     var change = ChallengeStore.getChangeType();
     var editor = ace.edit('editor');
-    var code = ChallengeStore.getChallenge().content;
+    var code = this.state.code || ChallengeStore.getChallenge().content;
     editor.getSession().setValue(code);
     this.setState.testCode = AuthStore.getUser().level;
     if (change === 'passed') {
@@ -53,6 +53,9 @@ var ChallengeEditor = React.createClass({
     var userCode = editor.getSession().getValue();
     var testCode = this.state.testCode;
     ChallengeActions.submitCode(userCode, testCode);
+    this.setState({
+      code: userCode
+    })
   },
 
   render: function() {
