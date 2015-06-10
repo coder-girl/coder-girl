@@ -2,7 +2,7 @@
  * @Author: Mark Bennett
  * @Date:   2015-05-27 19:54:19
  * @Last Modified by:   nimi
- * @Last Modified time: 2015-06-08 19:56:03
+ * @Last Modified time: 2015-06-10 11:28:04
  */
 'use strict';
 
@@ -10,39 +10,62 @@ var React = require('react');
 var AuthStore = require('../stores/AuthStore');
 var paper = require('../../../dist/bower_components/paper/dist/paper-full');
 var animatePaper = require('../services/animatePaper.js');
-
-console.log('animate', animatePaper);
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
 
 var Welcome = React.createClass({
+  mixins: [Router.State, Router.Navigation],
+  
   getInitialState: function() {
     paper.install(window);
     return {
-      user: {}
+      user: {},
+      hasUpdated: false
     };
   },
 
   _onChange: function() {
-    this.setState({
-      user: AuthStore.getUser()
-    });
-
+      if(this.isMounted()){
+      this.setState ({
+        user: AuthStore.getUser()
+      });
+    }
   },
 
   componentDidMount: function() {
-    var user = AuthStore.getUser();
-    console.log(user);
+    // this.forceUpdate();
+    AuthStore.addChangeListener(this._onChange);
+  },
+
+  componentDidUpdate: function() {
+    var self = this;
+    if(!this.state.hasUpdated){
+
+    if(this.state.user.username){
+    var user = this.state.user
+      
+    var currentChallenge = this.state.user.challengeNumber;
     var canvas = document.getElementById('welcomeBoard');
     paper.setup(canvas);
     var width = canvas.offsetWidth;
-    var count = 1;
     // points will be equally distributed across x-axis
     var distance = width / 5;
+    var count =0; 
+
+    // calculate which level set the user is on
+    while(currentChallenge > 5){
+      count++;
+      currentChallenge-5
+    }
+
+    //reset the currentChallenge and make the the count a multiple of five for the level board
+    
+    count = (count*5) || 1;
 
     // create the points for the path
     var pointsCreator = function(distanceBetweenPoints, numberofPoints) {
+      
       var results = [];
       var direction = 1;
       var x = distanceBetweenPoints / 2;
@@ -62,14 +85,6 @@ var Welcome = React.createClass({
 
       return results;
     };
-
-    // this function will take in path data and create the objects for the screen from svg pathData
-    var pathCreator = function(pathData) {
-      var path = new paper.Path(pathData);
-      return path;
-    };
-
-
 
     var points = pointsCreator(distance, 5);
 
@@ -100,9 +115,13 @@ var Welcome = React.createClass({
 
     var nextURL = '../asset/rightarrow.png';
 
-    var userBubble = pathCreator('m 245.41842,595.31803 c 0,0 9.0884,-18.5276 -52.50162,-81.84478 -61.93879,-63.67572 -59.96515,-94.64594 -59.73994,-123.27872 0.29053,-36.93671 44.82182,-118.16526 106.05953,-119.90096 54.12684,-1.53415 115.70215,75.80676 115.56646,119.60555 -3.65588,90.09688 -68.26674,132.12215 -109.38443,205.41891 z');
+    var userBubblePath = "m 245.41842,595.31803 c 0,0 9.0884 ,-18.5276 -52.50162,-81.84478 -61.93879,-63.67572 -59.96515,-94.64594 -59.73994,-123.27872" +
+    "0.29053,-36.93671 44.82182,-118.16526 106.05953,-119.90096 54.12684,-1.53415 115.70215,75.80676 115.56646,119.60555 -3.65588,90.09688 -68.26674, " +
+    "132.12215 -109.38443,205.41891 z"
+    var userBubble = new paper.Path(userBubblePath);
     userBubble.scaling = 0.22;
     userBubble.fillColor = '#FFDA08'
+
     userBubble.strokeColor = '#fe3a3a';
     userBubble.strokeWidth= 2;
     userBubble.position = new paper.Point(0 - (distance / 2), (points[0].y - 70));
@@ -125,6 +144,10 @@ var Welcome = React.createClass({
       count++;
     });
 
+    //add click event on the circle of the currentChallenge
+    points[currentChallenge-1].circle.onClick = function(event){
+      self.transitionTo('challenge');
+    }
     levelLine.add(new paper.Point((width - 1), (points[points.length - 1].y - 20)));
 
     levelLine.closed = false;
@@ -132,8 +155,9 @@ var Welcome = React.createClass({
 
 
     var counter = -1;
+
     (function next() {
-      if (counter >= 3) {
+      if (counter >= currentChallenge-2) {
         return;
       } else {
         setTimeout(function() {
@@ -220,12 +244,15 @@ var Welcome = React.createClass({
         }
       })
 
-    }, (5 * 1500 + 100 /* the four will later be currentChallenge +1*/ ));
+    }, (currentChallenge+1 * 1500 + 100 /* the four will later be currentChallenge +1*/ ));
     paper.view.draw();
+    }
     this.setState({
-      user: AuthStore.getUser()
-    });
-    AuthStore.addChangeListener(this._onChange);
+      hasUpdated: true
+    })
+    }
+
+    
   },
 
   componentWillUnmount: function() {
