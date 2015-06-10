@@ -8,7 +8,8 @@
     "foundation-apps": "~1.1.0",
     "font-awesome": "~4.3.0",
     "async": "~1.1.0",
-    "moment": "~2.10.3"
+    "moment": "~2.10.3",
+    "paper": "~0.9.22"
   },
   "license": "Proprietary",
   "ignore": [
