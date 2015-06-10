@@ -185,10 +185,10 @@ var Leaderboard = React.createClass({
       <div className="leaderboard-container">
         <h4 className="leaderboard-header">Leaderboard</h4>
         <div className="grid-block">
-          <div classNaem="grid-block">
+          <div className="grid-block columnContainer">
             <ul className="grid-content"> {evenPictures} </ul>
           </div>
-          <div className="grid-block">
+          <div className="grid-block columnContainer">
             <ul className="grid-content"> {oddPictures}</ul> 
           </div> 
         </div>     
