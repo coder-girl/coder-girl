@@ -42,33 +42,42 @@ body {
         height: 450px;
       }
 
-      .bar5 {
-        height: 600px;
-      }
-
-      .bar0 {
-        text-align: center;
-        background-color: $greyText;
-      }
-      
       .bar1 {
-        display: table-cell;
-        vertical-align: middle;
+        .girls-coding {
+          height: inherit;
+          width: 60%;
+          float: left;
+
+          img {
+            max-height: 80%;
+            max-width: 100%;
+            margin: 0 auto;
+            display: block;
+            border: solid 1px $greyText;
+          }
+        }
       }
 
       .bar2 {
         height: 200px;
         background-color: $aqua;
-        padding: 0 30px;
+        padding: 0 1.3rem;
+
+        .feature-icon {
+          float: left;
+          height: 100%;
+          padding: 0 .5rem;
+          position: relative;
+          bottom: 3rem;
+          i {
+            color: white;
+          }
+        }
+
         .feature-block {
           width: 25%;
           float: left;
-          padding: 0 10px;
-          margin-left: 80px;
-
-          .description {
-            width: 80%;
-          }
+          margin: 0 1.2rem;
         }  
 
       }
@@ -98,6 +107,8 @@ body {
 
         .all-members {
           float: left;
+          width: 60%;
+          padding: 20px;
 
           .team-member-block {
             float: left;
@@ -111,29 +122,51 @@ body {
               border-radius: 100%;
               border: solid 1px $aqua;
             }
+
+            p {
+              margin-bottom: .5rem;
+            }
+
+            i {
+              color: #9A9A9A;
+              margin: 0 8px;
+              &:hover {
+                color: silver;
+              }
+            }
           }
         }
       }
 
       .bar5 {
+        height: 600px;
         .content-container {
           height: 100%;
           width: 100%;
         }
         .stack-group {
-          float: right;
+          float: left;
           margin: 10px 0;
+          max-width: 20%;
           a {
             border: none;
             display: inline-block
+
             img {
               borer-radius: 20%;
               width: 100px;
               height: 80px;
             }
-            img:hover {
-              background-color: rgba(120, 53, 75, .4);
+            img {
+              width: auto;
+              height: auto;
+              min-width: 100%;
+              min-height: 100%;
             }
+          }
+
+          .stack-single {
+            padding: 20px 40px;
           }
         }
       }
@@ -153,7 +186,7 @@ body {
         }
       }
 
-      .content-container, .title-block, .feature-block {
+      .content-container, .title-block, .feature-block, .stack-group, .girls-coding-image {
         position: relative;
         top: 50%;
         -webkit-transform: translateY(-50%);
