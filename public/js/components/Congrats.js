@@ -68,7 +68,7 @@ var ChallengeComplete = React.createClass({
   render: function() {
     var user = this.state.user;
     var level = UserStore.getLevel(user.score, user.challengeNumber).level;
-    console.log('user', user)
+    console.log('user', user);
     var data = calculateUserChartData(user.score, level);
     console.log(data);
     return (
@@ -77,12 +77,19 @@ var ChallengeComplete = React.createClass({
           Congratulations! You solved Challenge
           <span className="challenge-number"> {user.challengeNumber - 1}</span>
         </h1>
-        <h3 className="congrats-user-score">Current score: {user.score} points</h3>
-        <div id="challengeDiv">
-          <Doughnut data={data} width="200" height="250" />
-          <h3 className="current-user-level">Current Level: {level}</h3>
+        <div className="congrats-info">
+          <h3 className="congrats-user-score">Score: {user.score}</h3>
+          <h3 className="current-user-level">Level: {level}</h3>
         </div>
-        <Link to="challenge">Continue coding</Link>
+        <div id="challengeDiv">
+          <Doughnut className="doughnut" data={data} width="200" height="250" />
+        </div>
+        <div className="congrats-continueDiv">
+          <Link to="challenge" className="congratsContinue">Continue Coding</Link>
+        </div>
+        <div className="congrats-continueDiv">
+          <Link to="home" className="congratsContinue">Home View</Link>
+        </div>
       </div>
     );
   }
