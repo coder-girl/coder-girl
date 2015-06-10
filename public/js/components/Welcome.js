@@ -2,7 +2,7 @@
  * @Author: Mark Bennett
  * @Date:   2015-05-27 19:54:19
  * @Last Modified by:   nimi
- * @Last Modified time: 2015-06-10 11:28:04
+ * @Last Modified time: 2015-06-10 11:59:54
  */
 'use strict';
 
@@ -16,7 +16,7 @@ var Link = Router.Link;
 
 var Welcome = React.createClass({
   mixins: [Router.State, Router.Navigation],
-  
+
   getInitialState: function() {
     paper.install(window);
     return {
@@ -126,6 +126,8 @@ var Welcome = React.createClass({
     userBubble.strokeWidth= 2;
     userBubble.position = new paper.Point(0 - (distance / 2), (points[0].y - 70));
 
+    
+
     // add a path point and a circle at every point in the array, also add the level number (hardcoded in for now)
     points.forEach(function(point) {
       levelLine.add(new paper.Point(point.x, point.y));
@@ -143,6 +145,22 @@ var Welcome = React.createClass({
       });
       count++;
     });
+
+    // add next arrow and add click event 
+    var nextArrowPath = "M 33.915647,52.070814 45.500001,40.581925 22.749999,40.570815 -4.6268657e-8,40.559705 l 0,-8.5 0,-8.5 L 22.749999,23.548595 " +
+    "45.500001,23.537475 33.915647,12.048586 22.331293,0.55969741 l 11.096454,0 11.096454,0 15.2379,15.26172859 c 8.380845,8.39395 15.2379,15.711895 " +
+    "15.2379,16.2621 0,0.550204 -6.867778,7.857427 -15.261728,16.238272 l -15.261728,15.2379 -11.072626,0 -11.072626,0 11.584354,-11.488888 z"
+    var nextArrow = new paper.Path(nextArrowPath);
+    nextArrow.position = new paper.Point((15*width)/16, (points[points.length-1].y + 60))
+    nextArrow.fillColor = '#fe3a3a';
+    nextArrow.onFrame = function(event){
+      this.fillColor.hue+=1;
+    }
+    nextArrow.onClick = function(event){
+      self.transitionTo('challenge')
+    }
+
+
 
     //add click event on the circle of the currentChallenge
     points[currentChallenge-1].circle.onClick = function(event){
