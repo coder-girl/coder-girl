@@ -1,14 +1,13 @@
 var test = function(userCode){
-  eval(userCode);
-
-  var result= {
-    pass: false,
-    message: "Oh no you didn't pass!"
-  }
-  if(example(1,2) === 3){
-    result.pass = true;
-    result.message = "Congrats!"
-  }
-
-  return result
+ var userString = eval(userCode);
+ var result = {
+   pass: true,
+   message: "Nice!  You've stringified!"
+ }
+ if(typeof(userString) !== "string"){
+   result.pass = false;
+   result.message = "You do not have a string in the editor.  Make sure that you enclosed your string in matching quotes."
+   return result;
+ } 
+ return result
 }
