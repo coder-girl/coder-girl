@@ -101,7 +101,7 @@ var Leaderboard = React.createClass({
   },
 
 
-  showUser: function(id, mouseType){
+  showUser: function(id){
     var node = React.findDOMNode(this.refs[id]);
 
     $(node).toggle();
@@ -119,7 +119,7 @@ var Leaderboard = React.createClass({
 
     var evenPictures = evens.map(function(p, index){
       return (
-              <li key={p.id} className="card-list-item" onMouseEnter={self.showUser.bind(null, p.id, "enter")} onMouseLeave={self.showUser.bind(null, p.id, "leave")}>
+              <li key={p.id} className="card-list-item" onMouseEnter={self.showUser.bind(null, p.id)} onMouseLeave={self.showUser.bind(null, p.id)}>
                 <div className="custom-card" >
                   <div>
                     <Modal 
@@ -151,7 +151,7 @@ var Leaderboard = React.createClass({
 
     var oddPictures = odds.map(function(p){
       return (
-              <li key={p.id} className="card-list-item" onMouseEnter={self.showUser.bind(null, p.id, "enter")} onMouseLeave={self.showUser.bind(null, p.id, "leave")}>
+              <li key={p.id} className="card-list-item" onMouseEnter={self.showUser.bind(null, p.id)} onMouseLeave={self.showUser.bind(null, p.id)}>
                 <div className="custom-card">
                   <div>
                     <Modal 
