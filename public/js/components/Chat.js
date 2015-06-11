@@ -15,14 +15,14 @@ var Chat = React.createClass({
 
   toggleChat: function() {
     var $node = $(React.findDOMNode(this.refs.minimize));
-    if ($node.html() === "-") {
-      $node.html("+");
+    if ($node.html() === '-') {
+      $node.html('+');
     } else {
-      $node.html("-");
+      $node.html('-');
     }
     $(React.findDOMNode(this.refs.chat)).slideToggle();
   },
-  
+
   render: function() {
     return (
       <div className='chat-section'>

@@ -3,7 +3,7 @@
 
 div.chat-section {
   border: solid 1px lightgrey;
-  width: 400px;
+  width: 50%;
   overflow: hidden;
   background-color: rgba(0,0,0,.8);
   color: lightgrey;
@@ -34,14 +34,14 @@ div.chat-section {
     color: grey;
     resize: none;
     margin: 0;
-    width: 398px;
+    width: 37%;
+    margin: 0 3px;
     font-size: .9rem;
   }
 
   .message-section {
     padding: 5px 10px;
     height: inherit;
-    overflow: hidden;
 
     .message-list {
       height: 190px;
@@ -57,10 +57,11 @@ div.chat-section {
 
       .message-text-wrapper {
         float: left;
-        width: 60%;
+        max-width: 60%;
         position: relative;
         left: 5px;
         margin: 0;
+        word-wrap: break-word;
       }
       .message-date-wrapper {
         float: right;
