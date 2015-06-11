@@ -1,0 +1,57 @@
+﻿  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+
+.borboleta-1 .borboleta-gfx {
+  -moz-animation: borboleta-gfx-upright-loop 10s linear infinite;
+  -webkit-animation: borboleta-gfx-upright-loop 10s linear infinite;
+  animation: borboleta-gfx-upright-loop 10s linear infinite;
+}
+
+.borboleta-2 .borboleta-gfx {
+  -moz-animation: borboleta-gfx-upright-loop 15s linear infinite;
+  -webkit-animation: borboleta-gfx-upright-loop 15s linear infinite;
+  animation: borboleta-gfx-upright-loop 15s linear infinite;
+}
+
+@-moz-keyframes borboleta-anim-loop {
+  0% {
+    -moz-transform: scale(1, 1.2) rotate(40deg);
+    transform: scale(1, 1.2) rotate(40deg);
+  }
+  100% {
+    -moz-transform: scale(0.7, -1) rotate(-40deg);
+    transform: scale(0.7, -1) rotate(-40deg);
+  }
+}
+@-webkit-keyframes borboleta-anim-loop {
+  0% {
+    -webkit-transform: scale(1, 1.2) rotate(40deg);
+    transform: scale(1, 1.2) rotate(40deg);
+  }
+  100% {
+    -webkit-transform: scale(0.7, -1) rotate(-40deg);
+    transform: scale(0.7, -1) rotate(-40deg);
+  }
+}
+
+.borboleta-anim {
+  background: radial-gradient(closest-side at 50% 50%, $purple 50%, rgba(255, 255, 255, 0) 50%), radial-gradient(closest-side at 50% 50%, $purple 50%, rgba(215, 137, 209, 0) 50%);
+  background-repeat: no-repeat;
+  background-size: 90% 70%,100% 70%;
+  background-position: 20% -40%,0 40%;
+  width: 25px;
+  height: 20px;
+  -moz-animation: borboleta-anim-loop 150ms ease-in-out infinite alternate-reverse;
+  -webkit-animation: borboleta-anim-loop 150ms ease-in-out infinite alternate-reverse;
+  animation: borboleta-anim-loop 150ms ease-in-out infinite alternate-reverse;
+}
+
+
+#butterflies{
+  position: absolute;
+  width: 100px
+}
