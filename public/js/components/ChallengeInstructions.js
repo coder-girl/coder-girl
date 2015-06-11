@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-28 14:44:31
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-06-05 16:50:52
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-06-11 09:10:00
 */
 
 'use strict';
@@ -10,6 +10,7 @@ var React = require('react/addons');
 var ChallengeActions = require('../actions/ChallengeActions');
 var Router = require('react-router');
 var ChallengeStore = require('../stores/ChallengeStore');
+var Markdown = require('react-markdown');
 
 var ChallengeInstructions = React.createClass({
 
@@ -30,12 +31,8 @@ var ChallengeInstructions = React.createClass({
 
   _onChange: function() {
     var challenge = ChallengeStore.getChallenge();
-    var instructionsArray = challenge.instructions.split("<br>");
-    var instructions = instructionsArray.map(function(section, i){
-      return <p key={i}> {section} </p>
-    });
     this.setState({
-      instructions: instructions,
+      instructions: challenge.instructions,
       results: challenge.results,
       challengeNumber: challenge.testCode,
       challengeTitle: challenge.title,
@@ -100,7 +97,7 @@ var ChallengeInstructions = React.createClass({
     return (
       <div className="instructionPanel" ref="instructionPanel">
         <h4 className="marginPullTop5">{this.state.challengeTitle}</h4>
-        <p> {this.state.instructions} </p>
+        <p><Markdown source={this.state.instructions} /></p>
         <div className="hints-wrapper">
           {hints}
         </div>
