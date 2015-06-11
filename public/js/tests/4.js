@@ -1,4 +1,4 @@
-﻿//Booleans--Which Wand?
+//Booleans--Which Wand?
 
 var test = function(userCode){
   var result = {

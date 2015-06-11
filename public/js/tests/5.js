@@ -1,4 +1,5 @@
-﻿var test = function(userCode){
+
+var test = function(userCode){
   var num = eval(userCode);
 
   var result= {
@@ -12,3 +13,4 @@
 
   return result
 }
+
