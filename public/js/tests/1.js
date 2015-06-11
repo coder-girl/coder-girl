@@ -1,3 +1,5 @@
+//String Theory
+
 var test = function(userCode){
  var userString = eval(userCode);
  var result = {
