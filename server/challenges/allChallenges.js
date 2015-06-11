@@ -2,16 +2,16 @@
 * @Author: Mark Bennett
 * @Date:   2015-06-10 18:05:13
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-10 18:57:35
+* @Last Modified time: 2015-06-10 19:34:03
 */
 
 'use strict';
 
 module.exports = { challenges: {
-  title: 'Get out your party shoes!',
-  instructions: 'Often in coding, you want to be able to execute some code if one statement is true, \
+  title: "Get out your party shoes!",
+  instructions: "Often in coding, you want to be able to execute some code if one statement is true, \
   execute different code if another statement is true, or \
-  execute some default code if neither statement is true.  The outline for how to do this is: \
+  execute some default code if neither statement is true.  The outline for how to do this is - \
    <br> if(thisIsTrue){\
     <br>   // do something;\
    <br> } else if(somethingElse){\
@@ -22,21 +22,21 @@ module.exports = { challenges: {
 
   <br>Imagine you are trying to figure out what to wear to this Saturdays killer party. Chloe thinks you should wear a skirt.  Bethany definitely thinks it is a jeans type of affair.  \
   Stephanie thinks it is really casual.   \
-  <br>Fill in the function pickShoes so that if you go with jeans, your function returns "boots", \
-  if you choose a skirt, your function returns "platforms" and \
-  if you wear anything else, your function returns "flip flops."',
-  content:   'var pickShoes = function(clothes){ \
-    \n\n if(clothes ==="jeans"){ \
-     \n\n  //enter code here \
-    \n } else if(clothes==="skirt"){ \
-    \n\n  //enter code here \
-    \n } else { \
-    \n  //enter code here \
-    \n } \
-  \n };',
+  <br>Fill in the function pickShoes so that if you go with jeans, your function returns \"boots\", \
+  if you choose a skirt, your function returns \"platforms\" and \
+  if you wear anything else, your function returns \"flip flops.\"",
+  content:   "var pickShoes = function(clothes){ \
+    if (clothes === \"jeans\"){ \
+    //enter code here \
+    } else if (clothes=== \"skirt\"){ \
+    // enter code here \
+    } else { \
+    // enter code here \
+    } \
+  };",
   testCode: 1,
   pointValue: 100,
-  hint1: "Did you make sure to return a string for each condition (for instance, for the 'jeans' option, did you enter 'return \"boots\"'?",
+  hint1: "Did you make sure to return a string for each condition (for instance, for the \"jeans\" option, did you enter \"return \"boots\"\"?",
   hint2: "Did you enclose your strings in quotes?"
 },
 
@@ -135,20 +135,17 @@ module.exports = { challenges: {
 },
 
 {
-  title: 'Secret Message',
-  instructions: "Your friend Kayla is also getting into coding and she sent you a message.  Before she sent it to you though 
-  she reversed the message (which is a string).  Complete the function in the editor to reverse the string back to normal so you can read \
-  the message.",
-  content: 'var KaylaMessage = "!kcab em egasseM  .redoc revelc repus ma I";\
-  \n\n var reverseIt = function(KaylaMessage){ \
-  \n\n //your code here \
-  \n\n }',
-  testCode: 3,
-  pointValue: 50,
-  hint1: 'Make sure your function returns a string.',
-  hint2: 'A reverse for-loop would do the trick here or there is a reverse method for arrays.  So, if you convert your string to an \
-  array, you could use the array reverse method and then convert back to a string with the join method.',
-
+  title: "Secret Message",
+  instructions: "Your friend Kayla is also getting into coding and she sent you a message. But before she sent it to you, \
+  she reversed the message (which is a string). Use what you've learned about loops to add to the code in the editor so that \
+  the reverseIt variable contains the original message.",
+  content: "var kaylaMessage = \"!kcab em egasseM .redoc revelc repus a ma I\";\
+  \nvar reverseIt = \"\"",
+  testCode: 5,
+  pointValue: 200,
+  hint1: 'Remember that you can add a new character to a string using the += operator',
+  hint2: 'A reverse for-loop would do the trick here - try setting your iterator equal to kaylaMessage.length - 1 and decrementing until you get \
+  to 0.',
 },
 
 {
@@ -675,8 +672,8 @@ module.exports = { challenges: {
 
 {
   title: "Let's get functional",
-  content: '// This is the skeleton of a function\nvar greetGuest = function(guestName) {\n  var greeting = "Hi, ";\n  // write your code here! 
-  \n\n  return greeting\n}',
+  content: "// This is the skeleton of a function\nvar greetGuest = function(guestName) {\n  var greeting = \"Hi, \";\n  // write your code here! 
+  \n\n  return greeting\n}",
   instructions: "At this point, you've learned many useful ways to store and access information using variables. But what if \
   we want a way to save entire sections of code, which we could then call on to use at some time in the future? This is where functions \
   come into play. Functions are a core component of programming - they help us structure our code, and by wrapping a part of a program in some \
@@ -691,11 +688,10 @@ module.exports = { challenges: {
   at the end of a function (in our case, `greeting`, gets passed back to the caller for future use. <br><br>\
   Let's dive in. The function in the editor isn't quite right. We want our greeting to include the name of each guest we are addressing. \
   Add a line of code to the function so that `greeting` includes the `guestName` when it's returned.", 
-  hint1: "You can concatenate strings using the + operator. For example, if `var name = Mark`, `greeting + name` would return 'Hi, Mark'.",
-  hint2: "If you want to store a string concatenation in an existing variable, you can use the += operator. So if you ran `greeting += name;`\
-  `greeting` would then be equal to 'Hi, Mark'.",
-  testCode: 15,
-  pointValue: 50
+  hint1: "Inside the function, you can reference the `guestName` parameter anywhere you would want to reference the name of one of your guests.",
+  hint2: "Remember to include a `return` statement inside of the function block so that the result can be used later on.",
+  testCode: 19,
+  pointValue: 250
 },
 
 {
@@ -711,7 +707,7 @@ module.exports = { challenges: {
   in the function invocation.<br><br>Give it a try - in the editor, call the `scoreGoal` function, passing in an initial score of 5." 
   hint1: "Remember that capitalization matters - `scoregoal` and `scoreGoal` are not the same!",
   hint2: "Do not forget to pass the initial score value to the invocation by adding the value between the parentheses.",
-  testCode: 16,
+  testCode: 20,
   pointValue: 100
 }]};
 

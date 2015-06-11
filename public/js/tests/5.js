@@ -1,16 +1,16 @@
 
-var test = function(userCode){
-  var num = eval(userCode);
-
-  var result= {
+﻿var test = function(userCode){
+  eval(userCode);
+  var result = {
     pass: false,
-    message: "Not quite.  Try again!"
+    message: "Oop! Looks like your code wasn't quite right. Try again!"
   }
-  if(num=== 1){
+  if(reverseIt === "I am a super clever coder. Message me back!"){
     result.pass = true;
-    result.message = "You got it!  You are a mod star!"
+    result.message = "You got it! Kayla's message was 'I am a super clever coder.  Message me back!'."
+  } else if (reverseIt.length !== kaylaMessage.length) {
+    result.message = "Not quite! Looks like the reverseIt variable is not the same length as the original message. Make sure to double-check your iterator values."
   }
-
   return result
 }
 
