@@ -33,7 +33,16 @@ var ChallengeEditor = React.createClass({
     var change = ChallengeStore.getChangeType();
     var editor = ace.edit('editor');
     var code = this.state.code || ChallengeStore.getChallenge().content;
-    editor.getSession().setValue(code);
+
+    var editorArray = code.split("<br>");
+    var editorContent = '';
+    editorArray.forEach(function(section, i){
+          editorContent = editorContent + section  + '\n';
+       });
+
+
+    editor.getSession().setValue(editorContent);
+
     this.setState.testCode = AuthStore.getUser().level;
     if (change === 'passed') {
       this.transitionTo('congrats');

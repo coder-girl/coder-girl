@@ -1,14 +1,16 @@
+//Numbers 2 Cool 4 School
+
+
 var test = function(userCode){
-  eval(userCode);
-
-  var result= {
-    pass: false,
-    message: "Oh no you didn't pass!"
+  var userString = eval(userCode);
+  var result = {
+    pass: true,
+    message: "You got it! You are definately 2Cool4School"
   }
-  if(example(1,2) === 3){
-    result.pass = true;
-    result.message = "Congrats!"
-  }
-
-  return result
+  if(userString !== '2cool4school' && userString !== '2 cool 4 school'){
+    result.pass = false;
+    result.message = "Not quite.  Try again.";
+    return result;
+  }  
+  return result;
 }

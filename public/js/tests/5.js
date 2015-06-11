@@ -1,13 +1,13 @@
 ﻿var test = function(userCode){
-  eval(userCode);
+  var num = eval(userCode);
 
   var result= {
     pass: false,
-    message: "Oh no you didn't pass!"
+    message: "Not quite.  Try again!"
   }
-  if(example(1,2) === 3){
+  if(num=== 1){
     result.pass = true;
-    result.message = "Congrats!"
+    result.message = "You got it!  You are a mod star!"
   }
 
   return result

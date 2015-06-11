@@ -1,14 +1,22 @@
-﻿var test = function(userCode){
-  eval(userCode);
+﻿//Booleans--Which Wand?
 
-  var result= {
+
+var test = function(userCode){
+  var result = {
     pass: false,
-    message: "Oh no you didn't pass!"
+    message: "Looks like your code wasn't quite right. Please try again!  These wands are a mess!"
   }
-  if(example(1,2) === 3){
+
+  var codeResponse = eval(userCode);
+
+  if (wandResult1 === false && wandResult2 === true){
     result.pass = true;
-    result.message = "Congrats!"
+    result.message = "Congratulations! You passed! Off to get a mug of butterbeer!";
   }
+
+  if (typeof result1 === "string" || typeof result2 === "string"){
+    result.message = "Remember not to use quotation marks around `true` and `false`";
+  } 
 
   return result
 }
