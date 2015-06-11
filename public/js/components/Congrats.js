@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-28 16:17:21
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-06-10 12:31:57
+* @Last Modified time: 2015-06-11 09:48:58
 */
 
 'use strict';
@@ -63,6 +63,10 @@ var ChallengeComplete = React.createClass({
 
   componentWillUnmount: function() {
     AuthStore.removeChangeListener(this._onChange);
+    //clear the canvas
+    var canvas = document.getElementById('doughnut');
+    var context = canvas.getContext("2d");
+    context.clearRect(0,0,canvas.offsetWidth, canvas.offsetHeight);
   },
 
   render: function() {
@@ -73,22 +77,17 @@ var ChallengeComplete = React.createClass({
     console.log(data);
     return (
       <div className="congrats-wrapper">
-        <h1 className="congrats-title">
           Congratulations! You solved Challenge
           <span className="challenge-number"> {user.challengeNumber - 1}</span>
-        </h1>
         <div className="congrats-info">
           <h3 className="congrats-user-score">Score: {user.score}</h3>
           <h3 className="current-user-level">Level: {level}</h3>
         </div>
         <div id="challengeDiv">
-          <Doughnut className="doughnut" data={data} width="200" height="250" />
+          <Doughnut id="doughnut" data={data} />
         </div>
-        <div className="congrats-continueDiv">
-          <Link to="challenge" className="congratsContinue">Continue Coding</Link>
-        </div>
-        <div className="congrats-continueDiv">
-          <Link to="home" className="congratsContinue">Home View</Link>
+        <div className='continueButton'>
+          <Link to="home" className="congratsContinue">Back to Home</Link>
         </div>
       </div>
     );

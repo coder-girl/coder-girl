@@ -2,7 +2,7 @@
  * @Author: Mark Bennett
  * @Date:   2015-05-27 19:54:19
  * @Last Modified by:   nimi
- * @Last Modified time: 2015-06-10 11:59:54
+ * @Last Modified time: 2015-06-11 09:30:58
  */
 'use strict';
 
@@ -34,19 +34,23 @@ var Welcome = React.createClass({
   },
 
   componentDidMount: function() {
-    // this.forceUpdate();
+    this.setState({
+      user: AuthStore.getUser()
+    })
     AuthStore.addChangeListener(this._onChange);
   },
 
   componentDidUpdate: function() {
+
+    console.log('component did update', this.state.hasUpdated, this.state.user)
     var self = this;
     if(!this.state.hasUpdated){
-
     if(this.state.user.username){
     var user = this.state.user
-      
     var currentChallenge = this.state.user.challengeNumber;
     var canvas = document.getElementById('welcomeBoard');
+    var context = canvas.getContext("2d");
+
     paper.setup(canvas);
     var width = canvas.offsetWidth;
     // points will be equally distributed across x-axis
@@ -264,10 +268,10 @@ var Welcome = React.createClass({
 
     }, (currentChallenge+1 * 1500 + 100 /* the four will later be currentChallenge +1*/ ));
     paper.view.draw();
-    }
     this.setState({
       hasUpdated: true
     })
+    }
     }
 
     
@@ -275,9 +279,14 @@ var Welcome = React.createClass({
 
   componentWillUnmount: function() {
     AuthStore.removeChangeListener(this._onChange);
+    //clear the canvas
+    var canvas = document.getElementById('welcomeBoard');
+    var context = canvas.getContext("2d");
+    context.clearRect(0,0,canvas.offsetWidth, canvas.offsetHeight);
   },
 
   render: function() {
+    console.log('render')
     var greeting = 'Welcome';
     if (this.state.user.challengeNumber > 1) {
       greeting += ' back';
