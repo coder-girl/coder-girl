@@ -53,6 +53,7 @@
     "react-chartjs": "^0.6.0",
     "react-emoji": "^0.3.2",
     "react-foundation-apps": "^0.6.1",
+    "react-markdown": "^1.0.3",
     "react-modal": "^0.2.0",
     "react-router": "^0.13.3",
     "react-select": "^0.4.9",
