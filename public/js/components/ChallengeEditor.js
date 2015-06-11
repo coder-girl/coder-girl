@@ -37,7 +37,7 @@ var ChallengeEditor = React.createClass({
     var editorArray = code.split("<br>");
     var editorContent = '';
     editorArray.forEach(function(section, i){
-          editorContent = editorContent + '\n' + section;
+          editorContent = editorContent + section  + '\n';
        });
 
 
