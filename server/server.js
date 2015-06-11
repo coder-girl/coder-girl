@@ -1,8 +1,13 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-25 10:32:38
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-06-11 15:18:38
+<<<<<<< HEAD
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-06-11 18:53:31
+=======
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-06-10 18:26:30
+>>>>>>> (feat) Add method for bulk-posting challenges to db via endpoint
 */
 
 var express = require('express'),
@@ -15,6 +20,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     server = require('http').createServer(app),
     io = require('socket.io').listen(server),
+    addAllChallenges = require('./challenges/addAllChallenges');
     messageController = require('./messages/messageController');
 
 app.use(cors());
@@ -45,7 +51,6 @@ models.sequelize.sync()  //Include {force: true} as argument in sync() if want D
     .catch(function(error){
       console.error('There was an error with syncing the database: ', error)
     })
-
   });
 
 // initialize socket communication 
