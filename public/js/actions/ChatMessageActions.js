@@ -1,8 +1,8 @@
 /* 
 * @Author: Mark Bennett
 * @Date:   2015-05-25 20:27:34
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-06-02 19:21:27
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-06-11 15:12:39
 */
 
 'use strict';
@@ -27,7 +27,6 @@ var MessageActions = {
     var newMessage = {
       createdAt: Date.now(),
       authorName: currentUser.username,
-      roomName: roomName,
       text: text
     };
 

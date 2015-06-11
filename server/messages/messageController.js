@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-26 14:36:34
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-05-27 17:47:05
+* @Last Modified time: 2015-06-11 15:09:39
 */
 
 'use strict';
@@ -17,7 +17,6 @@ module.exports = {
       .then(function(user) {
         var newMessage = {
           text: message.text,
-          roomName: message.roomName,
           UserId: user.id,
           authorName: user.name
         };

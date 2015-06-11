@@ -2,14 +2,13 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-25 19:03:53
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-03 11:42:27
+* @Last Modified time: 2015-06-11 15:09:08
 */
 
 'use strict';
 
 var React = require('react');
 var MessageStore = require('../stores/ChatMessageStore');
-// var RoomStore = require('../stores/ChatRoomStore');
 var MessageItem = require('./ChatMessageItem');
 var MessageSubmit = require('./ChatMessageSubmit');
 var MessageActions = require('../actions/ChatMessageActions');
@@ -18,7 +17,6 @@ var MessageActions = require('../actions/ChatMessageActions');
 var getStateFromStores = function() {
   return {
     messages: MessageStore.getMessages()
-    // rooms: RoomStore.getAll()
   }
 };
 
