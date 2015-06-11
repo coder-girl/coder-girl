@@ -1,4 +1,168 @@
-﻿  }
+﻿// credits to http://codepen.io/lbebber/pen/jEqmyN
+// butterfly
+
+
+@-moz-keyframes borboletas-pos-loop {
+  0% {
+    -moz-transform: translate(0, 0);
+    transform: translate(0px, 0px);
+  }
+  25% {
+    -moz-transform: translate(100px, 0);
+    transform: translate(0px, 0px);
+  }
+  50% {
+    -moz-transform: translate(30px, -70px);
+    transform: translate(0px, -70px);
+  }
+  75% {
+    -moz-transform: translate(0px, 20px);
+    transform: translate(0px, 20px);
+  }
+  100% {
+    -moz-transform: translate(-100px, -50px);
+    transform: translate(0px, -50px);
+  }
+}
+@-webkit-keyframes borboletas-pos-loop {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  25% {
+    -webkit-transform: translate(100px, 0);
+    transform: translate(0px, 0);
+  }
+  50% {
+    -webkit-transform: translate(30px, -70px);
+    transform: translate(0px, -70px);
+  }
+  75% {
+    -webkit-transform: translate(0px, 20px);
+    transform: translate(0px, 20px);
+  }
+  100% {
+    -webkit-transform: translate(-100px, -50px);
+    transform: translate(0px, -50px);
+  }
+}
+.borboletas {
+  -moz-animation: borboletas-pos-loop 7s ease-in-out infinite alternate-reverse;
+  -webkit-animation: borboletas-pos-loop 7s ease-in-out infinite alternate-reverse;
+  animation: borboletas-pos-loop 7s ease-in-out infinite alternate-reverse;
+}
+
+.borboleta-oval-squish {
+  -moz-transform: scale(0.3, 1);
+  -ms-transform: scale(0.3, 1);
+  -webkit-transform: scale(0.3, 1);
+  transform: scale(0.3, 1);
+}
+
+@-moz-keyframes borboleta-radial-loop {
+  0% {
+    -moz-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes borboleta-radial-loop {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.borboleta-1 {
+  -moz-animation: borboleta-radial-loop 10s linear infinite;
+  -webkit-animation: borboleta-radial-loop 10s linear infinite;
+  animation: borboleta-radial-loop 10s linear infinite;
+}
+
+.borboleta-2 {
+  -moz-animation: borboleta-radial-loop 15s linear infinite;
+  -webkit-animation: borboleta-radial-loop 15s linear infinite;
+  animation: borboleta-radial-loop 15s linear infinite;
+}
+
+@-moz-keyframes borboleta-oval-loop {
+  0% {
+    -moz-transform: rotate(0) scale(3.3, 1);
+    transform: rotate(0) scale(3.3, 1);
+  }
+  100% {
+    -moz-transform: rotate(-360deg) scale(3.3, 1);
+    transform: rotate(-360deg) scale(3.3, 1);
+  }
+}
+@-webkit-keyframes borboleta-oval-loop {
+  0% {
+    -webkit-transform: rotate(0) scale(3.3, 1);
+    transform: rotate(0) scale(3.3, 1);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg) scale(3.3, 1);
+    transform: rotate(-360deg) scale(3.3, 1);
+  }
+}
+
+.borboleta-oval {
+  position: absolute;
+  -moz-animation: borboleta-radial-loop 1.2s linear infinite;
+  -webkit-animation: borboleta-radial-loop 1.2s linear infinite;
+  animation: borboleta-radial-loop 1.2s linear infinite;
+}
+
+.borboleta-radial {
+  position: absolute;
+  left: 80px;
+  top: 0;
+  -moz-animation: borboleta-oval-loop 1.2s linear infinite;
+  -webkit-animation: borboleta-oval-loop 1.2s linear infinite;
+  animation: borboleta-oval-loop 1.2s linear infinite;
+}
+
+.borboleta-2 .borboleta-oval {
+  -moz-animation: borboleta-radial-loop 1.5s linear infinite;
+  -webkit-animation: borboleta-radial-loop 1.5s linear infinite;
+  animation: borboleta-radial-loop 1.5s linear infinite;
+}
+
+.borboleta-2 .borboleta-radial {
+  -moz-animation: borboleta-oval-loop 1.5s linear infinite;
+  -webkit-animation: borboleta-oval-loop 1.5s linear infinite;
+  animation: borboleta-oval-loop 1.5s linear infinite;
+}
+
+.borboleta-gfx {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 20px;
+}
+
+@-moz-keyframes borboleta-gfx-upright-loop {
+  0% {
+    -moz-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -moz-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+@-webkit-keyframes borboleta-gfx-upright-loop {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
   100% {
     -webkit-transform: rotate(-360deg);
     transform: rotate(-360deg);
