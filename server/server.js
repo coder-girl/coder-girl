@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-25 10:32:38
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-06-01 12:08:21
+* @Last Modified time: 2015-06-11 15:18:38
 */
 
 var express = require('express'),
@@ -32,11 +32,19 @@ require('./config/middleware.js')(app, express, passport);
 app.set('port', (process.env.PORT || 3000));
 
 models.sequelize.sync()  //Include {force: true} as argument in sync() if want DB to drop on server restart.
+  .then(function(){
+    Challenge.bulkCreate([
+      // enter challenge objects here
+      ])
+  })
   .done(function(){
     server.listen(app.get('port'), function() {
     // app.listen(app.get('port'), function() {
       console.log("Node app is running at localhost:" + app.get('port'));
-    });
+    })
+    .catch(function(error){
+      console.error('There was an error with syncing the database: ', error)
+    })
 
   });
 
