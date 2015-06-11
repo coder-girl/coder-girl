@@ -1,3 +1,6 @@
+.leaderboard-container {
+  border-top: 0.06rem solid black;
+}
 
 .leaderboard-header {
   font-family: 'Quicksand-regular', sans-serif;
@@ -100,6 +103,11 @@ ul {
 
 .columnContainer {
   width: 50%;
+}
+
+a.close-button {
+  margin-right: -0.48rem;
+  margin-top: -0.18rem
 }
 
 
