@@ -101,10 +101,10 @@ var Leaderboard = React.createClass({
   },
 
 
-  showUser: function(id){
+  showUser: function(id, mouseType){
     var node = React.findDOMNode(this.refs[id]);
-    $(node).toggle();
 
+    $(node).toggle();
   },
 
 
@@ -119,8 +119,8 @@ var Leaderboard = React.createClass({
 
     var evenPictures = evens.map(function(p, index){
       return (
-              <li key={p.id} className="card-list-item">
-                <div className="custom-card">
+              <li key={p.id} className="card-list-item" onMouseEnter={self.showUser.bind(null, p.id, "enter")} onMouseLeave={self.showUser.bind(null, p.id, "leave")}>
+                <div className="custom-card" >
                   <div>
                     <Modal 
                       isOpen={self.state.modalIsOpen}
@@ -133,9 +133,9 @@ var Leaderboard = React.createClass({
                       </div>
                     </Modal>
                   </div>
-                  <div className="picture">
+                  <div className="picture"  >
                   <a>
-                    <img onMouseEnter={self.showUser.bind(null, p.id)} onMouseLeave={self.showUser.bind(null, p.id)} onClick={self.openModal.bind(null, p.src, p.allPics, p.username, p.url)} ref={p.id} src={p.src} title={p.title} />
+                    <img onClick={self.openModal.bind(null, p.src, p.allPics, p.username, p.url)} ref={p.id} src={p.src} title={p.title} />
                   </a>
                   </div>
                   <div ref={p.id} className="custom-card-divider">
@@ -151,7 +151,7 @@ var Leaderboard = React.createClass({
 
     var oddPictures = odds.map(function(p){
       return (
-              <li key={p.id} className="card-list-item">
+              <li key={p.id} className="card-list-item" onMouseEnter={self.showUser.bind(null, p.id, "enter")} onMouseLeave={self.showUser.bind(null, p.id, "leave")}>
                 <div className="custom-card">
                   <div>
                     <Modal 
@@ -165,9 +165,11 @@ var Leaderboard = React.createClass({
                       </div>
                     </Modal>
                   </div>
+                  <div className="picture" >
                   <a>
-                    <img onMouseEnter={self.showUser.bind(null, p.id)} onMouseLeave={self.showUser.bind(null, p.id)} onClick={self.openModal.bind(null, p.src, p.allPics, p.username, p.url)} ref={p.id} src={p.src} title={p.title} />
+                    <img onClick={self.openModal.bind(null, p.src, p.allPics, p.username, p.url)} ref={p.id} src={p.src} title={p.title} />
                   </a>
+                  </div>
                   <div ref={p.id} className="custom-card-divider">
                    <div>{p.username}</div>
                     <div>{p.score} Points</div>
