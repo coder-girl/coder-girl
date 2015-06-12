@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-28 16:17:21
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-06-11 09:48:58
+* @Last Modified time: 2015-06-11 19:46:51
 */
 
 'use strict';
@@ -15,6 +15,7 @@ var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
 var Doughnut = require('react-chartjs').Doughnut;
 var UserStore = require('../stores/UserStore');
+var Chart = require('chart.js')
 
 var calculateUserChartData = function(score, challengeNumber) {
   var data = UserStore.getLevel(score, challengeNumber);
@@ -59,6 +60,8 @@ var ChallengeComplete = React.createClass({
       user: AuthStore.getUser()
     });
     AuthStore.addChangeListener(this._onChange);
+    var chart = this.getChart();
+    console.log(chart);
   },
 
   componentWillUnmount: function() {
@@ -70,24 +73,22 @@ var ChallengeComplete = React.createClass({
   },
 
   render: function() {
+    Chart.defaults.global.responsive = true;
     var user = this.state.user;
     var level = UserStore.getLevel(user.score, user.challengeNumber).level;
-    console.log('user', user);
     var data = calculateUserChartData(user.score, level);
-    console.log(data);
     return (
-      <div className="congrats-wrapper">
-          Congratulations! You solved Challenge
-          <span className="challenge-number"> {user.challengeNumber - 1}</span>
-        <div className="congrats-info">
-          <h3 className="congrats-user-score">Score: {user.score}</h3>
-          <h3 className="current-user-level">Level: {level}</h3>
-        </div>
-        <div id="challengeDiv">
-          <Doughnut id="doughnut" data={data} />
-        </div>
-        <div className='continueButton'>
-          <Link to="home" className="congratsContinue">Back to Home</Link>
+      <div className= "congrats">
+        <div className="congratsBanner">
+            <p className= "congratsGreeting">Congratulations! You solved Challenge {user.challengeNumber - 1}!</p>
+            <button className='continueButton'>
+              <Link to="home" className="congratsContinue">Back to Home</Link>
+            </button>
+            <p className="scoreStats">Your score: {user.score}</p>
+            <p className="levelStats">Your current level: {level}</p>
+          </div>
+        <div className= "pieChart">
+          <Doughnut id="doughnut" data={data}/>
         </div>
       </div>
     );
