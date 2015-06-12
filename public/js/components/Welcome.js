@@ -2,7 +2,7 @@
  * @Author: Mark Bennett
  * @Date:   2015-05-27 19:54:19
  * @Last Modified by:   nimi
- * @Last Modified time: 2015-06-12 14:37:05
+ * @Last Modified time: 2015-06-12 15:21:44
  */
 'use strict';
 
@@ -64,10 +64,9 @@ var Welcome = React.createClass({
         var drawBoard = function(){
           var user = self.state.user
           var currentChallenge = self.state.user.challengeNumber;
+          console.log(currentChallenge, 'current challenge')
           var canvas = document.getElementById('welcomeBoard');
           var context = canvas.getContext("2d");
-          console.log(canvas)
-
           paper.setup(canvas);
           var width = canvas.offsetWidth;
           // points will be equally distributed across x-axis
@@ -77,12 +76,12 @@ var Welcome = React.createClass({
           // calculate which level set the user is on
           while(currentChallenge > 5){
             count++;
-            currentChallenge-5
+            currentChallenge-= 5;
           }
 
-          //reset the currentChallenge and make the the count a multiple of five for the level board
+          //make the the count a multiple of five for the level board
           
-          count = (count*5) || 1;
+          count = ((count*5)+1)
 
           // create the points for the path
           var pointsCreator = function(distanceBetweenPoints, numberofPoints) {
