@@ -280,6 +280,7 @@ models.sequelize.sync()  //Include {force: true} as argument in sync() if want D
     // .error(function(error){
     //   console.error('There was an error with syncing the database: ', error)
     // })
+
   });
 
 // initialize socket communication 
