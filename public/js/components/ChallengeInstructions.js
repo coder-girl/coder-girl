@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-28 14:44:31
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-11 09:10:00
+* @Last Modified time: 2015-06-12 16:32:34
 */
 
 'use strict';
@@ -64,7 +64,7 @@ var ChallengeInstructions = React.createClass({
     }
 
     return hints.map(function(hint, i) {
-      return <p className="challenge-hint" key={i}> Hint: {hint} </p>
+      return <p className="challenge-hint" key={i}> Hint: <Markdown source={hint} /></p>
     });
   },
 

@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-28 16:17:21
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-12 16:16:22
+* @Last Modified time: 2015-06-12 16:34:28
 */
 
 'use strict';
@@ -26,14 +26,12 @@ var calculateUserChartData = function(score, challengeNumber) {
     {
       value: percentageCompleted,
       color: '#8E2BC8',
-      highlight: '#8E2BC8',
-      label: 'Points Earned'
+      highlight: '#8E2BC8'
     },
     {
       value: totalPercentage,
       color: '#5BC0BA',
-      highlight: '#5BC0BA',
-      label: 'Points till Level Up'
+      highlight: '#5BC0BA'
     }
   ];
 

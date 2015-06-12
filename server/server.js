@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-25 10:32:38
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-12 16:17:38
+* @Last Modified time: 2015-06-12 16:29:37
 */
 
 var express = require('express'),
@@ -71,11 +71,8 @@ models.sequelize.sync()  //Include {force: true} as argument in sync() if want D
     {
       testCode: 3,
       title: "Puppies v. Kittens",
-      instructions: "JavaScript variables can be thought of like nicknames. If you had a dog named Santa's Little Helper, you might not want to have to say Santa's Little Helper every time you call him. You might instead take to calling him Fuzzball. Fuzzball then could be a variable that refers to Santa's Little Helper. You would declare this variable by writing: <br> `var Fuzzball = \"Santa's Little Helper\"; `/ <br>When you first define a variable you need to use the `var` keyword. After that, you can change what Fuzzball is referring to without using `var`. For instance, if Santa's Little Helper gets a furcut and you decide that your cat, Grinchy, is more like a Fuzzball, then you could reassign Fuzzball to Grinchy by just writing: `Fuzzball = \"Grinchy\";` Then, whenever you call Fuzzball, you would be referring to Grinchy (though she might ignore you). <br>You can pick pretty much anything you want for variable names so long as (1) they aren't a few reserved magical JavaScript words, (2) they don't start with a number, and (3) they don't have spaces. Note that capitalization matters. `Fuzzball` is not the same as `fuzzball`.<br><b>Challenge:</b>In the editor, define the variable `DuchessFlufferton` and assign it to either \"puppy\" or \"kitten\".",
-      content: "var puppiesVkittens = function(){ \
-        <br> // enter code here \
-        <br> return DuchessFlufferton \
-        <br> }",
+      instructions: "JavaScript variables can be thought of like nicknames. If you had a dog named Santa's Little Helper, you might not want to have to say Santa's Little Helper every time you call him. You might instead take to calling him Fuzzball.<br><br>Fuzzball then could be a variable that refers to Santa's Little Helper. You would declare this variable by writing:<br><br>`var Fuzzball = \"Santa's Little Helper\";`<br><br>When you first define a variable you need to use the `var` keyword. After that, you can change what Fuzzball is referring to without using `var`.<br><br>For instance, if Santa's Little Helper gets a furcut and you decide that your cat, Grinchy, is more like a Fuzzball, then you could reassign Fuzzball to Grinchy by just writing: `Fuzzball = \"Grinchy\";`<br><br>Then, whenever you call Fuzzball, you would be referring to Grinchy (though she might ignore you).<br><br>You can pick pretty much anything you want for variable names so long as (1) they aren't a few reserved magical JavaScript words, (2) they don't start with a number, and (3) they don't have spaces. Note that capitalization matters. `Fuzzball` is not the same as `fuzzball`.<br><br><b>Challenge: </b>In the editor, define the variable `DuchessFlufferton` and assign it to either \"puppy\" or \"kitten\".",
+      content: "// enter your code below",
       pointValue: 50,
       hint1: "Did you make sure to start with the `var` keyword?", 
       hint2: "Did you make sure there is no space between 'Duchess' and 'Flufferton'?"
