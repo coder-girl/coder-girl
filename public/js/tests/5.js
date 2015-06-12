@@ -1,14 +1,16 @@
-﻿var test = function(userCode){
-  var num = eval(userCode);
+// operators : operation conquer operators 
 
-  var result= {
+var test = function(userCode){
+  var code = eval(userCode);
+  var result = {
     pass: false,
-    message: "Not quite.  Try again!"
+    message: "Oops! Looks like your code wasn't quite right. Try again!"
   }
-  if(num=== 1){
+  if (code === 1){
     result.pass = true;
-    result.message = "You got it!  You are a mod star!"
-  }
+    result.message = "You got it!"
+  } 
 
   return result
 }
+

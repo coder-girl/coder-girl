@@ -1,14 +1,20 @@
-﻿var test = function(userCode){
+﻿// logical or, and, and !
+
+var test = function(userCode){
+  var result = {
+    pass: false,
+    message: "Looks like your code wasn't quite right. Please try again!"
+  }
   eval(userCode);
 
-  var result= {
-    pass: false,
-    message: "Oh no you didn't pass!"
-  }
-  if(example(1,2) === 3){
+  if (janesChoice === true){
     result.pass = true;
-    result.message = "Congrats!"
+    result.message = "Congratulations! You passed!";
   }
 
-  return result
+  if (test === false){
+    result.message = "Looks like `janesChoice` is returning false - double check your operators and try again!";
+  }
+
+  return result;
 }
