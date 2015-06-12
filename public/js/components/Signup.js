@@ -44,9 +44,9 @@ var Signup = React.createClass({
   _onChange : function(){
     this.setState ({
       user: AuthStore.getUser(),
-      error: AuthStore.getError()
+      error: AuthStore.getSignupError()
     });
-    if(this.state.user.isAuth){
+    if(this.state.user && this.state.user.isAuth){
       this.transitionTo('/home');
     }
   },
@@ -62,6 +62,7 @@ var Signup = React.createClass({
   },
 
   componentWillUnmount: function() {
+    AuthActions.clearErrors();
     AuthStore.removeChangeListener(this._onChange);
   },
 
@@ -82,7 +83,7 @@ var Signup = React.createClass({
               <input type="email" onChange={this.clearError} placeholder="Enter your email" ref="email" />
               <select type="select" onChange={this.clearError} placeholder="Select your country" ref="country" >
                 <div id='countries-container'>
-                  {countryOptions}
+                  { countryOptions }
                 </div>
               </select>
               <input type="password" onChange={this.clearError} placeholder="Enter your password" ref="password" />

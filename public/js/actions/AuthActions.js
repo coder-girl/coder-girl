@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-21 16:17:55
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-12 11:17:02
+* @Last Modified time: 2015-06-12 12:03:09
 */
 
 'use strict';
@@ -55,6 +55,12 @@ var authActions = {
         });
         throw(error);
       }.bind(this) 
+    })
+  },
+
+  clearErrors: function() {
+    AppDispatcher.dispatch({
+      actionType: AppConstants.CLEAR_ERRORS
     })
   },
 

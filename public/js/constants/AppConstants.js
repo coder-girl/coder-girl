@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 12:23:52
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-12 10:38:52
+* @Last Modified time: 2015-06-12 12:05:50
 */
 
 'use strict';
@@ -12,6 +12,7 @@ module.exports = {
   LOGIN_USER: 'LOGIN_USER',
   FAILED_LOGIN: 'FAILED_LOGIN',
   FAILED_SIGNUP: 'FAILED_SIGNUP',
+  CLEAR_ERRORS: 'CLEAR_ERRORS',
   LOGOUT_USER: 'LOGOUT_USER',
   UPDATE_USER: 'UPDATE_USER',
   INSTAGRAM_SET_CURRENT_USER: 'INSTAGRAM_SET_CURRENT_USER',

@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-21 16:08:02
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-12 11:28:21
+* @Last Modified time: 2015-06-12 12:01:28
 */
 
 'use strict';
@@ -38,7 +38,7 @@ var Login = React.createClass({
   _onChange: function() {
     this.setState ({
       user: AuthStore.getUser(),
-      error: AuthStore.getError()
+      error: AuthStore.getLoginError()
     });
     if(this.state.user.isAuth){
       this.transitionTo('/home');
@@ -50,6 +50,7 @@ var Login = React.createClass({
   },
 
   componentWillUnmount: function() {
+    AuthActions.clearErrors();
     AuthStore.removeChangeListener(this._onChange);
   },
 
@@ -72,7 +73,7 @@ var Login = React.createClass({
               <a className="instagramLogin" href= '/auth/instagram'> <i className="fa fa-instagram fa-3x"></i><span>Log in with Instagram!</span> </a>
               <input type="email" id="right-label" className="user-email" onChange={this.clearError} placeholder="Enter your email" ref="email" />
               <input type="password" id="right2-label" className="user-password" onChange={this.clearError} placeholder="Enter your password" ref="password" />
-              {error}
+              { error }
               <input type="submit" className="loginButton button" value="Log in!" align="right" />
               <Link to="signup" className="signUpLink"><div>No account?</div><div className="joinUp">Join up to get your code on!</div></Link>
             </form>

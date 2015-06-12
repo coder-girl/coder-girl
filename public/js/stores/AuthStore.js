@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 11:03:34
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-12 11:20:04
+* @Last Modified time: 2015-06-12 12:04:05
 */
 
 'use strict';
@@ -15,7 +15,8 @@ var CHANGE_EVENT = 'change';
 
 var _authStore = {
   currentUser: {},
-  error: ""
+  loginError: null,
+  signupError: null
 };
 
 var setCurrentUser = function(data){
@@ -35,8 +36,17 @@ var invalidateUser = function(){
   _authStore.currentUser.isAuth = false;
 };
 
-var setError = function(error) {
-  _authStore.error = error;
+var setLoginError = function(error) {
+  _authStore.loginError = error;
+};
+
+var setSignupError = function(error) {
+  _authStore.signupError = error;
+};
+
+var clearErrors = function() {
+  _authStore.signupError = null;
+  _authStore.loginError = null;
 };
 
 var AuthStore = objectAssign({}, EventEmitter.prototype, {
@@ -52,8 +62,11 @@ var AuthStore = objectAssign({}, EventEmitter.prototype, {
   getUser: function() {
     return _authStore.currentUser;
   },
-  getError: function() {
-    return _authStore.error;
+  getLoginError: function() {
+    return _authStore.loginError;
+  },
+  getSignupError: function() {
+    return _authStore.signupError;
   }
 });
 
@@ -77,7 +90,7 @@ AppDispatcher.register(function(action) {
       break;
 
     case AppConstants.FAILED_LOGIN:
-      setError("Incorrect email and password combination. Please try again.");
+      setLoginError("Incorrect email and password combination. Please try again.");
       AuthStore.emitChange();
       break;
 
@@ -87,7 +100,12 @@ AppDispatcher.register(function(action) {
       break;
 
     case AppConstants.FAILED_SIGNUP:
-      setError("A user with that email already exists. Please select another email.");
+      setSignupError("A user with that email already exists. Please select another email.");
+      AuthStore.emitChange();
+      break;
+
+    case AppConstants.CLEAR_ERRORS:
+      clearErrors();
       AuthStore.emitChange();
       break;
 
