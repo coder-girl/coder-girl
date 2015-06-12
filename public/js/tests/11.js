@@ -1,5 +1,5 @@
-﻿var lengthTest = function(userCode) {
-  eval(userCode);
+﻿var test = function(userCode) {
+  var numberOfShades = eval(userCode);
   var result = {
     pass: true,
     message: 'Congratulations! You deserve that new shade.  Treat Your-self to Teal, perhaps?'

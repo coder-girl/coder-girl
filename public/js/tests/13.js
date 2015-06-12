@@ -6,7 +6,7 @@
 
   var codeResponse = eval(userCode);
 
-  if (codeResponse.pop() === 'Finish hinstory project') {
+  if (codeResponse.pop() === 'Finish history project') {
     result.pass = true;
     result.message = 'Congratulations! You passed!';
   }
