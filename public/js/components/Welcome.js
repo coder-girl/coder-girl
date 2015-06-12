@@ -2,7 +2,7 @@
  * @Author: Mark Bennett
  * @Date:   2015-05-27 19:54:19
  * @Last Modified by:   nimi
- * @Last Modified time: 2015-06-12 11:12:59
+ * @Last Modified time: 2015-06-12 11:31:58
  */
 'use strict';
 
@@ -204,7 +204,7 @@ var Welcome = React.createClass({
             } else {
               progressionId = setTimeout(function() {
                 // ease in objects depending on user level
-                if (counter === 0) {
+                if (counter === 4) {
                   house.animate({
                     properties: {
                       opacity: 1
@@ -224,7 +224,7 @@ var Welcome = React.createClass({
                       easing: 'easeInBounce'
                     }
                   });
-                } else if (counter === 2) {
+                } else if (counter === 0) {
                   var sun = $('#happySun');
                   for (var i = 0; i < sun.children.length; i++) {
                     sun.animate({ opacity: '1' }, 1500, 'easeInBounce', function () {
@@ -340,7 +340,6 @@ var Welcome = React.createClass({
           <span className="welcome-username"> {this.state.user.username}</span>
         </div>
         <canvas id="welcomeBoard"></canvas>
-        <div id="positionDivs">
           <div id="happySun">
             <div className="sun">
               <div className="sun-face">
@@ -397,7 +396,6 @@ var Welcome = React.createClass({
             </div>
           </div>
         </div>
-      </div>
     );
   }
 });
