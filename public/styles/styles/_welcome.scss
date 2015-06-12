@@ -18,8 +18,7 @@ a {
 
 }
 
-
-canvas {
+#welcomeBoard {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -29,7 +28,6 @@ canvas {
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-
 .welcome-container {
   overflow: hidden;
 }
