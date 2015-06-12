@@ -206,11 +206,12 @@ body {
       .title-block-left {
         float: right;
         text-align: justify;
-        text-justify: auto;
+        text-justify: kashida;
       }
 
       .title-block-right {
-        text-align: right;
+        text-align: justify;
+        text-justify: kashida;
         float: left;
       }
 

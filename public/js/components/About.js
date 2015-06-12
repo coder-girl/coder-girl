@@ -56,23 +56,24 @@ var About = React.createClass({
             </div>
             <div className="feature-block">
               <h3 className="feature">Learn core skills</h3>
-              <h6 className="description">Build a reliable foundation of programming techniques.
-                <br/>
-              </h6>
+              <h6 className="description">No prior experience needed.</h6>
+              <h6 className="description">We start with the basics.</h6>
             </div>
             <div className="feature-icon">
               <i className="fa fa-star-o fa-3x"></i>
             </div>
             <div className="feature-block">
               <h3 className="feature">Tackle challenges</h3>
-              <h6 className="description">Earn points and level-up as you work through engaging problems.</h6>
+              <h6 className="description">Earn points and level-up.</h6>
+              <h6 className="description">Get your Instagram pics featured.</h6>
             </div>
             <div className="feature-icon">
               <i className="fa fa-comments-o fa-3x"></i>
             </div>
             <div className="feature-block">
               <h3 className="feature">Collaborate with friends</h3>
-              <h6 className="description">Offer or receive help while participating in a highly social environment.</h6>
+              <h6 className="description">Have a question or comment?</h6>
+              <h6 className="description">Start chatting.</h6>
             </div>
           </div>
         </div>
@@ -80,7 +81,7 @@ var About = React.createClass({
 
           <div className ="title-block title-block-right">
             <h1>Our Mission</h1>
-            <h4>More men than women are learning to code. Let's reverse the stats together.</h4>
+            <h4>More men than women are studying coding. Let's reverse the stats together.</h4>
           </div>
           <div className="all-stats content-container">
             <div className="stat-block">
