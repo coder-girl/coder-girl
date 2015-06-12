@@ -1,6 +1,5 @@
 //Numbers 2 Cool 4 School
 
-
 var test = function(userCode){
   var userString = eval(userCode);
   var result = {
@@ -13,4 +12,5 @@ var test = function(userCode){
     return result;
   }  
   return result;
+
 }

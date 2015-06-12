@@ -1,6 +1,5 @@
 ﻿//Booleans--Which Wand?
 
-
 var test = function(userCode){
   var result = {
     pass: false,
