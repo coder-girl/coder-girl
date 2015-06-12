@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-21 16:17:55
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-12 10:35:21
+* @Last Modified time: 2015-06-12 11:17:02
 */
 
 'use strict';
@@ -49,7 +49,11 @@ var authActions = {
         })
       },
       error: function(xhr, status, error){
-        console.error(xhr, status, error)
+        AppDispatcher.dispatch({
+          actionType: AppConstants.FAILED_SIGNUP,
+          data: error
+        });
+        throw(error);
       }.bind(this) 
     })
   },

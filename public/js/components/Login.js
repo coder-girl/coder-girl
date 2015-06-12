@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-21 16:08:02
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-12 10:51:40
+* @Last Modified time: 2015-06-12 11:18:45
 */
 
 'use strict';
@@ -38,7 +38,7 @@ var Login = React.createClass({
   _onChange: function() {
     this.setState ({
       user: AuthStore.getUser(),
-      error: AuthStore.getLoginError()
+      error: AuthStore.getError()
     });
     if(this.state.user.isAuth){
       this.transitionTo('/home');
@@ -53,10 +53,15 @@ var Login = React.createClass({
     AuthStore.removeChangeListener(this._onChange);
   },
 
+  clearError: function() {
+    this.setState({
+      error: null
+    });
+  },
 
   render: function() {
 
-    var error = this.state.error ? <div className="login-error">{this.state.error}</div> : null;
+    var error = this.state.error ? <div className="auth-error login-error"><p>{this.state.error}</p></div> : null;
 
     return (
 
@@ -65,8 +70,8 @@ var Login = React.createClass({
           <div className="grid-container">
             <form onSubmit={this.handleLogin} className="formContainer">
               <a className="instagramLogin" href= '/auth/instagram'> <i className="fa fa-instagram fa-3x"></i><span>Log in with Instagram!</span> </a>
-              <input type="email" id="right-label" className="user-email" placeholder="Enter your email" ref="email" />
-              <input type="password" id="right2-label" className="user-password" placeholder="Enter your password" ref="password" />
+              <input type="email" id="right-label" className="user-email" onChange={this.clearError} placeholder="Enter your email" ref="email" />
+              <input type="password" id="right2-label" className="user-password" onChange={this.clearError} placeholder="Enter your password" ref="password" />
               <input type="submit" className="loginButton button" value="Log in!" align="right" />
               {error}
               <Link to="signup" className="signUpLink"><div>No account?</div><div className="joinUp">Join up to get your code on!</div></Link>

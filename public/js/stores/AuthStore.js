@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 11:03:34
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-12 10:48:48
+* @Last Modified time: 2015-06-12 11:20:04
 */
 
 'use strict';
@@ -35,7 +35,7 @@ var invalidateUser = function(){
   _authStore.currentUser.isAuth = false;
 };
 
-var setLoginError = function(error) {
+var setError = function(error) {
   _authStore.error = error;
 };
 
@@ -52,7 +52,7 @@ var AuthStore = objectAssign({}, EventEmitter.prototype, {
   getUser: function() {
     return _authStore.currentUser;
   },
-  getLoginError: function() {
+  getError: function() {
     return _authStore.error;
   }
 });
@@ -71,18 +71,23 @@ AppDispatcher.register(function(action) {
       AuthStore.emitChange();
       break;
 
-    case AppConstants.FAILED_LOGIN:
-      setLoginError("Incorrect email and password combination. Please try again.");
-      AuthStore.emitChange();
-      break;
-
     case AppConstants.INSTAGRAM_SET_CURRENT_USER:
       setCurrentUser(action.data);
       AuthStore.emitChange();
       break;
 
+    case AppConstants.FAILED_LOGIN:
+      setError("Incorrect email and password combination. Please try again.");
+      AuthStore.emitChange();
+      break;
+
     case AppConstants.SIGNUP_USER:
       setCurrentUser(action.data);
+      AuthStore.emitChange();
+      break;
+
+    case AppConstants.FAILED_SIGNUP:
+      setError("A user with that email already exists. Please select another email.");
       AuthStore.emitChange();
       break;
 
