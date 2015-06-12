@@ -1,8 +1,8 @@
 /* 
  * @Author: Mark Bennett
  * @Date:   2015-05-27 19:54:19
- * @Last Modified by:   nimi
- * @Last Modified time: 2015-06-12 15:21:44
+ * @Last Modified by:   Mark Bennett
+ * @Last Modified time: 2015-06-12 16:26:28
  */
 'use strict';
 
@@ -241,7 +241,7 @@ var Welcome = React.createClass({
                       easing: 'easeInBounce'
                     }
                   });
-                } else if (counter === 0) {
+                } else if (counter === 2) {
                   var sun = $('#happySun');
                   for (var i = 0; i < sun.children.length; i++) {
                     sun.animate({ opacity: '1' }, 1500, 'easeInBounce', function () {

@@ -1,8 +1,8 @@
 /* 
 * @Author: Mark Bennett
 * @Date:   2015-05-28 16:17:21
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-06-11 19:46:51
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-06-12 16:16:22
 */
 
 'use strict';
@@ -82,7 +82,7 @@ var ChallengeComplete = React.createClass({
         <div className="congratsBanner">
             <p className= "congratsGreeting">Congratulations! You solved Challenge {user.challengeNumber - 1}!</p>
             <button className='continueButton'>
-              <Link to="home" className="congratsContinue">Back to Home</Link>
+              <Link to="home" className="continueButton congratsContinue">Continue</Link>
             </button>
             <p className="scoreStats">Your score: {user.score}</p>
             <p className="levelStats">Your current level: {level}</p>
