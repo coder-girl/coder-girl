@@ -67,7 +67,7 @@ var Signup = React.createClass({
 
   render: function() {
 
-    var error = this.state.error ? <div className="auth-error login-error"><p>{this.state.error}</p></div> : null;
+    var error = this.state.error ? <div className="auth-error signup-error"><p>{this.state.error}</p></div> : null;
 
     var countryOptions = COUNTRIES.map(function(country) {
       return (<option value={country.value}> {country.label} </option>)

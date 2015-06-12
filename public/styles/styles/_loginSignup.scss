@@ -4,7 +4,7 @@
   @include grid-block(12,horizontal, false, center);
   background: url('../asset/LoginImage.jpg') no-repeat right;
   background-size: contain; 
-  z-index: 2
+  z-index: 2;
 }
 
 .button {
@@ -88,6 +88,9 @@ select:hover {
 
 .joinUp {
   padding-top: 7px;
+}
 
+.auth-error {
+  color: red;
 }
 
