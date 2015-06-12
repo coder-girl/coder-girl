@@ -10,8 +10,9 @@ var About = React.createClass({
             <img className="girls-coding-image" src="./../../asset/girls-coding.jpg" alt="Girls coding together"/>
           </div>
           <div className="title-block title-block-left">
-            <h1>Made for girls, by girls (mostly)</h1>
-            <h4>Learn to program alongside other like-minded girls in a collaborative environment.</h4>
+            <h1>Learn to code now</h1>
+            <h4>Chat with other Coder Girls while tackling coding challenges.</h4>
+            <h4>Earn points to get your Instagram feed featured on our Leaderboard!</h4>
           </div>
         </div>
 
