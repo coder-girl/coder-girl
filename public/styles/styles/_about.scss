@@ -142,7 +142,7 @@ body {
       }
 
       .bar5 {
-        height: 600px;
+        height: 75%;
         .content-container {
           height: 100%;
           width: 100%;
@@ -213,6 +213,11 @@ body {
         text-align: justify;
         text-justify: kashida;
         float: left;
+      }
+
+
+      .mission-header {
+        padding-left: 5%;
       }
 
     }

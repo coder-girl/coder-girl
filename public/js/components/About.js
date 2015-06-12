@@ -81,7 +81,7 @@ var About = React.createClass({
 
           <div className ="title-block title-block-right">
             <h1>Our Mission</h1>
-            <h4>More men than women are studying coding. Let's reverse the stats together.</h4>
+            <h4>More men than women are learning to code. Let's reverse the stats together.</h4>
           </div>
           <div className="all-stats content-container">
             <div className="stat-block">
@@ -103,7 +103,7 @@ var About = React.createClass({
         <div className="bar4 team">
           <div className="title-block title-block-left">
             <h1>Our Team</h1>
-            <h4>Check out the engineers behind Coder Girl.</h4>
+            <h4>The engineers behind Coder Girl.</h4>
           </div>
           <div className="all-members content-container">
             <div className="team-member-block">
@@ -143,7 +143,7 @@ var About = React.createClass({
         <div className="bar5 stack">
           <div className="title-block title-block-right">
             <h1>Our Stack</h1>
-            <h4>Check out the tools used to build Coder Girl.</h4>
+            <h4>The tools used to build Coder Girl.</h4>
           </div>
           <div className="stack-block content-container">
             <div className="stack-group stack-frontend">
