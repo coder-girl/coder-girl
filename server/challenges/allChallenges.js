@@ -2,16 +2,192 @@
 * @Author: Mark Bennett
 * @Date:   2015-06-10 18:05:13
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-10 19:34:03
+* @Last Modified time: 2015-06-11 17:21:30
 */
 
 'use strict';
 
-module.exports = { challenges: {
-  title: "Get out your party shoes!",
-  instructions: "Often in coding, you want to be able to execute some code if one statement is true, \
-  execute different code if another statement is true, or \
-  execute some default code if neither statement is true.  The outline for how to do this is - \
+var challenges = [
+{
+  testCode: 1,
+  title:"String Theory",
+  instructions:"In JavaScript you can put any keyboard characters you want in quotes and you have created a \"string\".The quotes can \
+  be single or double quotes but they have to match. A string can be made up of a single letter, a single word or whole paragraphs. The \
+  sky is the limit.<br><b>Challenge:</b> In the editor, create a string that contains your favorite hashtag for selfies. Note that in the editor, it now \
+  says \"//type your string here\". By putting \"//\" before text, it turns the entire line into a comment that is ignored by JavaScript. \
+  It allows you to write comments about your code to remind your later self what you did. So, make sure to write your brilliant new string \
+  on line 2. Otherwise, if you write it on line 1 it will be ignored.",
+  content: "//type your string on the next line",
+  pointValue: 100,
+  hint1: "Did you place your string in matching quotes (either both single quotes or both double quotes)?",
+  hint2: "My answer would be \"#filtersforever\"."
+},
+
+{
+  testCode: 2,
+  title: "1+1 Cool 2*2 School",
+  content: "// enter code on next line",
+  instructions: "Strings are fine and dandy, but sometimes you just need a number. JavaScript has you covered. You can use numbers and do \
+  math all within JavaScript. You can add (+), subtract (-), multiply (*) and divide (/). <br><br>Note that if you put a number in quotes, \
+  it becomes a string and no longer behaves the way you would expect. For instance if you input `\"2\" + \"5\"` you would get `\"25\"` in \
+  return because the two strings would just be smooshed together. This smooshing is called \"concatenation\". If you want to add 2 + 5 to \
+  get 7, you leave off the quotes.<br><br>Say you want to use JavaScript to write a text to your friend Caroline but all of your number\
+  keys are broken  other than the number 1.<br><b>Challenge:</b>In the editor, write out the string \"2cool4school\" but only using\
+  the number 1.",
+  hint1:"Your number 1 should NOT be in quotes in your code since you want to do regular addition.",
+  hint2:"Your answer should be in the form of: `(6 + 6) + 'wordy' + (3 + 3 + 3) + 'more_wordy'`.",
+  pointValue:150
+},
+
+{
+  testCode: 3,
+  title: "Puppies v. Kittens",
+  instructions: "JavaScript variables can be thought of like nicknames. If you had a dog named Santa\'s Little Helper, you might not want to have \
+  to say Santa\'s Little Helper every time you call him. You might instead take to calling him Fuzzball. Fuzzball then could be a variable \
+  that refers to Santa\'s Little Helper. You would declare this variable by writing: \
+  <br> `var Fuzzball = \"Santa\'s Little Helper\"; `/
+  <br>When you first define a variable you need to use the `var` keyword. After that, you can change what Fuzzball is referring to without using `var`.\
+  For instance, if Santa\'s Little Helper gets a furcut and you decide that your cat, Grinchy, is more like a Fuzzball, \
+  then you could reassign Fuzzball to Grinchy by just writing: `Fuzzball = \"Grinchy\";`\
+  Then, whenever you call Fuzzball, you would be referring to Grinchy (though she might ignore you). \
+  <br>You can pick pretty much anything you want for variable names so long as (1) they aren\'t a few reserved magical JavaScript words, (2) they don\'t \
+  start with a number, and (3) they don\'t have spaces. Note that capitalization matters. `Fuzzball` is not the same as `fuzzball`.\
+  <br><b>Challenge:</b>In the editor, define the variable `DuchessFlufferton` and assign it to either \"puppy\" or \"kitten\".",
+  content: "var puppiesVkittens = function(){ \
+    <br> // enter code here \
+    <br> return DuchessFlufferton \
+    <br> }",
+  pointValue: 50,
+  hint1: "Did you make sure to start with the `var` keyword?", 
+  hint2: "Did you make sure there is no space between 'Duchess' and 'Flufferton'?"
+},
+
+{
+  testCode: 4,
+  title: "Which Wand?",
+  content: "var wandCheck1 = 5 < 3;<br>var wandResult1 = // add the correct boolean here and make sure to delete the \"//\";\
+  <br><br>var wandCheck2 = 10 > 6;<br>var wandResult2 = // add the correct boolean here and make sure to delete the \"//\";<br><br>",
+  instructions: "At this point, you have already seen several data types, including strings and numbers. Another common \
+  data type is a boolean. Boolean is just a fancy word for the category that includes `true` and `false`. These values are \
+  neither strings nor variables - they are their own type altogether. So, you do not put `true` or `false` in quotes.  They stand all on their own. \
+  Booleans are particularly useful for comparisons, such as 3 > 2 \
+  or 3 < 2. The > and < signs are the traditional symbols for \"is greater than\" and \"is less than\", respectively. So 3 > 2 evaluates \
+  to `true`, and 3 < 2 evaluates to `false`.  \
+  <br><br>Imagine you are strolling down Diagon Alley and you wander into Ollivander\'s to check out the new wands. \
+  You are shocked to find the whole store in disarray. You want to help Ollivander sort the wands by length.  \
+  You have the lengths, but you need to determine which length is greater when comparing two wands. \
+  <br><b>Challenge:</b>In the editor, assign the correct boolean to `wandResult1` and `wandResult2` based on the \
+  corresponding `wandCheck1` and `wandCheck2` comparisons. Have at it, Hermione.",
+  hint1: "Remember that since `true` and `false` are not strings, they do not require quotation marks.",
+  hint2: "`wandResult1` should be true if 5 is less than 3. If 5 is not less than 3, `wandResult1` should be false.",
+  pointValue: 200
+},
+
+{
+  testCode: 5,
+  title: "Operation Conquer Operators",
+  content: "",
+  instructions: "You know how we said earlier that you can do math in JavaScript.  We were not kidding.\
+  <br> Check out a few of the operators available to you: \
+  <br>Addition (+)\
+  <br> 2 + 2 = 4\
+  <br>Subtraction (-)\
+  <br> 10 - 2 = 8\
+  <br>Multiplication (*)\
+  <br> 2 * 12 = 24\
+  <br>Divsion (/)\
+  <br>  24/2 = 12\
+  <br>Modulo (%)\
+  <br> (%) returns the remainder from dividing two numbers, so 5 % 2 = 1. \
+  <br>  Suppose we would like to know if any given number is an even number. \
+  We can use modulus here to help us out. If the remainder is 1, not zero, then we know it is an odd number. \
+  Increment (++) \
+  <br> ++ is a shortcut to increment a variable that is storing a number by 1.\
+  <br> `var x = 10;`\
+  <br> `x++` , will return `11`;\
+  <br> We can also get really clever and increment by 2 by using x+=2.\
+  <br>\
+  <br>Decrement (--)\
+  <br> -- is a shortcut to decrement (decrease) a variable that is storing a number by 1.\
+  <br> `var x = 0;`\
+  <br> `x--` , will return `-1`;\
+  <br> Enough reading.<br><b>Challenge:</b>In the editor, write the result of 21 % 10.  \
+  <br>$$", 
+  hint1: "What does that % mean again? Check above. To be really cool you could say 21 mod 10.",
+  hint2: "If you divide 21 by 10, what would the remainder be?",
+  pointValue: 300
+},
+
+{
+  testCode: 6,
+  title: "Ice Cream for Jane",
+  content: 'var janesChoice;<br>var vanilla = true;<br> var chocoloate = false;<br>var strawberry = true;<br>var doubleScoopIcecreamCone = false; <br>janesChoice = //write the logical expression here;',
+  instructions: "
+  <br>In javascript, the || represents the logical OR operator, which returns `true` if at least one of the values being compared has a \"truthy\" value. 
+  <br>`true || false` will return `true`.
+  <br>`false || true` will return `true`.
+  <br>`true || true` will return `true`.
+  <br>`false || false` will return `false`.
+  <br>
+  <br>Additionaly, we have &&, the locial AND operator, which returns `true` only if both values are \"truthy\", and `false` otherwise. 
+  <br>`true && true` will return `true`. 
+  <br>`false && false` will return `false`.
+  <br>`false && true` will return `false`.
+  <br>`true && false` will return `false`.
+  <br>
+  <br>And finally, `!` or \"not\", performs logical negation. 
+  <br>`var atHome = true;`
+  <br>`!atHome` is now false when javascript evalutes it. 
+  <br>We can also do `!!atHome`, which changes `!atHome` from above to false, and then because of the second !, back to true. /
+  <br>This also converts anything into its boolean value, either true or false. For example 0, is a falsey value, whereas other numbers are truthy. \
+  So `!!0` will return `false`. \
+  <br><b>Challenge: </b>Jane is getting ice cream, and would like either a single scope of vanilla or strawberry. Assign a value to `janesChoice` \
+  by combining all of the variables given with logical operators so that the variable janesChoice will evaulate to `true`.",
+  hint1: "Are you wrapping your expressions in parens? ((x || y) && (y && z))",
+  hint2:  "Are you using the NOT operator? `!(a || b)`",
+  pointValue: 50
+}, 
+
+{
+  testCode: 7,
+  title: "Expressive Expressions",
+  content: 'var value1 = 5 === 6;<br>var value2 = "two wrongs" !== "one right";',
+  instructions: "Booleans and operators are core components of expressions. Expressions are simply defined as any unit of code that \
+  evaluates to a value. You've already seen several examples of expressions at this point: valid expressions include variable assignments\
+  (`var x = 7`), mathematical operations (`5 * 7`), string operations (`'my' + 'string'`), and logical operations - operations that \
+  evaluate to `true` or `false` (`5 < 6`).<br><br>In addition to the things you have already seen, other common operators that \
+  frequently appear in expressions include >= (greater than or equal to), <= (less than or equal to), == (equal to), and != (not equal to).\
+  For example, all of the following logical expressions would evaluate to `true`: `'Mark' != 'Marcus'`, `5 == 5`, `'a' <= 'b'`, and /
+  `2 >= 2`.<br><b>Challenge: </b>Create an expression using either == or != that compares `value1` and `value2` and evaluates to `true`."
+  hint1: "First, create a theory about what value you expect `value1` and `value2` to take assume. Then choose the appropriate operator",
+  hint2: "Your code should look like `value1 ? value2`, where the question mark is replaced by the correct operator.",
+  pointValue: 100
+},
+
+{
+  testCode: 8,
+  title: "To not to be or to really not to be",
+  instructons: "JavaScript is quite serious about a thing not being. So much so that it has two different values to represent nothingness. \
+  `null` is used when it is certain that something does not exist. `undefined` is used when it is unknown what an item is or whether it exists. For instance, \
+  if Juliet were single because she dumped her boyfriend Romeo, you would say `var JulietBoyfriend = null`.  But if you are uncertain as to whether \
+  Juliet has a boyfriend or you do not know his name, you would say `var JulietBoyfriend = undefined`.  `undefined` and `null` are both called \
+  \"falsy\" values in JavaScript. This means the expression `!undefined` evaluates to `true` and the expression !null evaluates \
+  to `true`. Strangely, neither `null` nor `undefined` actually equals `false` in JavaScript. /
+  <br><b>Challenge: </b> Your buddy Benvolio just called and said he has heard that a party has been declared for this Friday.  He had no further information yet. \
+  In the editor, write \"null\" if you think the variable `party` would evaluate to `null` in this instance or \"undefined\" if you think it would evaluate to `undefined`.",
+  content: "//enter code here",
+  pointValue: 50,
+  hint1: "Benvolio has declared the party variable so it exists, but it does not have a meaning yet.",
+  hint2: "`undefined` and `null` are not strings, so remember to leave out the quotes!"
+
+},
+
+{
+  testCode: 1,
+  'title': 'Get out your party shoes!',
+  'instructions': 'Really often in coding, you want to be able to (1) execute some code if one statement is true, \
+  (2) execute different code if another statement is true or (3) \
+execute some default code if neither (1) or (2) is the case.  The outline for how to do this is: \
    <br> if(thisIsTrue){\
     <br>   // do something;\
    <br> } else if(somethingElse){\
@@ -19,55 +195,28 @@ module.exports = { challenges: {
   <br>  } else{\
   <br>  // do the default; \
   <br>  } \
-
-  <br>Imagine you are trying to figure out what to wear to this Saturdays killer party. Chloe thinks you should wear a skirt.  Bethany definitely thinks it is a jeans type of affair.  \
+  <br>Imagine you are trying to figure out what to wear to this Saturday\'s killer party.  Chloe thinks you should wear a skirt.  Bethany definitely thinks it is a jeans type of affair.  \
   Stephanie thinks it is really casual.   \
-  <br>Fill in the function pickShoes so that if you go with jeans, your function returns \"boots\", \
-  if you choose a skirt, your function returns \"platforms\" and \
-  if you wear anything else, your function returns \"flip flops.\"",
-  content:   "var pickShoes = function(clothes){ \
-    if (clothes === \"jeans\"){ \
-    //enter code here \
-    } else if (clothes=== \"skirt\"){ \
-    // enter code here \
-    } else { \
-    // enter code here \
-    } \
-  };",
-  testCode: 1,
-  pointValue: 100,
-  hint1: "Did you make sure to return a string for each condition (for instance, for the \"jeans\" option, did you enter \"return \"boots\"\"?",
-  hint2: "Did you enclose your strings in quotes?"
+  <br>Fill in the function pickShoes so that if you go with jeans, your function returns "boots", \
+  if you choose a skirt, your function returns "platforms" and \
+  if you wear anything else, your function returns "flip flops."',
+  'content':   'var pickShoes = function(clothes){ \
+    \n\n if(clothes ==="jeans"){ \
+     \n\n  //enter code here \
+    \n } else if(clothes==="skirt"){ \
+    \n\n  //enter code here \
+    \n } else { \
+    \n  //enter code here \
+    \n } \
+  \n };',
+  'pointValue': 100,
+  'hint1': "Did you make sure to return a string for each condition (for instance, for the 'jeans' option, did you enter 'return \"boots\"'?",
+  'hint2': "Did you enclose your strings in quotes?"
 },
 
 {
-  title: 'Puppies v. Kittens',
-  instructions: 'JavaScript variables can be thought of like nicknames.  If you had a dog named Santa\'s Little Helper, you might not want to have \
-  to say Santa\'s Little Helper every time you call him.  You might instead take to calling him Fuzzball.  Fuzzball then would be a variable \
-  that refers to Santa\'s Little Helper.  You would declare this variable by writing: \
-  <br> var Fuzzball = "Santa\'s Little Helper"; /
-
-  <br>When you first define a variable you need to use that "var" keyword.  After that, you can change what Fuzzball is referring to without stating "var".\
-    For instance, if Santa\'s Little Helper gets a furcut and you decide that your cat, Grinchy is more like a Fuzzball, \
-  then you could reassign Fuzzball to Grinchy by just writing: \
-  <br>Fuzzball = "Grinchy";
-  <br>Then, whenever you call Fuzzball you would be calling Grinchy (though she might ignore you).  \
-  <br>You can pick pretty much anything you want for variable names so long as (1) they aren\'t a few reserved magical JavaScript words, (2) they can\'t \
-    start with a number, and (3) they can\'t have spaces.  Note that capitalization matters.  Fuzzball is not the same as fuzzball.\
-  <br>In the editor, define the variable "DuchessFlufferton" and assign it to either "puppy" or "kitten".',
-  content: 'var puppiesVkittens = function(){ \
-    \n //enter code here \
-    \n return DuchessFlufferton \
-    \n }',
-  testCode: 1,
-  pointValue: 20,
-  hint1: "Did you make sure to start with the 'var' keyword?", 
-  hint2: "Did you make sure there is no space between 'Duchess' and 'Flufferton'?"
-},
-
-{
-  title: 'Not that jacket!',
-  instructions: 'What would happen if every time you created a variable in your code it had meaning everywhere else in your code? \
+  title: "Not that jacket!",
+  instructions: "What would happen if every time you created a variable in your code it had meaning everywhere else in your code? \
   There would be sheer chaos!  If you tried creating a new variable that had the same name as a prior variable, you would overwrite the prior variable. \
   So, your code would no longer work as you expected. \
   <br>Scopes to the rescue!  In JavaScript, each function has its own scope.  So, if you create a variable within a function\'s squiggly brackets, \
@@ -80,17 +229,17 @@ module.exports = { challenges: {
   your room and bring it with her when she picks you up from school to take you to your debate competition.  \
   Sounds simple enougth, but the plot thickens.  You also have a mediocre jacket on the floor of your room outside your closet.  \
   <br>The code in the editor \
-  has a getFromCloset function within a getFromRoom function.  Both function uses the variable jacket. If you refer to both jackets by the term "jacket" \
+  has a getFromCloset function within a getFromRoom function.  Both function uses the variable jacket. If you refer to both jackets by the term \"jacket\" \
   there is the risk you will be debating enrobed in mediocrity.  \
-  <br>Modify the code so that getFromRoom returns the best jacket ever for your mom to bring to you.',
-  content: 'var getFromRoom = function(){
-      \n var jacket = "mediocre jacket";
-      \n   var getFromCloset = function(){
-      \n     var jacket = "best jacket ever"
-      \n  
-      \n }
-      \n return jacket;
-  \n}',
+  <br>Modify the code so that getFromRoom returns the best jacket ever for your mom to bring to you.",
+  content: "var getFromRoom = function(){
+  <br> var jacket = \"mediocre jacket\";
+  <br>   var getFromCloset = function(){
+  <br>     var jacket = \"best jacket ever\";
+  <br>  
+  <br>   }
+  <br>   return jacket;
+  <br> }",
   testCode: 100,
   pointValue: 40,
   hint1: 'The function getFromCloset is not actually getting called so its meaning for jacket is never being used.',
@@ -106,10 +255,10 @@ module.exports = { challenges: {
   The "test" is a callback function which the filter method takes as an argument.  The callback function is then called with each item in the array as its argument.  \
   <br> Complete the code to the right so you have a list of just the schools worthy of your consideration.',
   'content': 'var colleges = [{name: "Stanford", computerScience: true}, {name: "OldSchool", computerScience: false}, \
-  \n{name: "Berkeley", computerScience: true}, {name: "OutDatedU", computerScience: false}]; \
-  \n\n var worthyColleges = colleges.filter(function(item){ \
-  \n\n//your code here \
-  \n\n});',
+  <br>{name: "Berkeley", computerScience: true}, {name: "OutDatedU", computerScience: false}]; \
+  <br><br> var worthyColleges = colleges.filter(function(item){ \
+  <br><br>//your code here \
+  <br><br>});',
   testCode: 1,
   pointValue:50,
   hint1: 'Your callback function should return either true or false.',
@@ -168,17 +317,6 @@ module.exports = { challenges: {
 },
 
 {
-  title: 'String Theory',
-  instructions: 'In JavaScript you can put any keyboard characters you want in quotes and you have created a "string".  A string can be made up of a single letter, \
-  a single word or whole paragraphs.  The sky is the limit.  In the editor, create a string that contains your favorite hashtag for selfies.',
-  content: '//type your string here' ,
-  testCode: 2,
-  pointValue: 10,
-  hint1: 'Did you place your string in matching quotes (either both single quotes or both double quotes)?',
-  hint2:  'My answer would be "#filtersforever".'
-},
-
-{
   title: 'You had me at chocolate salted caramel with tiramisu topping',
   instructions: 'Has the cupcake trend run its course or are there more delectable confections to be created?  Hard to know.  Let\'s see if JavaScript\'s \
   Math.random() can help us tackle this critical challenge.  \
@@ -202,24 +340,6 @@ module.exports = { challenges: {
   hint2: 'Once you have a random flavor pulled from the flavors array saved as randomFlavor you can add it to your newFlavor variable by stating: \
   <br>newFlavor = newFlavor + " " + randomFlavor; \ 
   <br>Repeat that process three times and you might have the next killer confection on your hands.'
-},
-
-{
-  title: 'To not to be or to really not to be',
-  instructons: 'JavaScript is quite serious about a thing not being.  So much so that it has two different values to represent nothingness. \
-  "Null" is used when it is certain that something does not exist.  "Undefined" is used when it is unknown what an item is or whether it exists.  For instance, \
-  if Juliet were single because she dumped her boyfriend Romeo, you would say "var JulietBoyfriend = null".  But if you are uncertain as to whether \
-    Juliet has a boyfriend or you do not know his name, you would say "var JulietBoyfriend = undefined".  "Undefined" and "null" are both called \
-  "falsy" values in JavaScript.  This means the expression !undefined (the exclamation point meaning "not") evaluates to true and the expression !null evaluates \
-  to true.  Strangely, neither null nor undefined actually equals false in JavaScript. /
-  <br>Enough fun facts.  Your buddy Benvolio just called and said he has heard that a party has been declared for this Friday.  He had no further information yet. \
-  In the editor, write "null" if you think the variable "party" would evaluate to null in this instance or "undefined" if you think it would evaluate to "undefined".',
-  content: '//enter code here',
-  testCode: 4,
-  pointValue: 50,
-  hint1: 'Benvolio has declared the party variable so it exists, but it does not have a meaning yet.',
-  hint2: 'Undefined and null are not strings.  So, your solution should not be in quotes.  You should just write null or undefined.'
-
 },
 
 {
@@ -592,53 +712,6 @@ module.exports = { challenges: {
 },
 
 {
-  title: "Ice cream for Jane",
-  content: 'function iceCream(){\n\n var janesChoice ;var vanilla = true, var chocoloate = true; var strawberry = false; ; \nvar doubleScoopIcecreamCone = true; \njanesChoice = //write the logical expression here \n\n//no need to have or use keyword return }',
-  instructions: "
-  <br>In javascript, the || represents the logical OR operator. 
-  <br>True && False will return True.
-  <br>False && True will return True.
-  <br>True && True will return True.
-  <br>False && False will return False.
-  <br>
-  <br>Additionaly, we have &&, the locial AND operator. 
-  <br>True && True will return True. 
-  <br>False && False will return False.
-  <br>False && True will return False.
-  <br>True && False will return False.
-  <br>
-  <br>! in javascript give you the ability to inverse something.
-  <br>var atHome = true;
-  <br>!atHome  // is now false when javascript evalutes it. 
-  <br>We can also do !!atHome which changes !atHome from above to false, and then because of the second !, back to true. (Side note, you can not do more than two !!). /
-  <br>This also converts anything into its boolen format, either true or false. So for example 0, is a falsy value. So, if you do !!0, javascript will output the false boolean.
-  <br>
-  Fill in the missing logical operators to achieve the desired results, so that the variable janesChoice will evaulate true according to her prefernce.
-  <br>
-  Jane would like to have either a single scope of vanillia or strawberry icecream cone.
-  ",
-  hints1: "Are you wrapping your expressions in parens? ((x || y) && (y && z))",
-  hints2:  "Are you using the NOT operator? !(a || b)",
-  testCode: ,
-  pointValue: 50
-},
-
-{
-  title: "Billions of booleans",
-  content: 'var test1 = 5 < 3;\n var result1 = // add the correct boolean here!;\n\nvar test2 = 10 > 6;\n var result2 = // add the correct boolean here!;\n\n',
-  instructions: "At this point, you've already seen several primitive data types, including strings, numbers, and objects. Another common \
-  data type is a boolean, which simply distinguishes between two possibilities: `true` or `false`. Notice that these values are \
-  neither strings nor variables - they are their own type altogether. Booleans are particularly useful for comparisons, such as `3 > 2` \
-  or `3 < 2`. The > and < signs are the traditional symbols for “is greater than” and “is less than”, respectively. So `3 > 2` evaluates \
-  to `true`, and 3 < 2 evaluates to `false`.<br><br>In the editor, assign the correct boolean to `result1` and `result2` based on the \
-  corresponding `test1` and `test2` comparisons.",
-  hint1: "Remember that since `true` and `false` aren't strings, they don't require quotation marks. ",
-  hint2: "The value of `result1` should equal the value of `test`. So if `result3 = 6 < 12`, then `test3 = true` would be the correct assignment.",
-  testCode: 6,
-  pointValue: 100
-},
-
-{
   title: "More on Objects",
   content: 'var tasks = {\n  "monday": ["Finish history project"],\n  "tuesday": ["Wash dishes", "Turn in Math Homework"],\n  \
   "thursday": ["Go to dance practice", "Start book report"],\n }',
@@ -651,22 +724,6 @@ module.exports = { challenges: {
   hint1: "Remember, you don't need the quotes!",
   hint2: "Don't forget to include the period between the object name and the key name",
   testCode: 12,
-  pointValue: 100
-},
-
-{
-  title: "Expressive Expressions",
-  content: 'var value1 = 5 === 6;\nvar value2 = "two wrongs" !== "one right";',
-  instructions: "Booleans and operators are core components of expressions. Expressions are simply defined as any unit of code that \
-  evaluates to a value. You've already seen several examples of expressions at this point: valid expressions include variable assignments\
-  (`var x = 7`), mathematical operations (`5 * 7`), string operations (`'my' + 'string'`), and logical operations - operations that \
-  evaluate to `true` or `false` (`5 < 6`).<br><br>In addition to the things you have already seen, other common operators that \
-  frequently appear in expressions include >= (greater than or equal to), <= (less than or equal to), == (equal to), and != (not equal to).\
-  For example, all of the following logical expressions would evaluate to `true`: `'Mark' != 'Marcus'`, `5 == 5`, `'a' <= 'b'`, and /
-  `2 >= 2`.<br><br>Try it out. Create an expression using either == or != that compares `value1` and `value2` and evaluates to `true`."
-  hint1: "First, create a theory about what value you expect `value1` and `value2` to take assume. Then choose the appropriate operator",
-  hint2: "Your code should look like `value1 ? value2`, where the question mark is replaced by the correct operator.",
-  testCode: 8,
   pointValue: 100
 },
 
@@ -709,6 +766,6 @@ module.exports = { challenges: {
   hint2: "Do not forget to pass the initial score value to the invocation by adding the value between the parentheses.",
   testCode: 20,
   pointValue: 100
-}]};
+}];
 
 

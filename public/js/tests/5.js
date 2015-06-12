@@ -1,16 +1,16 @@
+// operators : operation conquer operators 
 
-﻿var test = function(userCode){
-  eval(userCode);
+var test = function(userCode){
+  var code = eval(userCode);
   var result = {
     pass: false,
-    message: "Oop! Looks like your code wasn't quite right. Try again!"
+    message: "Oops! Looks like your code wasn't quite right. Try again!"
   }
-  if(reverseIt === "I am a super clever coder. Message me back!"){
+  if (code === 1){
     result.pass = true;
-    result.message = "You got it! Kayla's message was 'I am a super clever coder.  Message me back!'."
-  } else if (reverseIt.length !== kaylaMessage.length) {
-    result.message = "Not quite! Looks like the reverseIt variable is not the same length as the original message. Make sure to double-check your iterator values."
-  }
+    result.message = "You got it!"
+  } 
+
   return result
 }
 

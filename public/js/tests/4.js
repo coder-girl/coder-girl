@@ -1,4 +1,4 @@
-//Booleans--Which Wand?
+// booleans : which wand? 
 
 var test = function(userCode){
   var result = {
@@ -13,7 +13,7 @@ var test = function(userCode){
     result.message = "Congratulations! You passed! Off to get a mug of butterbeer!";
   }
 
-  if (typeof result1 === "string" || typeof result2 === "string"){
+  if (typeof wandResult1 === "string" || typeof wandResult2 === "string"){
     result.message = "Remember not to use quotation marks around `true` and `false`";
   } 
 
