@@ -11,18 +11,32 @@
 @import "styles/welcome";
 @import "styles/congrats";
 
+
+button {
+  padding: 0 .9em;
+  background-color: $purple;
+  border: 0;
+  color: white;
+  height: 38px;
+  margin-top: 4px;
+
+  &:hover {
+    background-color: $darkPurple;
+  }
+
+  &:focus {
+  outline-color: rgb(199, 177, 211);
+  }
+
+}
+
+
 body{
   font-family: 'Raleway-regular', sans-serif;
 }
 
-.challengeEditor {
-  width: 100%;
-  overflow: hidden;
-}
-#editor {
-  width: 98%;
-  height: 100%;
-}
+
+
 .sidepanel {
     @include grid-block(3, horizontal, false, right);
 }
@@ -98,29 +112,7 @@ label {
 .marginPullTop5 {
     margin-top: -5px
 }
-.bottom-bar {
-    background-color: #1a2125;
-    border-top: 1px solid #0b0e10;
-    box-sizing: border-box;
-    height: 50px;
-    width: 98%;
-}
-.action-bar-inner {
-    height: 100%;
-    width: 100%;
-    padding: 5px 7px;
-}
-.button-horizontal {
-    float: right;
-}
-.ui-button {
-    cursor: pointer;
-    border-radius: 3px;
-    border: 1px solid transparent;
-    font-weight: bold !important;
-    height: 38px !important;
-    padding: 0 .9em !important;
-}
+
 
 
 // credits to http://codepen.io/zmmbreeze/pen/guLfC
