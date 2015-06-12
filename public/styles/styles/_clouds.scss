@@ -1,0 +1,134 @@
+﻿//  http://thecodeplayer.com/walkthrough/pure-css3-animated-clouds-background
+//clouds
+
+div#cloud {
+    position: absolute;
+    top: 17%;
+}
+
+div#cloud2 {
+    position: absolute;
+    top: 18%;
+    left: 74%;
+}
+
+.clouds {
+	width: 43px; height: 13px;
+	background: #fff;
+	
+	border-radius: 200px;
+	-moz-border-radius: 200px;
+	-webkit-border-radius: 200px;
+	
+	position: relative; 
+    animation: cloudsVisible 3s infinite;
+}
+
+.clouds:before, .clouds:after {
+	content: '';
+	position: absolute; 
+	background: #fff;
+	width: 21px; height: 21px;
+	position: absolute; top: -10px; left: 8px;
+	
+	border-radius: 100px;
+	-moz-border-radius: 100px;
+	-webkit-border-radius: 100px;
+	
+	transform: rotate(-29deg);
+	-webkit-transform: rotate(-29deg);
+	-moz-transform: rotate(-29deg);
+}
+
+.clouds:after {
+	width: 18px; height: 21px;
+	top: -9px; left: auto; right: 0px;
+}
+
+.clouds.cloud-2 {
+    position: relative;
+}
+
+.clouds.cloud-3 {
+    position: relative;
+}
+
+.clouds.cloud-4 {
+    position: relative;
+    /* top: 395px; */
+    left: 400px;
+}
+
+.clouds.cloud-5 {
+    position: relative;
+    left: 150px;
+}
+
+.clouds.cloud-6 {
+    position: relative;
+    left: 350px;
+}
+
+//Animate
+
+.cloud-1{
+  -webkit-animation: moveclouds 25s linear infinite;
+  -moz-animation: moveclouds 25s linear infinite;
+}
+
+.cloud-2{
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  -webkit-animation: moveclouds 29s linear infinite;
+  -moz-animation: moveclouds 29s linear infinite;
+}
+
+.cloud-3{
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -webkit-animation: moveclouds 30s linear infinite;
+  -moz-animation: moveclouds 30s linear infinite;
+}
+
+.cloud-4{
+  -webkit-transform: scale(0.75);
+  -moz-transform: scale(0.75);
+  -webkit-animation: moveclouds 34s linear infinite;
+  -moz-animation: moveclouds 34s linear infinite;
+}
+
+.cloud-5{
+  -webkit-animation: moveclouds 35s linear infinite;
+  -moz-animation: moveclouds 35s linear infinite;
+}
+
+.cloud-6{
+  -webkit-transform: scale(0.65);
+  -webkit-transform: translate(-15,15);
+  -moz-transform: scale(0.65);
+  -webkit-animation: moveclouds 33s linear infinite;
+  -moz-animation: moveclouds 33s linear infinite;
+}
+
+@-webkit-keyframes moveclouds {
+  0% {margin-left: 100px;}
+  100% {margin-left: -1200px;}
+}
+
+@-moz-keyframes moveclouds {
+  0% {margin-left: 100px;}
+  100% {margin-left: -1600px;}
+}
+
+
+@-moz-keyframes cloudsVisible{
+  0% {opacity: 0;}
+  50% {opacity: 0.5;}
+  100% {opacity: 1;}
+}
+
+@-webkit-keyframes cloudsVisible{
+  0% {opacity: 0;}
+  50% {opacity: 0.5;}
+  100% {opacity: 1;}
+}
