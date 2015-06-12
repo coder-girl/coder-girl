@@ -11,5 +11,7 @@ var test = function(userCode){
    result.pass = false;
    result.message = "Uh oh, it looks like DuchessFlufferton has not been assigned to either 'puppy' or 'kitten'.  Try again.";
  } 
+
+ return result;
 }
 
