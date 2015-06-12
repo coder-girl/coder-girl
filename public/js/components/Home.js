@@ -56,7 +56,7 @@ var Home = React.createClass({
 
     if(this.state.user && this.state.user.isAuth){
       home = <div className="grid-block">
-          <div className="medium-9 vertical grid-block">
+          <div className="medium-9 vertical grid-block mainContainer">
             <RouteHandler/>
             <Chat/>
           </div>
@@ -73,7 +73,6 @@ var Home = React.createClass({
     }
 
     return home;
-
   }
 });
 
