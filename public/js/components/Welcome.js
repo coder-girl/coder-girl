@@ -2,7 +2,7 @@
  * @Author: Mark Bennett
  * @Date:   2015-05-27 19:54:19
  * @Last Modified by:   nimi
- * @Last Modified time: 2015-06-12 10:35:30
+ * @Last Modified time: 2015-06-12 11:12:59
  */
 'use strict';
 
@@ -13,6 +13,7 @@ var animatePaper = require('../services/animatePaper.js');
 var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
 var Link = Router.Link;
+var jQueryEasing = require('../services/jQueryEasing.js');
 
 var Welcome = React.createClass({
   mixins: [Router.State, Router.Navigation],
@@ -130,7 +131,7 @@ var Welcome = React.createClass({
           var girl = new paper.Raster(girlURL);
           girl.onLoad = function() {
             girl.opacity = 0;
-            girl.position = new paper.Point((width) / 2, (( 25* canvas.offsetHeight) / 32));
+            girl.position = new paper.Point((2* width) / 5, (( 25* canvas.offsetHeight) / 32));
           };
 
           // add the trees
@@ -197,24 +198,16 @@ var Welcome = React.createClass({
 
           // move to the current challenge bubble
           var counter = -1;
-
           (function next() {
             if (counter >= currentChallenge-2) {
               return;
             } else {
               progressionId = setTimeout(function() {
-                if (counter === 2) {
-                  var sun = document.getElementById('happySun');
-                  for (var i = 0; i < sun.children.length; i++) {
-                    if (sun.children[i].classList.contains('hidden')) {
-                      sun.children[i].classList.remove('hidden');
-                    }
-                  }
-                } else if (counter === 0) {
+                // ease in objects depending on user level
+                if (counter === 0) {
                   house.animate({
                     properties: {
                       opacity: 1
-
                     },
                     settings: {
                       duration: 1500,
@@ -231,6 +224,13 @@ var Welcome = React.createClass({
                       easing: 'easeInBounce'
                     }
                   });
+                } else if (counter === 2) {
+                  var sun = $('#happySun');
+                  for (var i = 0; i < sun.children.length; i++) {
+                    sun.animate({ opacity: '1' }, 1500, 'easeInBounce', function () {
+                      console.log('animated')
+                    })
+                  }
                 } else if( counter === 3){
                   trees.animate({
                     properties: {
@@ -242,6 +242,8 @@ var Welcome = React.createClass({
                     }
                   })
                 }
+
+                // fill in level circles
                 var overlayCircle = new paper.Path.Circle(new paper.Point(points[counter].x, points[counter].y), 20);
                 overlayCircle.opacity = 0;
                 overlayCircle.fillColor = '#fe3a3a';
@@ -294,7 +296,7 @@ var Welcome = React.createClass({
           self.setState({
             hasUpdated: true
           })
-        }
+        };
         drawBoard();
       }
     }
@@ -340,7 +342,7 @@ var Welcome = React.createClass({
         <canvas id="welcomeBoard"></canvas>
         <div id="positionDivs">
           <div id="happySun">
-            <div className="sun hidden">
+            <div className="sun">
               <div className="sun-face">
                 <div className="sun-hlight"></div>
                 <div className="sun-leye"></div>
@@ -353,7 +355,7 @@ var Welcome = React.createClass({
                 <div className="sun-ball"></div>
               </div>
             </div>
-            <div id="cloud" className="hidden">
+            <div id="cloud">
               <div className="clouds cloud-1"></div>
               <div className="clouds cloud-2"></div>
               <div className="clouds cloud-4"></div>
@@ -361,7 +363,7 @@ var Welcome = React.createClass({
               <div className="clouds cloud-6"></div>
               <div className="clouds cloud-5"></div>
             </div>
-            <div id="cloud2" className="hidden">
+            <div id="cloud2">
               <div className="clouds cloud-4"></div>
               <div className="clouds cloud-2"></div>
               <div className="clouds cloud-6"></div>
