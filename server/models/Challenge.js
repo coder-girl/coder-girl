@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-28 20:00:41
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-03 18:07:48
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-06-11 15:19:26
 */
 
 'use strict';
@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
     title: DataTypes.STRING,
     content: DataTypes.TEXT,
     instructions: DataTypes.TEXT,
-    testCode: DataTypes.INTEGER,
+    testCode: {type: DataTypes.INTEGER, unique: true},
     pointValue: DataTypes.INTEGER,
     hint1: DataTypes.STRING,
     hint2: DataTypes.STRING,
