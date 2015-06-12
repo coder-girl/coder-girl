@@ -276,7 +276,7 @@ models.sequelize.sync()  //Include {force: true} as argument in sync() if want D
     server.listen(app.get('port'), function() {
     // app.listen(app.get('port'), function() {
       console.log("Node app is running at localhost:" + app.get('port'));
-
+    })
     // .error(function(error){
     //   console.error('There was an error with syncing the database: ', error)
     // })
