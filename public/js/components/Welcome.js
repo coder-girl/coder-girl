@@ -2,7 +2,7 @@
  * @Author: Mark Bennett
  * @Date:   2015-05-27 19:54:19
  * @Last Modified by:   nimi
- * @Last Modified time: 2015-06-12 12:31:28
+ * @Last Modified time: 2015-06-12 14:37:05
  */
 'use strict';
 
@@ -222,7 +222,7 @@ var Welcome = React.createClass({
             } else {
               progressionId = setTimeout(function() {
                 // ease in objects depending on user level
-                if (counter === 4) {
+                if (counter === 0) {
                   house.animate({
                     properties: {
                       opacity: 1
