@@ -52,22 +52,28 @@ var Home = React.createClass({
 
   render: function() {
 
+    var home;
 
-    var name = this.context.router.getCurrentPath();
+    if(this.state.user && this.state.user.isAuth){
+      home = <div className="grid-block">
+          <div className="medium-9 vertical grid-block">
+            <RouteHandler/>
+            <Chat/>
+          </div>
+          <div className="medium-3 grid-block">
+            <Leaderboard/>
+          </div>
+          <div className="grid-block">
+          </div>
+        </div>
 
-    return (
-      <div className="grid-block">
-        <div className="medium-9 vertical grid-block">
-          <RouteHandler/>
-          <Chat/>
-        </div>
-        <div className="medium-3 grid-block">
-          <Leaderboard/>
-        </div>
-        <div className="grid-block">
-        </div>
-      </div>
-    );
+    } else {
+      home = <div></div>
+      this.transitionTo('/login');
+    }
+
+    return home;
+
   }
 });
 
