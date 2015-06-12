@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-22 11:03:34
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-05 12:30:31
+* @Last Modified time: 2015-06-12 10:48:48
 */
 
 'use strict';
@@ -14,7 +14,8 @@ var objectAssign = require('react/lib/Object.assign');
 var CHANGE_EVENT = 'change';
 
 var _authStore = {
-  currentUser: {}
+  currentUser: {},
+  error: ""
 };
 
 var setCurrentUser = function(data){
@@ -34,6 +35,10 @@ var invalidateUser = function(){
   _authStore.currentUser.isAuth = false;
 };
 
+var setLoginError = function(error) {
+  _authStore.error = error;
+};
+
 var AuthStore = objectAssign({}, EventEmitter.prototype, {
   addChangeListener: function(cb) {
     this.on(CHANGE_EVENT, cb);
@@ -41,11 +46,14 @@ var AuthStore = objectAssign({}, EventEmitter.prototype, {
   removeChangeListener: function(cb) {
     this.removeListener(CHANGE_EVENT, cb);
   },
-  emitChange: function(){
+  emitChange: function() {
     this.emit(CHANGE_EVENT);
   },
-  getUser: function(){
+  getUser: function() {
     return _authStore.currentUser;
+  },
+  getLoginError: function() {
+    return _authStore.error;
   }
 });
 
@@ -60,6 +68,11 @@ AppDispatcher.register(function(action) {
 
     case AppConstants.LOGOUT_USER:
       clearCurrentUser();
+      AuthStore.emitChange();
+      break;
+
+    case AppConstants.FAILED_LOGIN:
+      setLoginError("Incorrect email and password combination. Please try again.");
       AuthStore.emitChange();
       break;
 

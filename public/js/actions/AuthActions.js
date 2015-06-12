@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-21 16:17:55
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-06-02 19:22:11
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-06-12 10:35:21
 */
 
 'use strict';
@@ -23,9 +23,13 @@ var authActions = {
         AppDispatcher.dispatch({
           actionType: AppConstants.LOGIN_USER,
           data: data
-        })
+        });
       },
       error: function(xhr, status, error){
+        AppDispatcher.dispatch({
+          actionType: AppConstants.FAILED_LOGIN,
+          data: error
+        });
         throw(error);
       }.bind(this) //NOTE: we may need a .bind(this) here-ish
     })

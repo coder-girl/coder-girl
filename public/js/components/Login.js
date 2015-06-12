@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-21 16:08:02
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-06-01 10:54:39
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-06-12 10:51:40
 */
 
 'use strict';
@@ -15,7 +15,6 @@ var AuthStore = require('../stores/AuthStore');
 
 var Login = React.createClass({
 
-
   displayName: 'Login',
   mixins: [Router.State, Router.Navigation],
 
@@ -23,7 +22,8 @@ var Login = React.createClass({
     AuthActions.isAuth(window.localStorage.getItem('io.codergirl'));
 
     return {
-      user: null
+      user: null,
+      error: null
     };
   },
 
@@ -37,20 +37,17 @@ var Login = React.createClass({
 
   _onChange: function() {
     this.setState ({
-      user: AuthStore.getUser()
+      user: AuthStore.getUser(),
+      error: AuthStore.getLoginError()
     });
     if(this.state.user.isAuth){
       this.transitionTo('/home');
     }
   },
 
-
   componentDidMount: function() {
-
     AuthStore.addChangeListener(this._onChange);
-
   },
-
 
   componentWillUnmount: function() {
     AuthStore.removeChangeListener(this._onChange);
@@ -59,7 +56,7 @@ var Login = React.createClass({
 
   render: function() {
 
-
+    var error = this.state.error ? <div className="login-error">{this.state.error}</div> : null;
 
     return (
 
@@ -71,6 +68,7 @@ var Login = React.createClass({
               <input type="email" id="right-label" className="user-email" placeholder="Enter your email" ref="email" />
               <input type="password" id="right2-label" className="user-password" placeholder="Enter your password" ref="password" />
               <input type="submit" className="loginButton button" value="Log in!" align="right" />
+              {error}
               <Link to="signup" className="signUpLink"><div>No account?</div><div className="joinUp">Join up to get your code on!</div></Link>
             </form>
           </div>
