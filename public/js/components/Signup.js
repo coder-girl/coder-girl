@@ -1,8 +1,6 @@
-
 'use strict';
 
 var React = require('react/addons');
-var Select = require('react-select');
 var Router = require('react-router');
 var Link = Router.Link;
 
@@ -21,7 +19,8 @@ var Signup = React.createClass({
       username: null,
       email: '',
       password: '',
-      country: ''
+      country: '',
+      error: null
     };
   },
 
@@ -44,23 +43,32 @@ var Signup = React.createClass({
 
   _onChange : function(){
     this.setState ({
-      user: AuthStore.getUser()
+      user: AuthStore.getUser(),
+      error: AuthStore.getSignupError()
     });
-    if(this.state.user.isAuth){
+    if(this.state.user && this.state.user.isAuth){
       this.transitionTo('/home');
     }
   },
 
+  clearError: function() {
+    this.setState({
+      error: null
+    })
+  },
 
   componentDidMount: function() {
     AuthStore.addChangeListener(this._onChange);
   },
 
   componentWillUnmount: function() {
+    AuthActions.clearErrors();
     AuthStore.removeChangeListener(this._onChange);
   },
 
   render: function() {
+
+    var error = this.state.error ? <div className="auth-error signup-error"><p>{this.state.error}</p></div> : null;
 
     var countryOptions = COUNTRIES.map(function(country) {
       return (<option value={country.value}> {country.label} </option>)
@@ -72,14 +80,15 @@ var Signup = React.createClass({
           <div className="grid-container">
             <form onSubmit={this.handleSignup} className= "formContainer">
               <a className="instagramLogin" href= '/auth/instagram'> <i className="fa fa-instagram fa-3x"></i><span>Log in with Instagram!</span> </a>
-              <input type="email" placeholder="Enter your email" ref="email" />
-              <select type="select" placeholder="Select your country" ref="country" >
+              <input type="email" onChange={this.clearError} placeholder="Enter your email" ref="email" />
+              <select type="select" onChange={this.clearError} placeholder="Select your country" ref="country" >
                 <div id='countries-container'>
-                  {countryOptions}
+                  { countryOptions }
                 </div>
               </select>
-              <input type="password" placeholder="Enter your password" ref="password" />
-              <input type="password" placeholder="Re-enter your password" ref="passwordConfirm" />
+              <input type="password" onChange={this.clearError} placeholder="Enter your password" ref="password" />
+              <input type="password" onChange={this.clearError} placeholder="Re-enter your password" ref="passwordConfirm" />
+              { error } 
               <input type="submit" className="loginButton button" value="Let's Get Coding!" />
                 <Link to="login" className="signUpLink">Already have an account? Log in!</Link>
             </form>

@@ -1,15 +1,15 @@
 /* 
 * @Author: Mark Bennett
 * @Date:   2015-05-25 19:33:52
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-06-02 19:29:04
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-06-12 10:40:43
 */
 
 'use strict';
 
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var eventEmitter = require('events').EventEmitter;
-var ChatConstants = require('../constants/ChatConstants');
+var AppConstants = require('../constants/AppConstants');
 var objectAssign = require('react/lib/Object.assign');
 
 var CHANGE_EVENT = 'change';
@@ -45,13 +45,13 @@ MessageStore.dispatchToken = AppDispatcher.register(function(action) {
 
   switch(action.actionType) {
 
-    case ChatConstants.CREATE_MESSAGE:
+    case AppConstants.CREATE_MESSAGE:
       _messages[action.data.createdAt] = action.data;
       _lastAuthor = action.data.username;
       MessageStore.emitChange();
       break;
 
-    case ChatConstants.RECEIVE_MESSAGES:
+    case AppConstants.RECEIVE_MESSAGES:
       _messages = {};
       _messages = action.data;
       MessageStore.emitChange();
