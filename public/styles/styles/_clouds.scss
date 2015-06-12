@@ -25,6 +25,7 @@ div#cloud2 {
 	-webkit-border-radius: 200px;
 	
 	position: relative; 
+    animation: cloudsVisible 3s infinite;
 }
 
 .clouds:before, .clouds:after {
@@ -121,4 +122,17 @@ div#cloud2 {
 @-moz-keyframes moveclouds {
   0% {margin-left: 100px;}
   100% {margin-left: -1600px;}
+}
+
+
+@-moz-keyframes cloudsVisible{
+  0% {opacity: 0;}
+  50% {opacity: 0.5;}
+  100% {opacity: 1;}
+}
+
+@-webkit-keyframes cloudsVisible{
+  0% {opacity: 0;}
+  50% {opacity: 0.5;}
+  100% {opacity: 1;}
 }
