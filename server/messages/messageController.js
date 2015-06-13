@@ -29,7 +29,10 @@ module.exports = {
   },
 
   getMessages: function(req, res, next) {
-    Message.findAll()
+    Message.findAll({
+      order: 'updatedAt DESC',
+      limit: 5
+    })
       .then(function(messages) {
         res.send(messages);
       })
