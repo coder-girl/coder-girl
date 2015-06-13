@@ -13,12 +13,11 @@ body {
         color: #000000;
       }
       h3 {
-        font-size: 1.9em;
+        font-size: 20pt;
         color: #FFFFFF;
       }
       h4 {
-        font-size: 2.1em;
-        line-height: 1.4em;
+        font-size: 20pt;
         color: $greyText;
       }
       h5 {
@@ -26,14 +25,12 @@ body {
         color: $aqua;
       }  
       h6 {
-        font-size: 1.3em;
-        line-height: 1em;
+        font-size: 13pt;
         color: #FFFFFF;
       }
       p {
         &.stat-description {
-          font-size:2em;
-          line-height: 1.3em;
+          font-size:18pt;
         };
         font-size: 12pt;
         color: $greyText;
@@ -165,9 +162,7 @@ body {
             }
             img {
               width: auto;
-              height: auto;
-              min-width: 100%;
-              min-height: 100%;
+              max-height: 80px;
             }
           }
 
@@ -179,6 +174,7 @@ body {
 
       .bar6 {
         height: 150px;
+        width: 100%;
         background-color: $offBlack;
         text-align: center;
         h5 {
@@ -243,5 +239,13 @@ span.stat-number {
   position: fixed;
   right: 0px;
   z-index: 100;
+}
+
+.start-coding{
+  padding: 0 25%;
+}
+
+.get-started{
+  color: $aqua;
 }
 

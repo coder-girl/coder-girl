@@ -205,7 +205,7 @@ var About = React.createClass({
           </div>
         </div>
         <div className="bar6 footer">
-          <div className="content-container">
+          <div className="content-container start-coding">
             <h5><a href="http://www.codergirl.io" className="get-started">Start learning with Coder Girl</a></h5>
             <p className="copyright">&copy;Coder Girl, 2015</p>
           </div>
