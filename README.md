@@ -1,4 +1,4 @@
-![Coder Girl](./public/styles/asset/CoderGirl-WhiteBackground.png?raw=true)
+<img src="./public/styles/asset/CoderGirl-WhiteBackground.png" alt="Coder Girl" width="300" height="300" margin="0 auto"/>
 
 # Coder Girl
 
