@@ -29,9 +29,12 @@ module.exports = {
   },
 
   getMessages: function(req, res, next) {
-    Message.findAll()
+    Message.findAll({
+      limit: 50,
+      order: '"createdAt" DESC',
+    })
       .then(function(messages) {
-        res.send(messages);
+        res.send(messages.reverse());
       })
       .catch(function(error) {
         res.status(400).send(error);
