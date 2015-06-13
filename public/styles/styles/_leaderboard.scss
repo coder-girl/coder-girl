@@ -1,11 +1,13 @@
+@import 'variables';
 .leaderboard-container {
   border-top: 0px solid black;
+  background-color: rgba(0,0,0,.8);
 }
 
 .leaderboard-header {
   font-family: 'Quicksand-regular', sans-serif;
+  color: white;
   text-align: center;
-  background-color: #e8e8e8;
   border-left: solid 1px black;
   margin: 0;
   padding: 6px 0;
