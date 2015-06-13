@@ -45,4 +45,6 @@ help our online classroom grow. Challenges should be submitted in the following 
 
 ## <a name="stack" />Stack 
 
-React, Flux, Sass, Paper.js, Gulp, Node.js, Express, PostgreSQL, Travis.CI, Jasmine, Instagram API, Socket.io
+  - __Front__: React, Flux, Sass, Paper.js, Foundation, HTML5 Canvas  
+  - __Back__: Node.js, Express, PostgreSQL, Instagram API, Socket.io
+  - __DevOps__: Gulp, Travis.CI, Jasmine 
