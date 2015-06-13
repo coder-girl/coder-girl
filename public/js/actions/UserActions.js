@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-30 15:38:30
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-06-02 19:23:08
+* @Last Modified time: 2015-06-13 11:21:24
 */
 
 'use strict';
@@ -18,6 +18,7 @@ var userActions = {
     var user = AuthStore.getUser();
     var name = user.username;
     user.challengeNumber += 1; 
+    console.log('updated userscore')
     user.score += pointValue;
     var score = user.score;
 
@@ -31,7 +32,8 @@ var userActions = {
       dataType: 'json',
       type: 'PUT',
       data: {
-        score: score
+        score: score,
+        level: user.challengeNumber
       },
       success: function(data){
         console.log("User has been updated in the database. Score: ", data.score);

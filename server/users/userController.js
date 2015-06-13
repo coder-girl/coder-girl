@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-22 15:50:51
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-12 19:54:41
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-06-13 11:20:29
 */
 
 'use strict';
@@ -126,11 +126,12 @@ module.exports = {
   updateUser: function(req, res, next) {
     var name = req.params.name;
     var score = req.body.score;
+    var level = req.body.level;
 
     User.find({where:{name:name}})
       .then(function(user){
         user.set('score', score);
-        user.set('level', user.get('level') + 1);
+        user.set('level', level);
         user.save();
       })
   },
