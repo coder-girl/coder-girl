@@ -72020,7 +72020,7 @@ module.exports = LeaderboardActions;
 * @Author: Mark Bennett
 * @Date:   2015-05-30 15:38:30
 * @Last Modified by:   nimi
-* @Last Modified time: 2015-06-02 19:23:08
+* @Last Modified time: 2015-06-13 11:21:24
 */
 
 'use strict';
@@ -72036,6 +72036,7 @@ var userActions = {
     var user = AuthStore.getUser();
     var name = user.username;
     user.challengeNumber += 1; 
+    console.log('updated userscore')
     user.score += pointValue;
     var score = user.score;
 
@@ -72049,7 +72050,8 @@ var userActions = {
       dataType: 'json',
       type: 'PUT',
       data: {
-        score: score
+        score: score,
+        level: user.challengeNumber
       },
       success: function(data){
         console.log("User has been updated in the database. Score: ", data.score);
@@ -72107,14 +72109,14 @@ var About = React.createClass({displayName: "About",
   render: function() {
     return (
       React.createElement("div", {id: "about-container"}, 
+      React.createElement("audio", {className: "song", src: "/asset/SkaterboyMeetsTechGirl_prod_kybate.mp3", controls: true, autoPlay: true, loop: true}), 
         React.createElement("div", {className: "bar1 title"}, 
           React.createElement("div", {className: "girls-coding content-container"}, 
             React.createElement("img", {className: "girls-coding-image", src: "./../../asset/girls-coding.jpg", alt: "Girls coding together"})
           ), 
           React.createElement("div", {className: "title-block title-block-left"}, 
             React.createElement("h1", null, "Learn to code now"), 
-            React.createElement("h4", null, "Chat with other Coder Girls while tackling coding challenges."), 
-            React.createElement("h4", null, "Earn points to get your Instagram feed featured on our Leaderboard!")
+            React.createElement("h4", null, "Dive into challenges and chat with other Coder Girls. Earn points to get your Instagram feed featured on our Leaderboard.")
           )
         ), 
         React.createElement("div", {className: "bar2 features"}, 
@@ -72124,23 +72126,24 @@ var About = React.createClass({displayName: "About",
             ), 
             React.createElement("div", {className: "feature-block"}, 
               React.createElement("h3", {className: "feature"}, "Learn core skills"), 
-              React.createElement("h6", {className: "description"}, "Build a reliable foundation of programming techniques.", 
-                React.createElement("br", null)
-              )
+              React.createElement("h6", {className: "description"}, "No prior experience needed."), 
+              React.createElement("h6", {className: "description"}, "We start with the basics.")
             ), 
             React.createElement("div", {className: "feature-icon"}, 
               React.createElement("i", {className: "fa fa-star-o fa-3x"})
             ), 
             React.createElement("div", {className: "feature-block"}, 
               React.createElement("h3", {className: "feature"}, "Tackle challenges"), 
-              React.createElement("h6", {className: "description"}, "Earn points and level-up as you work through engaging problems.")
+              React.createElement("h6", {className: "description"}, "Earn points and level-up."), 
+              React.createElement("h6", {className: "description"}, "Show off your Instagram pics.")
             ), 
             React.createElement("div", {className: "feature-icon"}, 
               React.createElement("i", {className: "fa fa-comments-o fa-3x"})
             ), 
             React.createElement("div", {className: "feature-block"}, 
               React.createElement("h3", {className: "feature"}, "Collaborate with friends"), 
-              React.createElement("h6", {className: "description"}, "Offer or receive help while participating in a highly social environment.")
+              React.createElement("h6", {className: "description"}, "Have a question or comment?"), 
+              React.createElement("h6", {className: "description"}, "Start chatting.")
             )
           )
         ), 
@@ -72148,7 +72151,7 @@ var About = React.createClass({displayName: "About",
 
           React.createElement("div", {className: "title-block title-block-right"}, 
             React.createElement("h1", null, "Our Mission"), 
-            React.createElement("h4", null, "More men than women are learning to code. Let's reverse the stats together.")
+            React.createElement("h4", null, "More men than women are learning to code. Let's reverse the trend.")
           ), 
           React.createElement("div", {className: "all-stats content-container"}, 
             React.createElement("div", {className: "stat-block"}, 
@@ -72156,21 +72159,21 @@ var About = React.createClass({displayName: "About",
             React.createElement("canvas", {id: "chart1", width: "250", height: "125"})
           ), 
           React.createElement("p", {className: "stat-description-only"}, React.createElement("span", {className: "stat-number"}, "19%")), 
-              React.createElement("p", {className: "stat-description"}, "female AP Computer Science test-takers in 2012.")
+              React.createElement("p", {className: "stat-description"}, "female AP Computer Science test-takers in 2012")
             ), 
             React.createElement("div", {className: "stat-block"}, 
           React.createElement("div", {className: "canvas-holder half"}, 
             React.createElement("canvas", {id: "chart2", width: "250", height: "125"})
           ), 
           React.createElement("p", {className: "stat-description-only"}, React.createElement("span", {className: "stat-number"}, "12%")), 
-              React.createElement("p", {className: "stat-description"}, "female Computer Science degree recipients in 2012.")
+              React.createElement("p", {className: "stat-description"}, "female Computer Science degree recipients in 2013")
             )
           )
         ), 
         React.createElement("div", {className: "bar4 team"}, 
           React.createElement("div", {className: "title-block title-block-left"}, 
             React.createElement("h1", null, "Our Team"), 
-            React.createElement("h4", null, "Check out the engineers behind Coder Girl.")
+            React.createElement("h4", null, "The engineers behind Coder Girl.")
           ), 
           React.createElement("div", {className: "all-members content-container"}, 
             React.createElement("div", {className: "team-member-block"}, 
@@ -72210,7 +72213,7 @@ var About = React.createClass({displayName: "About",
         React.createElement("div", {className: "bar5 stack"}, 
           React.createElement("div", {className: "title-block title-block-right"}, 
             React.createElement("h1", null, "Our Stack"), 
-            React.createElement("h4", null, "Check out the tools used to build Coder Girl.")
+            React.createElement("h4", null, "The tools used to build Coder Girl.")
           ), 
           React.createElement("div", {className: "stack-block content-container"}, 
             React.createElement("div", {className: "stack-group stack-frontend"}, 
@@ -72416,7 +72419,7 @@ module.exports = ChallengeEditor;
 * @Author: nimi
 * @Date:   2015-05-28 14:44:31
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-11 09:10:00
+* @Last Modified time: 2015-06-12 17:31:36
 */
 
 'use strict';
@@ -72478,7 +72481,7 @@ var ChallengeInstructions = React.createClass({
     }
 
     return hints.map(function(hint, i) {
-      return React.createElement("p", {className: "challenge-hint", key: i}, " Hint: ", hint, " ")
+      return React.createElement("p", {className: "challenge-hint", key: i}, " ", React.createElement("b", null, "Hint:"), " ", React.createElement(Markdown, {source: hint}))
     });
   },
 
@@ -72757,8 +72760,8 @@ module.exports = MessageSubmit;
 /* 
 * @Author: Mark Bennett
 * @Date:   2015-05-28 16:17:21
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-06-11 19:46:51
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-06-12 16:44:39
 */
 
 'use strict';
@@ -72782,14 +72785,12 @@ var calculateUserChartData = function(score, challengeNumber) {
     {
       value: percentageCompleted,
       color: '#8E2BC8',
-      highlight: '#8E2BC8',
-      label: 'Points Earned'
+      highlight: '#8E2BC8'
     },
     {
       value: totalPercentage,
       color: '#5BC0BA',
-      highlight: '#5BC0BA',
-      label: 'Points till Level Up'
+      highlight: '#5BC0BA'
     }
   ];
 
@@ -72838,9 +72839,9 @@ var ChallengeComplete = React.createClass({displayName: "ChallengeComplete",
         React.createElement("div", {className: "congratsBanner"}, 
             React.createElement("p", {className: "congratsGreeting"}, "Congratulations! You solved Challenge ", user.challengeNumber - 1, "!"), 
             React.createElement("button", {className: "continueButton"}, 
-              React.createElement(Link, {to: "home", className: "congratsContinue"}, "Back to Home")
+              React.createElement(Link, {to: "home", className: "continueButton congratsContinue"}, "Continue")
             ), 
-            React.createElement("p", {className: "scoreStats"}, "Your score: ", user.score), 
+            React.createElement("p", {className: "scoreStats"}, "Your total points: ", user.score), 
             React.createElement("p", {className: "levelStats"}, "Your current level: ", level)
           ), 
         React.createElement("div", {className: "pieChart"}, 
@@ -73320,8 +73321,8 @@ module.exports = Leaderboard;
 /* 
 * @Author: nimi
 * @Date:   2015-05-21 16:08:02
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-12 12:01:28
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-06-13 09:31:46
 */
 
 'use strict';
@@ -73341,7 +73342,7 @@ var Login = React.createClass({
     AuthActions.isAuth(window.localStorage.getItem('io.codergirl'));
 
     return {
-      user: null,
+      user: {},
       error: null
     };
   },
@@ -73516,8 +73517,8 @@ module.exports = Signup;
 /* 
  * @Author: Mark Bennett
  * @Date:   2015-05-27 19:54:19
- * @Last Modified by:   nimi
- * @Last Modified time: 2015-06-12 15:21:44
+ * @Last Modified by:   Mark Bennett
+ * @Last Modified time: 2015-06-12 16:26:28
  */
 'use strict';
 
@@ -73756,7 +73757,7 @@ var Welcome = React.createClass({displayName: "Welcome",
                       easing: 'easeInBounce'
                     }
                   });
-                } else if (counter === 0) {
+                } else if (counter === 2) {
                   var sun = $('#happySun');
                   for (var i = 0; i < sun.children.length; i++) {
                     sun.animate({ opacity: '1' }, 1500, 'easeInBounce', function () {

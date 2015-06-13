@@ -6,12 +6,13 @@ var test = function(userCode) {
   };
   if (typeof (numberOfShades) !== 'number') {
     result.pass = false;
-    result.message = 'Your variable numberOfShades is not returning a number.  Did you call .length on the shades array?';
+    result.message = 'Your code is not returning a number. Did you call `.length` on the shades array?';
     return result;
   }
   if (numberOfShades !== 14) {
     result.pass = false;
-    result.message = 'Your count is not quite right.  Make sure you are calling .length on the shades array.';
+    result.message = 'Your count is not quite right. Make sure you are calling `.length` on the shades array.';
   }
   return result;
 };
+

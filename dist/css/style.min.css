@@ -7369,12 +7369,14 @@ select:hover {
   margin-top: 0.12em; }
 
 .leaderboard-container {
-  border-top: 0px solid black; }
+  border-top: 0px solid black;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%; }
 
 .leaderboard-header {
   font-family: 'Quicksand-regular', sans-serif;
+  color: white;
   text-align: center;
-  background-color: #e8e8e8;
   border-left: solid 1px black;
   margin: 0;
   padding: 6px 0; }
@@ -7526,7 +7528,7 @@ div.chat-section {
   border-width: thin;
   letter-spacing: 0.09em;
   overflow-y: scroll;
-  padding: 0 15px; }
+  padding: 0 15px 10px 15px; }
 
 .challengeEditor {
   width: 100%;
@@ -7554,9 +7556,7 @@ div.chat-section {
 
 .ui-button {
   float: right;
-  vertical-align: middle;
-  margin-top: 0px;
-  margin-right: 1em; }
+  margin: 10px 10px; }
 
 body .main-content #about-container {
   font-family: Helvetica; }
@@ -7567,22 +7567,25 @@ body .main-content #about-container {
     font-size: 36pt;
     color: #000000; }
   body .main-content #about-container h3 {
-    font-size: 20pt;
+    font-size: 1.9em;
     color: #FFFFFF; }
   body .main-content #about-container h4 {
-    font-size: 20pt;
+    font-size: 2.1em;
+    line-height: 1.4em;
     color: #9A9A9A; }
   body .main-content #about-container h5 {
     font-size: 14pt;
     color: #25E0CD; }
   body .main-content #about-container h6 {
-    font-size: 13pt;
+    font-size: 1.3em;
+    line-height: 1em;
     color: #FFFFFF; }
   body .main-content #about-container p {
     font-size: 12pt;
     color: #9A9A9A; }
     body .main-content #about-container p.stat-description {
-      font-size: 18pt; }
+      font-size: 2em;
+      line-height: 1.3em; }
   body .main-content #about-container .bar1, body .main-content #about-container .bar2, body .main-content #about-container .bar3, body .main-content #about-container .bar4, body .main-content #about-container .bar5, body .main-content #about-container .bar6 {
     position: relative;
     width: 100%;
@@ -7651,7 +7654,7 @@ body .main-content #about-container {
           body .main-content #about-container .bar4 .all-members .team-member-block i:hover {
             color: silver; }
   body .main-content #about-container .bar5 {
-    height: 600px; }
+    height: 75%; }
     body .main-content #about-container .bar5 .content-container {
       height: 100%;
       width: 100%; }
@@ -7694,11 +7697,12 @@ body .main-content #about-container {
     width: 40%; }
   body .main-content #about-container .title-block-left {
     float: right;
-    text-align: justify;
-    text-justify: auto; }
+    text-align: left; }
   body .main-content #about-container .title-block-right {
     text-align: right;
     float: left; }
+  body .main-content #about-container .mission-header {
+    padding-left: 5%; }
 
 .canvas-holder.half {
   padding-bottom: 21px; }
@@ -7708,6 +7712,11 @@ span.stat-number {
 
 span.stat-number {
   color: #631E8C; }
+
+.song {
+  position: fixed;
+  right: 0px;
+  z-index: 100; }
 
 .welcome-title {
   position: absolute;
