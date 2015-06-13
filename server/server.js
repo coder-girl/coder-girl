@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-25 10:32:38
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-12 20:25:25
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-06-13 11:43:32
 */
 
 var express = require('express'),
@@ -102,30 +102,30 @@ models.sequelize.sync()  //Include {force: true} as argument in sync() if want D
     {
       testCode: 5,
       title: "Operation Conquer Operators",
-      content: "",
-      instructions: "You know how we said earlier that you can do math in JavaScript.  We were not kidding.\
+      content: "//insert code below",
+      instructions: "You know how we said earlier that you can do math in JavaScript?  We were not kidding. \
       <br><br>Check out a few of the operators available to you: \
-      <br><br><b>Addition (+)</b>\
-      <br> 2 + 2 = 4\
-      <br><br><b>Subtraction (-)</b>\
-      <br> 10 - 2 = 8\
-      <br><br><b>Multiplication (*)</b>\
-      <br> 2 * 12 = 24\
-      <br><br><b>Divsion (/)</b>\
-      <br>  24/2 = 12\
-      <br><br><b>Modulo (%)</b>\
+      <br><br><b>Addition (+)</b> \
+      <br> 2 + 2 = 4 \
+      <br><br><b>Subtraction (-)</b> \
+      <br> 10 - 2 = 8 \
+      <br><br><b>Multiplication (*)</b> \
+      <br> 2 * 12 = 24 \
+      <br><br><b>Divsion (/)</b> \
+      <br>  24/2 = 12 \
+      <br><br><b>Modulo (%)</b> \
       <br> (%) returns the remainder from dividing two numbers, so 5 % 2 = 1. Suppose we would like to know if any given number is an even number. \
       We can use modulo here to help us out. If the remainder is 1, not zero, then we know it is an odd number. \
-      <br><br><b>Increment (++) </b>\
-      <br> ++ is a shortcut to increment a variable that is storing a number by 1.\
-      <br> `var x = 10;`\
-      <br> `x++` , will return `11`;\
-      <br> We can also get really clever and increment by 2 by using `x += 2`.\
-      <br><br><b>Decrement (--)</b>\
-      <br> -- is a shortcut to decrement (decrease) a variable that is storing a number by 1.\
-      <br> `var x = 0;`\
-      <br> `x--` , will return `-1`;\
-      <br>And similarly, we can decrement by 2 by using `x -= 2`
+      <br><br><b>Increment (++) </b> \
+      <br> ++ is a shortcut to increment a variable that is storing a number by 1. \
+      <br> `var x = 10;` \
+      <br> `x++` , will return `11`; \
+      <br> We can also get really clever and increment by 2 by using `x += 2`. \
+      <br><br><b>Decrement (--)</b> \
+      <br> -- is a shortcut to decrement (decrease) a variable that is storing a number by 1. \
+      <br> `var x = 0;` \
+      <br> `x--` , will return `-1`; \
+      <br>And similarly, we can decrement by 2 by using `x -= 2` \
       <br><br><b>Challenge: </b>In the editor, set a variable named `moduloResult` equal to the result of 21 % 10.  \
       <br>", 
       hint1: "What does that % mean again? Check above. To be really cool you could say 21 mod 10.",
@@ -224,40 +224,40 @@ models.sequelize.sync()  //Include {force: true} as argument in sync() if want D
 
     {
       "testCode":11,
-      "title":"A Good Man-darin is Hard to Find",
-      "instructions":"Imagine that you keep a list of your current nail polish colors in an array (you're really organized).  Before you buy a new shade you want to know your current count of colors.  You could count all of the items in your list, but that would be a pain.<br><br>Instead, let's use JavaScript's `.length` property for arrays and strings. If you append `.length` at the end of an array or string (or a variable referring to an array or string), the value returned will be the length of the array or string.<br><br>For example,`[\"I\", \"am\", \"an\", \"array\"].length` will return `4` since there are 4 elements in the array. `\"Manicure\".length` would return `8` since there are 8 characters in the string \"Manicure.\"<br><br><b>Challenge: </b>In the editor, there is an array of nail polish colors. Call `.length` on the array to count up all of your magnificent colors.",
-      "content":'var shades = ["A Woman\'s Prague-ative", "A Grape Fit!", "All Sparkly and Gold", "Barre My Soul", "Be Magentale With Me","Berlin There Done That", "Brains and Bronze", "Call Me Gwen-ever", "Cement The Deal", "Chillin\' Like a Villian","Desperately Seeking Sequins", "Don\'t Bossa Nova Me Around", "Teal The Cows Come Home", "Turquoise and Caicos"];',
-      "pointValue":200,
-      "hint1":"Did you add '.length' to the end of the shades array?",
-      "hint2":"Your answer should be of the form: ArrayVariableName.length"
+      "title": "A Good Man-darin is Hard to Find",
+      "instructions": "Imagine that you keep a list of your current nail polish colors in an array (you're really organized).  Before you buy a new shade you want to know your current count of colors.  You could count all of the items in your list, but that would be a pain.<br><br>Instead, let's use JavaScript's `.length` property for arrays and strings. If you append `.length` at the end of an array or string (or a variable referring to an array or string), the value returned will be the length of the array or string.<br><br>For example,`[\"I\", \"am\", \"an\", \"array\"].length` will return `4` since there are 4 elements in the array. `\"Manicure\".length` would return `8` since there are 8 characters in the string \"Manicure.\"<br><br><b>Challenge: </b>In the editor, there is an array of nail polish colors. Call `.length` on the array to count up all of your magnificent colors.",
+      "content": 'var shades = ["A Woman\'s Prague-ative", "A Grape Fit!", "All Sparkly and Gold", "Barre My Soul", "Be Magentale With Me","Berlin There Done That", "Brains and Bronze", "Call Me Gwen-ever", "Cement The Deal", "Chillin\' Like a Villian","Desperately Seeking Sequins", "Don\'t Bossa Nova Me Around", "Teal The Cows Come Home", "Turquoise and Caicos"];',
+      "pointValue": 200,
+      "hint1": "Did you add '.length' to the end of the shades array?",
+      "hint2": "Your answer should be of the form: ArrayVariableName.length"
     },
 
     {  
-      "testCode":12,
-      "title":"Contacts object",
-      "content":"var contactList = {<br> 'Annabelle': 5103238231,<br> 'Beth': 4253839832,<br> 'Courtney': 2023948221,<br> 'Dalia': 9176241223,<br> 'Erica': 2124450339<br>}",
-      "instructions":"Remember in a previous challenge we stored a list of friends' names in an array, which looked like: <br>`var friends = ['Annabelle', 'Beth', 'Courtney', 'Dalia', 'Erica']`. An array is a good method for keeping track of lists like this, but what if we wanted to store a phone number for each of our friends? To associate each name with another piece of data, we'd want to use a different structure, called an object.<br><br>Take a look at the code in the editor. You'll notice that each entry in the `contactList` object has two components: a key and a value. The key, in this case a friends' name, is a unique identifier used to access the corresponding value. And as you can see, the values in `contactList` are the friends' phone numbers.<br><br>Looking up a value in an object is similar to accessing an element in an array, except that instead of passing in an integer that represents the element's index, we pass in the key in order to access the value. For example, to retrieve Beth's phone number, we would write `contactList['Beth']`, which would return 4253839832. Object keys can be numbers, but note that unlike arrays, objects are not ordered. Even if you had an object with numeric keys, the keys don't give order to the key/value pairs in the object. So if you had `var myObject = {0: 'zero', 1: 'one'}`, it is incorrect to think of 0 as coming before 1. The concept of order simply doesn't apply to objects. Ok, enough talking, let's try it out. <br><br><b>Challenge:</b> How would you get Courtney's phone number from `contactList`? Give it a try.",
-      "hint1":"Follow the form `objectName[key]`",
-      "hint2":"Make sure you're using brackets [] rather than parentheses!",
-      "pointValue":225
+      "testCode": 12,
+      "title": "Contacts object",
+      "content": "var contactList = {<br> 'Annabelle': 5103238231,<br> 'Beth': 4253839832,<br> 'Courtney': 2023948221,<br> 'Dalia': 9176241223,<br> 'Erica': 2124450339<br>}",
+      "instructions": "Remember in a previous challenge we stored a list of friends' names in an array, which looked like: <br>`var friends = ['Annabelle', 'Beth', 'Courtney', 'Dalia', 'Erica']`. An array is a good method for keeping track of lists like this, but what if we wanted to store a phone number for each of our friends? To associate each name with another piece of data, we'd want to use a different structure, called an object.<br><br>Take a look at the code in the editor. You'll notice that each entry in the `contactList` object has two components: a key and a value. The key, in this case a friends' name, is a unique identifier used to access the corresponding value. And as you can see, the values in `contactList` are the friends' phone numbers.<br><br>Looking up a value in an object is similar to accessing an element in an array, except that instead of passing in an integer that represents the element's index, we pass in the key in order to access the value. For example, to retrieve Beth's phone number, we would write `contactList['Beth']`, which would return 4253839832. Object keys can be numbers, but note that unlike arrays, objects are not ordered. Even if you had an object with numeric keys, the keys don't give order to the key/value pairs in the object. So if you had `var myObject = {0: 'zero', 1: 'one'}`, it is incorrect to think of 0 as coming before 1. The concept of order simply doesn't apply to objects. Ok, enough talking, let's try it out. <br><br><b>Challenge:</b> How would you get Courtney's phone number from `contactList`? Give it a try.",
+      "hint1": "Follow the form `objectName[key]`",
+      "hint2": "Make sure you're using brackets [] rather than parentheses!",
+      "pointValue": 225
     },
     {  
-      "testCode":13,
-      "title":"More on Objects",
-      "content":"var tasks = {<br>'monday': ['Finish history project'],<br>'tuesday': ['Wash dishes', 'Turn in Math Homework'],<br>'thursday': ['Go to dance practice', 'Start book report'],<br>}",
-      "instructions":"We've added another object to the editor. The `tasks` object contains a list of tasks that need to be accomplished on certain days of the week. Notice that we're storing arrays within our object, which is totally ok. Objects can even store other objects as values (which themselves could have objects as values...).Also notice that different key/value pairs within an object are separated by commas.<br><br>In the previous challenge, you learned that object values can be accessed using bracket notation - if I wanted Tuesday's tasks, I could write `tasks['tuesday']`. But there's another way we can retrieve values from an object called called 'dot notation': `tasks.tuesday`. To convert from bracket notation to dot notation, we simply remove the quotation marks, and replace the brackets with a period.<br><br><b>Challenge:</b> Try it out in the editor - use dot notation to retrieve Monday's tasks.",
-      "hint1":"Remember, you don't need the quotes!",
-      "hint2":"Don't forget to include the period between the object name and the key name.",
-      "pointValue":200
+      "testCode": 13,
+      "title": "More on Objects",
+      "content": "var tasks = {<br>'monday': ['Finish history project'],<br>'tuesday': ['Wash dishes', 'Turn in Math Homework'],<br>'thursday': ['Go to dance practice', 'Start book report'],<br>}",
+      "instructions": "We've added another object to the editor. The `tasks` object contains a list of tasks that need to be accomplished on certain days of the week. Notice that we're storing arrays within our object, which is totally ok. Objects can even store other objects as values (which themselves could have objects as values...).Also notice that different key/value pairs within an object are separated by commas.<br><br>In the previous challenge, you learned that object values can be accessed using bracket notation - if I wanted Tuesday's tasks, I could write `tasks['tuesday']`. But there's another way we can retrieve values from an object called called 'dot notation': `tasks.tuesday`. To convert from bracket notation to dot notation, we simply remove the quotation marks, and replace the brackets with a period.<br><br><b>Challenge:</b> Try it out in the editor - use dot notation to retrieve Monday's tasks.",
+      "hint1": "Remember, you don't need the quotes!",
+      "hint2": "Don't forget to include the period between the object name and the key name.",
+      "pointValue": 200
     }, 
     {  
-     "testCode":14,
-     "title":"For every text message",
-     "content":'var textForLoop = function(){ <br>\tvar messages = []; <br>\tfor(var i= /* add an initial value here */;/* add a condition to be checked on each iteration here*/; /* increment your counter variable here */) {<br>\t\tmessages.push("I will not text during class");<br>\t} <br> \treturn messages <br>};',
-     "instructions":"Oh no, you got caught texting in class. As a punishment, you have to stay after class and write out, 'I will not text during class.' 30 times. You promised your best friend that you would go to the movies, so you can’t waste time on this.<br><br>After thinking for a bit, you realize, you can use what you learned on Coder Girl to do this. Good decision, you can keep your promise with your friend and score some brownie points with your teacher! A For loop is one of the ways in JavaScript that allow Coder Girls to execute a command or a series of commands for a certain number of times.<br><br>The basic structure of a for loop is:<br><br>`for ( expression ) {`<br>`//statements to be executed based on the condition provided`<br>`}`<br><br> A for loop will execute any statements within its curly braces, so long as the condition is met.<br><br>For example:<br><br>`for (var i = 0; i < 10; i++) {`<br>`  //the statements written here will be executed 10 times.`<br>`}`<br><br>The first part of the expression is initializing the variable `i`. Here, we are setting `i` to be 0. We are creating a counter variable, that we can increment later.<br><br>`(var i = 2;...)`. <br><br>Because `i` holds the number 0, our counter will begin starting at 0.<br><br>The second part of the expression is a condition. A condition is checked before each loop runs, and if it is true, the statement is executed.<br><br>`(var i = 0; i < 10;...)`. Here we are setting the upperbound our for loop - we are telling the for loop when to stop.<br><br>So, as long as `i` is less than 10, this for loop will keep iterating and execute the condition provided.<br><br>Since, `i` is 0, and because `i` at this point in time and is less than 10, a statement is executed.<br><br>`(var i = 0; i < 10;  i++)` {<br> 'print me out' // this statement 'print me out' is printed outn <br>}<br><br>The last part of our expression is evaluated at the end of each loop. In other words, after it checks to see if the condition is true, it will increment the variable `i` from 0 to 1, because we are incrementing `i` by 1. (Fun Fact: In addition to incrementing `i`, you can also decrement the counter variable on each iteration. This requires a bit of restructuring, so we will do it another time.)<br><br><b>Challenge:</b> Quick! Fill in the missing parts of the for loop expression, so that you can join your friend at the movies. Don't worry about the contents of the loop for now - we\'ll cover what that code is doing in a later challenge.",
-     "hint1":"Double check your expression, are you setting it up correctly?",
-     "hint2":"You should start your loop at 0, and set the upper bound to be 30.",
-     "pointValue":300
+     "testCode": 14,
+     "title": "For every text message",
+     "content": 'var textForLoop = function(){ <br>\tvar messages = []; <br>\tfor(var i= /* add an initial value here */;/* add a condition to be checked on each iteration here*/; /* increment your counter variable here */) {<br>\t\tmessages.push("I will not text during class");<br>\t} <br> \treturn messages <br>};',
+     "instructions": "Oh no, you got caught texting in class. As a punishment, you have to stay after class and write out, 'I will not text during class.' 30 times. You promised your best friend that you would go to the movies, so you can’t waste time on this.<br><br>After thinking for a bit, you realize, you can use what you learned on Coder Girl to do this. Good decision, you can keep your promise with your friend and score some brownie points with your teacher! A For loop is one of the ways in JavaScript that allow Coder Girls to execute a command or a series of commands for a certain number of times.<br><br>The basic structure of a for loop is:<br><br>`for ( expression ) {`<br>`//statements to be executed based on the condition provided`<br>`}`<br><br> A for loop will execute any statements within its curly braces, so long as the condition is met.<br><br>For example:<br><br>`for (var i = 0; i < 10; i++) {`<br>`  //the statements written here will be executed 10 times.`<br>`}`<br><br>The first part of the expression is initializing the variable `i`. Here, we are setting `i` to be 0. We are creating a counter variable, that we can increment later.<br><br>`(var i = 2;...)`. <br><br>Because `i` holds the number 0, our counter will begin starting at 0.<br><br>The second part of the expression is a condition. A condition is checked before each loop runs, and if it is true, the statement is executed.<br><br>`(var i = 0; i < 10;...)`. Here we are setting the upperbound our for loop - we are telling the for loop when to stop.<br><br>So, as long as `i` is less than 10, this for loop will keep iterating and execute the condition provided.<br><br>Since, `i` is 0, and because `i` at this point in time and is less than 10, a statement is executed.<br><br>`(var i = 0; i < 10;  i++)` {<br> 'print me out' // this statement 'print me out' is printed outn <br>}<br><br>The last part of our expression is evaluated at the end of each loop. In other words, after it checks to see if the condition is true, it will increment the variable `i` from 0 to 1, because we are incrementing `i` by 1. (Fun Fact: In addition to incrementing `i`, you can also decrement the counter variable on each iteration. This requires a bit of restructuring, so we will do it another time.)<br><br><b>Challenge:</b> Quick! Fill in the missing parts of the for loop expression, so that you can join your friend at the movies. Don't worry about the contents of the loop for now - we\'ll cover what that code is doing in a later challenge.",
+     "hint1": "Double check your expression, are you setting it up correctly?",
+     "hint2": "You should start your loop at 0, and set the upper bound to be 30.",
+     "pointValue": 300
     }, 
     {
       testCode: 15,
