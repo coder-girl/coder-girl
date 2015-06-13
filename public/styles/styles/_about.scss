@@ -13,11 +13,12 @@ body {
         color: #000000;
       }
       h3 {
-        font-size: 20pt;
+        font-size: 1.9em;
         color: #FFFFFF;
       }
       h4 {
-        font-size: 20pt;
+        font-size: 2.1em;
+        line-height: 1.4em;
         color: $greyText;
       }
       h5 {
@@ -25,12 +26,14 @@ body {
         color: $aqua;
       }  
       h6 {
-        font-size: 13pt;
+        font-size: 1.3em;
+        line-height: 1em;
         color: #FFFFFF;
       }
       p {
         &.stat-description {
-          font-size:18pt;
+          font-size:2em;
+          line-height: 1.3em;
         };
         font-size: 12pt;
         color: $greyText;
@@ -142,7 +145,7 @@ body {
       }
 
       .bar5 {
-        height: 600px;
+        height: 75%;
         .content-container {
           height: 100%;
           width: 100%;
@@ -205,13 +208,19 @@ body {
 
       .title-block-left {
         float: right;
-        text-align: justify;
-        text-justify: auto;
+        text-align: left;
+       
       }
 
       .title-block-right {
         text-align: right;
+      
         float: left;
+      }
+
+
+      .mission-header {
+        padding-left: 5%;
       }
 
     }
@@ -228,5 +237,11 @@ span.stat-number {
 
 span.stat-number {
   color:$darkPurple;
+}
+
+.song {
+  position: fixed;
+  right: 0px;
+  z-index: 100;
 }
 

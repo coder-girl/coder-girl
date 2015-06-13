@@ -39,14 +39,14 @@ var About = React.createClass({
   render: function() {
     return (
       <div id="about-container">
+      <audio className="song" src="/asset/SkaterboyMeetsTechGirl_prod_kybate.mp3" controls autoPlay loop></audio> 
         <div className="bar1 title">
           <div className="girls-coding content-container">
             <img className="girls-coding-image" src="./../../asset/girls-coding.jpg" alt="Girls coding together" />
           </div>
           <div className="title-block title-block-left">
             <h1>Learn to code now</h1>
-            <h4>Chat with other Coder Girls while tackling coding challenges.</h4>
-            <h4>Earn points to get your Instagram feed featured on our Leaderboard!</h4>
+            <h4>Dive into challenges and chat with other Coder Girls. Earn points to get your Instagram feed featured on our Leaderboard.</h4>
           </div>
         </div>
         <div className="bar2 features">
@@ -56,23 +56,24 @@ var About = React.createClass({
             </div>
             <div className="feature-block">
               <h3 className="feature">Learn core skills</h3>
-              <h6 className="description">Build a reliable foundation of programming techniques.
-                <br/>
-              </h6>
+              <h6 className="description">No prior experience needed.</h6>
+              <h6 className="description">We start with the basics.</h6>
             </div>
             <div className="feature-icon">
               <i className="fa fa-star-o fa-3x"></i>
             </div>
             <div className="feature-block">
               <h3 className="feature">Tackle challenges</h3>
-              <h6 className="description">Earn points and level-up as you work through engaging problems.</h6>
+              <h6 className="description">Earn points and level-up.</h6>
+              <h6 className="description">Show off your Instagram pics.</h6>
             </div>
             <div className="feature-icon">
               <i className="fa fa-comments-o fa-3x"></i>
             </div>
             <div className="feature-block">
               <h3 className="feature">Collaborate with friends</h3>
-              <h6 className="description">Offer or receive help while participating in a highly social environment.</h6>
+              <h6 className="description">Have a question or comment?</h6>
+              <h6 className="description">Start chatting.</h6>
             </div>
           </div>
         </div>
@@ -80,7 +81,7 @@ var About = React.createClass({
 
           <div className ="title-block title-block-right">
             <h1>Our Mission</h1>
-            <h4>More men than women are learning to code. Let's reverse the stats together.</h4>
+            <h4>More men than women are learning to code. Let's reverse the trend.</h4>
           </div>
           <div className="all-stats content-container">
             <div className="stat-block">
@@ -88,21 +89,21 @@ var About = React.createClass({
             <canvas id="chart1" width="250" height="125"></canvas>
           </div>
           <p className="stat-description-only"><span className="stat-number">19%</span></p>
-              <p className="stat-description">female AP Computer Science test-takers in 2012.</p>
+              <p className="stat-description">female AP Computer Science test-takers in 2012</p>
             </div>
             <div className="stat-block">
           <div className="canvas-holder half">
             <canvas id="chart2" width="250" height="125"></canvas>
           </div>
           <p className="stat-description-only"><span className="stat-number">12%</span></p>
-              <p className="stat-description">female Computer Science degree recipients in 2012.</p>
+              <p className="stat-description">female Computer Science degree recipients in 2013</p>
             </div>
           </div>
         </div>
         <div className="bar4 team">
           <div className="title-block title-block-left">
             <h1>Our Team</h1>
-            <h4>Check out the engineers behind Coder Girl.</h4>
+            <h4>The engineers behind Coder Girl.</h4>
           </div>
           <div className="all-members content-container">
             <div className="team-member-block">
@@ -142,7 +143,7 @@ var About = React.createClass({
         <div className="bar5 stack">
           <div className="title-block title-block-right">
             <h1>Our Stack</h1>
-            <h4>Check out the tools used to build Coder Girl.</h4>
+            <h4>The tools used to build Coder Girl.</h4>
           </div>
           <div className="stack-block content-container">
             <div className="stack-group stack-frontend">
