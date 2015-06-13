@@ -29,6 +29,9 @@ body {
         color: #FFFFFF;
       }
       p {
+        &.stat-description {
+          font-size:18pt;
+        };
         font-size: 12pt;
         color: $greyText;
       }
@@ -94,7 +97,7 @@ body {
           float: right;
           width: 50%;
           text-align: center;
-          padding: 10% 5%;
+          padding: 0% 5%;
         }
 
         .stat-description-only {
@@ -202,6 +205,8 @@ body {
 
       .title-block-left {
         float: right;
+        text-align: justify;
+        text-justify: auto;
       }
 
       .title-block-right {
@@ -211,5 +216,17 @@ body {
 
     }
   }
+}
+
+.canvas-holder.half {
+  padding-bottom: 21px;
+}
+
+span.stat-number {
+    font-size: 3.3em; 
+}
+
+span.stat-number {
+  color:$darkPurple;
 }
 
