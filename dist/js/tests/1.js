@@ -1,8 +1,16 @@
-var test = function(userCode){
-  eval(userCode);
-  if(example(1,2) === 3){
-    return true;
-  }
+//String Theory
 
-  return false
+var test = function(userCode){
+ var userString = eval(userCode);
+ var result = {
+   pass: true,
+   message: "Nice!  You've stringified!"
+ }
+ if(typeof(userString) !== "string"){
+   result.pass = false;
+   result.message = "You do not have a string in the editor.  Make sure that you enclosed your string in matching quotes."
+   return result;
+ } 
+ return result
 }
+
