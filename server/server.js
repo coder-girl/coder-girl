@@ -32,7 +32,7 @@ require('./config/middleware.js')(app, express, passport);
 
 app.set('port', (process.env.PORT || 3000));
 
-models.sequelize.sync()  //Include {force: true} as argument in sync() if want DB to drop on server restart.
+models.sequelize.sync({force: true})  //Include {force: true} as argument in sync() if want DB to drop on server restart.
   .then(function(){
     return Challenge.bulkCreate([
     {

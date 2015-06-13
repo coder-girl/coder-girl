@@ -39,14 +39,14 @@ var About = React.createClass({
   render: function() {
     return (
       <div id="about-container">
+      <audio className="song" src="/asset/SkaterboyMeetsTechGirl_prod_kybate.mp3" controls autoPlay loop></audio> 
         <div className="bar1 title">
           <div className="girls-coding content-container">
             <img className="girls-coding-image" src="./../../asset/girls-coding.jpg" alt="Girls coding together" />
           </div>
           <div className="title-block title-block-left">
             <h1>Learn to code now</h1>
-            <h4>Chat with other Coder Girls while tackling coding challenges.</h4>
-            <h4>Earn points to get your Instagram feed featured on our Leaderboard!</h4>
+            <h4>Dive into challenges and chat with other Coder Girls. Earn points to get your Instagram feed featured on our Leaderboard.</h4>
           </div>
         </div>
         <div className="bar2 features">
@@ -65,7 +65,7 @@ var About = React.createClass({
             <div className="feature-block">
               <h3 className="feature">Tackle challenges</h3>
               <h6 className="description">Earn points and level-up.</h6>
-              <h6 className="description">Get your Instagram pics featured.</h6>
+              <h6 className="description">Show off your Instagram pics.</h6>
             </div>
             <div className="feature-icon">
               <i className="fa fa-comments-o fa-3x"></i>
@@ -81,7 +81,7 @@ var About = React.createClass({
 
           <div className ="title-block title-block-right">
             <h1>Our Mission</h1>
-            <h4>More men than women are learning to code. Let's reverse the stats together.</h4>
+            <h4>More men than women are learning to code. Let's reverse the trend.</h4>
           </div>
           <div className="all-stats content-container">
             <div className="stat-block">
@@ -89,14 +89,14 @@ var About = React.createClass({
             <canvas id="chart1" width="250" height="125"></canvas>
           </div>
           <p className="stat-description-only"><span className="stat-number">19%</span></p>
-              <p className="stat-description">female AP Computer Science test-takers in 2012.</p>
+              <p className="stat-description">female AP Computer Science test-takers in 2012</p>
             </div>
             <div className="stat-block">
           <div className="canvas-holder half">
             <canvas id="chart2" width="250" height="125"></canvas>
           </div>
           <p className="stat-description-only"><span className="stat-number">12%</span></p>
-              <p className="stat-description">female Computer Science degree recipients in 2012.</p>
+              <p className="stat-description">female Computer Science degree recipients in 2013</p>
             </div>
           </div>
         </div>
