@@ -1,4 +1,4 @@
-<img src="./public/styles/asset/CoderGirl-WhiteBackground.png" alt="Coder Girl" width="300" height="300" margin="0 auto"/>
+<img src="./public/styles/asset/CoderGirl-WhiteBackground.png" alt="Coder Girl" width="300" height="300" align="center"/>
 
 # Coder Girl
 
