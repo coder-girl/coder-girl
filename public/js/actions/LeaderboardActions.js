@@ -31,7 +31,7 @@ getPics: function(topScorers){
       } else {
 
         var topUserInstagramID = item.instagramID;
-        var url = 'https://api.instagram.com/v1/users/' + topUserInstagramID + '/media/recent/?' + instagramTokenLabel + instagramKey;
+        var url = 'https://api.instagram.com/v1/users/' + topUserInstagramID + '/media/recent/?count=' + 10 + '&' + instagramTokenLabel + instagramKey;
         $.ajax({
           url: url,
           dataType: 'jsonp',
