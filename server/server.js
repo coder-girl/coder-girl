@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-25 10:32:38
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-12 17:30:49
+* @Last Modified time: 2015-06-12 20:25:25
 */
 
 var express = require('express'),
@@ -173,7 +173,7 @@ models.sequelize.sync()  //Include {force: true} as argument in sync() if want D
     {
       testCode: 8,
       title: "To not to be or to really not to be",
-      instructons: "JavaScript is quite serious about a thing not being. So much so that it has two different values to represent nothingness. `null` is used when it is certain that something does not exist. `undefined` is used when it is unknown what an item is or whether it exists. For instance, if Juliet were single because she dumped her boyfriend Romeo, you would say `var JulietBoyfriend = null`.  But if you are uncertain as to whether Juliet has a boyfriend or you do not know his name, you would say `var JulietBoyfriend = undefined`.  `undefined` and `null` are both called \"falsy\" values in JavaScript. This means the expression `!undefined` evaluates to `true` and the expression !null evaluates to `true`. Strangely, neither `null` nor `undefined` actually equals `false` in JavaScript.<br><b>Challenge: </b> Your buddy Benvolio just called and said he has heard that a party has been declared for this Friday.  He had no further information yet. In the editor, write \"null\" if you think the variable `party` would evaluate to `null` in this instance or \"undefined\" if you think it would evaluate to `undefined`.",
+      instructions: "JavaScript is quite serious about a thing not being. So much so that it has two different values to represent nothingness. `null` is used when it is certain that something does not exist. `undefined` is used when it is unknown what an item is or whether it exists. <br><br>For instance, if Juliet were single because she dumped her boyfriend Romeo, you would say `var JulietBoyfriend = null`.  But if you are uncertain as to whether Juliet has a boyfriend, you would say `var JulietBoyfriend = undefined`.<br><br>`undefined` and `null` are both called \"falsy\" values in JavaScript. This means the expression `!undefined` evaluates to `true` and the expression !null evaluates to `true`. Strangely, neither `null` nor `undefined` actually equals `false` in JavaScript. Weird, I know.<br><br><b>Challenge: </b>Your buddy Benvolio just called and said he has heard that a party has been declared for this Friday.  He had no further information yet. In the editor, write \"null\" if you think the variable `party` would evaluate to `null` in this instance or \"undefined\" if you think it would evaluate to `undefined`.",
       content: "//enter code here",
       pointValue: 50,
       hint1: "Benvolio has declared the party variable so it exists, but it does not have a meaning yet.",
@@ -187,45 +187,45 @@ models.sequelize.sync()  //Include {force: true} as argument in sync() if want D
       instructions: "Often in coding, you want to be able to (1) execute some code if one statement is true, \
       (2) execute different code if another statement is true, or (3) \
       execute some default code if neither condition (1) or (2) is met. The outline for how to do this is: \
-       <br> `if(thisIsTrue){`\
+      <br><br> `if(thisIsTrue){`\
         <br>   `// do something;`\
        <br> `} else if(somethingElse){`\
         <br>    `// do something different;`\
       <br>  `} else{`\
       <br>  `// do the default; `\
       <br>  `}` \
-      <br><b>Challenge: </b>Imagine you are trying to figure out what to wear to this Saturday\'s killer party. Chloe thinks you should wear a skirt. Bethany definitely thinks it is a jeans type of affair.  \
+      <br><br><b>Challenge: </b>Imagine you are trying to figure out what to wear to this Saturday\'s killer party. Chloe thinks you should wear a skirt. Bethany definitely thinks it is a jeans type of affair.  \
       Stephanie thinks it is really casual. Fill in the code in the editor so that if you decide your `clothes` should be jeans, the `shoes` variable is set to \"boots\", \
       if you choose a skirt, `shoes` is set to  \"platforms\", and \
       if you wear anything else, `shoes` is set to \"flip flops.\"",
-      content: "var shoes, clothes; // ignore this line <br><br> if (clothes === \"jeans\"){ <br><br>  //enter code here <br> } else if (clothes === \"skirt\"){ <br><br>  //enter code here <br> } else {<br>  //enter code here <br> };",
+      content: "// don't worry about using `var` to declare clothes or shoes - we'll take care of that for you this time<br><br>if (clothes === \"jeans\"){ <br><br>  //enter code here <br> } else if (clothes === \"skirt\"){ <br><br>  //enter code here <br> } else {<br>  //enter code here <br> }",
       pointValue: 100,
-      hint1: "Did you make sure to set `shoes` to be a string in each condition?",
+      hint1: "Did you make sure to set `shoes` to a string in each condition?",
       hint2: "Did you enclose your strings in quotes?"
     },
 
     {
       testCode: 10,
       title: "Hooray for Arrays!",
-      content: 'var friends = ["Annabelle", "Beth", "Courtney", "Dalia", "Erica"]',
+      content: 'var friends = ["Annabelle", "Beth", "Courtney", "Dalia", "Erica"];',
       instructions: "Take a look at the editor. We've added a list of friends' names in a specific format. This type of  \
       list, of the form `['element1', 'element2', 'element3', ...]` is called an array. Arrays are ordered, and each \
       element has an 'index' that demonstrates its position in the list. <br><br>  \
       One thing to note about array order and indexes is that programmers often like to start counting at 0 rather than 1.  \
-      This means that 'Annabelle,' the first element in our array of `friends`, is actually at index 0. 'Beth' is at index 1,  \
-      'Courtney' is at index 2, and so on. \
-      <br><b>Challenge: </b>Let's pull an element out of our array. If I wanted the first element in the array, typing `friends[0]`  \
-      will return the element in 'friends' at index 0. Give it a try - write a statement below the 'friends' array  \
+      This means that \"Annabelle\", the first element in our array of `friends`, is actually at index 0. \"Beth\" is at index 1,  \
+      \"Courtney\" is at index 2, and so on. \
+      <br><br><b>Challenge: </b>Let's pull an element out of our array. If I wanted the first element in the array, typing `friends[0]`  \
+      will return the element in `friends` at index 0. Give it a try - write a statement below the `friends` array  \
       that will return 'Dalia' from the array.", 
       hint1: "Your code should look like `friends[x]`, where x is the index that indicates Dalia's position in the array.",
-      hint2: "Remember, the index of the first element in the array is 0, not 1. This means Dalia is at index 3.",
+      hint2: "Remember, the index of the first element in the array is 0, not 1. This means \"Beth\ is at index 1.",
       pointValue: 50
     },
 
     {
       "testCode":11,
       "title":"A Good Man-darin is Hard to Find",
-      "instructions":"Imagine that you keep a list of your current nail polish colors in an array (you're really organized).  Before you buy a new shade you want to know your current count of colors.  You could count all of the items in your list, but that would be a pain.<br><br>Instead, let's use JavaScript's length property for arrays and strings. If you append '.length' at the end of an array or string (or a variable referring to an array or string), the value returned will be the length of the array or string.<br><br>For example,'['I', 'am', 'an', 'array'].length' will return 4 since there are 4 elements in the array. 'Manicure'.length would return 8 since there are 8 characters in the string 'Manicure.' Notice that length is a property of an array or string rather than a method being called so you do not need parentheses at the end of length. Just .length by itself does the job. Back your nail polish collection. <br><br><b>Challenge:</b><br><br>In the editor, there is an array of nail polish colors. Call .length on the array to count up all of your magnificent colors.",
+      "instructions":"Imagine that you keep a list of your current nail polish colors in an array (you're really organized).  Before you buy a new shade you want to know your current count of colors.  You could count all of the items in your list, but that would be a pain.<br><br>Instead, let's use JavaScript's `.length` property for arrays and strings. If you append `.length` at the end of an array or string (or a variable referring to an array or string), the value returned will be the length of the array or string.<br><br>For example,`[\"I\", \"am\", \"an\", \"array\"].length` will return `4` since there are 4 elements in the array. `\"Manicure\".length` would return `8` since there are 8 characters in the string \"Manicure.\"<br><br><b>Challenge: </b>In the editor, there is an array of nail polish colors. Call `.length` on the array to count up all of your magnificent colors.",
       "content":'var shades = ["A Woman\'s Prague-ative", "A Grape Fit!", "All Sparkly and Gold", "Barre My Soul", "Be Magentale With Me","Berlin There Done That", "Brains and Bronze", "Call Me Gwen-ever", "Cement The Deal", "Chillin\' Like a Villian","Desperately Seeking Sequins", "Don\'t Bossa Nova Me Around", "Teal The Cows Come Home", "Turquoise and Caicos"];',
       "pointValue":200,
       "hint1":"Did you add '.length' to the end of the shades array?",
@@ -236,37 +236,45 @@ models.sequelize.sync()  //Include {force: true} as argument in sync() if want D
       "testCode":12,
       "title":"Contacts object",
       "content":"var contactList = {<br> 'Annabelle': 5103238231,<br> 'Beth': 4253839832,<br> 'Courtney': 2023948221,<br> 'Dalia': 9176241223,<br> 'Erica': 2124450339<br>}",
-      "instructions":"Remember in a previous challenge we stored a list of friends' names in an array, which looked like <br>`var friends = ['Annabelle', 'Beth', 'Courtney', 'Dalia', 'Erica']`. An array is a good method for keeping track of lists like this, but what if we wanted to store a phone number for each of our friends? To associate each name with another piece of data, we'd want to use a different structure, called an object.<br><br>Take a look at the code in the editor. You'll notice that each entry in the `contactList` object has two components: a key and a value. The key, in this case a friends' name, is a unique identifier used to access the corresponding value. And as you can see, the values in `contactList` are the friends' phone numbers).<br><br>Looking up a value in an object is similar to accessing an element in an array, except that instead of passing in an integer that represents the element's index, we pass in the key in order to access the value. For example, to retrieve Beth's phone number, we would write `contactList['Beth']`, which would return 4253839832. Object keys can be numbers, but note that unlike arrays, objects are not ordered. Even if you had an object with numeric keys, the keys don't give order to the key/value pairs in the object. So if you had `var myObject = {0: 'zero', 1: 'one'}`, it is incorrect to think of 1 as coming before 2. The concept of order simply doesn't apply to objects. Ok, enough talking, let's try it out. <br><br><b>Challenge:</b> How would you get Courtney's phone number from `contactList`? Given it a try.",
-      "hint1":["Accessing values in an object will follow the form `objectName[key]`"],
-      "hint2":["Make sure you're using brackets [] rather than parentheses!"],
+      "instructions":"Remember in a previous challenge we stored a list of friends' names in an array, which looked like: <br>`var friends = ['Annabelle', 'Beth', 'Courtney', 'Dalia', 'Erica']`. An array is a good method for keeping track of lists like this, but what if we wanted to store a phone number for each of our friends? To associate each name with another piece of data, we'd want to use a different structure, called an object.<br><br>Take a look at the code in the editor. You'll notice that each entry in the `contactList` object has two components: a key and a value. The key, in this case a friends' name, is a unique identifier used to access the corresponding value. And as you can see, the values in `contactList` are the friends' phone numbers.<br><br>Looking up a value in an object is similar to accessing an element in an array, except that instead of passing in an integer that represents the element's index, we pass in the key in order to access the value. For example, to retrieve Beth's phone number, we would write `contactList['Beth']`, which would return 4253839832. Object keys can be numbers, but note that unlike arrays, objects are not ordered. Even if you had an object with numeric keys, the keys don't give order to the key/value pairs in the object. So if you had `var myObject = {0: 'zero', 1: 'one'}`, it is incorrect to think of 0 as coming before 1. The concept of order simply doesn't apply to objects. Ok, enough talking, let's try it out. <br><br><b>Challenge:</b> How would you get Courtney's phone number from `contactList`? Give it a try.",
+      "hint1":"Follow the form `objectName[key]`",
+      "hint2":"Make sure you're using brackets [] rather than parentheses!",
       "pointValue":225
     },
     {  
       "testCode":13,
       "title":"More on Objects",
       "content":"var tasks = {<br>'monday': ['Finish history project'],<br>'tuesday': ['Wash dishes', 'Turn in Math Homework'],<br>'thursday': ['Go to dance practice', 'Start book report'],<br>}",
-      "instructions":"We've added another object to the editor. The `tasks` object contains a list of tasks that need to be accomplished on certain days of the week. Notice that we're storing arrays within our object, which is totally ok. Objects can even store other objects as values (which themselves could have objects as values...). In the previous challenge, you learned that object values can be accessed using bracket notation - if I wanted Tuesday's tasks, I could write `tasks['tuesday']`. But there's another way we can retrieve values from an object called called 'dot notation': `tasks.tuesday`. To convert from bracket notation to dot notation, we simply remove the quotation marks, and replace the brackets with a period.<br><br><b>Challenge:</b> Try it out in the editor - use dot notation to retrieve Monday's tasks.",
+      "instructions":"We've added another object to the editor. The `tasks` object contains a list of tasks that need to be accomplished on certain days of the week. Notice that we're storing arrays within our object, which is totally ok. Objects can even store other objects as values (which themselves could have objects as values...).Also notice that different key/value pairs within an object are separated by commas.<br><br>In the previous challenge, you learned that object values can be accessed using bracket notation - if I wanted Tuesday's tasks, I could write `tasks['tuesday']`. But there's another way we can retrieve values from an object called called 'dot notation': `tasks.tuesday`. To convert from bracket notation to dot notation, we simply remove the quotation marks, and replace the brackets with a period.<br><br><b>Challenge:</b> Try it out in the editor - use dot notation to retrieve Monday's tasks.",
       "hint1":"Remember, you don't need the quotes!",
-      "hint2":"Don't forget to include the period between the object name and the key name",
+      "hint2":"Don't forget to include the period between the object name and the key name.",
       "pointValue":200
     }, 
     {  
      "testCode":14,
      "title":"For every text message",
-     "content":'var textForLoop = function(){ <br>\tvar messages = []; <br>\tfor(var i= ; < ; ) {<br>\t\tmessages.push("I will not text during class");<br>\t} <br> \treturn messages <br>};',
-     "instructions":"Oh no, you got caught texting in class. As a punishment, you have to stay after class and write out, 'I will not text during class.' 30 times. You promised your best friend, that you would go to the mall with her to help pick out a dress, so you can’t waste time on this.<br><br>After thinking for a bit, you realize, you can use what you learned in class to do this. Good decision, you can keep your promise with your friend and score some brownie points with your teacher! A For loop is one of the ways in JavaScript that allow Coder Girls to execute a command or a series of commands for a certain amount of time.<br>The basic structure of a for loop is:<br>for ( expression ) {<br> //statements to be executed based on the condition provided<br>}<br><br> A for loop will execute any statements within its curly braces, so long as the condition is met.<br><br> For example:<br> for (var i = 2; i < 10; i+=2) {<br> //the statements written here will be executed 5 times.<br>}<br><br>The first part of the expression is initializing the variable i. Here, we are setting the variable i to be 2. In other words, we are creating a counter variable, that we can increment later.<br>(var i = 2;). <br><br>Because variable i hold the number 2, our counter will begin starting at 2.<br>If we had set i = 0, this for loop would have started with the counter at 0.<br><br>The second part of the expression is a condition. A condition is checked before each loop runs, and if it is true, the statement is executed.<br>(var i = 2; i < 10). Here we are setting the upperbound our for loop, in other words, we are telling the for loop when to stop.<br><br>So, as long as i is less than 10, this for loop will keep iterating and execute the condition provided.<br>Since, variable i is 2, and because variable i at this point in time and is less than 10, a statement is executed.<br><br>(var i = 2; i < 10;  i+=2) {<br> 'print me out' // this statement 'print me out' is printed outn <br>}<br><br>The last part of our expressions, is to evaluate at the end of each time the loop is evaluated. In other words, after it checks to see if the condition is true, it will increment the variable i from 2 to 4, because we are incrementing i by 2. i += 2, is shorthand for saying i + 2 = i. So if variable i was set to 2 and we add 2 to i, on our next iteration, i will be 4.(Fun Fact: Besides, incrementing the variable i, you can also decrement variable i. This requires a bit of restructuring, so we will do it another time.)<br><br><b>Challenge:</b> Quick! Fill in the missing parts of for loop expression, so that you can join your friend at the mall. The .push method, is a method you can use on arrays. It allows you to add one or more things to the end of an array.",
+     "content":'var textForLoop = function(){ <br>\tvar messages = []; <br>\tfor(var i= /* add an initial value here */;/* add a condition to be checked on each iteration here*/; /* increment your counter variable here */) {<br>\t\tmessages.push("I will not text during class");<br>\t} <br> \treturn messages <br>};',
+     "instructions":"Oh no, you got caught texting in class. As a punishment, you have to stay after class and write out, 'I will not text during class.' 30 times. You promised your best friend that you would go to the movies, so you can’t waste time on this.<br><br>After thinking for a bit, you realize, you can use what you learned on Coder Girl to do this. Good decision, you can keep your promise with your friend and score some brownie points with your teacher! A For loop is one of the ways in JavaScript that allow Coder Girls to execute a command or a series of commands for a certain number of times.<br><br>The basic structure of a for loop is:<br><br>`for ( expression ) {`<br>`//statements to be executed based on the condition provided`<br>`}`<br><br> A for loop will execute any statements within its curly braces, so long as the condition is met.<br><br>For example:<br><br>`for (var i = 0; i < 10; i++) {`<br>`  //the statements written here will be executed 10 times.`<br>`}`<br><br>The first part of the expression is initializing the variable `i`. Here, we are setting `i` to be 0. We are creating a counter variable, that we can increment later.<br><br>`(var i = 2;...)`. <br><br>Because `i` holds the number 0, our counter will begin starting at 0.<br><br>The second part of the expression is a condition. A condition is checked before each loop runs, and if it is true, the statement is executed.<br><br>`(var i = 0; i < 10;...)`. Here we are setting the upperbound our for loop - we are telling the for loop when to stop.<br><br>So, as long as `i` is less than 10, this for loop will keep iterating and execute the condition provided.<br><br>Since, `i` is 0, and because `i` at this point in time and is less than 10, a statement is executed.<br><br>`(var i = 0; i < 10;  i++)` {<br> 'print me out' // this statement 'print me out' is printed outn <br>}<br><br>The last part of our expression is evaluated at the end of each loop. In other words, after it checks to see if the condition is true, it will increment the variable `i` from 0 to 1, because we are incrementing `i` by 1. (Fun Fact: In addition to incrementing `i`, you can also decrement the counter variable on each iteration. This requires a bit of restructuring, so we will do it another time.)<br><br><b>Challenge:</b> Quick! Fill in the missing parts of the for loop expression, so that you can join your friend at the movies. Don't worry about the contents of the loop for now - we\'ll cover what that code is doing in a later challenge.",
      "hint1":"Double check your expression, are you setting it up correctly?",
-     "hint2":"Is your entire for loop statement wrapped in a string? Don't remove the quotes, will be stored in the variable testForLoop",
+     "hint2":"You should start your loop at 0, and set the upper bound to be 30.",
      "pointValue":300
     }, 
-    {  
-     "testCode":15,
-     "title":"Secret Message",
-     "instructions":"Your friend Kayla is also getting into coding and she sent you a message. Before she sent it to you though she reversed the message (which is a string).<br><br><b>Challenge:</b> Complete the function in the editor to reverse the string back to normal so you can read the message.",
-     "content":"var KaylaMessage = '!kcab em egasseM .redoc revelc repus ma I';<br>var reverseIt = function(KaylaMessage){<br>//your code here <br>}",
-     "pointValue":450,
-     "hint1":"Make sure your function returns a string.",
-     "hint2":"A reverse for-loop would do the trick here or there is a reverse method for arrays. So, if you convert your string to an array, you could use the array reverse method and then convert back to a string with the join method."
+    {
+      testCode: 15,
+      title: '#string_looping',
+      instructions: 'Your friend Charlotte is obsessed with turning anything and everything into a hashtag expression #obsessed. You are considering an intervention.\
+      Before you order catering for the intervention, you want to make sure you have some proof.\
+      <br><br><b>Challenge</b>You have an tweet from Charlotte. The full tweet \
+      is in the editor. Create a for loop that will iterate over the characters in `tweetFromCharlotte` and increment `hashtagCount` every time \
+      "#" appears in the string. That way you can count up the hashtags in Charlotte\'s message without having to do it #manually.', 
+      content: 'var tweetFromCharlotte = \"Could you believe gym class today? #ridiculous #gym #class #gymclass. If they wanted us to play #tennis they could have at least \
+      spread us out on more than two courts.  #courts #play #crowded #noworkout #fitSomeOtherDay  I should really have a talk with Coach. #one_on_one #coach #sitdown\"; \
+      <br>var countHashtags = 0; \
+      <br>  \
+      <br>  // your code here',
+      pointValue: 100,
+      hint1: 'You want your upper bound of the for loop to be the length of the tweet from Charlotte. Do you remember how to find the `.length` of a string?',
+      hint2: 'In the body of your for loop, check the current character to see `if` is a \"#\". If it is, increment `hashtagCount`.',
     }
       ]);
   })
