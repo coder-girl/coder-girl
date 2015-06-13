@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-28 14:44:31
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-12 17:31:36
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-06-13 12:35:38
 */
 
 'use strict';
@@ -64,7 +64,7 @@ var ChallengeInstructions = React.createClass({
     }
 
     return hints.map(function(hint, i) {
-      return <p className="challenge-hint" key={i}> <b>Hint:</b> <Markdown source={hint} /></p>
+      return <div className="challenge-hint" key={i}> <b>Hint:</b> <Markdown source={hint} /></div>
     });
   },
 
