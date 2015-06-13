@@ -1,8 +1,8 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-21 16:08:02
-* @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-12 12:01:28
+* @Last Modified by:   nimi
+* @Last Modified time: 2015-06-13 09:31:46
 */
 
 'use strict';
@@ -22,7 +22,7 @@ var Login = React.createClass({
     AuthActions.isAuth(window.localStorage.getItem('io.codergirl'));
 
     return {
-      user: null,
+      user: {},
       error: null
     };
   },
