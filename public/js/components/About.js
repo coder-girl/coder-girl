@@ -120,7 +120,7 @@ var About = React.createClass({
                 <br/>Trinh</h5>
               <p className="member-description">Bundle of energy.</p>
               <a className="github" href="https://github.com/DaveDH2"><i className="fa fa-github fa-lg"></i></a>
-              <a className="linkedin" href="#"><i className="fa fa-linkedin fa-lg"></i></a>
+              <a className="linkedin" href="https://www.linkedin.com/in/davedh2"><i className="fa fa-linkedin fa-lg"></i></a>
             </div>
             <div className="team-member-block">
               <img id="nimi-pic" src="./../../asset/nimi.jpeg" />
@@ -136,7 +136,7 @@ var About = React.createClass({
                 <br/>Bennett</h5>
               <p className="member-description">Extremely huggable.</p>
               <a className="github" href="https://github.com/mwbennett"><i className="fa fa-github fa-lg"></i></a>
-              <a className="linkedin" href="#"><i className="fa fa-linkedin fa-lg"></i></a>
+              <a className="linkedin" href="https://www.linkedin.com/in/bennettwmark"><i className="fa fa-linkedin fa-lg"></i></a>
             </div>
           </div>
         </div>
@@ -175,7 +175,7 @@ var About = React.createClass({
                 </a>
               </div>
               <div className="stack-single">
-                <a href="www.postgresql.org/" className="postgresql">
+                <a href="http://www.postgresql.org/" className="postgresql">
                   <img className="stack" alt="PostgreSQL" src="./../../asset/postgresql.jpg" />
                 </a>
               </div>
@@ -206,7 +206,7 @@ var About = React.createClass({
         </div>
         <div className="bar6 footer">
           <div className="content-container">
-            <h5><a href="http://www.coder-girl.io" className="get-started">Start learning with Coder Girl</a></h5>
+            <h5><a href="http://www.codergirl.io" className="get-started">Start learning with Coder Girl</a></h5>
             <p className="copyright">&copy;Coder Girl, 2015</p>
           </div>
         </div>
