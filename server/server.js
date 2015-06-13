@@ -2,7 +2,7 @@
 * @Author: nimi
 * @Date:   2015-05-25 10:32:38
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-12 16:29:37
+* @Last Modified time: 2015-06-12 17:30:49
 */
 
 var express = require('express'),
@@ -81,21 +81,21 @@ models.sequelize.sync()  //Include {force: true} as argument in sync() if want D
     {
       testCode: 4,
       title: "Which Wand?",
-      content: "var wandCheck1 = 5 < 3;<br>var wandResult1 = // add the correct boolean here and make sure to delete the \"//\";\
-      <br><br>var wandCheck2 = 10 > 6;<br>var wandResult2 = // add the correct boolean here and make sure to delete the \"//\";<br><br>",
+      content: "var wandCheck1 = 5 < 3;<br>var wandResult1 = /* add the correct boolean here */;\
+      <br><br>var wandCheck2 = 10 > 6;<br>var wandResult2 = /* add the correct boolean here */;<br><br>",
       instructions: "At this point, you have already seen several data types, including strings and numbers. Another common \
-      data type is a boolean. Boolean is just a fancy word for the category that includes `true` and `false`. These values are \
+      data type is a boolean. \"Boolean\" is just a fancy word for the category that includes `true` and `false`. These values are \
       neither strings nor variables - they are their own type altogether. So, you do not put `true` or `false` in quotes.  They stand all on their own. \
       Booleans are particularly useful for comparisons, such as 3 > 2 \
-      or 3 < 2. The > and < signs are the traditional symbols for \"is greater than\" and \"is less than\", respectively. So 3 > 2 evaluates \
-      to `true`, and 3 < 2 evaluates to `false`.  \
+      or 3 < 2. The > and < signs are the traditional symbols for \"is greater than\" and \"is less than\", respectively. So `3 > 2` evaluates \
+      to `true`, and `3 < 2` evaluates to `false`.  \
       <br><br>Imagine you are strolling down Diagon Alley and you wander into Ollivander\'s to check out the new wands. \
       You are shocked to find the whole store in disarray. You want to help Ollivander sort the wands by length.  \
       You have the lengths, but you need to determine which length is greater when comparing two wands. \
-      <br><b>Challenge:</b>In the editor, assign the correct boolean to `wandResult1` and `wandResult2` based on the \
+      <br><br><b>Challenge: </b>In the editor, assign the correct boolean to `wandResult1` and `wandResult2` based on the \
       corresponding `wandCheck1` and `wandCheck2` comparisons. Have at it, Hermione.",
       hint1: "Remember that since `true` and `false` are not strings, they do not require quotation marks.",
-      hint2: "`wandResult1` should be true if 5 is less than 3. If 5 is not less than 3, `wandResult1` should be false.",
+      hint2: "`wandResult1` should be `true` if 5 is less than 3. If 5 is not less than 3, `wandResult1` should be `false`.",
       pointValue: 200
     },
 
@@ -104,31 +104,30 @@ models.sequelize.sync()  //Include {force: true} as argument in sync() if want D
       title: "Operation Conquer Operators",
       content: "",
       instructions: "You know how we said earlier that you can do math in JavaScript.  We were not kidding.\
-      <br> Check out a few of the operators available to you: \
-      <br>Addition (+)\
+      <br><br>Check out a few of the operators available to you: \
+      <br><br><b>Addition (+)</b>\
       <br> 2 + 2 = 4\
-      <br>Subtraction (-)\
+      <br><br><b>Subtraction (-)</b>\
       <br> 10 - 2 = 8\
-      <br>Multiplication (*)\
+      <br><br><b>Multiplication (*)</b>\
       <br> 2 * 12 = 24\
-      <br>Divsion (/)\
+      <br><br><b>Divsion (/)</b>\
       <br>  24/2 = 12\
-      <br>Modulo (%)\
-      <br> (%) returns the remainder from dividing two numbers, so 5 % 2 = 1. \
-      <br>  Suppose we would like to know if any given number is an even number. \
-      We can use modulus here to help us out. If the remainder is 1, not zero, then we know it is an odd number. \
-      Increment (++) \
+      <br><br><b>Modulo (%)</b>\
+      <br> (%) returns the remainder from dividing two numbers, so 5 % 2 = 1. Suppose we would like to know if any given number is an even number. \
+      We can use modulo here to help us out. If the remainder is 1, not zero, then we know it is an odd number. \
+      <br><br><b>Increment (++) </b>\
       <br> ++ is a shortcut to increment a variable that is storing a number by 1.\
       <br> `var x = 10;`\
       <br> `x++` , will return `11`;\
-      <br> We can also get really clever and increment by 2 by using x+=2.\
-      <br>\
-      <br>Decrement (--)\
+      <br> We can also get really clever and increment by 2 by using `x += 2`.\
+      <br><br><b>Decrement (--)</b>\
       <br> -- is a shortcut to decrement (decrease) a variable that is storing a number by 1.\
       <br> `var x = 0;`\
       <br> `x--` , will return `-1`;\
-      <br> Enough reading.<br><b>Challenge:</b>In the editor, write the result of 21 % 10.  \
-      <br>$$", 
+      <br>And similarly, we can decrement by 2 by using `x -= 2`
+      <br><br><b>Challenge: </b>In the editor, set a variable named `moduloResult` equal to the result of 21 % 10.  \
+      <br>", 
       hint1: "What does that % mean again? Check above. To be really cool you could say 21 mod 10.",
       hint2: "If you divide 21 by 10, what would the remainder be?",
       pointValue: 300
@@ -137,26 +136,26 @@ models.sequelize.sync()  //Include {force: true} as argument in sync() if want D
     {
       testCode: 6,
       title: "Ice Cream for Jane",
-      content: 'var janesChoice;<br>var vanilla = true;<br> var chocoloate = false;<br>var strawberry = true;<br>var doubleScoopIcecreamCone = false; <br>janesChoice = //write the logical expression here;',
+      content: 'var janesChoice;<br>var cookiesAndCream = true;<br>var rockyRoad = false;<br>var mintChip = true;<br>var doubleScoop = false; <br>janesChoice = /*write the logical expression here*/;',
       instructions: "<br>In javascript, the || represents the logical OR operator, which returns `true` if at least one of the values being compared has a \"truthy\" value. \
-      <br>`true || false` will return `true`. \
+      <br><br>`true || false` will return `true`. \
       <br>`false || true` will return `true`. \
       <br>`true || true` will return `true`. \
       <br>`false || false` will return `false`. \
-      <br>Additionaly, we have &&, the locial AND operator, which returns `true` only if both values are \"truthy\", and `false` otherwise. \
-      <br>`true && true` will return `true`. \
+      <br><br>Additionaly, we have &&, the logical AND operator, which returns `true` only if both values are \"truthy\", and `false` otherwise. \
+      <br><br>`true && true` will return `true`. \
       <br>`false && false` will return `false`. \
       <br>`false && true` will return `false`. \
       <br>`true && false` will return `false`. \
-      <br>And finally, `!` or \"not\", performs logical negation. \
-      <br>`var atHome = true;` \
-      <br>`!atHome` is now false when javascript evalutes it. \
+      <br><br>And finally, `!` or \"not\", performs logical negation. `!true` evaluates to `false`, and `!false` returns `true`.\
+      <br><br>`var atHome = true;` \
+      <br><br>`!atHome` is now false when javascript evalutes it. \
       <br>We can also do `!!atHome`, which changes `!atHome` from above to false, and then because of the second !, back to true. \
       <br>This also converts anything into its boolean value, either true or false. For example 0, is a falsey value, whereas other numbers are truthy. \
       So `!!0` will return `false`. \
-      <br><b>Challenge: </b>Jane is getting ice cream, and would like either a single scope of vanilla or strawberry. Assign a value to `janesChoice` \
+      <br><br><b>Challenge: </b>Jane is getting ice cream, and would like either a single scoop of cookiesAndCream or mintChip. Assign a value to `janesChoice` \
       by combining all of the variables given with logical operators so that the variable janesChoice will evaulate to `true`.",
-      hint1: "Are you wrapping your expressions in parens? ((x || y) && (y && z))",
+      hint1: "Are you wrapping your expressions in parens? `((x || y) && (y && z))`",
       hint2:  "Are you using the NOT operator? `!(a || b)`",
       pointValue: 50
     }, 
@@ -164,10 +163,10 @@ models.sequelize.sync()  //Include {force: true} as argument in sync() if want D
     {
       testCode: 7,
       title: "Expressive Expressions",
-      content: 'var value1 = 5 === 6;<br>var value2 = "two wrongs" !== "one right";',
-      instructions: "Booleans and operators are core components of expressions. Expressions are simply defined as any unit of code that evaluates to a value. You've already seen several examples of expressions at this point: valid expressions include variable assignments (`var x = 7`), mathematical operations (`5 * 7`), string operations (`'my' + 'string'`), and logical operations - operations that evaluate to `true` or `false` (`5 < 6`).<br><br>In addition to the things you have already seen, other common operators that frequently appear in expressions include >= (greater than or equal to), <= (less than or equal to), == (equal to), and != (not equal to). For example, all of the following logical expressions would evaluate to `true`: `'Mark' != 'Marcus'`, `5 == 5`, `'a' <= 'b'`, and `2 >= 2`.<br><b>Challenge: </b>Create an expression using either == or != that compares `value1` and `value2` and evaluates to `true`.",
-      hint1: "First, create a theory about what value you expect `value1` and `value2` to take assume. Then choose the appropriate operator",
-      hint2: "Your code should look like `value1 ? value2`, where the question mark is replaced by the correct operator.",
+      content: 'var Timone = 5 == 6;<br>var Pumba = "two wrongs" !== "one right";',
+      instructions: "Booleans and operators are core components of expressions. Expressions are any unit of code that simplifies to a single value. You've already seen several examples of expressions: valid expressions include:<br>- variable assignments (`var x = 7`),<br>- mathematical operations (`5 * 7`),<br>- string operations (`'my' + 'string'`),and<br>- logical operations - operations that evaluate to `true` or `false` - (`5 < 6`).<br><br>In addition to the things you have already seen, other common operators that frequently appear in expressions include >= (greater than or equal to), <= (less than or equal to), == (equal to), and != (not equal to). For example, all of the following logical expressions would evaluate to `true`: `'Mark' != 'Marcus'`, `5 == 5`, `'a' <= 'b'`, and `2 >= 2`.<br><br><b>Challenge: </b>Create an expression using either == or != that compares `Timone` and `Pumba` and evaluates to `true`.",
+      hint1: "First, create a theory about what value you expect `Timone` and `Pumba` to be. Then choose the appropriate operator",
+      hint2: "Your code should look like `Timone ? Pumba`, where the question mark is replaced by the correct operator.",
       pointValue: 100
     },
 

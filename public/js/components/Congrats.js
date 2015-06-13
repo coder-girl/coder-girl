@@ -2,7 +2,7 @@
 * @Author: Mark Bennett
 * @Date:   2015-05-28 16:17:21
 * @Last Modified by:   Mark Bennett
-* @Last Modified time: 2015-06-12 16:34:28
+* @Last Modified time: 2015-06-12 16:44:39
 */
 
 'use strict';
@@ -82,7 +82,7 @@ var ChallengeComplete = React.createClass({
             <button className='continueButton'>
               <Link to="home" className="continueButton congratsContinue">Continue</Link>
             </button>
-            <p className="scoreStats">Your score: {user.score}</p>
+            <p className="scoreStats">Your total points: {user.score}</p>
             <p className="levelStats">Your current level: {level}</p>
           </div>
         <div className= "pieChart">
