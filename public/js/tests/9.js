@@ -1,11 +1,19 @@
 // conditionals 
 
 var test = function(userCode){
-  eval(userCode);
+  var pickShoes = function(string) {
+    var clothes = string;
+    var shoes;
+    eval(userCode);
+
+    return shoes; 
+  };
+
   var result = {
      pass: true,
      message: "You got it!"
   }
+  
   if (pickShoes("jeans") !== "boots"){
      result.pass = false;
      result.message = "What are you wearing with your jeans?  Boots might be a good choice..."

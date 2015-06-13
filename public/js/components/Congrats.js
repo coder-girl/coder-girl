@@ -1,8 +1,8 @@
 /* 
 * @Author: Mark Bennett
 * @Date:   2015-05-28 16:17:21
-* @Last Modified by:   nimi
-* @Last Modified time: 2015-06-11 19:46:51
+* @Last Modified by:   Mark Bennett
+* @Last Modified time: 2015-06-12 16:44:39
 */
 
 'use strict';
@@ -26,14 +26,12 @@ var calculateUserChartData = function(score, challengeNumber) {
     {
       value: percentageCompleted,
       color: '#8E2BC8',
-      highlight: '#8E2BC8',
-      label: 'Points Earned'
+      highlight: '#8E2BC8'
     },
     {
       value: totalPercentage,
       color: '#5BC0BA',
-      highlight: '#5BC0BA',
-      label: 'Points till Level Up'
+      highlight: '#5BC0BA'
     }
   ];
 
@@ -82,9 +80,9 @@ var ChallengeComplete = React.createClass({
         <div className="congratsBanner">
             <p className= "congratsGreeting">Congratulations! You solved Challenge {user.challengeNumber - 1}!</p>
             <button className='continueButton'>
-              <Link to="home" className="congratsContinue">Back to Home</Link>
+              <Link to="home" className="continueButton congratsContinue">Continue</Link>
             </button>
-            <p className="scoreStats">Your score: {user.score}</p>
+            <p className="scoreStats">Your total points: {user.score}</p>
             <p className="levelStats">Your current level: {level}</p>
           </div>
         <div className= "pieChart">
