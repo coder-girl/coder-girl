@@ -7,8 +7,10 @@ var rename = require('gulp-rename');
 var reactify = require('reactify');
 var source = require('vinyl-source-stream');
 var clean = require('gulp-clean');
-var runSequence = require('run-sequence');
 var jshint = require('gulp-jshint');
+var uglify = require('gulp-uglify');
+var cssmin = require('gulp-cssmin');
+var runSequence = require('run-sequence');
 var stylish = require('jshint-stylish');
 
 // file path structure
@@ -76,8 +78,9 @@ gulp.task('compile', function() {
 
 gulp.task('compress', function() {
   gulp.src('./dist/js/*.js')
-    .pipe(uglify('main.min.js'))
-    .pipe(gulp.dest('dist/js'));
+    .pipe(uglify('main.min.js'));
+  gulp.src('./dist/css/*')
+    .pipe(cssmin());
 });
 
 gulp.task('run', shell.task([ 
@@ -89,7 +92,7 @@ gulp.task('run', shell.task([
 // ]));
 
 gulp.task('build', function(callback) {
-  runSequence('lint', 'clean', 'compile', 'copy', 'sass', callback);
+  runSequence('lint', 'clean', 'compile', 'copy', 'sass', 'compress', callback);
 });
 
 gulp.task('default', ['build', 'watch', 'run']);
