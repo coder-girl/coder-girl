@@ -16,6 +16,33 @@
 
 body{
   font-family: 'Raleway-regular', sans-serif;
+
+  #mobile-message {
+    width: 100%;
+    height: 100%;
+    float: left;
+    display: none;
+  }
+  
+  @media screen and (max-width: 650px) {
+    #mobile-message {
+      img {
+        width: 60%;
+        height: auto;
+        margin: 10% 20%;
+      }
+      display: block;
+      background-color: lightgrey;
+      color: black;
+      top: 0;
+      left: 0;
+      font-size: 2rem;
+      text-align: center;
+    } 
+    .main-content {
+      display: none;
+    }
+  }
 }
 
 button {

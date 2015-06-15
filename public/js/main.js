@@ -1,7 +1,7 @@
 /* 
 * @Author: nimi
 * @Date:   2015-05-21 12:47:03
-* @Last Modified time: 2015-05-29 15:32:57
+* @Last Modified time: 2015-06-15 16:42:43
 */
 
 'use strict';
@@ -22,6 +22,7 @@ var Login = require('./components/Login');
 var Congrats = require('./components/Congrats');
 var Welcome = require('./components/Welcome');
 var Challenge = require('./components/Challenge');
+var MobileMessage = require('./components/MobileMessage');
 
 var Main = React.createClass({
   render: function() {
@@ -32,6 +33,7 @@ var Main = React.createClass({
           <div className="main-content grid-block">
             <RouteHandler/>
           </div>
+          <MobileMessage />
         </div>
       </div>
     );
