@@ -7,9 +7,13 @@ var rename = require('gulp-rename');
 var reactify = require('reactify');
 var source = require('vinyl-source-stream');
 var clean = require('gulp-clean');
-var runSequence = require('run-sequence');
 var jshint = require('gulp-jshint');
+var uglify = require('gulp-uglify');
+var cssmin = require('gulp-cssmin');
+var runSequence = require('run-sequence');
 var stylish = require('jshint-stylish');
+var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
 
 // file path structure
 var paths = {
@@ -75,9 +79,13 @@ gulp.task('compile', function() {
 });
 
 gulp.task('compress', function() {
-  gulp.src('./dist/js/*.js')
-    .pipe(uglify('main.min.js'))
-    .pipe(gulp.dest('dist/js'));
+  gulp.src('./dist/js/main.js')
+    .pipe(uglify())
+    .pipe(rename('main.min.js'))
+    .pipe(gulp.dest('./dist/js'));
+  gulp.src('./dist/css/style.min.css')
+    .pipe(cssmin())
+    .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('run', shell.task([ 
@@ -89,7 +97,7 @@ gulp.task('run', shell.task([
 // ]));
 
 gulp.task('build', function(callback) {
-  runSequence('lint', 'clean', 'compile', 'copy', 'sass', callback);
+  runSequence('lint', 'clean', 'compile', 'copy', 'sass', 'compress', callback);
 });
 
 gulp.task('default', ['build', 'watch', 'run']);
