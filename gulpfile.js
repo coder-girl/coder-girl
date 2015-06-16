@@ -13,7 +13,6 @@ var cssmin = require('gulp-cssmin');
 var runSequence = require('run-sequence');
 var stylish = require('jshint-stylish');
 
-
 // file path structure
 var paths = {
   scripts: ['public/**/*.js'],

@@ -7669,7 +7669,9 @@ body .main-content #about-container {
           width: auto;
           max-height: 80px; }
       body .main-content #about-container .bar5 .stack-group .stack-single {
-        padding: 20px 40px;
+        padding: 20px;
+        width: 80%;
+        height: auto;
         text-align: center; }
   body .main-content #about-container .bar6 {
     height: 150px;
