@@ -12,8 +12,7 @@ var uglify = require('gulp-uglify');
 var cssmin = require('gulp-cssmin');
 var runSequence = require('run-sequence');
 var stylish = require('jshint-stylish');
-var imagemin = require('gulp-imagemin');
-var pngquant = require('imagemin-pngquant');
+
 
 // file path structure
 var paths = {

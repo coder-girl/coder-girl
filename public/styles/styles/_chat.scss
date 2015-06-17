@@ -9,7 +9,7 @@ div.chat-section {
   color: lightgrey;
   position: absolute;
   bottom: 0;
-  max-height: 45%;
+
 
   .chat-window {
     height: 250px;
@@ -41,10 +41,10 @@ div.chat-section {
 
   .message-section {
     padding: 5px 10px;
-    height: inherit;
+    height: 75%;
 
     .message-list {
-      height: 190px;
+      height: 100%;
       overflow-y: auto;
       list-style-type: none;
       line-height: 1.2;
