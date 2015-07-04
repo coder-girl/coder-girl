@@ -39,7 +39,7 @@ var About = React.createClass({
   render: function() {
     return (
       <div id="about-container">
-      <audio className="song" src="/asset/SkaterboyMeetsTechGirl_prod_kybate.mp3" controls autoPlay loop></audio> 
+      <audio className="song" src="/asset/SkaterboyMeetsTechGirl_prod_kybate.mp3" controls loop></audio> 
         <div className="bar1 title">
           <div className="girls-coding content-container">
             <img className="girls-coding-image" src="./../../asset/girls-coding.jpg" alt="Girls coding together" />
