@@ -103,11 +103,11 @@ var About = React.createClass({
         <div className="bar4 team">
           <div className="title-block title-block-left">
             <h1>Our Team</h1>
-            <h4>The engineers behind Coder Girl.</h4>
+            <h4>Putting the code in Coder Girl.</h4>
           </div>
           <div className="all-members content-container">
             <div className="team-member-block">
-              <img id="lauren-pic" src="./../../asset/lauren.jpeg" />
+              <img id="lauren-pic" src="./../../asset/lauren.jpg" />
               <h5 className="member-name">Lauren
                 <br/>Spiegel</h5>
               <p className="member-description">A nifty good time.</p>
@@ -137,6 +137,14 @@ var About = React.createClass({
               <p className="member-description">Extremely huggable.</p>
               <a className="github" href="https://github.com/mwbennett"><i className="fa fa-github fa-lg"></i></a>
               <a className="linkedin" href="https://www.linkedin.com/in/bennettwmark"><i className="fa fa-linkedin fa-lg"></i></a>
+            </div>
+            <div className="team-member-block">
+              <img id="scott-pic" src="./../../asset/scott_blue_glasses.jpg" />
+              <h5 className="member-name">Scott
+                <br/>Maloff</h5>
+              <p className="member-description">Marketing guru.</p>
+              <a className="github" href="http://www.scottmaloff.com"><i className="fa fa-globe fa-lg"></i></a>
+              <a className="linkedin" href="https://www.linkedin.com/in/scottmaloff"><i className="fa fa-linkedin fa-lg"></i></a>
             </div>
           </div>
         </div>
