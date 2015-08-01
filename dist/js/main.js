@@ -72111,7 +72111,7 @@ var About = React.createClass({displayName: "About",
   render: function() {
     return (
       React.createElement("div", {id: "about-container"}, 
-      React.createElement("audio", {className: "song", src: "/asset/SkaterboyMeetsTechGirl_prod_kybate.mp3", controls: true, autoPlay: true, loop: true}), 
+      React.createElement("audio", {className: "song", src: "/asset/SkaterboyMeetsTechGirl_prod_kybate.mp3", controls: true, loop: true}), 
         React.createElement("div", {className: "bar1 title"}, 
           React.createElement("div", {className: "girls-coding content-container"}, 
             React.createElement("img", {className: "girls-coding-image", src: "./../../asset/girls-coding.jpg", alt: "Girls coding together"})
@@ -72175,11 +72175,11 @@ var About = React.createClass({displayName: "About",
         React.createElement("div", {className: "bar4 team"}, 
           React.createElement("div", {className: "title-block title-block-left"}, 
             React.createElement("h1", null, "Our Team"), 
-            React.createElement("h4", null, "The engineers behind Coder Girl.")
+            React.createElement("h4", null, "Putting the code in Coder Girl.")
           ), 
           React.createElement("div", {className: "all-members content-container"}, 
             React.createElement("div", {className: "team-member-block"}, 
-              React.createElement("img", {id: "lauren-pic", src: "./../../asset/lauren.jpeg"}), 
+              React.createElement("img", {id: "lauren-pic", src: "./../../asset/lauren.jpg"}), 
               React.createElement("h5", {className: "member-name"}, "Lauren", 
                 React.createElement("br", null), "Spiegel"), 
               React.createElement("p", {className: "member-description"}, "A nifty good time."), 
@@ -72209,6 +72209,14 @@ var About = React.createClass({displayName: "About",
               React.createElement("p", {className: "member-description"}, "Extremely huggable."), 
               React.createElement("a", {className: "github", href: "https://github.com/mwbennett"}, React.createElement("i", {className: "fa fa-github fa-lg"})), 
               React.createElement("a", {className: "linkedin", href: "https://www.linkedin.com/in/bennettwmark"}, React.createElement("i", {className: "fa fa-linkedin fa-lg"}))
+            ), 
+            React.createElement("div", {className: "team-member-block"}, 
+              React.createElement("img", {id: "scott-pic", src: "./../../asset/scott_blue_glasses.jpg"}), 
+              React.createElement("h5", {className: "member-name"}, "Scott", 
+                React.createElement("br", null), "Maloff"), 
+              React.createElement("p", {className: "member-description"}, "Marketing guru."), 
+              React.createElement("a", {className: "github", href: "http://www.scottmaloff.com"}, React.createElement("i", {className: "fa fa-globe fa-lg"})), 
+              React.createElement("a", {className: "linkedin", href: "https://www.linkedin.com/in/scottmaloff"}, React.createElement("i", {className: "fa fa-linkedin fa-lg"}))
             )
           )
         ), 
